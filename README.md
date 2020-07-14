@@ -24,4 +24,4 @@
 
 ### IGTI
 
-1. [Desenvolvedor Full Stack](bootcamps/igti/desenvolvedor-full-stack/README.md)
+1. [Desenvolvedor Full Stack](bootcamps/igti/desenvolvedor-full-stack)

@@ -60,11 +60,12 @@ Aula 6 - JavaScript - Comandos de Bloco
 
   ```javascript
   var resposta = (a > b) ? 'Maior' : 'Menor';
-  var resposta = (a > b) ? 'Maior' : (a < b) ? 'Menor' : 'Igual';```
+  var resposta = (a > b) ? 'Maior' : (a < b) ? 'Menor' : 'Igual';
+  ```
 
 - Uma função pode retornar mais de um valor, porém é preciso retornar um objeto com chave valor. Caso contrário é 1 ou nada (void).
 
-- Compara valores:
+- Comparar valores:
 
   ```javascript
    function compareNumbers(a, b) {
