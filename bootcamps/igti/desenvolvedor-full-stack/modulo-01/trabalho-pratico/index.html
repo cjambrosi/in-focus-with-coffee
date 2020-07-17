@@ -4,9 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Módulo 01 - Trabalho Prático</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+    
+    <h1>Módulo 01 - Trabalho Prático</h1>
+    
+    <div class="content">
+        <section>
+            <ul class="range-list">
+                <li>
+                    <span class="red-color">(R) Vermelho:</span>
+                    <div class="inputs-container">
+                        <input type="range" name="redRange" id="redRange" min="0" step="1" max="255" />
+                        <input type="number" name="redInputValue" id="redInputValue" disabled />
+                    </div>
+                </li>
+                <li>
+                    <span class="green-color">(G) Verde:</span>
+                    <div class="inputs-container">
+                        <input type="range" name="greeRange" id="greeRange" min="0" step="1" max="255" />
+                        <input type="number" name="greenInputValue" id="greenInputValue" disabled />
+                    </div>
+                </li>
+                <li>
+                    <span class="blue-color">(B) Azul:</span>
+                    <div class="inputs-container">
+                        <input type="range" name="blueRange" id="blueRange" min="0" step="1" max="255" />
+                        <input type="number" name="blueInputValue" id="blueInputValue" disabled />
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section class="gradient-block">
+            <div id="gradient"></div>
+        </section>
+    </div>
     
     <script src="./js/script.js"></script>
 </body> 
