@@ -98,11 +98,11 @@
 
 ### Aula 9 - CRUD com HTML, CSS e JavaScript
 
-  {...}
+  { ... }
 
 ### Trabalho Prático do Módulo
 
-  {...}
+  { ... }
 
 ### Aula 10 - JavaScript moderno - Introdução
 
