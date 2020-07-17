@@ -2,7 +2,7 @@
 
 ## Módulo 01
 
-Aula 1 - Visual Studio Code
+### Aula 1 - Visual Studio Code
 
 - Debugger for Chrome
 
@@ -10,11 +10,11 @@ Aula 1 - Visual Studio Code
 
 - Live Server
 
-Aula 2 - Node.js
+### Aula 2 - Node.js
 
 - npm install -g live-server
 
-Aula 3 - Noções de HTML
+### Aula 3 - Noções de HTML
 
 - Não é linguagem de progração e sim marcação, estrutura conteúdo.
 
@@ -22,13 +22,13 @@ Aula 3 - Noções de HTML
 
 - Utilize sempre caminhos relativos em imagens, arquivos e etc (./ ../).
 
-Aula 4 - Noções de CSS
+### Aula 4 - Noções de CSS
 
 - CSS Reset, geralmente os frameworks já estão configurados para isso, do contrário é recomendado fazer.
 
   - <https://meyerweb.com/eric/tools/css/reset>
 
-Aula 5 - Introdução ao JavaScript
+### Aula 5 - Introdução ao JavaScript
 
 - Tipos de dados:
 
@@ -54,7 +54,7 @@ Aula 5 - Introdução ao JavaScript
 
     `2 === '2' = false; 2 == '2' = verdadeiro;`
 
-Aula 6 - JavaScript - Comandos de Bloco
+### Aula 6 - JavaScript - Comandos de Bloco
 
 - Operador Ternário:
 
@@ -74,7 +74,7 @@ Aula 6 - JavaScript - Comandos de Bloco
    }
   ```
   
-Aula 7 - JavaScript - Manipulação do DOM
+### Aula 7 - JavaScript - Manipulação do DOM
 
   ```javascript
   var title = document.querySelector('h1'); // Se tiver mais de 1 elemento, só vai pegar 1
@@ -92,13 +92,158 @@ Aula 7 - JavaScript - Manipulação do DOM
   }
   ```
 
-Aula 8 - JavaScript - Formulários e Manipulação de Eventos
+### Aula 8 - JavaScript - Formulários e Manipulação de Eventos
 
 - **eventPreventDefault:** "Evite o comportamento default", como por exemplo enviar para o servidor e ai manipular os dados.
 
-Aula 9 - CRUD com HTML, CSS e JavaScript
+### Aula 9 - CRUD com HTML, CSS e JavaScript
 
-Trabalho Prático do Módulo
+### Trabalho Prático do Módulo
+
+### Aula 10 - JavaScript moderno - Introdução
+
+  - Ex: **Template Literals**
+
+    ```javascript
+    let a = 3, b = 10, c = 7;
+    let str = `Meus números são ${a}, ${b} e ${c}`
+    ```
+  - Boa prática usar *'use strict'*, no incio do arquivo em escopo de funções. Isso mostra mais erros caso ocorram e para a execução do script.
+
+  - **var** tem escopo abrangente e **let** tem o escopo reduzido.
+
+  - Uma variável do tipo **const** não é possível reatribuir valores. Com "certa" excessão de objetos e arrays, não é possível atribuir um novo objeto ou array, mas é pissível alterar os valores das propriedades do objeto ou dar push de um novo valor no array.
+
+  - Tipos de funções:
+
+    ```javascript
+    // Função comum do ECM5
+    function sum(a, b) {
+      return a + b;
+    }
+
+    // Função anônima
+    const sum2 = function (a, b) {
+      retrun a + b;
+    }
+
+    // Arrow function
+    const sum3 = (a, b) {
+      return a + b; 
+    }
+
+    // Arrow function reduzida (apenas uma instrução)
+    const sum3 = (a, b) => a + b;
+
+    // Default parameters 
+    // (Não pode no primeiro, pois quando se chama a função, o primeiro parâmetro é sempre obrigatório)
+    const sum4(a, b = 10) => a + b;
+    ```
+
+### Aula 11 - JavaScript moderno - Manipulação de arrays
+
+  - Todos são métodos **imutáveis**, ou seja, não altera o objeto original, cria um novo.
+
+  - **map:** Gera um novo array transformando os dados.
+
+    ```javascript
+    // Retornar um novo objeto
+    const nomeEmailArray = people.results.map(person => {
+      return {
+        nome: person.name,
+        email: person.email
+      }
+    });
+    ```
+
+  - **filter:** gera um novo array filtrando elementos com base em proposição (if/else).
+
+    ```javascript
+    const olderThan50 = people.results.filter(person => {
+      return person.dob.age > 50;
+    });
+    ```
+
+  - **forEach:** percorre todos os elementos do array, aplicando lógica.
+
+    ```javascript
+    // Incluir nova propriedade no objeto
+    const mappedPeople.forEach(person => {
+      person.nameSize = 
+        person.name.title.length + 
+        person.name.first.length + 
+        person.name.last.length;
+    });
+    ```
+
+  - **reduce:** realiza cáculo interativo com baso nos elementos.
+
+    ```javascript
+    // Somar as idades de todos (substitui for, por exemplo)
+    const totalAges = people.results.reduce((accumulator, current) => {
+      return accumulator + current.dob.age;
+    }, 0);
+    ```
+
+  - **find:** encontra elementos com base em proposições (if/else).
+
+     ```javascript
+    // Encontrar primeira ocorrência
+    const found = people.results.find(person => {
+      return person.location.state === 'Minas Gerais';
+    });
+    ```
+
+  - **some:** verifica se há pelo menos um elemento que atenda à proposição retornando true/false (if/else) ou predicado.
+
+    ```javascript
+    // Se encontrou algo de acordo com o critério | true/false
+    const found = people.results.some(person => {
+      return person.location.state === 'Amazonas';
+    });
+    ```
+
+  - **every:** verifica se todos os elementos atendem à proposição, retornando true/false (if/else).
+
+    ```javascript
+    // Se todos form iguais ao critério
+    const every = people.results.every(person => {
+      return person.nat === 'BR';
+    });
+    ```
+
+  - **sort:** ordena elementos com base em um critério.
+
+    ```javascript
+    // startsWith: função padrão do JS
+    const mappedNames = people.results
+    .map(person => { 
+      // return person.name.first; // Retorna Array de strings
+      return {
+        name: person.name.first; // Retorna Array de strings
+      };
+    })
+    .filter(person => person.name.startsWith('A'))
+    .sort((a, b) => {
+      return a.name.localeCompare(b.name); // return -1, 0, 1
+      // return a.name.length - b.name.length; // return -1, 0, 1
+    });
+    // .sort(); // Se for puramente string ou tipos numéricos (int, float) funciona tranquilo (talvez)
+    ```
+
+### Aula 12 - JavaScript moderno - Rest/Spread operator e destructuring
+
+### Aula 13 - Refatoração do projeto de CRUD
+
+### Aula 14 - Introdução à programação assíncrona com JavaScript
+
+### Aula 15 - Funções setTimeout e setInterval
+
+### Aula 16 - Requisições HTTP com JavaScript
+
+### Aula 17 - Exercício guiado
+
+### Desafio do Módulo
 
 ## Módulo 02
 
