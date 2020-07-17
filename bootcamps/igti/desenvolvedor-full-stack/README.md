@@ -176,7 +176,7 @@
     });
     ```
 
-  - **reduce:** realiza cáculo interativo com baso nos elementos.
+  - **reduce:** realiza cáculo interativo com base nos elementos.
 
     ```javascript
     // Somar as idades de todos (substitui for, por exemplo)
