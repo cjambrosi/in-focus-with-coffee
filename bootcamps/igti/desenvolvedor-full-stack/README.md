@@ -216,7 +216,7 @@
     });
     ```
 
-  - **sort:** ordena elementos com base em um critério.
+  - **sort:** ordena elementos com base em critérios.
 
     ```javascript
     // startsWith: função padrão do JS
