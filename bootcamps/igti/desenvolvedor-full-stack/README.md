@@ -146,7 +146,7 @@
 
 ### Aula 11 - JavaScript moderno - Manipulação de arrays
 
-  - Todos são métodos **imutáveis**, ou seja, não altera o objeto original, cria um novo.
+  Todos são métodos **imutáveis**, ou seja, não altera o objeto original, cria um novo.
 
   - **map:** Gera um novo array transformando os dados.
 
