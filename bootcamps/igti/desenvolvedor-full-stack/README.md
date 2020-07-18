@@ -237,11 +237,106 @@
 
 ### Aula 12 - JavaScript moderno - Rest/Spread operator e destructuring
 
+  - Operador **...(spread)** ou espalhar. Em arrays, ele espalha os itens do array, que podem ser recuperados para compor outro array.
+
+    ```javascript
+    // Concatenar dois objetos
+    const marriedMen = people.results.filter(
+      person => person.name.title === 'Mr'
+    );
+
+    const marriedWomen = people.results.filter(
+      person => person.name.title === 'Ms'
+    );
+
+    const marriedPeople = [...marriedMen, ...marriedWomen, { msg: 'Oi'}];
+    console.log('marriedPeople', marriedPeople);
+    ```
+
+  - Operador **...(rest)** ou agrupar. Comum na utilização em funções, agrupando os parâmetros em um array. Sendo sua principal aplicação permitir funções com número infinito de parâmetros.
+
+    ```javascript
+    function infiniteSum(...numbers) {
+      return numbers.reduce((acc, curr) => acc + curr, 0);
+    }
+
+    console.log(infiniteSum(1, 2));
+    console.log(infiniteSum(1, 2, 3, 4, 5, 6, 20, 30, 50));
+    ```
+
+  - **Destructuring**. Facilita a escrita ao trabalhar com objetos, torna o código claro e também é possível utilizar a técnica de destructuring com arrays, usando [].
+
+    ```javascript
+    const first = people.results[0];
+
+    // Isso é repetitivo
+    const username = first.login.username;
+    const password = first.login.password;
+
+    // Usando Destructuring
+    const { username, password } = first.login;
+    
+    console.log('username', username);
+    console.log('password', password);
+    ```
+
 ### Aula 13 - Refatoração do projeto de CRUD
+
+  - Dica: Numa função que precise passar 2 parâmetros, mas só é precisar utilizar o segundo, usasse como boa prática o "**_**" como primeiro parâmetro. Ex:
+
+    ```javascript
+    globalNames = globalNames.filter((_, i) => i !== index );
+    ```
 
 ### Aula 14 - Introdução à programação assíncrona com JavaScript
 
+  - Operações. Ex:
+
+    - Requisão de APIs.
+
+    - Processamento intenso de dados.
+
+    - Comunicação com bancos de dados.
+  
+  - É extremamente importante que o javascript **não espere o término de instruções lentas**.
+
+  - A principal técnica para grantir a afirmação acima é a utilização de **event loop**.
+
+    - Funções a serem executadas ficam em uma pilha lógica de invocações (call stack).
+    
+    - Quando a função utiliza Web APIs, ela precisa passar pelo event loop, pois está sujeita a lentidões.
+
+    - O **event loop** executa uma função por vez e faz a orquestração que permite execução assíncrona.
+
+    - Em geral, funções que usam WEB APIs possuem **callbacks** (funções passadas por parâmetro).
+
+    - <https://blog.sessionstack.com/how-javascript-works-event-loop-and-the-rise-of-async-programming-5-ways-to-better-coding-with-2f077c4438b5>
+
 ### Aula 15 - Funções setTimeout e setInterval
+
+  - setTimeout(): É utilizada para postergar a execução de uma função e o tempo de atraso é configurável em milissegundos.
+
+  - setInterval(): É semelhante ao setTimeout(), mas repete a execução a cada X milissegundos. Pode ser cancelada com **clarInterval**, mas para isso é preciso guardar a referência em uma varável.
+
+    ```javascript
+    const timer = document.querySelector('#timer');
+    let count = 0;
+
+    const interval = setInterval(() => {
+      timer.textContent = ++count;
+
+      if (count === 10) {
+        this.clearInterval(interval);
+        return;
+      }
+      
+      if (count % 5 === 0) {
+        setTimeout(() => {
+          timer.textContent = `${count},5`;
+        }, 500);
+      }
+    }, 1000);
+    ```
 
 ### Aula 16 - Requisições HTTP com JavaScript
 
