@@ -1,4 +1,8 @@
-<h2 align="center">My Courses</h2>
+<div align="center">
+  <img src="https://user-images.githubusercontent.com/9125404/87865827-1d0a4380-c950-11ea-8d66-aafbad81fbe3.png" width=180px height=150px alt="Python Iniciante" />
+</div>
+
+<h2 align="center">In Focus With Coffee</h2>
 
 Cada ítem possui seu prórpio *README*, aonde concentrei algumas anotações e exemplos referentes as aulas.
 
@@ -8,22 +12,14 @@ Cada ítem possui seu prórpio *README*, aonde concentrei algumas anotações e 
 
 #### Origamid
 
-1.
-
 #### Udemy
 
-1. [Desenvolvimento Web Moderno com JavaScript Completo 2020](https://github.com/cjambrosi/my-courses/blob/master/courses/js/web-moderno-js/README.md)
+[Desenvolvimento Web Moderno com JavaScript Completo 2020](courses/js/web-moderno-js/README.md)
 
-- [Udemy Link](https://www.udemy.com/course/curso-web 'Desenvolvimento Web Moderno com JavaScript Completo 2020')
-
-2. [JavaScript - Curso COMPLETO com 6 Projetos REAIS](https://github.com/cjambrosi/my-courses/blob/master/courses/js/javascript-curso-completo/README.md)
-
-- [Udemy Link](https://www.udemy.com/course/javascript-curso-completo/ 'JavaScript - Curso COMPLETO com 6 Projetos REAIS')
-
-#### Alura
+[JavaScript - Curso COMPLETO com 6 Projetos REAIS](courses/js/javascript-curso-completo/README.md)
 
 ## Bootcamps
 
 ### IGTI
 
-1. [Desenvolvedor Full Stack](bootcamps/igti/desenvolvedor-full-stack)
+[Desenvolvedor Full Stack](bootcamps/igti/desenvolvedor-full-stack)

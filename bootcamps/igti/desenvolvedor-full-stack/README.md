@@ -1,5 +1,7 @@
 # Bootcamp Online - Desenvolvedor Full Stack
 
+Link: <https://www.igti.com.br>
+
 ## Módulo 01
 
 ### Aula 1 - Visual Studio Code
@@ -147,6 +149,7 @@
 ### Aula 11 - JavaScript moderno - Manipulação de arrays
 
   Com excessão do *sort()* (a princípio), todos são métodos **imutáveis**, ou seja, não altera o objeto original, é criado um novo.
+  
   Em métodos não mutáveis, não é preciso retorar ao objeto igualando-o a outro ou a ele mesmo, pois o método altera a estrutura orinal. Por exemplo:
 
   ```javascript
