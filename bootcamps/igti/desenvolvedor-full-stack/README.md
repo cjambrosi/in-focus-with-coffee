@@ -146,7 +146,18 @@
 
 ### Aula 11 - JavaScript moderno - Manipulação de arrays
 
-  Todos são métodos **imutáveis**, ou seja, não altera o objeto original, cria um novo.
+  Com excessão do *sort()* (a princípio), todos são métodos **imutáveis**, ou seja, não altera o objeto original, é criado um novo.
+  Em métodos não mutáveis, não é preciso retorar ao objeto igualando-o a outro ou a ele mesmo, pois o método altera a estrutura orinal. Por exemplo:
+
+  ```javascript
+  // Altera a estrutura original.
+  allCountries.sort((a, b) => {
+    return a.name.localeCompare(b.name);
+  });
+
+  // Filter é imutável, por isso é preciso retornar a um novo objeto.
+  favoriteCountries = favoriteCountries.filter(country => country.id !== id);
+  ```
 
   - **map:** Gera um novo array transformando os dados.
 
@@ -340,9 +351,148 @@
 
 ### Aula 16 - Requisições HTTP com JavaScript
 
+  - Comando **Fetch**.
+   
+    - Utilizado para requisições HTTP.
+
+    - Trabalha internamente com promises.
+
+    - O primeiro retorno do fetch são dados binários.
+
+    - Em geral, convertemos esses dados para JSON, que retorna outra promise.
+
+    - Vale a leitura sobre a bibliota **axios**.
+
+    ```javascript
+    const userGitHub = fetch('https://api.github.com/users/cjambrosi');
+    console.log('promise:', userGitHub);
+    
+    // catch: captura quando da problema
+    // then: captura deu certo
+    fetch('https://api.github.com/users/cjambrosi').then(resource => {
+      console.log('Promise resolvida');
+      console.log('resource', resource);
+      resource.json().then(data => {
+        console.log('data', data);
+        showData(data);
+      });
+    });
+    
+    console.log('Depois resolvida');
+
+    const showData = data => {
+      const user = document.querySelector('#user');
+      console.log(`${data.login} - ${data.name}`);
+      user.textContent = `${data.login} - ${data.name}`;
+    }
+    ```
+
+  - **Promises**. 
+
+    - São construções cuja a execução **retorna algo no futuro**, ou seja, é uma **promessa de execução**.
+
+    - A execução pode ser **resolvida (ok)**, ou **rejeitada (erro)**.
+    
+    - A promise resolvida é interceptada com **then**.
+
+    - A promise rejeitada é interceptada com **catch**.
+
+    - Resolve parcialmente o problema do **callback heel**, ou seja, funções que eram passadas por parâmetros de outras funções (triângulo lateral).
+
+    ```javascript
+    fetch('https://api.github.com/users/cjambrosi')
+      .then(resource => {
+        resource.json().then(data => {
+          console.log('data', data);
+          showData(data);
+        });
+      })
+      .catch(error => {
+        console.error('Erro na requisição');
+      });
+    
+    // Exemplo criação de Promise
+    const  divisionPromise = (a, b) => {
+      return new Promise((resolve, reject) => {
+        if (b === 0) {
+          reject('Não é possível dividr por 0');
+        }
+
+        resolve(a / b);
+      });
+    };
+
+    divisionPromise(10, 2).then(result => {
+      console.log('result', result);
+    });
+    divisionPromise(10, 0).then(result => {
+      console.log('result', result);
+    })
+    .catch(errorMessage => {
+      console.log(`Falha na divisão ${errorMessage}`);
+    });
+    ```
+
+  - **Async/Await**.
+
+    - Açúcar sintático (syntax sugar) sobre promises.
+
+    - Melhoram a **legibilidade** do código.
+
+    - Dá a impressão de código síncrono.
+
+    - Deve-se decorar a função com **async**.
+
+    - Toda intrução relacionada à promise deve ser precedida de **await**.
+
+    ```javascript
+    // Exemplo criação de Promise
+    const  divisionPromise = (a, b) => {
+      return new Promise((resolve, reject) => {
+        if (b === 0) {
+          reject('Não é possível dividr por 0');
+        }
+
+        resolve(a / b);
+      });
+    };
+
+    // Isso é muito confuso
+    const executeDivisionPromise = () => {
+      divisionPromise(10, 0).then(result => {
+        console.log('result', result);
+      })
+      .catch(errorMessage => {
+        console.log(`Falha na divisão ${errorMessage}`);
+      });
+    }
+    executeDivisionPromise();
+
+    const executeDivisionPromiseAsyncAwait = async () => {
+      const division = await divisionPromise(10, 2);
+      console.log('divisionAsync', division);
+
+      const division2 = await divisionPromise(10, 0);
+      console.log('divisionAsync2', division2);
+    }
+    executeDivisionPromiseAsyncAwait();
+
+    // Exemplo de Async com Fetch
+    const doFetchAsync = async () => {
+      const res = await fetch('https://api.github.com/users/cjambrosi');
+      const json = await res.json();
+      console.log('json', json);
+    }
+    doFetchAsync();
+    ```
+
 ### Aula 17 - Exercício guiado
 
+{ ... }
+
 ### Desafio do Módulo
+
+{ ... }
 
 ## Módulo 02
 

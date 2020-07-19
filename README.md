@@ -1,6 +1,6 @@
 <h2 align="center">My Courses</h2>
 
-Cada ítem possui seu prórpio *README*, aonde concentrei algumas anotações referentes a ele.
+Cada ítem possui seu prórpio *README*, aonde concentrei algumas anotações e exemplos referentes as aulas.
 
 ## Courses
 
