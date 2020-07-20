@@ -6,7 +6,7 @@
 
 Cada ítem possui seu prórpio *README*, aonde concentrei algumas anotações e exemplos referentes as aulas.
 
-Para visualizar as aplicações desenvolvidas em cada curso, acesse o [Sitemap]() do repositório.
+Para visualizar as aplicações desenvolvidas em cada curso, acesse o [Sitemap](https://cjambrosi.github.io/in-focus-with-coffee) do repositório.
 
 ## Courses
 
