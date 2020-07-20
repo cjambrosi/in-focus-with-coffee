@@ -1,32 +1,29 @@
-# Bootcamp Online - Desenvolvedor Full Stack
+# Bootcamp Online - Desenvolvedor Full Stack <!-- omit in toc -->
 
 Link: <https://www.igti.com.br>
 
-## ídice <!-- omit in toc -->
-
-- [Bootcamp Online - Desenvolvedor Full Stack](#bootcamp-online---desenvolvedor-full-stack)
-  - [Módulo 01](#módulo-01)
-    - [Aula 1 - Visual Studio Code](#aula-1---visual-studio-code)
-    - [Aula 2 - Node.js](#aula-2---nodejs)
-    - [Aula 3 - Noções de HTML](#aula-3---noções-de-html)
-    - [Aula 4 - Noções de CSS](#aula-4---noções-de-css)
-    - [Aula 5 - Introdução ao JavaScript](#aula-5---introdução-ao-javascript)
-    - [Aula 6 - JavaScript - Comandos de Bloco](#aula-6---javascript---comandos-de-bloco)
-    - [Aula 7 - JavaScript - Manipulação do DOM](#aula-7---javascript---manipulação-do-dom)
-    - [Aula 8 - JavaScript - Formulários e Manipulação de Eventos](#aula-8---javascript---formulários-e-manipulação-de-eventos)
-    - [Aula 9 - CRUD com HTML, CSS e JavaScript](#aula-9---crud-com-html-css-e-javascript)
-    - [Trabalho Prático do Módulo](#trabalho-prático-do-módulo)
-    - [Aula 10 - JavaScript moderno - Introdução](#aula-10---javascript-moderno---introdução)
-    - [Aula 11 - JavaScript moderno - Manipulação de arrays](#aula-11---javascript-moderno---manipulação-de-arrays)
-    - [Aula 12 - JavaScript moderno - Rest/Spread operator e destructuring](#aula-12---javascript-moderno---restspread-operator-e-destructuring)
-    - [Aula 13 - Refatoração do projeto de CRUD](#aula-13---refatoração-do-projeto-de-crud)
-    - [Aula 14 - Introdução à programação assíncrona com JavaScript](#aula-14---introdução-à-programação-assíncrona-com-javascript)
-    - [Aula 15 - Funções setTimeout e setInterval](#aula-15---funções-settimeout-e-setinterval)
-    - [Aula 16 - Requisições HTTP com JavaScript](#aula-16---requisições-http-com-javascript)
-    - [Aula 17 - Exercício guiado](#aula-17---exercício-guiado)
-    - [Desafio do Módulo](#desafio-do-módulo)
-  - [Módulo 02](#módulo-02)
-  - [Módulo 03](#módulo-03)
+- [Módulo 01](#módulo-01)
+  - [Aula 1 - Visual Studio Code](#aula-1---visual-studio-code)
+  - [Aula 2 - Node.js](#aula-2---nodejs)
+  - [Aula 3 - Noções de HTML](#aula-3---noções-de-html)
+  - [Aula 4 - Noções de CSS](#aula-4---noções-de-css)
+  - [Aula 5 - Introdução ao JavaScript](#aula-5---introdução-ao-javascript)
+  - [Aula 6 - JavaScript - Comandos de Bloco](#aula-6---javascript---comandos-de-bloco)
+  - [Aula 7 - JavaScript - Manipulação do DOM](#aula-7---javascript---manipulação-do-dom)
+  - [Aula 8 - JavaScript - Formulários e Manipulação de Eventos](#aula-8---javascript---formulários-e-manipulação-de-eventos)
+  - [Aula 9 - CRUD com HTML, CSS e JavaScript](#aula-9---crud-com-html-css-e-javascript)
+  - [Trabalho Prático do Módulo](#trabalho-prático-do-módulo)
+  - [Aula 10 - JavaScript moderno - Introdução](#aula-10---javascript-moderno---introdução)
+  - [Aula 11 - JavaScript moderno - Manipulação de arrays](#aula-11---javascript-moderno---manipulação-de-arrays)
+  - [Aula 12 - JavaScript moderno - Rest/Spread operator e destructuring](#aula-12---javascript-moderno---restspread-operator-e-destructuring)
+  - [Aula 13 - Refatoração do projeto de CRUD](#aula-13---refatoração-do-projeto-de-crud)
+  - [Aula 14 - Introdução à programação assíncrona com JavaScript](#aula-14---introdução-à-programação-assíncrona-com-javascript)
+  - [Aula 15 - Funções setTimeout e setInterval](#aula-15---funções-settimeout-e-setinterval)
+  - [Aula 16 - Requisições HTTP com JavaScript](#aula-16---requisições-http-com-javascript)
+  - [Aula 17 - Exercício guiado](#aula-17---exercício-guiado)
+  - [Desafio do Módulo](#desafio-do-módulo)
+- [Módulo 02](#módulo-02)
+- [Módulo 03](#módulo-03)
 
 ## Módulo 01
 
