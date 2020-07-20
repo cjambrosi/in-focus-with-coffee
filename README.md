@@ -4,7 +4,7 @@
 
 <h2 align="center">In Focus With Coffee</h2>
 
-Como diria o [Márquez](https://pt.wikipedia.org/wiki/Gabriel_Garc%C3%ADa_M%C3%A1rquez): 
+Como diria [Márquez](https://pt.wikipedia.org/wiki/Gabriel_Garc%C3%ADa_M%C3%A1rquez): 
 
 > "*Aquele que não tem memória arranja um papel.*"
 
