@@ -4,14 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Módulo 01 - Desafio</title>
-    <!-- Compiled and minified CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <h1>Módulo 01 - Desafio</h1>
+    <div class="container">
+        <h1 class="center title-page">Módulo 01 - Desafio</h1>
 
-    
+        <div class="row">
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-content dark-text">
+                        <span class="card-title center">Pesquisa de Usuários</span>
+                        <div class="row">
+                            <div div class="input-field">
+                                <input class="searchInput" type="text" name="searchInput" id="searchInput" />
+                                <label class="labelSearchInput" for="searchInput">
+                                    <i class="material-icons">search</i>
+                                </label>
+                                <small class="grey-text">Pesquise pelo Nome ou Sobrenome.</small>
+                            </div>
+                        </div>
+                        <div class="center">
+                            <button id="searchButton" class="btn blue darken-1 waves-effect waves-light disabled searchButton" type="submit">Pesquisar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-content dark-text">
+                        <span class="card-title center">Resultado da Pesquisa</span>
+                        <div class="row">
+                            <div id="searchResult" class="results-container"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-content dark-text">
+                        <span class="card-title center">Estatísticas</span>
+                        <div class="row">
+                            <div id="resultStatistics" class="results-container">
+                                <ul class="resultStatisticsList">
+                                    <li>
+                                        <span>Sexo masculino:</span>
+                                        <b id="sexTypeMale"></b>
+                                    </li>
+                                    <li>
+                                        <span>Sexo femenino:</span>
+                                        <b id="sexTypeFemale"></b>
+                                    </li>
+                                    <li>
+                                        <span>Soma das idades:</span>
+                                        <b id="sumAge"></b>
+                                    </li>
+                                    <li>
+                                        <span>Média das idades:</span>
+                                        <b id="averageAge"></b>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="noResults" class="modal">
+        <div class="modal-content">
+            <h4 class="center">Nenhum resultado encontrado para:</h4>
+            <h4 id="searchedWord" class="searched-word center"></h4>
+        </div>
+        <div class="modal-footer">
+            <span id="btnCloseModal" class="modal-close waves-effect waves-green btn-flat">Ok</span>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./js/script.js"></script>
 </body>
 </html>
