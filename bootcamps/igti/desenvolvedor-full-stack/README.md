@@ -23,6 +23,13 @@ Link: <https://www.igti.com.br>
   - [Aula 17 - Exercício guiado](#aula-17---exercício-guiado)
   - [Desafio do Módulo](#desafio-do-módulo)
 - [Módulo 02](#módulo-02)
+  - [Aula 1 - Backend, Frontend e API's](#aula-1---backend-frontend-e-apis)
+    - [Backend](#backend)
+    - [Frontend](#frontend)
+    - [API (Application Programming Interface)](#api-application-programming-interface)
+    - [Webservices](#webservices)
+    - [REST (Representation State Transfer)](#rest-representation-state-transfer)
+    - [URI (Uniform Resourcer Identifier)](#uri-uniform-resourcer-identifier)
 - [Módulo 03](#módulo-03)
 
 ## Módulo 01
@@ -522,5 +529,57 @@ Link: <https://www.igti.com.br>
 { ... }
 
 ## Módulo 02
+
+### Aula 1 - Backend, Frontend e API's
+
+#### Backend
+
+Se refere a parte que fica hospedada no servidor, focando principalmente em como a aplicação funciona. Responsável por interagir com o banco de dados, granvando e buscando registros. Importane para armazenar as regras de negócio da aplicação.
+
+Exemplos de linguagens:
+
+- Java
+- C#
+- PHP
+- JavaScript (NodeJS)
+
+#### Frontend
+
+Parte da aplicação com a qual o usuário interege. As páginas podem ser montadas no servidor e devolvidas prontas para o usuário ou montadas no próprio browser do usuário. (Server Side Rendering e Cliente Side Rendering).
+
+- HTML
+- CSS
+- JavaScript
+
+#### API (Application Programming Interface)
+
+Conjunto de serviços que são expostos de forma a permitir a comunicação entre sistemas. Uma aplicação acessa recursos da outra sem saber como foram implementados (quem está fornecendo tem um maior controle sobre o que está sendo feito). Pode ser vista como um contrato, representado pela documentação.
+
+#### Webservices
+
+Serviços que fazem parte de uma API. Um Webservice somente transmite as informações, não sendo por si só uma aplicação possível de ser acessada pela web. Muitas empresas estão criando APIs de suas aplicações, de forma a possibilitar a fácil integração de outras aplicações.
+
+Algumas características
+
+- Facilidade na integração de sistemas: Depende do protocolo HTTP e um formato, com o JSON.
+- Favorece a reutilização de software: Integração entre aplicações desenvolvidas em liguagens e plataformas diferentes.
+- Segurança na integração: Evita que aplicações integrem diretamente pelo banco de dados.
+
+#### REST (Representation State Transfer)
+
+Descrito por Roy Fielding, um dos criadores do protocolo HTTP. Utiliza uma URI para realizar uma chamada de serviço.
+Geralmente aplicações web que trabalham com REST utilizam o formato JSON.
+
+#### URI (Uniform Resourcer Identifier)
+
+URIs são interfaces de utilização do serviço, servindo como um contrato, exemplo: <http://www.teste.com.br/clientes/2>.
+As URIs que uma API disponibiliza também são conhecidadas como seus **endpoints**.
+
+Através dos endpoints é possível realizar várias operações. Além do endpoint, o cliente precisa informar o método HTTP:
+
+- GET: Obter os dados de um recurso.
+- POST: Criar um novo recurso.
+- PUT: Substituir os dados de um determinado recurso.
+- DELETE: Excluir um determinado recurso.
 
 ## Módulo 03
