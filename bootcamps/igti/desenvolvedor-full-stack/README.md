@@ -599,6 +599,7 @@ Através dos endpoints é possível realizar várias operações. Além do endpo
 ### Aula 2 - NodeJS
 
 Foi criado em 2009 na tentativa de resolver o problema de arquiteturas bloqueantes. Plataformas como .NET, Java, ou PHP paralisam um processamento enquanto realizam um processo de I/O no servidor. Esta paralização é o chamado modelo bloqueante (Blocknig-Thread).
+
 Enquanto uma requisição é processada, as demais ficam ociosas em espera. Esses servidores criam várias threads para darem vazão a fila de espera, pode ser necessário fazer upgrade dos hardwares.
 
 O NodeJS possui uma arquitetura não bloqueante (non-blocking-thread). Apresentando uma boa performance em consumo de memória e utilizando ao máximo o poder de processamento dos servidores. Nele as aplicações são single-thread, ou seja, cada aplicação possui um único processo. Utiliza bastante a programação assíncrona, com o auxílio das funções callback do JavaScript.
@@ -634,16 +635,20 @@ O NodeJS trabalhar dessa forma porque as operações de I/O e de rede são muito
 Graças ao **Event Loop** o NodeJS trabalha com assincronismo, permitindo que seja desenvolvido uma aplicação orientada a eventos, graças ao Event Loop. O **Event Loop** basicamente é um loop infinito, que a cada iteração verifica se exitem novos eventos em sua fila de eventos.
 
 O módulo responsável por emitir eventos é o EventEmitter. Quando um evento é emitido, ele é enviado para a fila de eventos, para que o Event Loop possa executá-lo e depois retornar seu callback.
+
 O Event Loop possui uma *stack*, e sempre que um método é chamado ele entra na *stack* para aguardar seu processamento.
 
 Quando são executadas ações de I/O que demandaram tempo, o NodeJS envia essas operações para outra thread do sistema. Após outra thread dos sistema executar a tarefa I/O, ele envia essa tarefa para a Task Queue.
+
 Na Task Queue há dois tipos de tasks, as *micro tasks* e as *macro tasks*. Somente as *macro tasks* devem ser processadas em um ciclo do Event Loop. As *micro taskas* são tarefas que devem ser executadas rapidamente após alguma ação.
+
 Após o Event Loop processar uma *macro task* da Task Queue, ele deve processar todas as *micro tasks* disponíveis antes de chamar outra *macro task*.
 
 ### Aula 5 - Módulos do Node.js
 
 Módulos do NodeJS é o mesmo que uma biblioteca no JavaScript, é um conjunto de funções que podem ser incluídas em uma aplicação. O NodeJS segue o **CommonJS**, uma especificação de ecossistemas para JavaScript.
-Porém, recentemente passou a oferecer suporte ao ES Modules (no momento, ainda experimental), padrão atual para exportação/importação de módulos. ASssim é possível incluir um módulo que está em outro arquivo, sendo possível criar um módulo e importa-lo em outro arquivo facilmente.
+
+Porém, recentemente passou a oferecer suporte ao ES Modules (no momento, ainda experimental), padrão atual para exportação/importação de módulos. Assim é possível incluir um módulo que está em outro arquivo, sendo possível criar um módulo e importa-lo em outro arquivo facilmente.
 
 - CommonJS: require
 - ES Modules: import
@@ -760,6 +765,91 @@ op2.multiplicacao(3, 4);
 divisao(10, 2);
 resto(7, 2);
 ```
+
+Módulo Default - File System
+
+```javascript
+import fs from 'fs';
+
+// Exemplo de Event Loop
+
+// Esvrever em um arquivo
+fs.writeFile('teste.txt', 'bla bla bla', function(err) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('Arquivo escrito com sucesso!');
+
+    // Adiciona conteúdo no final do arquivo
+    fs.appendFile('teste.txt', '\nteste apeend file', function(err) {
+      if (err) {
+        console.log(err);
+      }
+    });
+
+    // Ler um arquivo
+    fs.readFile('teste.txt', 'utf-8', (err, data) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(data);
+      }
+    });
+  }
+});
+```
+
+- Lendo arquivo de forma Síncrona
+
+  ```javascript
+  import fs from 'fs';
+
+  trye {
+    console.log('1');
+    fs.writeFileSync('teste.txt', 'bla bla bla');
+    console.log('2');
+    const data = fs.readFileSync('teste.txt', 'utf-8');
+    console.log(data);
+    console.log('3');
+  } catch(err) {
+    console.log(err);
+  }
+  ```
+
+- Importar módulo em formato de Promises
+
+  ```javascript
+  import {promises as fs} from 'fs';
+
+  // Maneira Ruim para ler um arquivo
+  fs.writeFile('teste.txt', 'bla bla bla').then(() => {
+    fs.appendFile('teste.txt', '\nteste append file').then(() => {
+      fs.readFile('teste.txt', 'utf-8').then(resp => {
+        console.log(resp);
+      }).catch(err => {
+        console.log(err);
+      });
+    }).catch(err => {
+      console.log(err);
+    });
+  }).catch(err => {
+    console.log(err);
+  });
+
+  // Melhor maneira para ler um arquivo
+  async function init() {
+    try {
+      await fs.writeFile('teste.txt', 'bla bla bla');
+      await fs.appendFile('teste.txt', '\nteste append file');
+      const data = await fs.readFile('teste.txt', 'utf-8');
+      console.log(data);
+    } catch(err) {
+      console.log(err);
+    }
+  }
+  ```
+
+Módulo Default - File System JSON
 
 ### Aula 6 - Ferramentas para consumo de endpoints
 
