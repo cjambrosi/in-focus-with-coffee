@@ -30,6 +30,20 @@ Link: <https://www.igti.com.br>
     - [Webservices](#webservices)
     - [REST (Representation State Transfer)](#rest-representation-state-transfer)
     - [URI (Uniform Resourcer Identifier)](#uri-uniform-resourcer-identifier)
+  - [Aula 2 - NodeJS](#aula-2---nodejs-1)
+  - [Aula 3 - Hello World Nodejs](#aula-3---hello-world-nodejs)
+  - [Aula 4 - Node.js Event Loop](#aula-4---nodejs-event-loop)
+  - [Aula 5 - Módulos do Node.js](#aula-5---módulos-do-nodejs)
+  - [Aula 6 -](#aula-6--)
+  - [Trabalho Prático](#trabalho-prático)
+  - [Aula 7 -](#aula-7--)
+  - [Aula 8 -](#aula-8--)
+  - [Aula 9 -](#aula-9--)
+  - [Aula 10 -](#aula-10--)
+  - [Aula 11 -](#aula-11--)
+  - [Aula 12 -](#aula-12--)
+  - [Aula 13 -](#aula-13--)
+  - [Desafio](#desafio)
 - [Módulo 03](#módulo-03)
 
 ## Módulo 01
@@ -581,5 +595,71 @@ Através dos endpoints é possível realizar várias operações. Além do endpo
 - POST: Criar um novo recurso.
 - PUT: Substituir os dados de um determinado recurso.
 - DELETE: Excluir um determinado recurso.
+
+### Aula 2 - NodeJS
+
+Foi criado em 2009 na tentativa de resolver o problema de arquiteturas bloqueantes. Plataformas como .NET, Java, ou PHP paralisam um processamento enquanto realizam um processo de I/O no servidor. Esta paralização é o chamado modelo bloqueante (Blocknig-Thread).
+Enquanto uma requisição é processada, as demais ficam ociosas em espera. Esses servidores criam várias threads para darem vazão a fila de espera, pode ser necessário fazer upgrade dos hardwares.
+
+O NodeJS possui uma arquitetura não bloqueante (non-blocking-thread). Apresentando uma boa performance em consumo de memória e utilizando ao máximo o poder de processamento dos servidores. Nele as aplicações são single-thread, ou seja, cada aplicação possui um único processo. Utiliza bastante a programação assíncrona, com o auxílio das funções callback do JavaScript.
+
+Em uma arquitetura bloqueane, o jeito de lidar com essa concorrência seria criar múltiplas threads para lidar com as diversas requsições.
+
+O NodeJS foi criado utilizando o V8, que é um motor JavaScript de código aberto, criado pela Google e utilizado no Google Chrome. Com ele é possível executar código JavaScript no servidor, mantendo um serviço rodando no servidor, que faz a interpretação e execução de códigos JavaScript.
+
+A criação do NodeJS está muito ligada com a crescente utilização das SPAs. Também é possível criar aplicações desktop, com o auxílio de ferramentas como o Electron por exemplo. Pode ser utilizado em aplicações Real-Time, como aplicações colaborativas, por exemplo: Aplicativos de mensagens e jogos online.
+
+O NodeJS não é muito recomendado para aplicações que lidam com algoritmos complexo e que consumam muita CPU. Esta limitação pode ser contornada com a utilização de **Workers** (Instaciar o NodeJS (V8) para um algoritmo específico, por exemplo).
+
+### Aula 3 - Hello World Nodejs
+
+Iniciar projeto em NodeJS
+
+> npm install
+
+Iniciar projeto em NodeJS aceitando todas as opções como *default*.
+
+> npm install -y
+
+```javascript
+console.log(process.argv); // Fornecido pelo Node (Array)
+```
+
+### Aula 4 - Node.js Event Loop
+
+O NodeJS é uma plataforma baseada em eventos. Isso significa tudo que acontece no NodeJS é uma reação a um evento. Seguindo a mesma filosofia de orientação de eventos do JavaScript. Uma transação processada passa por várias callbacks.
+
+O NodeJS trabalhar dessa forma porque as operações de I/O e de rede são muito lentas.
+
+Graças ao **Event Loop** o NodeJS trabalha com assincronismo, permitindo que seja desenvolvido uma aplicação orientada a eventos, graças ao Event Loop. O **Event Loop** basicamente é um loop infinito, que a cada iteração verifica se exitem novos eventos em sua fila de eventos.
+
+O módulo responsável por emitir eventos é o EventEmitter. Quando um evento é emitido, ele é enviado para a fila de eventos, para que o Event Loop possa executá-lo e depois retornar seu callback.
+O Event Loop possui uma *stack*, e sempre que um método é chamado ele entra na *stack* para aguardar seu processamento.
+
+Quando são executadas ações de I/O que demandaram tempo, o NodeJS envia essas operações para outra thread do sistema. Após outra thread dos sistema executar a tarefa I/O, ele envia essa tarefa para a Task Queue.
+Na Task Queue há dois tipos de tasks, as *micro tasks* e as *macro tasks*. Somente as *macro tasks* devem ser processadas em um ciclo do Event Loop. As *micro taskas* são tarefas que devem ser executadas rapidamente após alguma ação.
+Após o Event Loop processar uma *macro task* da Task Queue, ele deve processar todas as *micro tasks* disponíveis antes de chamar outra *macro task*.
+
+### Aula 5 - Módulos do Node.js
+
+### Aula 6 -
+
+### Trabalho Prático
+
+### Aula 7 -
+
+### Aula 8 -
+
+### Aula 9 -
+
+### Aula 10 -
+
+### Aula 11 -
+
+### Aula 12 -
+
+### Aula 13 -
+
+### Desafio
 
 ## Módulo 03
