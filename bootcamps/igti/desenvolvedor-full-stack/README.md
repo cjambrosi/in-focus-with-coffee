@@ -34,15 +34,15 @@ Link: <https://www.igti.com.br>
   - [Aula 3 - Hello World Nodejs](#aula-3---hello-world-nodejs)
   - [Aula 4 - Node.js Event Loop](#aula-4---nodejs-event-loop)
   - [Aula 5 - Módulos do Node.js](#aula-5---módulos-do-nodejs)
-  - [Aula 6 -](#aula-6--)
+  - [Aula 6 - Ferramentas para consumo de endpoints](#aula-6---ferramentas-para-consumo-de-endpoints)
   - [Trabalho Prático](#trabalho-prático)
-  - [Aula 7 -](#aula-7--)
-  - [Aula 8 -](#aula-8--)
-  - [Aula 9 -](#aula-9--)
-  - [Aula 10 -](#aula-10--)
-  - [Aula 11 -](#aula-11--)
-  - [Aula 12 -](#aula-12--)
-  - [Aula 13 -](#aula-13--)
+  - [Aula 7 - Express: instalação e rotas](#aula-7---express-instalação-e-rotas)
+  - [Aula 8 - Express: Middlewares, tratamento de erros e gravação de logs](#aula-8---express-middlewares-tratamento-de-erros-e-gravação-de-logs)
+  - [Aula 9 - Apresentação da API e configurações iniciais](#aula-9---apresentação-da-api-e-configurações-iniciais)
+  - [Aula 10 - Métodos POST e GET](#aula-10---métodos-post-e-get)
+  - [Aula 11 - Métodos DELETE, PUT e PATCH](#aula-11---métodos-delete-put-e-patch)
+  - [Aula 12 - Tratamento de erros, gravação de logs e validação de campos](#aula-12---tratamento-de-erros-gravação-de-logs-e-validação-de-campos)
+  - [Aula 13 - Cors e Documentação](#aula-13---cors-e-documentação)
   - [Desafio](#desafio)
 - [Módulo 03](#módulo-03)
 
@@ -642,23 +642,142 @@ Após o Event Loop processar uma *macro task* da Task Queue, ele deve processar 
 
 ### Aula 5 - Módulos do Node.js
 
-### Aula 6 -
+Módulos do NodeJS é o mesmo que uma biblioteca no JavaScript, é um conjunto de funções que podem ser incluídas em uma aplicação. O NodeJS segue o **CommonJS**, uma especificação de ecossistemas para JavaScript.
+Porém, recentemente passou a oferecer suporte ao ES Modules (no momento, ainda experimental), padrão atual para exportação/importação de módulos. ASssim é possível incluir um módulo que está em outro arquivo, sendo possível criar um módulo e importa-lo em outro arquivo facilmente.
+
+- CommonJS: require
+- ES Modules: import
+- Exemplos de módulos nativos:
+  - File System
+  - Readline
+  - Eventes
+  - HTTP
+
+Para utilizar o padrão ES Modules é preciso alterar a extensão do arquivo de **.js** para **.mjs** ou no arquivo **package.json** do projeto NodeJS, alterar/incluir o **type** para **module**.
+
+```json
+"type": "module"
+```
+
+Nas versões 12.18 do NodeJS para trás, é preciso rodar o *index.js* com a seguinte flag:
+
+> node index.js --experimental-modules
+
+Exemplo de importação/exportação com o CommonJS:
+
+```javascript
+// File: operacoes.js
+
+const nome = 'Teste Exportação';
+
+function soma(a, b) {
+  return a + b;
+}
+
+function subtracao(a, b) {
+  return a - b;
+}
+
+module.exports = {soma, subtracao, nome}; // Exportação default, exportando um objeto.
+```
+
+```javascript
+// File: operacoes2.js
+
+function multiplicacao(a, b) {
+  return a * b;
+}
+
+module.exports = multiplicacao;
+```
+
+```javascript
+// File: index.js
+
+const op  = require('./operacoes.js');
+const op2 = require('./operacoes2.js');
+
+op.nome;
+op.soma(2, 3);
+op.subtracao(5, 3);
+op2.multiplicacao(3, 4);
+```
+
+Exemplo de importação/exportação com o ES Modules:
+
+```javascript
+// File: operacoes.js
+
+const nome = 'Teste Exportação';
+
+function soma(a, b) {
+  return a + b;
+}
+
+function subtracao(a, b) {
+  return a - b;
+}
+
+export default {soma, subtracao, nome};
+```
+
+```javascript
+// File: operacoes2.js
+
+function multiplicacao(a, b) {
+  return a * b;
+}
+
+export default multiplicacao;
+```
+
+```javascript
+// File: exportacoesNomeadas.js
+
+export function divisao(a, b) { // Tipo de exportação chamada de Exportação Nomeada.
+  return a / b;
+}
+
+export function resto(a, b) { // Tipo de exportação chamada de Exportação Nomeada.
+  return a % b;
+}
+```
+
+```javascript
+// File: index.js
+
+import op  from './operacoes.js';
+import op2 from './operacoes2.js';
+
+// Maneira de importar uma Exportação Nomeada.
+import {divisao, resto} from './exportacoesNomeadas.js'; // Obriga usar o mesmo nome declarado no arquivo.
+
+op.nome;
+op.soma(2, 3);
+op.subtracao(5, 3);
+op2.multiplicacao(3, 4);
+
+divisao(10, 2);
+resto(7, 2);
+```
+
+### Aula 6 - Ferramentas para consumo de endpoints
 
 ### Trabalho Prático
 
-### Aula 7 -
+### Aula 7 - Express: instalação e rotas
 
-### Aula 8 -
+### Aula 8 - Express: Middlewares, tratamento de erros e gravação de logs
 
-### Aula 9 -
+### Aula 9 - Apresentação da API e configurações iniciais
 
-### Aula 10 -
+### Aula 10 - Métodos POST e GET
 
-### Aula 11 -
+### Aula 11 - Métodos DELETE, PUT e PATCH
 
-### Aula 12 -
+### Aula 12 - Tratamento de erros, gravação de logs e validação de campos
 
-### Aula 13 -
+### Aula 13 - Cors e Documentação
 
 ### Desafio
 
