@@ -668,7 +668,7 @@ Nas versões 12.18 do NodeJS para trás, é preciso rodar o *index.js* com a seg
 
 > node index.js --experimental-modules
 
-Exemplo de importação/exportação com o CommonJS:
+Exemplos de importação/exportação com o CommonJS:
 
 ```javascript
 // File: operacoes.js
@@ -708,7 +708,7 @@ op.subtracao(5, 3);
 op2.multiplicacao(3, 4);
 ```
 
-Exemplo de importação/exportação com o ES Modules:
+Exemplos de importação/exportação com o ES Modules:
 
 ```javascript
 // File: operacoes.js
@@ -836,7 +836,7 @@ fs.writeFile('teste.txt', 'bla bla bla', function(err) {
     console.log(err);
   });
 
-  // Melhor maneira para ler um arquivo
+  // Melhor maneira para ler um arquivo (asybc/await)
   async function init() {
     try {
       await fs.writeFile('teste.txt', 'bla bla bla');
@@ -851,7 +851,121 @@ fs.writeFile('teste.txt', 'bla bla bla', function(err) {
 
 Módulo Default - File System JSON
 
+```javascript
+import {promises as fs} from 'fs';
+
+//  JSON.stringfy
+async function writeJson() {
+  try {
+    // Valores iniciais
+    const arrayCarros = ['Palio', 'Gol', 'Uno'];
+    const obj = { carros: arrayCarros }
+
+    // Leitura do conteúdo atual do objeto
+    await fs.writeFile('teste.json', JSON.stringfy(obj));
+    const data = JSON.parse(await fs.readFile('teste.json'));
+
+    // Modificado conteúdo objeto
+    data.carros.push('Sandero');
+
+    // Sobrescrito conteúdo do objeto
+    await fs.writeFile('teste.json', JSON.stringfy(data));
+  } catch(err) {
+    console.log(err);
+  }
+}
+```
+
+Módulo Default - Read Line
+
+- Permite entradas do usuário (terminal, por exemplo).
+
+```javascript
+import readline from 'readline';
+
+const rl = readline.createInterface({
+  input:  process.stdin,
+  output: process.stdout
+});
+
+rl.question('Digite um Número: ', numero => {
+  console.log(numero);
+  rl.close(); // Se quiser encerrar o programa
+});
+
+function pergunta() {
+  rl.question('Digite um Número: ', numero => {
+
+    if (parseInt(numero) === -1) {
+      rl.close();
+    } else {
+      const multiplos = [];
+      for (let i = 3; i < parseInt(numero); i++) {
+        if ((i % 3 === 0) || (i % 5 === 0)) {
+          multplos.push(i);
+        }
+      }
+
+      console.log(multiplos);
+      pergunta()
+    }
+  });
+}
+```
+
+Módulo Default - Events
+
+```javascript
+// events.js
+
+import {EventEmitter} from 'events';
+
+const eventEmitter = new EventEmitter();
+
+eventEmitter.on('testEvent', obj => {
+  console.log(obj);
+});
+
+export default eventEmitter;
+```
+
+```javascript
+// index.js
+
+import ev from './events.js';
+
+eventEmitter.on('testEvent', () => {
+  console.log('Ouviu tbm!');
+});
+
+ev.emit('testEvent', 'bla bla bla');
+```
+
+Módulo Default - HTTP
+
+> npm install nodemon -g
+> nodemon index.js
+
+```javascript
+import http from 'http';
+
+http.createServer((req, res) => {
+  if ((req.method === 'GET') && (req.url === '/teste')) {
+    res.write('GET /teste executado com sucesso!'); // Responde na tela para o usuário
+  } else {
+    res.write('Hello Word');
+  }
+
+  res.statusCode = 200;
+  res.end();
+}).listen(8080);
+```
+
 ### Aula 6 - Ferramentas para consumo de endpoints
+
+Insomnia: <https://insomnia.rest/>
+
+Postman: <https://www.postman.com/>
 
 ### Trabalho Prático
 
