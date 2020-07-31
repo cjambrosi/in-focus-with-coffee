@@ -854,7 +854,7 @@ Módulo Default - File System JSON
 ```javascript
 import {promises as fs} from 'fs';
 
-//  JSON.stringfy
+//  JSON.stringify
 async function writeJson() {
   try {
     // Valores iniciais
@@ -862,14 +862,14 @@ async function writeJson() {
     const obj = { carros: arrayCarros }
 
     // Leitura do conteúdo atual do objeto
-    await fs.writeFile('teste.json', JSON.stringfy(obj));
+    await fs.writeFile('teste.json', JSON.stringify(obj));
     const data = JSON.parse(await fs.readFile('teste.json'));
 
     // Modificado conteúdo objeto
     data.carros.push('Sandero');
 
     // Sobrescrito conteúdo do objeto
-    await fs.writeFile('teste.json', JSON.stringfy(data));
+    await fs.writeFile('teste.json', JSON.stringify(data));
   } catch(err) {
     console.log(err);
   }
@@ -944,6 +944,7 @@ ev.emit('testEvent', 'bla bla bla');
 Módulo Default - HTTP
 
 > npm install nodemon -g
+
 > nodemon index.js
 
 ```javascript
