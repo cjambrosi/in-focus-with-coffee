@@ -970,6 +970,8 @@ Postman: <https://www.postman.com/>
 
 ### Trabalho Prático
 
+{ ... }
+
 ### Aula 7 - Express: instalação e rotas
 
 ### Aula 8 - Express: Middlewares, tratamento de erros e gravação de logs
