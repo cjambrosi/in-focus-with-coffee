@@ -37,6 +37,7 @@ Link: <https://www.igti.com.br>
   - [Aula 6 - Ferramentas para consumo de endpoints](#aula-6---ferramentas-para-consumo-de-endpoints)
   - [Trabalho Prático](#trabalho-prático)
   - [Aula 7 - Express: instalação e rotas](#aula-7---express-instalação-e-rotas)
+    - [Rotas do Express](#rotas-do-express)
   - [Aula 8 - Express: Middlewares, tratamento de erros e gravação de logs](#aula-8---express-middlewares-tratamento-de-erros-e-gravação-de-logs)
   - [Aula 9 - Apresentação da API e configurações iniciais](#aula-9---apresentação-da-api-e-configurações-iniciais)
   - [Aula 10 - Métodos POST e GET](#aula-10---métodos-post-e-get)
@@ -973,6 +974,161 @@ Postman: <https://www.postman.com/>
 { ... }
 
 ### Aula 7 - Express: instalação e rotas
+
+#### Rotas do Express
+
+Caracteres especiais na rota:
+
+```javascript
+// index.js
+
+import express from 'express';
+
+const app = express();
+
+// Pega todos os tipos de requisições do método HTTP e retorna a mesma callback
+app.all('/testeAll', (req, res) => {
+  res.send(req.method);
+});
+
+// Ultimo caracter é opcional, exemplo: test
+app.get('/teste?', (_, res) => {
+  res.send('/teste?');
+});
+
+// Ultimo caracter pode repetir várias vezes, ex: testeeeee
+app.get('/teste+', (_, res) => {
+  res.send('/teste+');
+});
+
+// Pode inserir qualquer coisa depois do "one", que ele cairá na rota "one"
+app.get('/one*blue', (_, res) => {
+  res.send(req.path);
+});
+
+// Tudo dentro do () é tratado como unidade
+app.post('/test(ing)?', (_, res) => {
+  res.send('/test(ing)?');
+});
+
+// Utilizar expressões regulares. No caso, qualquer string contenhar a palavra "red"
+app.get(/.*red$/, (_, res) => {
+  res.send('/.*red$/');
+});
+
+app.list(3000, () => {
+  console.log('API Started');
+});
+```
+
+Parâmetros na rota:
+
+```javascript
+// index.js
+
+import express from 'express';
+
+const app = express();
+
+// É preciso avisar ao Express que queremos utilizar JSON no envio do Boddy
+app.use(express.json());
+
+app.get('testParam/:id', (req, res) => {
+  res.send(req.params.id);
+});
+
+app.get('testParam/:id/:a?', (req, res) => {
+  res.send(req.params.id + ' ' + req.params.a);
+});
+
+// Parâmetro NEXT, serve para passar para a próxima função callback
+app.get('testMultipleHandlers', (req, res, next) => {
+  console.log("Callback 1");
+  next();
+}, (req, res) => {
+  console.log("Callback 2");
+  // É preciso fechar a requisição
+  res.end(); // Se não tem resposta
+  res.send('bla bla'); // Se tem resposta
+});
+
+// Com Array
+const callback1 = (req, res) => {
+  console.log('Callback1');
+  nex();
+}
+
+function callback2(req, res) {
+  console.log('Callback2');
+  nex();
+}
+
+const callback3 = (req, res) => {
+  console.log('Callback3');
+  res.end();
+}
+
+app.get('/testMultiplesHandlersArray', [callback1, callback2, callback3]);
+
+app.list(3000, () => {
+  console.log('API Started');
+});
+```
+
+Parâmetros via Query na rota: É feito a partir de um ponto de interrogação, assim ele não faz parte da rota obrigatório. Sendo possível capturar em formato JSON. Ex:
+
+`
+http://localhost:3000/testQuery?nome=joao&email=joao@gmail.com&...
+`
+
+```javascript
+// index.js
+
+import express from 'express';
+
+const app = express();
+
+// É preciso avisar ao Express que queremos utilizar JSON no envio do Boddy
+app.use(express.json());
+
+app.get('testQuery', (req, res) => {
+  res.send(req.query);
+});
+
+app.list(3000, () => {
+  console.log('API Started');
+});
+```
+
+Route do ExpressJS: Rotas que irão responder no mesmo endereço, mudando somente o tipo/verbo do método HTTP, podem ser agrupadas numa mesma rota. Devem ser definidas.
+
+```javascript
+// index.js
+
+import express from 'express';
+
+const app = express();
+
+// É preciso avisar ao Express que queremos utilizar JSON no envio do Boddy
+app.use(express.json());
+
+app.route('/testRoute')
+  .get((req, res) => {
+    res.send('/testRoute GET');
+  })
+  .post((req, res) => {
+    res.send('/testRoute POST');
+  })
+  .delete((req, res) => {
+    res.send('/testRoute DELETE');
+  })
+  // Poderia definir o método PUT, não é obrigatório, é possível definir só o que precisa
+;
+
+app.list(3000, () => {
+  console.log('API Started');
+});
+```
 
 ### Aula 8 - Express: Middlewares, tratamento de erros e gravação de logs
 
