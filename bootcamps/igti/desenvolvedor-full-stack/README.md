@@ -1338,7 +1338,7 @@ app.list(3000, () => {
 
 Uma funcionalidade interessante do Express é que ele permite que sejam servidos arquivos estáticos.
 
-O **express.static**, que recebe como parâmetro o diretório raiz de onde estão localizados os arquivos partindo da raiz da aplicação (Documentos da aplicação ou arquivo pro front-end). Pode-se utilizar estes métodos várias vezes para servir vários diretórios. Também, pode-se criar um diretório virtual, passando como parâmetro o nome desejado.
+O **express.static**, que recebe como parâmetro o diretório raiz de onde estão localizados os arquivos partindo da raiz da aplicação (documentação da aplicação ou arquivo pro front-end). Pode-se utilizar estes métodos várias vezes para servir vários diretórios. Também, pode-se criar um diretório virtual, passando como parâmetro o nome desejado.
 
 ```javascript
 // index.js
@@ -1362,13 +1362,23 @@ app.list(3000, () => {
 
 ### Aula 9 - Apresentação da API e configurações iniciais
 
+{ ... }
+
 ### Aula 10 - Métodos POST e GET
+
+{ ... }
 
 ### Aula 11 - Métodos DELETE, PUT e PATCH
 
+{ ... }
+
 ### Aula 12 - Tratamento de erros, gravação de logs e validação de campos
 
+{ ... }
+
 ### Aula 13 - Cors e Documentação
+
+{ ... }
 
 ### Desafio
 
