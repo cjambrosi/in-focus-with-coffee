@@ -38,7 +38,12 @@ Link: <https://www.igti.com.br>
   - [Trabalho Prático](#trabalho-prático-1)
   - [Aula 7 - ExpressJS: instalação e rotas](#aula-7---expressjs-instalação-e-rotas)
     - [Instalação](#instalação)
+    - [Rotas do Express](#rotas-do-express)
   - [Aula 8 - Express: Middlewares, tratamento de erros e gravação de logs](#aula-8---express-middlewares-tratamento-de-erros-e-gravação-de-logs)
+    - [Middlewares](#middlewares)
+    - [Tratamento de erros](#tratamento-de-erros)
+    - [Gravação de logs](#gravação-de-logs)
+    - [Servindo arquivos estáticos](#servindo-arquivos-estáticos)
   - [Aula 9 - Apresentação da API e configurações iniciais](#aula-9---apresentação-da-api-e-configurações-iniciais)
   - [Aula 10 - Métodos POST e GET](#aula-10---métodos-post-e-get)
   - [Aula 11 - Métodos DELETE, PUT e PATCH](#aula-11---métodos-delete-put-e-patch)
@@ -95,9 +100,9 @@ Link: <https://www.igti.com.br>
 
   - Tipagem fraca
 
-  - false, 0, null, undefined são tipos considerados *Falsy*, ou seja, tendem a ser falsos
+  - false, 0, null, undefined são tipos considerados _Falsy_, ou seja, tendem a ser falsos
 
-  - true, 1, [1], {id: 1} são tipos considerados *Truthy*, ou seja, tendem a ser vedadeiros
+  - true, 1, [1], {id: 1} são tipos considerados _Truthy_, ou seja, tendem a ser vedadeiros
 
   - Exemplo de igualdade:
 
@@ -108,8 +113,8 @@ Link: <https://www.igti.com.br>
 - Operador Ternário:
 
   ```javascript
-  var resposta = (a > b) ? 'Maior' : 'Menor';
-  var resposta = (a > b) ? 'Maior' : (a < b) ? 'Menor' : 'Igual';
+  var resposta = a > b ? 'Maior' : 'Menor';
+  var resposta = a > b ? 'Maior' : a < b ? 'Menor' : 'Igual';
   ```
 
 - Uma função pode retornar mais de um valor, porém é preciso retornar um objeto com chave valor. Caso contrário é 1 ou nada (void).
@@ -122,24 +127,24 @@ Link: <https://www.igti.com.br>
      retrun a - n;
    }
   ```
-  
+
 ### Aula 7 - JavaScript - Manipulação do DOM
 
-  ```javascript
-  var title = document.querySelector('h1'); // Se tiver mais de 1 elemento, só vai pegar 1
-  title.textContent = 'Mudar texto';
+```javascript
+var title = document.querySelector('h1'); // Se tiver mais de 1 elemento, só vai pegar 1
+title.textContent = 'Mudar texto';
 
-  var peseronalDataArray = documento.querySelectorAll('.personal-data') // Pega todos os elementos que tem a classe;
-  console.log(peseronalDataArray);
-  peseronalDataArray = Array.from(peseronalDataArray);
-  console.log(peseronalDataArray);
+var peseronalDataArray = documento.querySelectorAll('.personal-data'); // Pega todos os elementos que tem a classe;
+console.log(peseronalDataArray);
+peseronalDataArray = Array.from(peseronalDataArray);
+console.log(peseronalDataArray);
 
-  for (var i = 0; i < peseronalDataArray.length; i++) {
-    var currentElement = peseronalDataArray[i];
-    currentElement.classList.add('classe-css');
-    currentElement.classList.remove('outra-classe-css');
-  }
-  ```
+for (var i = 0; i < peseronalDataArray.length; i++) {
+  var currentElement = peseronalDataArray[i];
+  currentElement.classList.add('classe-css');
+  currentElement.classList.remove('outra-classe-css');
+}
+```
 
 ### Aula 8 - JavaScript - Formulários e Manipulação de Eventos
 
@@ -147,22 +152,24 @@ Link: <https://www.igti.com.br>
 
 ### Aula 9 - CRUD com HTML, CSS e JavaScript
 
-  { ... }
+{ ... }
 
 ### Trabalho Prático
 
-  { ... }
+{ ... }
 
 ### Aula 10 - JavaScript moderno - Introdução
 
 - **Template Literals**
 
   ```javascript
-  let a = 3, b = 10, c = 7;
-  let str = `Meus números são ${a}, ${b} e ${c}`
+  let a = 3,
+    b = 10,
+    c = 7;
+  let str = `Meus números são ${a}, ${b} e ${c}`;
   ```
 
-- Boa prática usar *'use strict'*, no incio do arquivo em escopo de funções. Isso mostra mais erros caso ocorram e para a execução do script.
+- Boa prática usar _'use strict'_, no incio do arquivo em escopo de funções. Isso mostra mais erros caso ocorram e para a execução do script.
 
 - **var** tem escopo abrangente e **let** tem o escopo reduzido.
 
@@ -183,49 +190,49 @@ Link: <https://www.igti.com.br>
 
   // Arrow function
   const sum3 = (a, b) {
-    return a + b; 
+    return a + b;
   }
 
   // Arrow function reduzida (apenas uma instrução)
   const sum3 = (a, b) => a + b;
 
-  // Default parameters 
+  // Default parameters
   // (Não pode no primeiro, pois quando se chama a função, o primeiro parâmetro é sempre obrigatório)
   const sum4(a, b = 10) => a + b;
   ```
 
 ### Aula 11 - JavaScript moderno - Manipulação de arrays
 
-  Com excessão do *sort()* (a princípio), todos são métodos **imutáveis**, ou seja, não altera o objeto original, é criado um novo.
-  
-  Em métodos não mutáveis, não é preciso retorar ao objeto igualando-o a outro ou a ele mesmo, pois o método altera a estrutura orinal. Por exemplo:
+Com excessão do _sort()_ (a princípio), todos são métodos **imutáveis**, ou seja, não altera o objeto original, é criado um novo.
 
-  ```javascript
-  // Altera a estrutura original.
-  allCountries.sort((a, b) => {
-    return a.name.localeCompare(b.name);
-  });
+Em métodos não mutáveis, não é preciso retorar ao objeto igualando-o a outro ou a ele mesmo, pois o método altera a estrutura orinal. Por exemplo:
 
-  // Filter é imutável, por isso é preciso retornar a um novo objeto.
-  favoriteCountries = favoriteCountries.filter(country => country.id !== id);
-  ```
+```javascript
+// Altera a estrutura original.
+allCountries.sort((a, b) => {
+  return a.name.localeCompare(b.name);
+});
+
+// Filter é imutável, por isso é preciso retornar a um novo objeto.
+favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
+```
 
 - **map:** Gera um novo array transformando os dados.
 
   ```javascript
   // Retornar um novo objeto
-  const nomeEmailArray = people.results.map(person => {
+  const nomeEmailArray = people.results.map((person) => {
     return {
       nome: person.name,
-      email: person.email
-    }
+      email: person.email,
+    };
   });
   ```
 
 - **filter:** gera um novo array filtrando elementos com base em proposição (if/else).
 
   ```javascript
-  const olderThan50 = people.results.filter(person => {
+  const olderThan50 = people.results.filter((person) => {
     return person.dob.age > 50;
   });
   ```
@@ -235,9 +242,9 @@ Link: <https://www.igti.com.br>
   ```javascript
   // Incluir nova propriedade no objeto
   const mappedPeople.forEach(person => {
-    person.nameSize = 
-      person.name.title.length + 
-      person.name.first.length + 
+    person.nameSize =
+      person.name.title.length +
+      person.name.first.length +
       person.name.last.length;
   });
   ```
@@ -255,7 +262,7 @@ Link: <https://www.igti.com.br>
 
   ```javascript
   // Encontrar primeira ocorrência
-  const found = people.results.find(person => {
+  const found = people.results.find((person) => {
     return person.location.state === 'Minas Gerais';
   });
   ```
@@ -264,7 +271,7 @@ Link: <https://www.igti.com.br>
 
   ```javascript
   // Se encontrou algo de acordo com o critério | true/false
-  const found = people.results.some(person => {
+  const found = people.results.some((person) => {
     return person.location.state === 'Amazonas';
   });
   ```
@@ -273,7 +280,7 @@ Link: <https://www.igti.com.br>
 
   ```javascript
   // Se todos form iguais ao critério
-  const every = people.results.every(person => {
+  const every = people.results.every((person) => {
     return person.nat === 'BR';
   });
   ```
@@ -283,7 +290,7 @@ Link: <https://www.igti.com.br>
   ```javascript
   // startsWith: função padrão do JS
   const mappedNames = people.results
-  .map(person => { 
+  .map(person => {
     // return person.name.first; // Retorna Array de strings
     return {
       name: person.name.first; // Retorna Array de strings
@@ -304,14 +311,14 @@ Link: <https://www.igti.com.br>
   ```javascript
   // Concatenar dois objetos
   const marriedMen = people.results.filter(
-    person => person.name.title === 'Mr'
+    (person) => person.name.title === 'Mr'
   );
 
   const marriedWomen = people.results.filter(
-    person => person.name.title === 'Ms'
+    (person) => person.name.title === 'Ms'
   );
 
-  const marriedPeople = [...marriedMen, ...marriedWomen, { msg: 'Oi'}];
+  const marriedPeople = [...marriedMen, ...marriedWomen, { msg: 'Oi' }];
   console.log('marriedPeople', marriedPeople);
   ```
 
@@ -337,17 +344,17 @@ Link: <https://www.igti.com.br>
 
   // Usando Destructuring
   const { username, password } = first.login;
-  
+
   console.log('username', username);
   console.log('password', password);
   ```
 
 ### Aula 13 - Refatoração do projeto de CRUD
 
-- Dica: Numa função que precise passar 2 parâmetros, mas só é precisar utilizar o segundo, usasse como boa prática o "**_**" como primeiro parâmetro. Ex:
+- Dica: Numa função que precise passar 2 parâmetros, mas só é precisar utilizar o segundo, usasse como boa prática o "**\_**" como primeiro parâmetro. Ex:
 
   ```javascript
-  globalNames = globalNames.filter((_, i) => i !== index );
+  globalNames = globalNames.filter((_, i) => i !== index);
   ```
 
 ### Aula 14 - Introdução à programação assíncrona com JavaScript
@@ -359,7 +366,7 @@ Link: <https://www.igti.com.br>
   - Processamento intenso de dados.
 
   - Comunicação com bancos de dados.
-  
+
 - É extremamente importante que o javascript **não espere o término de instruções lentas**.
 
 - A principal técnica para grantir a afirmação acima é a utilização de **event loop**.
@@ -417,25 +424,25 @@ Link: <https://www.igti.com.br>
   ```javascript
   const userGitHub = fetch('https://api.github.com/users/cjambrosi');
   console.log('promise:', userGitHub);
-  
+
   // catch: captura quando da problema
   // then: captura deu certo
-  fetch('https://api.github.com/users/cjambrosi').then(resource => {
+  fetch('https://api.github.com/users/cjambrosi').then((resource) => {
     console.log('Promise resolvida');
     console.log('resource', resource);
-    resource.json().then(data => {
+    resource.json().then((data) => {
       console.log('data', data);
       showData(data);
     });
   });
-  
+
   console.log('Depois resolvida');
 
-  const showData = data => {
+  const showData = (data) => {
     const user = document.querySelector('#user');
     console.log(`${data.login} - ${data.name}`);
     user.textContent = `${data.login} - ${data.name}`;
-  }
+  };
   ```
 
 - **Promises**.
@@ -443,7 +450,7 @@ Link: <https://www.igti.com.br>
   - São construções cuja a execução **retorna algo no futuro**, ou seja, é uma **promessa de execução**.
 
   - A execução pode ser **resolvida (ok)**, ou **rejeitada (erro)**.
-  
+
   - A promise resolvida é interceptada com **then**.
 
   - A promise rejeitada é interceptada com **catch**.
@@ -452,18 +459,18 @@ Link: <https://www.igti.com.br>
 
   ```javascript
   fetch('https://api.github.com/users/cjambrosi')
-    .then(resource => {
-      resource.json().then(data => {
+    .then((resource) => {
+      resource.json().then((data) => {
         console.log('data', data);
         showData(data);
       });
     })
-    .catch(error => {
+    .catch((error) => {
       console.error('Erro na requisição');
     });
-  
+
   // Exemplo criação de Promise
-  const  divisionPromise = (a, b) => {
+  const divisionPromise = (a, b) => {
     return new Promise((resolve, reject) => {
       if (b === 0) {
         reject('Não é possível dividr por 0');
@@ -473,15 +480,16 @@ Link: <https://www.igti.com.br>
     });
   };
 
-  divisionPromise(10, 2).then(result => {
+  divisionPromise(10, 2).then((result) => {
     console.log('result', result);
   });
-  divisionPromise(10, 0).then(result => {
-    console.log('result', result);
-  })
-  .catch(errorMessage => {
-    console.log(`Falha na divisão ${errorMessage}`);
-  });
+  divisionPromise(10, 0)
+    .then((result) => {
+      console.log('result', result);
+    })
+    .catch((errorMessage) => {
+      console.log(`Falha na divisão ${errorMessage}`);
+    });
   ```
 
 - **Async/Await**.
@@ -498,7 +506,7 @@ Link: <https://www.igti.com.br>
 
   ```javascript
   // Exemplo criação de Promise
-  const  divisionPromise = (a, b) => {
+  const divisionPromise = (a, b) => {
     return new Promise((resolve, reject) => {
       if (b === 0) {
         reject('Não é possível dividr por 0');
@@ -510,13 +518,14 @@ Link: <https://www.igti.com.br>
 
   // Isso é muito confuso
   const executeDivisionPromise = () => {
-    divisionPromise(10, 0).then(result => {
-      console.log('result', result);
-    })
-    .catch(errorMessage => {
-      console.log(`Falha na divisão ${errorMessage}`);
-    });
-  }
+    divisionPromise(10, 0)
+      .then((result) => {
+        console.log('result', result);
+      })
+      .catch((errorMessage) => {
+        console.log(`Falha na divisão ${errorMessage}`);
+      });
+  };
   executeDivisionPromise();
 
   const executeDivisionPromiseAsyncAwait = async () => {
@@ -525,7 +534,7 @@ Link: <https://www.igti.com.br>
 
     const division2 = await divisionPromise(10, 0);
     console.log('divisionAsync2', division2);
-  }
+  };
   executeDivisionPromiseAsyncAwait();
 
   // Exemplo de Async com Fetch
@@ -533,7 +542,7 @@ Link: <https://www.igti.com.br>
     const res = await fetch('https://api.github.com/users/cjambrosi');
     const json = await res.json();
     console.log('json', json);
-  }
+  };
   doFetchAsync();
   ```
 
@@ -621,7 +630,7 @@ Iniciar projeto em NodeJS
 
 > npm install
 
-Iniciar projeto em NodeJS aceitando todas as opções como *default*.
+Iniciar projeto em NodeJS aceitando todas as opções como _default_.
 
 > npm install -y
 
@@ -639,13 +648,13 @@ Graças ao **Event Loop** o NodeJS trabalha com assincronismo, permitindo que se
 
 O módulo responsável por emitir eventos é o EventEmitter. Quando um evento é emitido, ele é enviado para a fila de eventos, para que o Event Loop possa executá-lo e depois retornar seu callback.
 
-O Event Loop possui uma *stack*, e sempre que um método é chamado ele entra na *stack* para aguardar seu processamento.
+O Event Loop possui uma _stack_, e sempre que um método é chamado ele entra na _stack_ para aguardar seu processamento.
 
 Quando são executadas ações de I/O que demandaram tempo, o NodeJS envia essas operações para outra thread do sistema. Após outra thread dos sistema executar a tarefa I/O, ele envia essa tarefa para a Task Queue.
 
-Na Task Queue há dois tipos de tasks, as *micro tasks* e as *macro tasks*. Somente as *macro tasks* devem ser processadas em um ciclo do Event Loop. As *micro taskas* são tarefas que devem ser executadas rapidamente após alguma ação.
+Na Task Queue há dois tipos de tasks, as _micro tasks_ e as _macro tasks_. Somente as _macro tasks_ devem ser processadas em um ciclo do Event Loop. As _micro taskas_ são tarefas que devem ser executadas rapidamente após alguma ação.
 
-Após o Event Loop processar uma *macro task* da Task Queue, ele deve processar todas as *micro tasks* disponíveis antes de chamar outra *macro task*.
+Após o Event Loop processar uma _macro task_ da Task Queue, ele deve processar todas as _micro tasks_ disponíveis antes de chamar outra _macro task_.
 
 ### Aula 5 - Módulos do Node.js
 
@@ -667,7 +676,7 @@ Para utilizar o padrão ES Modules é preciso alterar a extensão do arquivo de 
 "type": "module"
 ```
 
-Nas versões 12.18 do NodeJS para trás, é preciso rodar o *index.js* com a seguinte flag:
+Nas versões 12.18 do NodeJS para trás, é preciso rodar o _index.js_ com a seguinte flag:
 
 > node index.js --experimental-modules
 
@@ -686,7 +695,7 @@ function subtracao(a, b) {
   return a - b;
 }
 
-module.exports = {soma, subtracao, nome}; // Exportação default, exportando um objeto.
+module.exports = { soma, subtracao, nome }; // Exportação default, exportando um objeto.
 ```
 
 ```javascript
@@ -702,7 +711,7 @@ module.exports = multiplicacao;
 ```javascript
 // File: index.js
 
-const op  = require('./operacoes.js');
+const op = require('./operacoes.js');
 const op2 = require('./operacoes2.js');
 
 op.nome;
@@ -726,7 +735,7 @@ function subtracao(a, b) {
   return a - b;
 }
 
-export default {soma, subtracao, nome};
+export default { soma, subtracao, nome };
 ```
 
 ```javascript
@@ -742,11 +751,13 @@ export default multiplicacao;
 ```javascript
 // File: exportacoesNomeadas.js
 
-export function divisao(a, b) { // Tipo de exportação chamada de Exportação Nomeada.
+export function divisao(a, b) {
+  // Tipo de exportação chamada de Exportação Nomeada.
   return a / b;
 }
 
-export function resto(a, b) { // Tipo de exportação chamada de Exportação Nomeada.
+export function resto(a, b) {
+  // Tipo de exportação chamada de Exportação Nomeada.
   return a % b;
 }
 ```
@@ -754,11 +765,11 @@ export function resto(a, b) { // Tipo de exportação chamada de Exportação No
 ```javascript
 // File: index.js
 
-import op  from './operacoes.js';
+import op from './operacoes.js';
 import op2 from './operacoes2.js';
 
 // Maneira de importar uma Exportação Nomeada.
-import {divisao, resto} from './exportacoesNomeadas.js'; // Obriga usar o mesmo nome declarado no arquivo.
+import { divisao, resto } from './exportacoesNomeadas.js'; // Obriga usar o mesmo nome declarado no arquivo.
 
 op.nome;
 op.soma(2, 3);
@@ -777,14 +788,14 @@ import fs from 'fs';
 // Exemplo de Event Loop
 
 // Esvrever em um arquivo
-fs.writeFile('teste.txt', 'bla bla bla', function(err) {
+fs.writeFile('teste.txt', 'bla bla bla', function (err) {
   if (err) {
     console.log(err);
   } else {
     console.log('Arquivo escrito com sucesso!');
 
     // Adiciona conteúdo no final do arquivo
-    fs.appendFile('teste.txt', '\nteste apeend file', function(err) {
+    fs.appendFile('teste.txt', '\nteste apeend file', function (err) {
       if (err) {
         console.log(err);
       }
@@ -822,22 +833,28 @@ fs.writeFile('teste.txt', 'bla bla bla', function(err) {
 - Importar módulo em formato de Promises
 
   ```javascript
-  import {promises as fs} from 'fs';
+  import { promises as fs } from 'fs';
 
   // Maneira Ruim para ler um arquivo
-  fs.writeFile('teste.txt', 'bla bla bla').then(() => {
-    fs.appendFile('teste.txt', '\nteste append file').then(() => {
-      fs.readFile('teste.txt', 'utf-8').then(resp => {
-        console.log(resp);
-      }).catch(err => {
-        console.log(err);
-      });
-    }).catch(err => {
+  fs.writeFile('teste.txt', 'bla bla bla')
+    .then(() => {
+      fs.appendFile('teste.txt', '\nteste append file')
+        .then(() => {
+          fs.readFile('teste.txt', 'utf-8')
+            .then((resp) => {
+              console.log(resp);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    })
+    .catch((err) => {
       console.log(err);
     });
-  }).catch(err => {
-    console.log(err);
-  });
 
   // Melhor maneira para ler um arquivo (asybc/await)
   async function init() {
@@ -846,7 +863,7 @@ fs.writeFile('teste.txt', 'bla bla bla', function(err) {
       await fs.appendFile('teste.txt', '\nteste append file');
       const data = await fs.readFile('teste.txt', 'utf-8');
       console.log(data);
-    } catch(err) {
+    } catch (err) {
       console.log(err);
     }
   }
@@ -855,14 +872,14 @@ fs.writeFile('teste.txt', 'bla bla bla', function(err) {
 Módulo Default - File System JSON
 
 ```javascript
-import {promises as fs} from 'fs';
+import { promises as fs } from 'fs';
 
 //  JSON.stringify
 async function writeJson() {
   try {
     // Valores iniciais
     const arrayCarros = ['Palio', 'Gol', 'Uno'];
-    const obj = { carros: arrayCarros }
+    const obj = { carros: arrayCarros };
 
     // Leitura do conteúdo atual do objeto
     await fs.writeFile('teste.json', JSON.stringify(obj));
@@ -873,7 +890,7 @@ async function writeJson() {
 
     // Sobrescrito conteúdo do objeto
     await fs.writeFile('teste.json', JSON.stringify(data));
-  } catch(err) {
+  } catch (err) {
     console.log(err);
   }
 }
@@ -887,30 +904,29 @@ Módulo Default - Read Line
 import readline from 'readline';
 
 const rl = readline.createInterface({
-  input:  process.stdin,
-  output: process.stdout
+  input: process.stdin,
+  output: process.stdout,
 });
 
-rl.question('Digite um Número: ', numero => {
+rl.question('Digite um Número: ', (numero) => {
   console.log(numero);
   rl.close(); // Se quiser encerrar o programa
 });
 
 function pergunta() {
-  rl.question('Digite um Número: ', numero => {
-
+  rl.question('Digite um Número: ', (numero) => {
     if (parseInt(numero) === -1) {
       rl.close();
     } else {
       const multiplos = [];
       for (let i = 3; i < parseInt(numero); i++) {
-        if ((i % 3 === 0) || (i % 5 === 0)) {
+        if (i % 3 === 0 || i % 5 === 0) {
           multplos.push(i);
         }
       }
 
       console.log(multiplos);
-      pergunta()
+      pergunta();
     }
   });
 }
@@ -921,11 +937,11 @@ Módulo Default - Events
 ```javascript
 // events.js
 
-import {EventEmitter} from 'events';
+import { EventEmitter } from 'events';
 
 const eventEmitter = new EventEmitter();
 
-eventEmitter.on('testEvent', obj => {
+eventEmitter.on('testEvent', (obj) => {
   console.log(obj);
 });
 
@@ -953,16 +969,18 @@ Módulo Default - HTTP
 ```javascript
 import http from 'http';
 
-http.createServer((req, res) => {
-  if ((req.method === 'GET') && (req.url === '/teste')) {
-    res.write('GET /teste executado com sucesso!'); // Responde na tela para o usuário
-  } else {
-    res.write('Hello Word');
-  }
+http
+  .createServer((req, res) => {
+    if (req.method === 'GET' && req.url === '/teste') {
+      res.write('GET /teste executado com sucesso!'); // Responde na tela para o usuário
+    } else {
+      res.write('Hello Word');
+    }
 
-  res.statusCode = 200;
-  res.end();
-}).listen(8080);
+    res.statusCode = 200;
+    res.end();
+  })
+  .listen(8080);
 ```
 
 ### Aula 6 - Ferramentas para consumo de endpoints
@@ -1046,15 +1064,389 @@ Eu me equivoquei Denner, o ideal é fazer algo paliativo como vc fez realmente.
 Tutor Odivaney Ramos 08:08 PM 
 https://www.it-swarm.dev/pt/node.js/como-enviar-numeros-inteiros-nos-parametros-de-consulta-no-servico-nodejs-express/1042501448/
 
+#### Rotas do Express
+
+Caracteres especiais na rota:
+
+```javascript
+// index.js
+
+import express from 'express';
+
+const app = express();
+
+// Pega todos os tipos de requisições do método HTTP e retorna a mesma callback
+app.all('/testeAll', (req, res) => {
+  res.send(req.method);
+});
+
+// Ultimo caracter é opcional, exemplo: test
+app.get('/teste?', (_, res) => {
+  res.send('/teste?');
+});
+
+// Ultimo caracter pode repetir várias vezes, ex: testeeeee
+app.get('/teste+', (_, res) => {
+  res.send('/teste+');
+});
+
+// Pode inserir qualquer coisa depois do "one", que ele cairá na rota "one"
+app.get('/one*blue', (_, res) => {
+  res.send(req.path);
+});
+
+// Tudo dentro do () é tratado como unidade
+app.post('/test(ing)?', (_, res) => {
+  res.send('/test(ing)?');
+});
+
+// Utilizar expressões regulares. No caso, qualquer string contenhar a palavra "red"
+app.get(/.*red$/, (_, res) => {
+  res.send('/.*red$/');
+});
+
+app.list(3000, () => {
+  console.log('API Started');
+});
+```
+
+Parâmetros na rota:
+
+```javascript
+// index.js
+
+import express from 'express';
+
+const app = express();
+
+// É preciso avisar ao Express que queremos utilizar JSON no envio do Boddy
+app.use(express.json());
+
+app.get('testParam/:id', (req, res) => {
+  res.send(req.params.id);
+});
+
+app.get('testParam/:id/:a?', (req, res) => {
+  res.send(req.params.id + ' ' + req.params.a);
+});
+
+// Parâmetro NEXT, serve para passar para a próxima função callback
+app.get(
+  'testMultipleHandlers',
+  (req, res, next) => {
+    console.log('Callback 1');
+    next();
+  },
+  (req, res) => {
+    console.log('Callback 2');
+    // É preciso fechar a requisição
+    res.end(); // Se não tem resposta
+    res.send('bla bla'); // Se tem resposta
+  }
+);
+
+// Com Array
+const callback1 = (req, res) => {
+  console.log('Callback1');
+  nex();
+};
+
+function callback2(req, res) {
+  console.log('Callback2');
+  nex();
+}
+
+const callback3 = (req, res) => {
+  console.log('Callback3');
+  res.end();
+};
+
+app.get('/testMultiplesHandlersArray', [callback1, callback2, callback3]);
+
+app.list(3000, () => {
+  console.log('API Started');
+});
+```
+
+Parâmetros via Query na rota: É feito a partir de um ponto de interrogação, assim ele não faz parte da rota obrigatório. Sendo possível capturar em formato JSON. Ex:
+
+`http://localhost:3000/testQuery?nome=joao&email=joao@gmail.com&...`
+
+```javascript
+// index.js
+
+import express from 'express';
+
+const app = express();
+
+// É preciso avisar ao Express que queremos utilizar JSON no envio do Boddy
+app.use(express.json());
+
+app.get('testQuery', (req, res) => {
+  res.send(req.query);
+});
+
+app.list(3000, () => {
+  console.log('API Started');
+});
+```
+
+Route do ExpressJS: Rotas que irão responder no mesmo endereço, mudando somente o tipo/verbo do método HTTP, podem ser agrupadas numa mesma rota. Devem ser definidas.
+
+```javascript
+// index.js
+
+import express from 'express';
+
+const app = express();
+
+// É preciso avisar ao Express que queremos utilizar JSON no envio do Boddy
+app.use(express.json());
+
+app
+  .route('/testRoute')
+  .get((req, res) => {
+    res.send('/testRoute GET');
+  })
+  .post((req, res) => {
+    res.send('/testRoute POST');
+  })
+  .delete((req, res) => {
+    res.send('/testRoute DELETE');
+  });
+// Poderia definir o método PUT, não é obrigatório, é possível definir só o que precisa
+
+app.list(3000, () => {
+  console.log('API Started');
+});
+```
+
 ### Aula 8 - Express: Middlewares, tratamento de erros e gravação de logs
+
+#### Middlewares
+
+Funções middlewares são funções que tem acesso ao seguinte:
+
+- Objeto de solicitação (req).
+- Objeto de resposta (res).
+- Próxima função de middleware no ciclo de requisição e resposta do aplicativo (next).
+
+Podem executar qualquer código, fazer mudanças nos objetos de solicitação, encerrar o ciclo e chamar a próxima função de middleware na pilha. Pode se uilizado para interceptar chamadas em específico ou qualquer chamada. São as funções que são executadas quando determinada rota é atingida.
+
+É possível criar middlewares a nível de aplicação e a nível do roteador. Rotas no nível de roteador, é possível agrupar requisições e coloca-las em outro arquivo.
+
+Nível de Aplicação:
+
+```javascript
+// index.js
+
+import express from 'express';
+
+const app = express();
+app.use(express.json());
+
+// Forma de executar um código, independente da requisição.
+app.use((req, res) => {
+  console.log(new Date());
+  next();
+});
+
+app.get((req, res) => {
+  res.send();
+});
+
+app.list(3000, () => {
+  console.log('API Started');
+});
+```
+
+Nível de Roteador:
+
+```javascript
+// carrosRouter.js
+
+import express from 'express';
+
+const router = express.Router();
+// router.use(express.json());
+
+router.get('/', (req, res) => {
+  console.log('GET /carros');
+  res.send('GET /carros');
+});
+
+router.get('/precos', (req, res) => {
+  console.log('GET /carros/precos');
+  res.send('GET /carros/precos');
+});
+
+export default router;
+```
+
+```javascript
+// index.js
+
+import express from 'express';
+import carrosRouter from './carrosRouter.js';
+
+const app = express();
+app.use(express.json());
+
+app.use('/carros', carrosRouter);
+
+app.list(3000, () => {
+  console.log('API Started');
+});
+```
+
+#### Tratamento de erros
+
+Tratamento de erros é uma parte muito importante de uma API, pois um erro pode ser originário de vários pontos. É importante que a API seja capaz de se recuperar de um erro e informar adequadamente ao usuário o que ocorreu. O Express faz um tratamento padrão caso nenhum outro tenha sido especificado.
+
+Caso o erro tenha sido gerado a partir de um código assíncrono e deseja utilizar o tratamento padrão, é preciso passar o erro para o "next".
+
+O Express permite que o desenvolvedor escreve as próprias funções para tratamento de erro, basta adicionar um quarto parâmetro na função de middleware.
+
+O middleware para tratamento de excessões deve ser configurado por ultimo na instância do Express, assim ele receberá erros gerados em todas as definições anteriores.
+
+É permitido que exista várias funções de tratamento de erros. Basta chama o "next" passando o objeto de erro como parâmetro, para envia o fluxo para próxima função. Neste caso a última função de tratamento deverá encerrar a requisição através do objeto de resposta.
+
+```javascript
+// index.js
+
+import express from 'express';
+
+const app = express();
+app.use(express.json());
+
+app.get('/', (req, res) => {
+  throw new Error('Error message test'); // Forçando um erro
+});
+
+// Em funções assincronas, se ocorrer um erro é preciso passar ele para o "next"
+// se não a requisição entra em looping, pois não há retorno
+// Sempre colocar o código em uma estrutura Try Catch
+app.post('/', async (req, res, next) => {
+  try {
+    throw new Error('Error message async');
+  } catch (err) {
+    next(err);
+  }
+});
+
+// Interessante usar ela final, se for utilizar em todas as funções a cima dela.
+app.use((err, req, res, next) => {
+  console.log('Erro 1');
+  next(err); // É preciso enviar o erro para a proxima função, se houver uma próxima
+});
+
+app.use((err, req, res, next) => {
+  console.log('Erro 2');
+  res.status(500).send('Ocorreu um erro, tente novamente mais tarde.');
+});
+
+app.list(3000, () => {
+  console.log('API Started');
+});
+```
+
+#### Gravação de logs
+
+Uma funcionalidade muito importante para uma API é a gravação de logs. Métodos do console nativo do JavaScript, como console.log, console.error, e console.warn, não é possível desativas seus logs, nem definir o nível de logs e são funções síncronas.
+
+Existem várias bibliotecas de log para o Node que tentam oferecer uma solução de log mais completa. Como por exemplo a **Winston**. Que é uma biblioteca que permite vários tipos de transporte (por exemplo, gravar em uma Banco de Dados), permite a configuração de formatos de log, até 7 níveis, que são:
+**error: 0**, **warn: 1**, **info: 2**, **http: 3**, **verbose: 4**, **debug: 5**, **silly: 6**.
+
+Para instalar a biblioteca **Winston**:
+
+> npm intall winston
+
+```javascript
+// index.js
+
+import express from 'express';
+import winston from 'winston';
+
+const app = express();
+app.use(express.json());
+
+const { combine, printf, label, timestamp } = winston.format;
+
+const myFormat = printf({
+  (level, message, label, timestamp) => {
+    return `${timestamp} [${label}] ${level}: ${message}`;
+  }
+});
+
+// Configurações do Winston
+const logger = winston.createLogger({
+  level: 'silly', // Definir o nível para imprimir
+  transports: [
+    new winston.transports.Console(), // Ir para o console
+    new winston.transports.File((filename: 'my-log.log')), // Ir para um arquivo
+  ],
+  format: combine(
+    label({ label: 'my-app'}),
+    timestamp(),
+    myFormat
+  )
+});
+
+logger.error('Error log');
+logger.warn('Warn log');
+logger.info('Info log');
+logger.verbose('Verbose log');
+logger.debug('Debug log');
+logger.silly('Silly log');
+
+logger.log('info', 'Hello with parameter!');
+
+app.list(3000, () => {
+  console.log('API Started');
+});
+```
+
+#### Servindo arquivos estáticos
+
+Uma funcionalidade interessante do Express é que ele permite que sejam servidos arquivos estáticos.
+
+O **express.static**, que recebe como parâmetro o diretório raiz de onde estão localizados os arquivos partindo da raiz da aplicação (documentação da aplicação ou arquivo pro front-end). Pode-se utilizar estes métodos várias vezes para servir vários diretórios. Também, pode-se criar um diretório virtual, passando como parâmetro o nome desejado.
+
+```javascript
+// index.js
+
+import express from 'express';
+
+const app = express();
+app.use(express.json());
+
+// Caminho do diretório que poderá ser acessado
+// No caso, diretório que contém imagens
+app.use(express.static('public'));
+
+// É possível definir que uma rota seja acessar por uma caminho virtual
+app.use('/images', express.static('public'));
+
+app.list(3000, () => {
+  console.log('API Started');
+});
+```
 
 ### Aula 9 - Apresentação da API e configurações iniciais
 
+{ ... }
+
 ### Aula 10 - Métodos POST e GET
+
+{ ... }
 
 ### Aula 11 - Métodos DELETE, PUT e PATCH
 
+{ ... }
+
 ### Aula 12 - Tratamento de erros, gravação de logs e validação de campos
+
+{ ... }
 
 ### Aula 13 - Cors e Documentação
 
