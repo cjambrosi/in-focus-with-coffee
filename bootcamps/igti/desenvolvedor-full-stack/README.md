@@ -12,7 +12,7 @@ Link: <https://www.igti.com.br>
   - [Aula 7 - JavaScript - Manipulação do DOM](#aula-7---javascript---manipulação-do-dom)
   - [Aula 8 - JavaScript - Formulários e Manipulação de Eventos](#aula-8---javascript---formulários-e-manipulação-de-eventos)
   - [Aula 9 - CRUD com HTML, CSS e JavaScript](#aula-9---crud-com-html-css-e-javascript)
-  - [Trabalho Prático do Módulo](#trabalho-prático-do-módulo)
+  - [Trabalho Prático](#trabalho-prático)
   - [Aula 10 - JavaScript moderno - Introdução](#aula-10---javascript-moderno---introdução)
   - [Aula 11 - JavaScript moderno - Manipulação de arrays](#aula-11---javascript-moderno---manipulação-de-arrays)
   - [Aula 12 - JavaScript moderno - Rest/Spread operator e destructuring](#aula-12---javascript-moderno---restspread-operator-e-destructuring)
@@ -35,16 +35,19 @@ Link: <https://www.igti.com.br>
   - [Aula 4 - Node.js Event Loop](#aula-4---nodejs-event-loop)
   - [Aula 5 - Módulos do Node.js](#aula-5---módulos-do-nodejs)
   - [Aula 6 - Ferramentas para consumo de endpoints](#aula-6---ferramentas-para-consumo-de-endpoints)
-  - [Trabalho Prático](#trabalho-prático)
-  - [Aula 7 - Express: instalação e rotas](#aula-7---express-instalação-e-rotas)
+  - [Trabalho Prático](#trabalho-prático-1)
+  - [Aula 7 - ExpressJS: instalação e rotas](#aula-7---expressjs-instalação-e-rotas)
+    - [Instalação](#instalação)
   - [Aula 8 - Express: Middlewares, tratamento de erros e gravação de logs](#aula-8---express-middlewares-tratamento-de-erros-e-gravação-de-logs)
   - [Aula 9 - Apresentação da API e configurações iniciais](#aula-9---apresentação-da-api-e-configurações-iniciais)
   - [Aula 10 - Métodos POST e GET](#aula-10---métodos-post-e-get)
   - [Aula 11 - Métodos DELETE, PUT e PATCH](#aula-11---métodos-delete-put-e-patch)
   - [Aula 12 - Tratamento de erros, gravação de logs e validação de campos](#aula-12---tratamento-de-erros-gravação-de-logs-e-validação-de-campos)
   - [Aula 13 - Cors e Documentação](#aula-13---cors-e-documentação)
-  - [Desafio](#desafio)
+  - [Desafio do Módulo](#desafio-do-módulo-1)
 - [Módulo 03](#módulo-03)
+  - [Trabalho Prático](#trabalho-prático-2)
+  - [Desafio do Módulo](#desafio-do-módulo-2)
 
 ## Módulo 01
 
@@ -146,7 +149,7 @@ Link: <https://www.igti.com.br>
 
   { ... }
 
-### Trabalho Prático do Módulo
+### Trabalho Prático
 
   { ... }
 
@@ -972,7 +975,76 @@ Postman: <https://www.postman.com/>
 
 { ... }
 
-### Aula 7 - Express: instalação e rotas
+### Aula 7 - ExpressJS: instalação e rotas
+
+O ExpressJS é um framework web para NodeJS. Com ele o desenvolvimento de aplicações é mais rápido e fácil em comparação ao desenvolvimento somente utilizando o NodeJS. Se autodescreve como um framework web rápido, flexível e minimalista para NodeJS.
+
+Facilita o roteamento (se refere a como os endpoints respondem as solicitações) da aplicação, baseado nos métodos HTTP e URLs.
+
+#### Instalação
+
+Criar projeto Node.
+
+> npm install -y
+
+Instalar o pacote do ExpressJS.
+
+> npm install express
+
+Para não ter que "restartar" toda a vez o servidor, instale o Nodemon.
+
+> npm install -g nodemon
+
+- Para executar:
+
+  > nodemon index.js
+
+Exemplo de utilização do ExpressJS:
+
+```javascript
+// index.js
+
+impot express from 'express';
+
+const app = express();
+
+app.post('/', (req, res) => {
+  const a = 3;
+  const a = 5;
+  res.send('Resultado: ' + soma(a, b));
+})
+
+function soma(a, b) {
+  const resultado = a + b;
+  return resultado;
+}
+
+app.get('/', (req, res) => {
+  res.send('GET | Hello World!');
+});
+
+app.listen(3000, () => {
+  console.log('API Started!');
+});
+```
+
+
+https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API/Using_Fetch
+
+
+Tutor Marco Ramos 07:46 PM 
+Oi Pedro.
+Abra o prompt de comando como administrador e digite:
+netstat -a -b
+aí voce vai ter o nome do processo que está utilizando tal porta e você pode finalizá-lo pelo Gerenciador de Tarefas.
+
+
+https://restfulapi.net/http-methods/
+
+Tutor Odivaney Ramos 08:07 PM 
+Eu me equivoquei Denner, o ideal é fazer algo paliativo como vc fez realmente.
+Tutor Odivaney Ramos 08:08 PM 
+https://www.it-swarm.dev/pt/node.js/como-enviar-numeros-inteiros-nos-parametros-de-consulta-no-servico-nodejs-express/1042501448/
 
 ### Aula 8 - Express: Middlewares, tratamento de erros e gravação de logs
 
@@ -986,6 +1058,10 @@ Postman: <https://www.postman.com/>
 
 ### Aula 13 - Cors e Documentação
 
-### Desafio
+### Desafio do Módulo
 
 ## Módulo 03
+
+### Trabalho Prático
+
+### Desafio do Módulo
