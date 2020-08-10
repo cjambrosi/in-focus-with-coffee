@@ -1450,6 +1450,14 @@ app.list(3000, () => {
 
 ### Aula 13 - Cors e Documentação
 
+Links úteis:
+
+- [Swagger Editor](https://editor.swagger.io)
+- [Swagger UI Express](https://www.npmjs.com/package/swagger-ui-express)
+  - Para acessar a documentação criada: <http://localhost:3000/doc>
+- [Cors](https://www.npmjs.com/package/cors)
+- [Winston](https://www.npmjs.com/package/winston)
+
 ### Desafio do Módulo
 
 ## Módulo 03
