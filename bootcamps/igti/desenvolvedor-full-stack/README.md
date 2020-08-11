@@ -1477,11 +1477,60 @@ Links úteis:
 
 ### Aula 01 - Ambiente de Desenvolvimento
 
+Plugins para o VSCode;
+
+- [Cmder]()
+- [Yarn]()
+- [ES7 React/Redux/GraphQL/React-Native snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)
+
+Comando **npx**: Utilizado pelo React para o "creat at app", faz download e instalação de pacotes que são necessãrios e depois remove esse pacote, não for mais utilizado. Diferente do npm.
+
+Comando **yarn**: Alternativa do NPM, padrão do React, promete ser mais rápido que o NPM.
+
+Instalando e configurando o Cmder no Windows.
+
 ### Aula 02 - Introdução ao React
+
+*A JavaScript **library** for bulding user interfaces*
+
+O React não se autointitula como **framework** e sim uma biblioteca front-end. Como uma parte que ajuda a manipular as interfaces de usuário.
+
+React é:
+
+- Declarativo:
+  - Componentes reativos com JSX.
+  - **Mais foco** no **estado** do app e **regras de negócio**
+  - **Menos foco** em manipulação do **DOM manual**
+  - Manipulação do DOM performática (Virtual DOM)
+- Baseado em componentes:
+  - Alto grau de **reutilização de código**
+- Manipulação performática do DOM
+- A manipulação do DOM é considerada uma operação **cara (lenta)**
+- O React só modifica o DOM nos locais que foram realmente alterados
+- Esse processo é mais conhecido com **Reconciliation** (algoritmo).
+
+Comandos inicais:
+
+- Criar um projeto React:
+
+  > npx create-react-app test-app
+
+- Criar um projeto React definindo as versão:
+
+  > npx create-react-app --scripts-version 3.4.1 test-app
+
+- Iniciar o servidor de desenvolvimento:
+
+  > yarn start
 
 ### Aula 03 - Desafio Guiado 1
 
+{ ... }
+
 ### Aula 04 - Classes com JavaScript
+
+```javascript
+```
 
 ### Aula 05 - Class Components – Parte 1
 
