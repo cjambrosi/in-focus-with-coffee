@@ -51,7 +51,20 @@ Link: <https://www.igti.com.br>
   - [Aula 13 - Cors e Documentação](#aula-13---cors-e-documentação)
   - [Desafio do Módulo](#desafio-do-módulo-1)
 - [Módulo 03](#módulo-03)
+  - [Aula 01 - Ambiente de Desenvolvimento](#aula-01---ambiente-de-desenvolvimento)
+  - [Aula 02 - Introdução ao React](#aula-02---introdução-ao-react)
+  - [Aula 03 - Desafio Guiado 1](#aula-03---desafio-guiado-1)
+  - [Aula 04 - Classes com JavaScript](#aula-04---classes-com-javascript)
+  - [Aula 05 - Class Components – Parte 1](#aula-05---class-components--parte-1)
+  - [Aula 06 - Class Components – Parte 2](#aula-06---class-components--parte-2)
+  - [Aula 07 - Ciclo de vida de Class Components](#aula-07---ciclo-de-vida-de-class-components)
+  - [Aula 08 - Desafio Guiado 2](#aula-08---desafio-guiado-2)
   - [Trabalho Prático](#trabalho-prático-2)
+  - [Aula 09 - Functional Components](#aula-09---functional-components)
+  - [Aula 010 - Desafio Guiado 3](#aula-010---desafio-guiado-3)
+  - [Aula 011 - React Hooks](#aula-011---react-hooks)
+  - [Aula 012 - Desafio Guiado 4](#aula-012---desafio-guiado-4)
+  - [Aula 013 - Desafio Guiado 4 (Continuação)](#aula-013---desafio-guiado-4-continuação)
   - [Desafio do Módulo](#desafio-do-módulo-2)
 
 ## Módulo 01
@@ -1462,6 +1475,36 @@ Links úteis:
 
 ## Módulo 03
 
+### Aula 01 - Ambiente de Desenvolvimento
+
+### Aula 02 - Introdução ao React
+
+### Aula 03 - Desafio Guiado 1
+
+### Aula 04 - Classes com JavaScript
+
+### Aula 05 - Class Components – Parte 1
+
+### Aula 06 - Class Components – Parte 2
+
+### Aula 07 - Ciclo de vida de Class Components
+
+### Aula 08 - Desafio Guiado 2
+
 ### Trabalho Prático
 
+Exemplo do professor: <https://codesandbox.io/s/react-barras-007z5>
+
+### Aula 09 - Functional Components
+
+### Aula 010 - Desafio Guiado 3
+
+### Aula 011 - React Hooks
+
+### Aula 012 - Desafio Guiado 4
+
+### Aula 013 - Desafio Guiado 4 (Continuação)
+
 ### Desafio do Módulo
+
+Exemplo do professor: <https://codesandbox.io/s/react-caixas-kf6mi?file=/src/App.js>
