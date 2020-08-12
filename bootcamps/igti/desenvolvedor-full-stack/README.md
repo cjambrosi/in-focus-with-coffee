@@ -1598,7 +1598,23 @@ Algumas observações:
 
 ### Aula 06 - Class Components – Parte 2
 
+Algumas observações:
+
+- Para trabalhar com estado, defina valores em **this.state**.
+- O estado deve ser alterado com **this.steState()**.
+- A comunicação entre componentes é feita com **props**.
+- O React implementa a estratégia de **one-way data flow (de cima para baixo)**.
+- Utilize a **prop onClick** para "**escutar**" o **clique** de botões com React.
+- Uma boa prática em **eventos** é utilizar **somente a referência** do método. Na **implementação do método**, utilize **arrow functions**.
+
 ### Aula 07 - Ciclo de vida de Class Components
+
+Algumas observações:
+
+- **componentDidMount**, executado **após** o primeiro render() e útil para requisições HTTP, por exemplo.
+- **componentDidUpdate**, executado **após** toda invocação de render() e útil para aplicação de "efeitos colaterais".
+- **componentWillUnmount**, executado **antes** do componente "morrer" e útil para finalização de objetos, como por exemplo **clearInterval**.
+- Para mais informações sobre os ciclos de vida de **Class Components** no React, acesse este [link](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram).
 
 ### Aula 08 - Desafio Guiado 2
 
