@@ -1529,10 +1529,72 @@ Comandos inicais:
 
 ### Aula 04 - Classes com JavaScript
 
+O React utiliza Class Components.
+
 ```javascript
+// File script.js
+
+class Animal {
+  // Pode ou não receber parâmetros
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} falando...`);
+  }
+}
+
+class Dog extends Animal {
+  constructor(name, type) {
+    super(name);
+
+    this.type = type;
+  }
+
+  // Sobreescrevendo método
+  speak() {
+    console.log(`${this.name} (${this.type}) latindo...`);
+  }
+}
+
+class Cat extends Animal {
+  constructor(name, type) {
+    super(name);
+
+    this.type = type;
+  }
+
+  // Sobreescrevendo método
+  speak() {
+    console.log(`${this.name} (${this.type}) latindo...`);
+  }
+}
+
+// Intanciando a classe para um novo Objeto
+const animal = new Animal('Totó');
+animal.speak();
+
+const dog = new Animal('Jack', 'Poodle');
+dog.speak();
+
+const cat = new Animal('Han Solo', 'Frajola');
+cat.speak();
 ```
 
 ### Aula 05 - Class Components – Parte 1
+
+Algumas observações:
+
+- Ao criar um componente, utilizar o atalho "**rcc** + **tab**", do plugin ES7 no VSCode.
+- **Class Components**, uma das formas de se criar components com React.
+- Toda **Class Components** herda da React.Component.
+- Se utilizar **construtor**, deve-se invorar o método **super();** na primeira instrução.
+- **Class Components** permitem a utilização de **atributos** e **métodos** assim como qualquer classe **JavaScript**.
+- O principal método de um **Class Component** é o **render()**.
+- No React, é utilizado **JSX** para a confecção da **interface gráfica**.
+- Para interpolar expressões JavaScript, utilize chaves **{}**.
+- É utilizado o **CSS Modules** nos projetos para utilizar o CSS nos componentes, porém existem outras formas.
 
 ### Aula 06 - Class Components – Parte 2
 
