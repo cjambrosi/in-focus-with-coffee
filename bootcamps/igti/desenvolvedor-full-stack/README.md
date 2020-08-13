@@ -1589,7 +1589,7 @@ Algumas observações:
 - Ao criar um componente, utilizar o atalho "**rcc** + **tab**", do plugin ES7 no VSCode.
 - **Class Components**, uma das formas de se criar components com React.
 - Toda **Class Components** herda da React.Component.
-- Se utilizar **construtor**, deve-se invorar o método **super();** na primeira instrução.
+- Se utilizar **construtor**, deve-se informar o método **super();** na primeira instrução.
 - **Class Components** permitem a utilização de **atributos** e **métodos** assim como qualquer classe **JavaScript**.
 - O principal método de um **Class Component** é o **render()**.
 - No React, é utilizado **JSX** para a confecção da **interface gráfica**.
@@ -1617,6 +1617,11 @@ Algumas observações:
 - Para mais informações sobre os ciclos de vida de **Class Components** no React, acesse este [link](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram).
 
 ### Aula 08 - Desafio Guiado 2
+
+Algumas observações:
+
+- Para monitorar inputs com React, é importante definir os atributos **value** (não usar **null** e **undefined**, usar **''**) e **onChange**.
+- Funções simples, comuns a diversos componentes, podem se situar em módulos isolados (**helpers**). Assim, são mais facilmente reaproveitados.
 
 ### Trabalho Prático
 
