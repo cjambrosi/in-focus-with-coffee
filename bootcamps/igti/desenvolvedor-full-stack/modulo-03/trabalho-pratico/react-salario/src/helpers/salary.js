@@ -37,9 +37,15 @@ function round(value) {
 }
 
 function getPercentFrom(oldValue, newValue) {
-  let discountValue = oldValue - newValue;
+  let discountValue = null; 
+  percentValue = 0;
 
-  return round((discountValue / oldValue) * 100.0);
+  if (oldValue && newValue) {
+    discountValue = oldValue - newValue;
+    percentValue = (discountValue / oldValue) * 100.0;
+  }
+
+  return round();
 }
 
 function calculateDiscountINSS(baseINSS) {
