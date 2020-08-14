@@ -1625,7 +1625,7 @@ Algumas observações:
 
 ### Trabalho Prático
 
-Exemplo do professor: <https://codesandbox.io/s/react-barras-007z5>
+Exemplo do efeito de barras: <https://codesandbox.io/s/react-barras-007z5>
 
 ### Aula 09 - Functional Components
 
