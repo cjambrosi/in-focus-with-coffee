@@ -1,0 +1,23 @@
+.progressiveBar {
+  align-items: center;
+  background: #fff;
+  display: flex;
+  height: 20px;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.progressiveBar .inssSalary {
+  background: #e67e22;
+  height: 20px;
+}
+
+.progressiveBar .irpfSalary {
+  background: #c0392b;
+  height: 20px;
+}
+
+.progressiveBar .netSalary {
+  height: 20px;
+  background: #16a085;
+}

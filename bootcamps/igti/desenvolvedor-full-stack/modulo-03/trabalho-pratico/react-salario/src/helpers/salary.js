@@ -37,15 +37,13 @@ function round(value) {
 }
 
 function getPercentFrom(oldValue, newValue) {
-  let discountValue = null; 
-  percentValue = 0;
+  let percentValue = 0;
 
   if (oldValue && newValue) {
-    discountValue = oldValue - newValue;
-    percentValue = (discountValue / oldValue) * 100.0;
+    percentValue = (oldValue / newValue) * 100.0;
   }
 
-  return round();
+  return round(percentValue);
 }
 
 function calculateDiscountINSS(baseINSS) {
@@ -106,10 +104,9 @@ function calculateSalaryFrom(fullSalary) {
 
   const netSalary = baseINSS - discountINSS - discountIRPF;
 
-  const discountINSSPercent = getPercentFrom(baseINSS, baseIRPF);
-  const discountIRPFPercent = getPercentFrom(baseIRPF, netSalary);
-  console.log('discountINSSPercent', discountINSSPercent);
-  console.log('discountINSSPercent', discountIRPFPercent);
+  const discountINSSPercent = getPercentFrom(discountINSS, baseINSS);
+  const discountIRPFPercent = getPercentFrom(discountIRPF, baseINSS);
+  const netSalaryPercent = getPercentFrom(netSalary, baseINSS);
 
   return {
     baseINSS,
@@ -117,6 +114,9 @@ function calculateSalaryFrom(fullSalary) {
     baseIRPF,
     discountIRPF,
     netSalary,
+    discountINSSPercent,
+    discountIRPFPercent,
+    netSalaryPercent,
   };
 }
 
