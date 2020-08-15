@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/in-focus-with-coffee/precache-manifest.9e96faa6972f5cb06a2dd2e097aa1baa.js"
+  "/in-focus-with-coffee/bootcamps/igti/desenvolvedor-full-stack/modulo-03/trabalho-pratico/react-salario/precache-manifest.9f834778573946ebf8d48d1987d1b675.js"
 );
 
 self.addEventListener('message', (event) => {
@@ -33,7 +33,7 @@ workbox.core.clientsClaim();
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/in-focus-with-coffee/index.html"), {
+workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/in-focus-with-coffee/bootcamps/igti/desenvolvedor-full-stack/modulo-03/trabalho-pratico/react-salario/index.html"), {
   
   blacklist: [/^\/_/,/\/[^/?]+\.[^/]+$/],
 });
