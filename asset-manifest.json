@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/in-focus-with-coffee/static/css/main.8eb43816.chunk.css",
+    "main.js": "/in-focus-with-coffee/static/js/main.1d2fb681.chunk.js",
+    "main.js.map": "/in-focus-with-coffee/static/js/main.1d2fb681.chunk.js.map",
+    "runtime-main.js": "/in-focus-with-coffee/static/js/runtime-main.d8c8a87e.js",
+    "runtime-main.js.map": "/in-focus-with-coffee/static/js/runtime-main.d8c8a87e.js.map",
+    "static/css/2.36020323.chunk.css": "/in-focus-with-coffee/static/css/2.36020323.chunk.css",
+    "static/js/2.e26ea692.chunk.js": "/in-focus-with-coffee/static/js/2.e26ea692.chunk.js",
+    "static/js/2.e26ea692.chunk.js.map": "/in-focus-with-coffee/static/js/2.e26ea692.chunk.js.map",
+    "index.html": "/in-focus-with-coffee/index.html",
+    "precache-manifest.9e96faa6972f5cb06a2dd2e097aa1baa.js": "/in-focus-with-coffee/precache-manifest.9e96faa6972f5cb06a2dd2e097aa1baa.js",
+    "service-worker.js": "/in-focus-with-coffee/service-worker.js",
+    "static/css/2.36020323.chunk.css.map": "/in-focus-with-coffee/static/css/2.36020323.chunk.css.map",
+    "static/css/main.8eb43816.chunk.css.map": "/in-focus-with-coffee/static/css/main.8eb43816.chunk.css.map",
+    "static/js/2.e26ea692.chunk.js.LICENSE.txt": "/in-focus-with-coffee/static/js/2.e26ea692.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d8c8a87e.js",
+    "static/css/2.36020323.chunk.css",
+    "static/js/2.e26ea692.chunk.js",
+    "static/css/main.8eb43816.chunk.css",
+    "static/js/main.1d2fb681.chunk.js"
+  ]
+}
