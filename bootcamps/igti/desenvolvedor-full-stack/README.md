@@ -1629,6 +1629,19 @@ Exemplo do efeito de barras: <https://codesandbox.io/s/react-barras-007z5>
 
 ### Aula 09 - Functional Components
 
+Algumas observações:
+
+- A **escrita** de **Functional Components** é mais **simples** que a de **Class Components**.
+- Em **Functional Components**, utiliza-se **funções**.
+- Em **Functional Components**, não há **state**. Utiliza-se somente **props** e se precisar de state utiliza-se **hooks**.
+- **Functional Components** são, em regra, somente leitura.
+- As **props** pode ser **desestruturadas** já nos parâmetros da **função**.
+- **Functional Components** retornam, em regra, JSX.
+- **Não** há o método **render()** em **Functional Components**.
+- Não há **ciclo de vida (lifecycle)** em **Functional Components**.
+- Não há **this** em **Functional Components**.
+- **Functional Components** utilizam **funções internas (closures)**.
+
 ### Aula 010 - Desafio Guiado 3
 
 ### Aula 011 - React Hooks
