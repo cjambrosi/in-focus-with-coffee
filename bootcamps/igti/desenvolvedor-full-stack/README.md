@@ -1644,6 +1644,10 @@ Algumas observações:
 
 ### Aula 010 - Desafio Guiado 3
 
+Algumas observações:
+
+- Em **Functional Components**, ao criar um componente utilizar o atalho "**rfc** + **tab**", do plugin ES7 no VSCode.
+
 ### Aula 011 - React Hooks
 
 ### Aula 012 - Desafio Guiado 4
