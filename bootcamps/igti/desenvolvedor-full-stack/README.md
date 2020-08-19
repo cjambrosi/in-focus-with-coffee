@@ -63,6 +63,8 @@ Link: <https://www.igti.com.br>
   - [Aula 09 - Functional Components](#aula-09---functional-components)
   - [Aula 010 - Desafio Guiado 3](#aula-010---desafio-guiado-3)
   - [Aula 011 - React Hooks](#aula-011---react-hooks)
+    - [O Hook useState](#o-hook-usestate)
+    - [O Hook useEffect](#o-hook-useeffect)
   - [Aula 012 - Desafio Guiado 4](#aula-012---desafio-guiado-4)
   - [Aula 013 - Desafio Guiado 4 (Continuação)](#aula-013---desafio-guiado-4-continuação)
   - [Desafio do Módulo](#desafio-do-módulo-2)
@@ -1649,6 +1651,35 @@ Algumas observações:
 - Em **Functional Components**, ao criar um componente utilizar o atalho "**rfc** + **tab**", do plugin ES7 no VSCode.
 
 ### Aula 011 - React Hooks
+
+Criado pelo Facebook no fim de 2018, fornece uma escrita ainda mais declarativa. Utiliza **closures** e **array destructuring**. Permite a utilização de **estado** em **Functional Components**.
+
+**React Hooks** não pretende (por enquanto, pelo menos) substituir totalmente as **Class Components**. Os principais Hooks são: **useState** e **useEffect**.
+
+#### O Hook useState
+
+- Visa substituir **this.state** e **this.setState** de **Class Components**.
+- Escrita mais declarativa.
+- Utiliza array destructuring.
+- Sintaxe padrão: `const [variable, setVariable] = useState(0);`
+- Na instrução acima, **variable** representa a **variável** de **estado**.
+- Na instrução acima, **setVariable** representa a **função atualizadora**.
+- As **funções atualizadoras** só atuam na **variável** ao qual **"apontam"**.
+- **Não** há mais **marge** de **this.setState**.
+
+#### O Hook useEffect
+
+- Visa substituir **componentDidMount**, **componentDidUpdate** e **componentWillUnmount** de **Class Components**.
+- Escrita mais declarativa.
+- Com **useEffect**, não há mais o conceito de montagem do componente (**mounting**) e atualização do componente (**updating**).
+- **useEffect** tem um **modelo mental diferente** dos métodos de **ciclo de vida** - a idéia de **useEffect** é **sincronizar** todo o DOM conforme os valores de **props** e **state**.
+- **useEffect** permite utilizar parâmetros extra, conhecido como array de dependências (dependency array ou, simplesmente, **deps**).
+  - Quando **não há** o parâmetro, **useEffect** é **invocado após qualquer inicialização - semelhante** a **componentDidUpdate**.
+  - Quando o **parâmetro** é **[]**, **useEffect** é **invocado apenas uma vez - semelhante** a **componentDidMount**.
+  - Quando o parâmetro está preenchido com **[state1, state2, etc], useEffect** é invocado **após** a **atualização** de **estado** de **qualquer uma das variáveis**.
+- Quando **há retorno na função - useEffect** utiliza o retorno para **eliminar recursos - semelhante** ao **componentWillUnmount**.
+
+Referência de boa prática para o uso de **useEffect** com **async**: <https://www.robinwieruch.de/react-hooks-fetch-data>
 
 ### Aula 012 - Desafio Guiado 4
 
