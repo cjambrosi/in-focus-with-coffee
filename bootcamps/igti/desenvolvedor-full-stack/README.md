@@ -61,12 +61,12 @@ Link: <https://www.igti.com.br>
   - [Aula 08 - Desafio Guiado 2](#aula-08---desafio-guiado-2)
   - [Trabalho Prático](#trabalho-prático-2)
   - [Aula 09 - Functional Components](#aula-09---functional-components)
-  - [Aula 010 - Desafio Guiado 3](#aula-010---desafio-guiado-3)
-  - [Aula 011 - React Hooks](#aula-011---react-hooks)
+  - [Aula 10 - Desafio Guiado 3](#aula-10---desafio-guiado-3)
+  - [Aula 11 - React Hooks](#aula-11---react-hooks)
     - [O Hook useState](#o-hook-usestate)
     - [O Hook useEffect](#o-hook-useeffect)
-  - [Aula 012 - Desafio Guiado 4](#aula-012---desafio-guiado-4)
-  - [Aula 013 - Desafio Guiado 4 (Continuação)](#aula-013---desafio-guiado-4-continuação)
+  - [Aula 12 - Desafio Guiado 4](#aula-12---desafio-guiado-4)
+  - [Aula 13 - Desafio Guiado 4 (Continuação)](#aula-13---desafio-guiado-4-continuação)
   - [Desafio do Módulo](#desafio-do-módulo-2)
 
 ## Módulo 01
@@ -1644,13 +1644,13 @@ Algumas observações:
 - Não há **this** em **Functional Components**.
 - **Functional Components** utilizam **funções internas (closures)**.
 
-### Aula 010 - Desafio Guiado 3
+### Aula 10 - Desafio Guiado 3
 
 Algumas observações:
 
 - Em **Functional Components**, ao criar um componente utilizar o atalho "**rfc** + **tab**", do plugin ES7 no VSCode.
 
-### Aula 011 - React Hooks
+### Aula 11 - React Hooks
 
 Criado pelo Facebook no fim de 2018, fornece uma escrita ainda mais declarativa. Utiliza **closures** e **array destructuring**. Permite a utilização de **estado** em **Functional Components**.
 
@@ -1681,9 +1681,9 @@ Criado pelo Facebook no fim de 2018, fornece uma escrita ainda mais declarativa.
 
 Referência de boa prática para o uso de **useEffect** com **async**: <https://www.robinwieruch.de/react-hooks-fetch-data>
 
-### Aula 012 - Desafio Guiado 4
+### Aula 12 - Desafio Guiado 4
 
-### Aula 013 - Desafio Guiado 4 (Continuação)
+### Aula 13 - Desafio Guiado 4 (Continuação)
 
 ### Desafio do Módulo
 
