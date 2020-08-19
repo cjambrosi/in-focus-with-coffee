@@ -1683,6 +1683,11 @@ Referência de boa prática para o uso de **useEffect** com **async**: <https://
 
 ### Aula 12 - Desafio Guiado 4
 
+Visto de novidade:
+
+- **new Set()**: Estrutura que simula **conjutos**, e uma característica dos conjuntos, é que os elementos não podem se repetir. O **Set()** verifica isso automaticamente, porém pode não ser 100% confiável.
+- Em **SPAs**, é uma boa pratica evitar o **submit** dos **forms**, utilizando o **event.preventDefault()**.
+
 ### Aula 13 - Desafio Guiado 4 (Continuação)
 
 ### Desafio do Módulo
