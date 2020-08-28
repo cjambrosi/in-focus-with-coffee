@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import { studentModel } from '../modules/studentModule';
+import { studentModel } from '../modules/studentModule.js';
 
 
 const DATA_BASE = 'grades';

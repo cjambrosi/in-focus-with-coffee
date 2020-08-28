@@ -1,6 +1,5 @@
 import express from 'express';
-import mongoose from 'mongoose';
-import studentRouter from './routes/studentRouter.js'
+import { studentRouter } from './routes/studentRouter.js';
 
 const app = express();
 
