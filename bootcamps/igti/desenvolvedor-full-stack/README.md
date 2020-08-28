@@ -68,6 +68,24 @@ Link: <https://www.igti.com.br>
   - [Aula 12 - Desafio Guiado 4](#aula-12---desafio-guiado-4)
   - [Aula 13 - Desafio Guiado 4 (Continuação)](#aula-13---desafio-guiado-4-continuação)
   - [Desafio do Módulo](#desafio-do-módulo-2)
+- [Módulo 04](#módulo-04)
+  - [Aula 01 - MongoDB: Instalação, banco de dados e coleções](#aula-01---mongodb-instalação-banco-de-dados-e-coleções)
+    - [Instalação no Windows](#instalação-no-windows)
+    - [Principais Comandos](#principais-comandos)
+  - [Aula 02 - MongoDB: Inserir Documentos (Create)](#aula-02---mongodb-inserir-documentos-create)
+  - [Aula 03 - MongoDB: Consultar Documentos (Retrieve)](#aula-03---mongodb-consultar-documentos-retrieve)
+  - [Aula 04 - CRUD no MongoDB (Update)](#aula-04---crud-no-mongodb-update)
+  - [Aula 05 - MongoDB: Exclusão Documentos (Delete)](#aula-05---mongodb-exclusão-documentos-delete)
+  - [Aula 06 - MongoDB: Comandos em Massa (BulkWrite)](#aula-06---mongodb-comandos-em-massa-bulkwrite)
+  - [Aula 07 - MongoDB: índices, modelagens e agregações](#aula-07---mongodb-índices-modelagens-e-agregações)
+  - [Aula 08 - MongoDB Atlas](#aula-08---mongodb-atlas)
+  - [Aula 09 - Mongoose](#aula-09---mongoose)
+  - [Aula 10 - API CRUD com Mongloose](#aula-10---api-crud-com-mongloose)
+  - [Trabalho Prático](#trabalho-prático-3)
+  - [Aula 11 - Git (Parte 1)](#aula-11---git-parte-1)
+  - [Aula 12 - Git (Parte 2)](#aula-12---git-parte-2)
+  - [Aula 13 - Heroku](#aula-13---heroku)
+  - [Desafio do Módulo](#desafio-do-módulo-3)
 
 ## Módulo 01
 
@@ -1695,3 +1713,543 @@ Visto de novidade:
 ### Desafio do Módulo
 
 Exemplo do professor: <https://codesandbox.io/s/react-caixas-kf6mi?file=/src/App.js>
+
+## Módulo 04
+
+### Aula 01 - MongoDB: Instalação, banco de dados e coleções
+
+Tipos de Bancos de Dados
+
+- SQL: Relacional, processamento de transações, concorrência, consistência e baixa latência.
+- NoSQL (Not Only SQL): Não relacional, alta performance, alta escalabilidade.
+
+Sempre ficar atento ao Teorema de CAP.
+
+Sobre o MongoDB:
+
+- Escrito em C++.
+- Alta Disponibilidade.
+- Alta escalabilidade.
+- Não possui schema definido.
+- Não é relacional.
+- Sua estrutura básica:
+  - Banco de dados.
+  - Coleções, ao invés de Tabelas.
+  - Documentos, ao invés de Linhas.
+  - Campos, ao invés de Colunas.
+
+O MongoDB armazena os dados em formatdo de **JSON**, mas internamente é convertido para binário, chamado de **BSON**. Ex:
+
+```json
+{
+  titulo: "Curso de Bootcamp",
+  autor: "Bruno Teixeira",
+  ano: 2019
+  categoria: ["Romance", "Biografia"]
+}
+```
+
+#### Instalação no Windows
+
+Acesse o site do MongoDB: <https://www.mongodb.com/>. Escolha a opção gratuita **Commynity Serve** para download.
+
+Na instalação:
+
+- Escolha entre as opções *Complete* e *Custom*;
+- Decida entre criar um usuário ou usuário de rede (padrão);
+- Verificar se a opção de instalação do *MongoDB Compass* está marcada, caso necessite da instalação;
+- Configurar o MongoDB nas *Variáveis de Ambeinte*:
+  - Pegar o caminho da pata */bin* e inserir no Path do Usuário:
+  
+    `C:\Program Files\MongoDB\Server\4.4\bin`
+  
+  - Para conferir se deu certo, abra o terminal e digite:
+
+    > mongo --version
+
+#### Principais Comandos
+
+Inicializar o servidor do MongoDB:
+
+> mongod
+
+Definir o local que será armazenado a base dados:
+
+> mongod --dbpath "CAMINHO"
+
+- Também usado para iniciar o bando de dados já criado.
+
+Deixando executando o servidor, abra outro terminal e acesse o servidor com o comando:
+
+> mongo -host localhost:27017
+
+- A porta pode variar.
+
+Lista dos principais comandos do MongoDB no Banco de Dados:
+
+> db.help()
+
+Visualizar todas as bases existentes no servidor local:
+
+> show dbs
+
+Para ver qual base você está no momento:
+
+> db
+
+Para Criar/Acessar uma base de dados:
+
+> use grades
+
+- Quando executado, ele já muda para o banco, ou seja, qualquer alteração vai ocorrer no banco de dados criado ou acessado.
+
+Porém o MongoDB só cria essa base depois que é inserido uma coleção e um documento na base. Exemplo para iserir um documento:
+
+> db.student.insert({ "name": "Bruce" })
+
+- Agora é possível verificar a base a criada:
+
+  > show dbs
+
+  ou
+
+  > db
+
+Excluir uma base de dados:
+
+- Mudar para a base desejada:
+
+  > use grades
+
+- Exclusão;
+
+  > db.dropDatabase()
+
+- Se rodar o comando "db", ainda irá mostrar a base, mas porque ela está em cash. Para verificar realmente a exclusão, use "show dbs".
+
+Comando para criar uma Coleção (**Collection**):
+
+> db.createCollection("NOME_DA_COLEÇÃO", {}) // db.createCollection("student", {})
+
+- Também é possivel passar parâmetros opcionais. Como por exemplo, limitar que a coleção terá uma quatidade limite a quantidade de documentos ou em MBytes (espaço). Se limitado o tamanho da coleção, quando chegar ao limite de documentos o MongoDB se encarregar de inserir os novos registros e excluir os mais antigos (muito utilizado em coleções de log).
+
+Verificar as coleções que a base possui:
+
+> show collections
+
+Outra forma de criar coleção é inserindo um documento. Se a coleção para o documento não existir, o MongoDB criará automaticamente.
+
+> db.stutends.insert({ "name": "Bruce" }) // db.NOME_DA_COLEÇÃO
+
+Excluir coleção da base de dads:
+
+> db.stutends.drop()
+
+Criar uma coleção *capped*, muito utilizada para logs (obrigatóriamente é preciso passar um tamanho):
+
+> db.createCollection("log", {capped: true, size: 1024, max: 10})
+
+### Aula 02 - MongoDB: Inserir Documentos (Create)
+
+Inserir apenas **um** objeto na Coleção:
+
+> db.COLLECTION.insertOne({ name: "Maria dos Anjos" }); // db.student.insertOne({name: "Maria dos Anjos"});
+
+Inserir **multiplos** documentos na Coleção:
+
+```mongodb
+db.student.insertMany([
+  { name: "Marco Antônio", subject: "Matematica", type: "Trabalho Prático", value: 15.4 },
+  { name: "Ana Maria Silva", subject: "Português", type: "Prova Final", value: 23.8 }
+]);
+
+/**
+db.COLLECTION.insertMany([{...}, {...}, ...]);
+**/
+```
+
+Inserir **um** ou **mais** documentos de uma só vez:
+
+```mongodb
+// 1 documento
+db.student.insert({ name: "Pedro Augusto", subject: "História"});
+
+// 1 ou Mais documentos
+db.student.insert([
+  { name: "Pedro Augusto", subject: "História", type: "Trabalho Prático", value: 17.5 },
+  { name: "Claudia Romualdo", subject: "Quimica", type: "Prova Final", value: 28.5 },
+]);
+```
+
+O **insertOne** e o **insertMany** retornam o *ObjectId* do objeto/documento inserido no seu *response*. Já o **insert** trás quantos registros foram afetados na inserção do objeto/documento (*WriteResult*) ou trás o *BulkWriteResult*.
+
+### Aula 03 - MongoDB: Consultar Documentos (Retrieve)
+
+Trazer toda a estrutura de uma coleção:
+
+> db.COLLECTION.find(); // db.student.find();
+
+Definir quais dados trazer de uma coleção:
+
+> db.COLLECTION.find(query, projection); // db.student.find({}, {_id: 0, name: 1, value: 1});
+
+- **query**: Quais documentos
+- **projection**: Quais campos trazer dos documentos
+  - Atribuindo um campo com **0** não retornará o campo. Atribuir o campo com **1**, retornará o campo.
+
+É possível limitar a quantidade de registros para trazer com **limit()** (utiliza a ordenação normal do documentos na base). Exemplo:
+
+> db.COLLECTION.find(query, projection).limit(3); // db.student.find({}, {_id: 0, name: 1, value: 1}).limit(3);
+
+Também é possível pular alguns documentos na consulta com o **skip()**. Exemplo:
+
+> db.COLLECTION.find(query, projection).limit(3).skip(1); // db.student.find({}, {_id: 0, name: 1, value: 1}).limit(3).skip(1);
+
+Para ordenar os resultados que retornam, é usado o comando **sort()**. Exemplo:
+
+> db.COLLECTION.find(query, projection).sort({ propriedade: valor }); // db.student.find({}, {_id: 0, name: 1, value: 1}).sort({ name: 1 });
+
+- **1**: Ordem Crescente
+- **-1**: Ordem Decrescente
+
+Trazer de uma forma mais organizada (JSON) os campos da base:
+
+> db.COLLECTION.find(query, projection).pretty(); // db.student.find({}, {_id: 0, name: 1, value: 1}).pretty();
+
+- Ou:
+
+  > db.COLLECTION.find().pretty(); // db.student.find().pretty();
+
+Trazer o primeiro registro. Se não definir nada, ele irá trazer o primeiro registro da ordenação natural.
+
+> db.COLLECTION.findOne(query, projection); // db.student.findOne();
+
+Utilizando **querys**:
+
+> db.COLLECTION.find({ propriedade: valor }, { proriedade: valor }).pretty(); // db.student.find({ subject: "Quimica" }, { _id: 0 }).pretty();
+
+- Com Opeadores Lógicos:
+
+  - **$and**: Retorna todos os documentos que atendem aos critérios definidos para o comando.
+
+    > db.student.find({ $and:[{subject: "Quimica"}, {type: "Prova Final"}] }, { _id: 0 }).pretty();
+
+  - **$not**: Negar o critério da query.
+
+  - **$nor**: Retorna todos os documentos que não atendem ao(s) critério(s).
+
+    > db.student.find({ $nor:[{subject: "Quimica"}, {type: "Prova Final"}] }, { _id: 0 }).pretty();
+
+  - **$or**: Rertorna os dados para se um ou outro dos critérios forem verdadeiros.
+
+    > db.student.find({ $or:[{subject: "Quimica"}, {subject: "Matematica"}] }, { _id: 0 }).pretty();
+
+- Com Opeadores de Comparação:
+
+  - **$eq**: "Igual".
+
+    > //db.student.find({ value: {$eq: 20} }, { _id: 0 }).pretty();
+
+  - **$gt**: "Maior quê".
+
+    > db.student.find({ value: {$gt: 20} }, { _id: 0 }).pretty();
+
+  - **$gte**: "Maior quê ou igual".
+
+    > //db.student.find({ value: {$gt: 20} }, { _id: 0 }).pretty();
+
+  - **$in**: "Dentro dê".
+
+    > db.student.find({ subject: {$in: ["Quimica", "Matematica"]} }, { _id: 0 }).pretty();
+
+  - **$lt**: "Menor quê".
+
+    > //db.student.find({ value: {$gt: 20} }, { _id: 0 }).pretty();
+
+  - **$lte**: "Menor quê ou igual".
+
+    > //db.student.find({ value: {$gt: 20} }, { _id: 0 }).pretty();
+
+  - **$ne**: "Não é igual a quê".
+
+    > //db.student.find({ value: {$gt: 20} }, { _id: 0 }).pretty();
+
+  - **$nin**: "Não pertence".
+
+    > //db.student.find({ value: {$gt: 20} }, { _id: 0 }).pretty();
+
+### Aula 04 - CRUD no MongoDB (Update)
+
+O **updateOne** é utilizado para atualizar um registro na base, se existir dois iguais, ele irá atualizar a primeira ocorrência encontrada.
+
+> db.COLLECTION.updateOne(query, update, options); // db.student.updateOne({name: "Ana Maria Silva", subject: "Português"}, {$set: {type: "Trabalho Prático"}});
+
+- Com operado **$inc**. Incrementa um valor, a partir de um valor já existente no campo.
+
+  > db.student.updateOne({name: "Pedro Augusto", subject: "História"}, {$inc: {value: 10}});
+
+O comando **updateMany** é utilizado para atualizar vários registros, a partir de condições:
+
+> db.COLLECTION.updateMany(query, update, options); // db.student.updateMany({subject: "Matematica", type: "Trabalho Prático"}, {$inc: {value: 2}});
+
+- Inserir um novo campo para todos os documentos da base:
+
+  > db.COLLECTION.updateMany({}, update, options); // db.student.updateMany({}, {$currentDate: {lastModified: true, timestamp: {$type: "timestamp"} }}); // $$NOW: Pegar a hora corrente. $$CLUSTER_TIME: hora em formato timestamp
+
+- Remover um campo de um documento:
+
+  > db.COLLECTION.updateMany({}, update, {$unset: {propriedade: 1}); // db.student.updateMany({}, {$unset: {timestamp: 1}});
+
+Substituir todo o documento por um novo:
+
+> db.COLLECTION.replaceOne(query, update, options); // db.student.replaceOne({_id: ObjectId("5f45b99c2b7505ef7acd20ac")}, {name: "Lucas Pereira", subject: "Fisica", type: "Prova Final", value: 15.4, lastModified: "$$NOW"});
+
+### Aula 05 - MongoDB: Exclusão Documentos (Delete)
+
+Deletar apenas **um** documento da coleção. Caso exista outro documento igual, ele irá excluir a primeira ocorrência.
+
+> db.COLLECTION.deleteOne(query (filter)); // db.student.deleteOne({ _id: ObjectId("5f45bd7d2b7505ef7acd20b1") });
+
+Deletar **mais** de um documento da coleção, com base na query (filtro).
+
+> db.COLLECTION.deleteMany(query (filter)); // db.student.deleteMany({ subject: "Fisica" });
+
+### Aula 06 - MongoDB: Comandos em Massa (BulkWrite)
+
+> db.COLLECTION.bulkWrite(ARRAY_DE_COMANDOS, options);
+
+```mongdb
+db.student.bulkWrite([
+  {
+    insertOne: {
+      "document": {
+        name: "Thiago Peixoto",
+        subject: "Fisica",
+        type: "Prova Final",
+        value: 16,
+        timestamp: new Date()
+      }
+    }
+  },
+  {
+    insertOne: {
+      "document": {
+        name: "Patricia Rafaela",
+        subject: "Portugues",
+        type: "Trabalho Prático",
+        value: 21.3,
+        timestamp: new Date()
+      }
+    }
+  },
+  {
+    updateOne: {
+      "filter": {
+        name: "Marco Antônio"
+      },
+      "update": {
+        $set: {
+          subject: "Historia"
+        }
+      }
+    }
+  },
+  {
+    deleteOne: {
+      "filter": {
+        name: "Pedro Augusto",
+        subject: "História",
+        type: "Trabalho Prático"
+      }
+    }
+  },
+  {
+    replaceOne: {
+      "filter": {
+        _id: ObjectId("5f45bbe12b7505ef7acd20ae")
+      },
+      "replacement": {
+        name: "Tais Bernardes",
+        subject: "Fisica",
+        type: "Trabalho Prático",
+        value: 12,
+        lastModified: new Date()
+      }
+    }
+  }
+]);
+```
+
+### Aula 07 - MongoDB: índices, modelagens e agregações
+
+**Índices** são estruturas de dados especiais que armazenam informações de **um ou vários** campos com uma determinada **ordenação**. O **índice** pode **facilitar e melhor o desempenho** de uma busca por documentos na coleção, ou seja, se por exemplo se tivermos uma coleção com milhares de documentos e já tivermos um índice ordenados de uma forma específica, o desempenho na busca por esta ordenação será melhor.
+
+Porém, deve-se tomar cuidado na criação de muitos índices, pois poderá piorar o desempenho nas operações de inserção, atualização e etc. Já que o MongoDB precisará atualizar esses índices.
+
+Consultar todos os índices da coleção:
+
+> db.COLLECTION.getIndexes(); // db.student.getIndexes();
+
+Criar um índice:
+
+> db.COLLECTION.createIndex({ campo: TIPO_DE_OPERACAO }); // db.student.createIndex({ name: -1 }); // Criar o indice name de forma descendente da coleção student
+
+Excluir o index (Por padrão, não é possível excluir o index **id** e se fosse, não é recomendado):
+
+> db.COLLECTION.dropIndex({ NOME_DO_INDEX }); // db.student.dropIndex({ "name_-1" });
+
+- Além do nome do index, é possível excluir pelo nome do campo:
+
+  > db.COLLECTION.dropIndex({ NOME_DO_CAMPO: OPERACAO }); // db.student.dropIndex({ name: -1 });
+
+- Também é possível excluir todos os index de uma vez (exceto o id):
+
+  > db.COLLECTION.dropIndexes(); // db.student.dropIndexes();
+
+**Índex Textuais**, são índex que permitem pesquisar por textos dentro de determinado campo do tipo **stringo**. Exemplo:
+
+> db.COLLECTION.createIndex({ campo: "TIPO" }); // db.livros.dropIndex({ biografia: "text" });
+
+- Para usar o index textual criado:
+
+  > db.COLLECTION.find({ $OPERAÇÃO: {$OPERADOR: "TEXTOS"} }); // db.livros.find({ $text: {$search: "escritora jornalista"} }, { _id: 1 });
+
+- Dentro do deste **find**, é possível ver a precisão da busca. Por exemplo: "Quais documentos tem maior quantidade de palavras (match de palavras)":
+
+  > db.COLLECTION.find({ $OPERAÇÃO: {$OPERADOR: "TEXTOS"} }); // db.livros.find({ $text: {$search: "escritora jornalista"} }, { _id: 1, score: {$meta: "textScore"} }).sort({ score: {$meta: "textScore"} });
+
+Tipos de Relacionamentos
+
+Os tipos de relacionamentos, nos ajudam a saber qual a estratégia de modelagem no MongoDB.
+
+- **Um para Um:** Ex: Um veículo tem uma única placa.
+- **Um para Muitos:** Ex: Uma cidade pode ter vários CEPs.
+- **Muitos para Muitos:** Ex: Um aluno pode ter várias e uma aula pode ter vários alunos.
+
+Tipos de Modelagem no MongoDB
+
+Referências (ou normalizados)
+
+Onde podemos referenciar documentos de uma coleção em outras pelo seu ID, semelhante ao modelo relacional de banco de dados.
+
+Documentos embutidos (ou não-normalizados)
+
+Onde teremos todas as referências englobadas dentro de um único documento, ou seja, internalizaremos a relação dentro de um documento. Essa relação é vista como sub-documento, pois os dados são embutidos em arrays ou campos do documento.
+
+Agregação no MongoDB
+
+Agregação é quando se agrupa documentos e é eplicado um determinado cálculo em algum valor.
+
+Comando para fazer uma agregação no MongoDB:
+
+- **$project:** Quais campos trazer na consulta.
+- **$match:** "Filter", agregue todos os documentos que contenham esses valores.
+- **$group:** Agrupar todos os campos trazidos, trazer um totalizador, por exemplo, somando um campo específico. Existem outros operadores matemáticos..
+- **$sort:** Ordenar os campos trazidos. Ex: { campo1: 1, campo2: -1 }
+- **$skip:** Pular uma determinada quantia de registros.
+- **$limit:** Limitar a quantidade de registros para trazer.
+
+```mongodb
+db.COLLECTION.aggregate([
+  {
+    $project: {}
+  },
+  {
+    $match: { campo: "X" }
+  },
+  {
+    $group: {
+      _id: "$campo",
+      total: {
+        $sum: "$campo"
+      }
+    }
+  },
+  {
+    $sort: {}
+  },
+  {
+    $skip: N
+  },
+  {
+    $limit: N
+  }
+]);
+```
+
+- Exemplo:
+
+  ```mongodb
+  db.student.aggregate([
+    {
+      $match: { subject: "Historia" }
+    },
+    {
+      $group: {
+        _id: {
+          subject: "$subject",
+          type: "$type"
+        },
+        total: {
+          $sum: "$value"
+        }
+      }
+    },
+    {
+      $sort: { _id: 1 }
+    }
+  ]);
+  ```
+
+Comandos auxiliares de agregação
+
+Contar quantidade de documentos através de um "filtr/query".
+
+> db.COLLECTION.count(query); // db.student.count({ subject: "Matematica" });
+
+- Outro exemplo:
+
+  > db.student.count({ subject: "Matematica", value: { $gt: 10 } });
+
+Semelhante ao **count**, a diferença é que possui maior precisão.
+
+> db.COLLECTION.countDocuments(query); // db.student.countDocuments({ subject: "Matematica" });
+
+O comando **distinct**, encontra os valores distintos para um campo especificado em uma única coleção ou visualização e retorna os resultados em uma matriz.
+
+> db.COLLECTION.distinct(campo, query); // db.student.distinct("subject", {});
+
+### Aula 08 - MongoDB Atlas
+
+MongoDB Atlas
+
+É uma plataforma autogerenciável, possuindo rotinas de monitoramente, dimensionamento, alertas e provisionamento da base de dados. Também possui recursos como backup, recuperação de dados e talvez o mais importante, a escalabilidade, ou seja, o dimensionamento e provisonamento da base dados, a medida que vai crescendo.
+
+Existem três tipos serviços:
+
+- Sandbox: Serviço gratuito para hospedagem com bancos de dados de até 500MB.
+- Shared: Serviço para armazenar base dados com limite de 8GB
+- Dedicated: Serviço para armazenar base dados, possuindo uma forma de armazenamento diferente das demais. Com **as a Service** (paga pelo que usa), limite de conexões, transações por segundo e etc.
+
+### Aula 09 - Mongoose
+
+Mongoose é um módulo do NodeJS para possibilitar a conexão com o MongoDB. Fornecendo solução baseada em schemas para modelar os dados da aplicação.
+
+### Aula 10 - API CRUD com Mongloose
+
+{ ... }
+
+### Trabalho Prático
+
+{ ... }
+
+### Aula 11 - Git (Parte 1)
+
+### Aula 12 - Git (Parte 2)
+
+### Aula 13 - Heroku
+
+### Desafio do Módulo
+
+<!-- https://github.com/brunoaugustoteixeira/Aula2_4 -->
+<!-- https://github.com/ghosh/awesome-podcasts/blob/master/podcasts.json -->
