@@ -1,0 +1,34 @@
+.flexRowBlock {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.borderBlock {
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+.taxesBlock {
+  margin-left: 10px;
+}
+
+.yieldText {
+  color: #689f38;
+  font-weight: 700;
+}
+
+.devaluesText {
+  color: #e64a19;
+  font-weight: 700;
+}
+
+.yieldTaxes {
+  color: #0277bd;
+  font-weight: 400;
+}
+
+.devaluesTaxes {
+  color: #e64a19;
+  font-weight: 400;
+}
