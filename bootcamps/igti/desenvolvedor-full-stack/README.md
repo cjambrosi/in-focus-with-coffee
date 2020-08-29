@@ -2245,7 +2245,201 @@ Mongoose é um módulo do NodeJS para possibilitar a conexão com o MongoDB. For
 
 ### Aula 11 - Git (Parte 1)
 
+Versionamento de Código, é uma forma de gerar versões de uma aplicação.
+
+Instalação e Configuração no Winodws
+
+Fazer uma configuração **global**:
+
+> git config --system
+
+Fazer uma configuração para um usuário em específico:
+
+> git config --global
+
+Fazer uma configuração em um projeto específico:
+
+> git config --local
+
+Listar o caminho de configuração do Git:
+
+> git config --list --show-origin
+
+Configuração de Identidade:
+
+> git config --global user.name "username"
+
+Configuração de e-Mail:
+
+> git config -- global user.name "email@"
+
+Listar as configuração existentes de usuário:
+
+> git config --list
+
+Definir um editor:
+
+> git config --global core.editor "caminho_do_editor"
+
+Configurar as cores das linhas:
+
+> git config --global color.ui auto
+> git config --global color.diff auto
+
+Configurar cores do Status:
+
+> git config --global color.status auto
+
+Configurar cores de Branchs:
+
+> git config --global color.branch auto
+
+Fluxo de Operação
+
+Comandos
+
+Versionar o projeto com o Git:
+
+> git init
+
+Transferir todos os arquivos para a área temporária (HEAD):
+
+> git add *
+
+Transferir todos os arquivos **modificados** para a área temporária:
+
+> git add -A
+
+Transferir todos os arquivos e um extensão específica para a área temporária:
+
+> git add *.js
+
+Verifica a *Stage area*:
+
+> git status
+
+Abrir ferramenta gráfica padrão do Git:
+
+> gitk
+
+Commitar e adicionar o cometário:
+
+> git commit -m "Comentario"
+
+Alterar o comentário do último commit:
+
+> git commit --amend -m "Novo comentario"
+
+Visualizar as *branchs* disponíveis:
+
+> git branch
+
+Criar uma branch:
+
+> git checkout -b "nome-da-branch"
+
+Mudar para outra branch (Se tiver arquivos para commitar, não será possível mudar de branch):
+
+> git checkout nome-da-branch
+
+Realizar merge com alterações de outra branch:
+
+> git merge nome-da-branch
+
+Deletar uma branch local:
+
+> git branch -D nome-da-branch
+
+Verificar os logs do Git:
+
+> git log
+
 ### Aula 12 - Git (Parte 2)
+
+Variáveis Globais de Ambiente do NodeJs
+
+As variáveis de ambiente do NodeJS servem para colocarmos informações que não queremos commitar remotamente junto com a aplicação, porém às usamos localmente para desenvolvimento.
+
+Utilizando as variáveis:
+
+- Podemos passar como parâmetro as variáveis no terminal, antes de subirmos o servidor do NodeJS. Ex:
+
+> USERDB="user" node index.js
+
+```javascript
+// File: index.js
+
+console.log(process.env.USERDB);
+```
+
+- Porém existe um pacote do NodeJS para facilitar a utilização dessas variáveis, chamado de **[dotenv](https://www.npmjs.com/package/dotenv)**. Onde podemos inserir em um arquivo, todas as variáveis de ambiente que a aplicação utiliza.
+
+  - Para instalar o pacote:
+
+    > npm install dotenv
+
+  - Instalado o pacote, na raiz da aplicação, crie o arquivo **.env** e no **index.js** (na aplicação) importe o pacote **doteenv**. Exemplo:
+
+    ```javascript
+    // File: .env
+
+    USERDB=user
+    PWDDB=password
+    PORT=3000
+    ```
+
+    ```javascript
+    // File: index.js
+
+    require('dotenv').config();
+
+    console.log(process.env.USERDB);
+    ```
+  
+  - Também é possível definir quando carregar as variáveis salvas no arquivo e quando usar as passadas na linha de comando. Exemplo:
+
+    ```javascript
+    // File: index.js
+
+    if (process.env.PRD !== 'true') require('dotenv').config();
+
+    console.log(process.env.USERDB);
+    ```
+
+    - No terminal devo setar a variável como **false** ou **true**. Exemplo:
+
+      > PRD=false node index.js // Vai pegar do a variável USERDB do arquivo
+      > PRD=true USERDB=user node index.js Vai pegar do a variável USERDB passado no terminal
+
+  - Para outros usuários utilizarem a sua aplicação e saberem que é preciso inserir as informações de ambiente deles, ao invés de comitar o arquivo ".env", deve-se criar o arquivo **.sample-env**. Aonde serão definidas as mesmas variáveis, porém sem valor. Exemplo:
+
+    ```javascript
+    // File: .sample-env
+
+    USERDB=
+    PWDDB=
+    PORT=
+    ```
+
+    - O arquivo **.env** deve ser mapeado no arquivo **.gitignore**. As pessoas que utilizarão a aplicação, devem fazer uma cópia do arquivo **.sample-env**, renomear para **.env** e inserir as suas informações para funcionar a aplicação.
+
+Principais comando di Git utilizados para repositórios remotos
+
+Adicionar/Referenciar um repositório remoto a um repositório local:
+
+> git remote add origin endereço_remoto
+
+Enviar o código local para o respositório remoto recém criado:
+
+> git push -u origin master
+
+Atualizar os branchs locais a partir dos branchs remotos:
+
+> git fetch
+
+Atualizar os codigos locais a partir dos branchs remotos:
+
+> git pull
 
 ### Aula 13 - Heroku
 
