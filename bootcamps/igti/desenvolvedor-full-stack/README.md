@@ -1079,22 +1079,19 @@ app.listen(3000, () => {
 });
 ```
 
-
 https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API/Using_Fetch
 
-
-Tutor Marco Ramos 07:46 PM 
+Tutor Marco Ramos 07:46 PM
 Oi Pedro.
 Abra o prompt de comando como administrador e digite:
 netstat -a -b
 aí voce vai ter o nome do processo que está utilizando tal porta e você pode finalizá-lo pelo Gerenciador de Tarefas.
 
-
 https://restfulapi.net/http-methods/
 
-Tutor Odivaney Ramos 08:07 PM 
+Tutor Odivaney Ramos 08:07 PM
 Eu me equivoquei Denner, o ideal é fazer algo paliativo como vc fez realmente.
-Tutor Odivaney Ramos 08:08 PM 
+Tutor Odivaney Ramos 08:08 PM
 https://www.it-swarm.dev/pt/node.js/como-enviar-numeros-inteiros-nos-parametros-de-consulta-no-servico-nodejs-express/1042501448/
 
 #### Rotas do Express
@@ -1511,7 +1508,7 @@ Instalando e configurando o Cmder no Windows.
 
 ### Aula 02 - Introdução ao React
 
-*A JavaScript **library** for bulding user interfaces*
+_A JavaScript **library** for bulding user interfaces_
 
 O React não se autointitula como **framework** e sim uma biblioteca front-end. Como uma parte que ajuda a manipular as interfaces de usuário.
 
@@ -1755,14 +1752,15 @@ Acesse o site do MongoDB: <https://www.mongodb.com/>. Escolha a opção gratuita
 
 Na instalação:
 
-- Escolha entre as opções *Complete* e *Custom*;
+- Escolha entre as opções _Complete_ e _Custom_;
 - Decida entre criar um usuário ou usuário de rede (padrão);
-- Verificar se a opção de instalação do *MongoDB Compass* está marcada, caso necessite da instalação;
-- Configurar o MongoDB nas *Variáveis de Ambeinte*:
-  - Pegar o caminho da pata */bin* e inserir no Path do Usuário:
-  
+- Verificar se a opção de instalação do _MongoDB Compass_ está marcada, caso necessite da instalação;
+- Configurar o MongoDB nas _Variáveis de Ambeinte_:
+
+  - Pegar o caminho da pata _/bin_ e inserir no Path do Usuário:
+
     `C:\Program Files\MongoDB\Server\4.4\bin`
-  
+
   - Para conferir se deu certo, abra o terminal e digite:
 
     > mongo --version
@@ -1845,7 +1843,7 @@ Excluir coleção da base de dads:
 
 > db.stutends.drop()
 
-Criar uma coleção *capped*, muito utilizada para logs (obrigatóriamente é preciso passar um tamanho):
+Criar uma coleção _capped_, muito utilizada para logs (obrigatóriamente é preciso passar um tamanho):
 
 > db.createCollection("log", {capped: true, size: 1024, max: 10})
 
@@ -1881,7 +1879,7 @@ db.student.insert([
 ]);
 ```
 
-O **insertOne** e o **insertMany** retornam o *ObjectId* do objeto/documento inserido no seu *response*. Já o **insert** trás quantos registros foram afetados na inserção do objeto/documento (*WriteResult*) ou trás o *BulkWriteResult*.
+O **insertOne** e o **insertMany** retornam o _ObjectId_ do objeto/documento inserido no seu _response_. Já o **insert** trás quantos registros foram afetados na inserção do objeto/documento (_WriteResult_) ou trás o _BulkWriteResult_.
 
 ### Aula 03 - MongoDB: Consultar Documentos (Retrieve)
 
@@ -1891,7 +1889,7 @@ Trazer toda a estrutura de uma coleção:
 
 Definir quais dados trazer de uma coleção:
 
-> db.COLLECTION.find(query, projection); // db.student.find({}, {_id: 0, name: 1, value: 1});
+> db.COLLECTION.find(query, projection); // db.student.find({}, {\_id: 0, name: 1, value: 1});
 
 - **query**: Quais documentos
 - **projection**: Quais campos trazer dos documentos
@@ -1899,22 +1897,22 @@ Definir quais dados trazer de uma coleção:
 
 É possível limitar a quantidade de registros para trazer com **limit()** (utiliza a ordenação normal do documentos na base). Exemplo:
 
-> db.COLLECTION.find(query, projection).limit(3); // db.student.find({}, {_id: 0, name: 1, value: 1}).limit(3);
+> db.COLLECTION.find(query, projection).limit(3); // db.student.find({}, {\_id: 0, name: 1, value: 1}).limit(3);
 
 Também é possível pular alguns documentos na consulta com o **skip()**. Exemplo:
 
-> db.COLLECTION.find(query, projection).limit(3).skip(1); // db.student.find({}, {_id: 0, name: 1, value: 1}).limit(3).skip(1);
+> db.COLLECTION.find(query, projection).limit(3).skip(1); // db.student.find({}, {\_id: 0, name: 1, value: 1}).limit(3).skip(1);
 
 Para ordenar os resultados que retornam, é usado o comando **sort()**. Exemplo:
 
-> db.COLLECTION.find(query, projection).sort({ propriedade: valor }); // db.student.find({}, {_id: 0, name: 1, value: 1}).sort({ name: 1 });
+> db.COLLECTION.find(query, projection).sort({ propriedade: valor }); // db.student.find({}, {\_id: 0, name: 1, value: 1}).sort({ name: 1 });
 
 - **1**: Ordem Crescente
 - **-1**: Ordem Decrescente
 
 Trazer de uma forma mais organizada (JSON) os campos da base:
 
-> db.COLLECTION.find(query, projection).pretty(); // db.student.find({}, {_id: 0, name: 1, value: 1}).pretty();
+> db.COLLECTION.find(query, projection).pretty(); // db.student.find({}, {\_id: 0, name: 1, value: 1}).pretty();
 
 - Ou:
 
@@ -1926,71 +1924,71 @@ Trazer o primeiro registro. Se não definir nada, ele irá trazer o primeiro reg
 
 Utilizando **querys**:
 
-> db.COLLECTION.find({ propriedade: valor }, { proriedade: valor }).pretty(); // db.student.find({ subject: "Quimica" }, { _id: 0 }).pretty();
+> db.COLLECTION.find({ propriedade: valor }, { proriedade: valor }).pretty(); // db.student.find({ subject: "Quimica" }, { \_id: 0 }).pretty();
 
 - Com Opeadores Lógicos:
 
-  - **$and**: Retorna todos os documentos que atendem aos critérios definidos para o comando.
+  - **\$and**: Retorna todos os documentos que atendem aos critérios definidos para o comando.
 
-    > db.student.find({ $and:[{subject: "Quimica"}, {type: "Prova Final"}] }, { _id: 0 }).pretty();
+    > db.student.find({ \$and:[{subject: "Quimica"}, {type: "Prova Final"}] }, { \_id: 0 }).pretty();
 
-  - **$not**: Negar o critério da query.
+  - **\$not**: Negar o critério da query.
 
-  - **$nor**: Retorna todos os documentos que não atendem ao(s) critério(s).
+  - **\$nor**: Retorna todos os documentos que não atendem ao(s) critério(s).
 
-    > db.student.find({ $nor:[{subject: "Quimica"}, {type: "Prova Final"}] }, { _id: 0 }).pretty();
+    > db.student.find({ \$nor:[{subject: "Quimica"}, {type: "Prova Final"}] }, { \_id: 0 }).pretty();
 
-  - **$or**: Rertorna os dados para se um ou outro dos critérios forem verdadeiros.
+  - **\$or**: Rertorna os dados para se um ou outro dos critérios forem verdadeiros.
 
-    > db.student.find({ $or:[{subject: "Quimica"}, {subject: "Matematica"}] }, { _id: 0 }).pretty();
+    > db.student.find({ \$or:[{subject: "Quimica"}, {subject: "Matematica"}] }, { \_id: 0 }).pretty();
 
 - Com Opeadores de Comparação:
 
-  - **$eq**: "Igual".
+  - **\$eq**: "Igual".
 
-    > //db.student.find({ value: {$eq: 20} }, { _id: 0 }).pretty();
+    > //db.student.find({ value: {\$eq: 20} }, { \_id: 0 }).pretty();
 
-  - **$gt**: "Maior quê".
+  - **\$gt**: "Maior quê".
 
-    > db.student.find({ value: {$gt: 20} }, { _id: 0 }).pretty();
+    > db.student.find({ value: {\$gt: 20} }, { \_id: 0 }).pretty();
 
-  - **$gte**: "Maior quê ou igual".
+  - **\$gte**: "Maior quê ou igual".
 
-    > //db.student.find({ value: {$gt: 20} }, { _id: 0 }).pretty();
+    > //db.student.find({ value: {\$gt: 20} }, { \_id: 0 }).pretty();
 
-  - **$in**: "Dentro dê".
+  - **\$in**: "Dentro dê".
 
-    > db.student.find({ subject: {$in: ["Quimica", "Matematica"]} }, { _id: 0 }).pretty();
+    > db.student.find({ subject: {\$in: ["Quimica", "Matematica"]} }, { \_id: 0 }).pretty();
 
-  - **$lt**: "Menor quê".
+  - **\$lt**: "Menor quê".
 
-    > //db.student.find({ value: {$gt: 20} }, { _id: 0 }).pretty();
+    > //db.student.find({ value: {\$gt: 20} }, { \_id: 0 }).pretty();
 
-  - **$lte**: "Menor quê ou igual".
+  - **\$lte**: "Menor quê ou igual".
 
-    > //db.student.find({ value: {$gt: 20} }, { _id: 0 }).pretty();
+    > //db.student.find({ value: {\$gt: 20} }, { \_id: 0 }).pretty();
 
-  - **$ne**: "Não é igual a quê".
+  - **\$ne**: "Não é igual a quê".
 
-    > //db.student.find({ value: {$gt: 20} }, { _id: 0 }).pretty();
+    > //db.student.find({ value: {\$gt: 20} }, { \_id: 0 }).pretty();
 
-  - **$nin**: "Não pertence".
+  - **\$nin**: "Não pertence".
 
-    > //db.student.find({ value: {$gt: 20} }, { _id: 0 }).pretty();
+    > //db.student.find({ value: {\$gt: 20} }, { \_id: 0 }).pretty();
 
 ### Aula 04 - CRUD no MongoDB (Update)
 
 O **updateOne** é utilizado para atualizar um registro na base, se existir dois iguais, ele irá atualizar a primeira ocorrência encontrada.
 
-> db.COLLECTION.updateOne(query, update, options); // db.student.updateOne({name: "Ana Maria Silva", subject: "Português"}, {$set: {type: "Trabalho Prático"}});
+> db.COLLECTION.updateOne(query, update, options); // db.student.updateOne({name: "Ana Maria Silva", subject: "Português"}, {\$set: {type: "Trabalho Prático"}});
 
-- Com operado **$inc**. Incrementa um valor, a partir de um valor já existente no campo.
+- Com operado **\$inc**. Incrementa um valor, a partir de um valor já existente no campo.
 
-  > db.student.updateOne({name: "Pedro Augusto", subject: "História"}, {$inc: {value: 10}});
+  > db.student.updateOne({name: "Pedro Augusto", subject: "História"}, {\$inc: {value: 10}});
 
 O comando **updateMany** é utilizado para atualizar vários registros, a partir de condições:
 
-> db.COLLECTION.updateMany(query, update, options); // db.student.updateMany({subject: "Matematica", type: "Trabalho Prático"}, {$inc: {value: 2}});
+> db.COLLECTION.updateMany(query, update, options); // db.student.updateMany({subject: "Matematica", type: "Trabalho Prático"}, {\$inc: {value: 2}});
 
 - Inserir um novo campo para todos os documentos da base:
 
@@ -2002,13 +2000,13 @@ O comando **updateMany** é utilizado para atualizar vários registros, a partir
 
 Substituir todo o documento por um novo:
 
-> db.COLLECTION.replaceOne(query, update, options); // db.student.replaceOne({_id: ObjectId("5f45b99c2b7505ef7acd20ac")}, {name: "Lucas Pereira", subject: "Fisica", type: "Prova Final", value: 15.4, lastModified: "$$NOW"});
+> db.COLLECTION.replaceOne(query, update, options); // db.student.replaceOne({\_id: ObjectId("5f45b99c2b7505ef7acd20ac")}, {name: "Lucas Pereira", subject: "Fisica", type: "Prova Final", value: 15.4, lastModified: "\$\$NOW"});
 
 ### Aula 05 - MongoDB: Exclusão Documentos (Delete)
 
 Deletar apenas **um** documento da coleção. Caso exista outro documento igual, ele irá excluir a primeira ocorrência.
 
-> db.COLLECTION.deleteOne(query (filter)); // db.student.deleteOne({ _id: ObjectId("5f45bd7d2b7505ef7acd20b1") });
+> db.COLLECTION.deleteOne(query (filter)); // db.student.deleteOne({ \_id: ObjectId("5f45bd7d2b7505ef7acd20b1") });
 
 Deletar **mais** de um documento da coleção, com base na query (filtro).
 
@@ -2096,7 +2094,7 @@ Criar um índice:
 
 Excluir o index (Por padrão, não é possível excluir o index **id** e se fosse, não é recomendado):
 
-> db.COLLECTION.dropIndex({ NOME_DO_INDEX }); // db.student.dropIndex({ "name_-1" });
+> db.COLLECTION.dropIndex({ NOME*DO_INDEX }); // db.student.dropIndex({ "name*-1" });
 
 - Além do nome do index, é possível excluir pelo nome do campo:
 
@@ -2112,11 +2110,11 @@ Excluir o index (Por padrão, não é possível excluir o index **id** e se foss
 
 - Para usar o index textual criado:
 
-  > db.COLLECTION.find({ $OPERAÇÃO: {$OPERADOR: "TEXTOS"} }); // db.livros.find({ $text: {$search: "escritora jornalista"} }, { _id: 1 });
+  > db.COLLECTION.find({ $OPERAÇÃO: {$OPERADOR: "TEXTOS"} }); // db.livros.find({ $text: {$search: "escritora jornalista"} }, { \_id: 1 });
 
 - Dentro do deste **find**, é possível ver a precisão da busca. Por exemplo: "Quais documentos tem maior quantidade de palavras (match de palavras)":
 
-  > db.COLLECTION.find({ $OPERAÇÃO: {$OPERADOR: "TEXTOS"} }); // db.livros.find({ $text: {$search: "escritora jornalista"} }, { _id: 1, score: {$meta: "textScore"} }).sort({ score: {$meta: "textScore"} });
+  > db.COLLECTION.find({ $OPERAÇÃO: {$OPERADOR: "TEXTOS"} }); // db.livros.find({ $text: {$search: "escritora jornalista"} }, { \_id: 1, score: {$meta: "textScore"} }).sort({ score: {$meta: "textScore"} });
 
 Tipos de Relacionamentos
 
@@ -2142,12 +2140,12 @@ Agregação é quando se agrupa documentos e é eplicado um determinado cálculo
 
 Comando para fazer uma agregação no MongoDB:
 
-- **$project:** Quais campos trazer na consulta.
-- **$match:** "Filter", agregue todos os documentos que contenham esses valores.
-- **$group:** Agrupar todos os campos trazidos, trazer um totalizador, por exemplo, somando um campo específico. Existem outros operadores matemáticos..
-- **$sort:** Ordenar os campos trazidos. Ex: { campo1: 1, campo2: -1 }
-- **$skip:** Pular uma determinada quantia de registros.
-- **$limit:** Limitar a quantidade de registros para trazer.
+- **\$project:** Quais campos trazer na consulta.
+- **\$match:** "Filter", agregue todos os documentos que contenham esses valores.
+- **\$group:** Agrupar todos os campos trazidos, trazer um totalizador, por exemplo, somando um campo específico. Existem outros operadores matemáticos..
+- **\$sort:** Ordenar os campos trazidos. Ex: { campo1: 1, campo2: -1 }
+- **\$skip:** Pular uma determinada quantia de registros.
+- **\$limit:** Limitar a quantidade de registros para trazer.
 
 ```mongodb
 db.COLLECTION.aggregate([
@@ -2209,7 +2207,7 @@ Contar quantidade de documentos através de um "filtr/query".
 
 - Outro exemplo:
 
-  > db.student.count({ subject: "Matematica", value: { $gt: 10 } });
+  > db.student.count({ subject: "Matematica", value: { \$gt: 10 } });
 
 Semelhante ao **count**, a diferença é que possui maior precisão.
 
@@ -2304,7 +2302,7 @@ Versionar o projeto com o Git:
 
 Transferir todos os arquivos para a área temporária (HEAD):
 
-> git add *
+> git add \*
 
 Transferir todos os arquivos **modificados** para a área temporária:
 
@@ -2312,9 +2310,9 @@ Transferir todos os arquivos **modificados** para a área temporária:
 
 Transferir todos os arquivos e um extensão específica para a área temporária:
 
-> git add *.js
+> git add \*.js
 
-Verifica a *Stage area*:
+Verifica a _Stage area_:
 
 > git status
 
@@ -2330,7 +2328,7 @@ Alterar o comentário do último commit:
 
 > git commit --amend -m "Novo comentario"
 
-Visualizar as *branchs* disponíveis:
+Visualizar as _branchs_ disponíveis:
 
 > git branch
 
@@ -2383,9 +2381,9 @@ console.log(process.env.USERDB);
     ```javascript
     // File: .env
 
-    USERDB=user
-    PWDDB=password
-    PORT=3000
+    USERDB = user;
+    PWDDB = password;
+    PORT = 3000;
     ```
 
     ```javascript
@@ -2395,7 +2393,7 @@ console.log(process.env.USERDB);
 
     console.log(process.env.USERDB);
     ```
-  
+
   - Também é possível definir quando carregar as variáveis salvas no arquivo e quando usar as passadas na linha de comando. Exemplo:
 
     ```javascript
@@ -2443,7 +2441,83 @@ Atualizar os codigos locais a partir dos branchs remotos:
 
 ### Aula 13 - Heroku
 
+O **[Heroku](https://www.heroku.com)**, assim como o GitHub, é uma plataforma **as a service**, para hospedar aplicações em nuvem (PaaS). É possível termos integração contínua com o Heroku, ou seja, se fizermos um comit no GitHub, automaticamente é realizado um **deploy** na versão em "PRD" com a nova versão comitada.
+
+Uma das desvantagens do Heroku é a limitação de 500MB por conta para hospedagem de aplicação. E aplicação "dormece", ou seja, se não estiver em uso por tanto tempo ela para.
+
+Instalação do Heroku CLI no Windows.
+
+Para baixar, acesso o link: <https://www.heroku.com/developers>
+
+Selecione **Download and install** e escolha a versão referente ao Sistema Operacional.
+
+Depois de instalado, para realizar a implatação de uma aplicação é preciso fazer o login pelo terminal na plataforma, de maneira remota.
+
+> heroku login
+
+- Inserir posteriormente o usuário e senha.
+
+Para implantar:
+
+No diretório **raíz** da aplicação use o comando a baixo:
+
+> heroku create
+
+- Será definido um nome para aplicação no Heroku e define o endereço remoto.
+
+Para verificar os endereços remotos da aplicação:
+
+> git remote -v
+
+- Será informado os endereços referentes ao Heroku e de outra plataforma, por exemplo, o GitHub, caso existir.
+
+Para renomar a aplicação no Heroku:
+
+> heroku apps:rename NAME
+
+- Será renomeado o endereço da aplicação também.
+
+Para definir como o Heroku executará a aplicação, é preciso criar na **raíz** do projeto o arquivo chamado **Procfile** e nele inserir os comandos que o Heroku precisa executar quando subir alterações. Se o arquivo não for definido, o Heroku utilizará o **start** no package.json.
+
+- Exemplo:
+
+```javascript
+// File: Procfile
+
+web: node -r dotenv/config --experimental-modules app.js
+```
+
+Subir o código no repositório do Heroku:
+
+> git push heroku master
+
+- Quando subir o código, o Heroku irá realizar automaticamente o **build** e o **deploy** da aplicação.
+
+Para ver os logs do Heroku:
+
+> heroku logs --tail
+
+Se aplicação utilizar variáveis de ambiente, deve-se criá-las diretamente no Heroku, pois elas ficam num arquivo que não sobem junto a aplicação. Para criar as variaveis acesso o repositório da aplicação no Heroku, vá em _Settings_ e selecione _Reveal Config Vars_, e crie as variáveis.
+
+Se tiver usando um banco de dados, por exemplo o MongoDB, é preciso liberar os acessos aos IPs do Heroku para acessar a base de dados.
+
+Para realizar um "**redeploy**" ou reiniciar aplicação remota:
+
+> heroku restart
+
+Configurar o Heroku para realizar um deploy a partir do GitHub
+
+- Acessando a aplicação pela plataforma do Heroku, vá em deploy, em _Deplyment method_ escolha a opção **GitHub** e realize o login da conta no GitHub.
+
+- Selecione o repositório referente a aplicação e conecte.
+
+- Para realizar o deploy automatico, vá em _Automatic deploys_, escolha a brach que será usada e habilita o deploy automatico em _Enable Automatic Deploys_.
+
+- Para verificar os **"bulds"** feitos ou que estão sendo realizados, acesse a aba _Activity_.
+
 ### Desafio do Módulo
+
+{ ... }
 
 <!-- https://github.com/brunoaugustoteixeira/Aula2_4 -->
 <!-- https://github.com/ghosh/awesome-podcasts/blob/master/podcasts.json -->
