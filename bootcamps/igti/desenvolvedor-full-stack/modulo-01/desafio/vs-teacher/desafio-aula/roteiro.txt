@@ -1,0 +1,13 @@
+Roteiro - Desafio do Módulo 01 ✔
+=================================
+
+(✔) Fazer scaffolding do HTML, CSS e JavaScript
+(✔) Testar integração entre HTML, CSS e JavaScript
+(✔) Incluir referência ao Materialize CSS
+(✔) Montar interface com HTML e CSS 
+(✔) Colocar id's nos elementos HTML 
+(✔) Mapear id's no JavaScript 
+(✔) Implementar requisição HTTP para 
+   https://randomuser.me/api/?seed=javascript&results=100&nat=BR&noinfo 
+(✔) Criar funções necessárias para que o app
+   funcione

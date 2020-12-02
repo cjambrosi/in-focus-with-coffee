@@ -34,7 +34,7 @@ app.use('/account', accountsRouter);
 
 app.listen(3080, async () => {
   try {
-    await readFilex(global.fileName);
+    await readFile(global.fileName);
     global.logger.info('API Started');
   } catch (error) {
     const initialJson = {

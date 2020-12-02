@@ -1,0 +1,14 @@
+Checklist Segunda aula ✓
+
+(✓) Hands-on: Clone projeto front-end
+(✓) Hands-on: Deploy front-end Heroku
+(✓) Hands-on: Criação do banco no MongoDB Atlas
+(✓) Hands-on: Importação dos dados no banco
+(✓) Hands-on: Clone projeto back-end
+(✓) Hands-on: Implementação do modelo com o mongoose
+(✓) Hands-on: Implementação das rotas
+(✓) Hands-on: Pacote cors
+(✓) Hands-on: Merge branch com o master
+(✓) Hands-on: Deploy back-end Heroku
+(✓) Hands-on: Testes APIs
+( ) Hands-on EXTRA: Implementação da lógica de logs winston-mongodb

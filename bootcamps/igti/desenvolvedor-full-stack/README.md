@@ -103,15 +103,15 @@ Link: <https://www.igti.com.br>
 
 ### Aula 3 - Noções de HTML
 
-- Não é linguagem de progração e sim marcação, estrutura conteúdo.
+- Não é uma linguagem de progração e sim de marcação, estrutura o conteúdo.
 
-- Escrevemos de forma declarativa, ou seja, escreve o que tem que ser feito e o navegador se vira pra renderizar.
+- Escrevemos de forma declarativa, ou seja, escreve-se o que tem de ser feito e o navegador se vira pra renderizar.
 
 - Utilize sempre caminhos relativos em imagens, arquivos e etc (./ ../).
 
 ### Aula 4 - Noções de CSS
 
-- CSS Reset, geralmente os frameworks já estão configurados para isso, do contrário é recomendado fazer.
+- CSS Reset, geralmente os frameworks já estão configurados para isso, do contrário é recomendado realizar.
 
   - <https://meyerweb.com/eric/tools/css/reset>
 
@@ -146,8 +146,8 @@ Link: <https://www.igti.com.br>
 - Operador Ternário:
 
   ```javascript
-  var resposta = a > b ? 'Maior' : 'Menor';
-  var resposta = a > b ? 'Maior' : a < b ? 'Menor' : 'Igual';
+  var resposta = a > b ? "Maior" : "Menor";
+  var resposta = a > b ? "Maior" : a < b ? "Menor" : "Igual";
   ```
 
 - Uma função pode retornar mais de um valor, porém é preciso retornar um objeto com chave valor. Caso contrário é 1 ou nada (void).
@@ -164,18 +164,18 @@ Link: <https://www.igti.com.br>
 ### Aula 7 - JavaScript - Manipulação do DOM
 
 ```javascript
-var title = document.querySelector('h1'); // Se tiver mais de 1 elemento, só vai pegar 1
-title.textContent = 'Mudar texto';
+var title = document.querySelector("h1"); // Se tiver mais de 1 elemento, só pegará 1
+title.textContent = "Mudar texto";
 
-var peseronalDataArray = documento.querySelectorAll('.personal-data'); // Pega todos os elementos que tem a classe;
+var peseronalDataArray = documento.querySelectorAll(".personal-data"); // Pega todos os elementos que tem a classe
 console.log(peseronalDataArray);
 peseronalDataArray = Array.from(peseronalDataArray);
 console.log(peseronalDataArray);
 
 for (var i = 0; i < peseronalDataArray.length; i++) {
   var currentElement = peseronalDataArray[i];
-  currentElement.classList.add('classe-css');
-  currentElement.classList.remove('outra-classe-css');
+  currentElement.classList.add("classe-css");
+  currentElement.classList.remove("outra-classe-css");
 }
 ```
 
@@ -197,12 +197,12 @@ for (var i = 0; i < peseronalDataArray.length; i++) {
 
   ```javascript
   let a = 3,
-    b = 10,
-    c = 7;
+      b = 10,
+      c = 7;
   let str = `Meus números são ${a}, ${b} e ${c}`;
   ```
 
-- Boa prática usar _'use strict'_, no incio do arquivo em escopo de funções. Isso mostra mais erros caso ocorram e para a execução do script.
+- É uma boa prática utilizar _'use strict'_, no incio do arquivo ou em escopo de funções. Isso mostrará mais erros caso ocorram e irá parar a execução do script.
 
 - **var** tem escopo abrangente e **let** tem o escopo reduzido.
 
@@ -296,7 +296,7 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
   ```javascript
   // Encontrar primeira ocorrência
   const found = people.results.find((person) => {
-    return person.location.state === 'Minas Gerais';
+    return person.location.state === "Minas Gerais";
   });
   ```
 
@@ -305,7 +305,7 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
   ```javascript
   // Se encontrou algo de acordo com o critério | true/false
   const found = people.results.some((person) => {
-    return person.location.state === 'Amazonas';
+    return person.location.state === "Amazonas";
   });
   ```
 
@@ -314,7 +314,7 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
   ```javascript
   // Se todos form iguais ao critério
   const every = people.results.every((person) => {
-    return person.nat === 'BR';
+    return person.nat === "BR";
   });
   ```
 
@@ -344,15 +344,15 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
   ```javascript
   // Concatenar dois objetos
   const marriedMen = people.results.filter(
-    (person) => person.name.title === 'Mr'
+    (person) => person.name.title === "Mr"
   );
 
   const marriedWomen = people.results.filter(
-    (person) => person.name.title === 'Ms'
+    (person) => person.name.title === "Ms"
   );
 
-  const marriedPeople = [...marriedMen, ...marriedWomen, { msg: 'Oi' }];
-  console.log('marriedPeople', marriedPeople);
+  const marriedPeople = [...marriedMen, ...marriedWomen, { msg: "Oi" }];
+  console.log("marriedPeople", marriedPeople);
   ```
 
 - Operador **...(rest)** ou agrupar. Comum na utilização em funções, agrupando os parâmetros em um array. Sendo sua principal aplicação permitir funções com número infinito de parâmetros.
@@ -366,7 +366,7 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
   console.log(infiniteSum(1, 2, 3, 4, 5, 6, 20, 30, 50));
   ```
 
-- **Destructuring**. Facilita a escrita ao trabalhar com objetos, torna o código claro e também é possível utilizar a técnica de destructuring com arrays, usando [].
+- **Destructuring**: Facilita a escrita ao trabalhar com objetos, torna o código claro e também é possível utilizar a técnica de destructuring com arrays, usando [].
 
   ```javascript
   const first = people.results[0];
@@ -378,8 +378,8 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
   // Usando Destructuring
   const { username, password } = first.login;
 
-  console.log('username', username);
-  console.log('password', password);
+  console.log("username", username);
+  console.log("password", password);
   ```
 
 ### Aula 13 - Refatoração do projeto de CRUD
@@ -421,7 +421,7 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
 - setInterval(): É semelhante ao setTimeout(), mas repete a execução a cada X milissegundos. Pode ser cancelada com **clarInterval**, mas para isso é preciso guardar a referência em uma varável.
 
   ```javascript
-  const timer = document.querySelector('#timer');
+  const timer = document.querySelector("#timer");
   let count = 0;
 
   const interval = setInterval(() => {
@@ -455,24 +455,24 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
   - Vale a leitura sobre a bibliota **axios**.
 
   ```javascript
-  const userGitHub = fetch('https://api.github.com/users/cjambrosi');
-  console.log('promise:', userGitHub);
+  const userGitHub = fetch("https://api.github.com/users/cjambrosi");
+  console.log("promise:", userGitHub);
 
   // catch: captura quando da problema
   // then: captura deu certo
-  fetch('https://api.github.com/users/cjambrosi').then((resource) => {
-    console.log('Promise resolvida');
-    console.log('resource', resource);
+  fetch("https://api.github.com/users/cjambrosi").then((resource) => {
+    console.log("Promise resolvida");
+    console.log("resource", resource);
     resource.json().then((data) => {
-      console.log('data', data);
+      console.log("data", data);
       showData(data);
     });
   });
 
-  console.log('Depois resolvida');
+  console.log("Depois resolvida");
 
   const showData = (data) => {
-    const user = document.querySelector('#user');
+    const user = document.querySelector("#user");
     console.log(`${data.login} - ${data.name}`);
     user.textContent = `${data.login} - ${data.name}`;
   };
@@ -491,22 +491,22 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
   - Resolve parcialmente o problema do **callback heel**, ou seja, funções que eram passadas por parâmetros de outras funções (triângulo lateral).
 
   ```javascript
-  fetch('https://api.github.com/users/cjambrosi')
+  fetch("https://api.github.com/users/cjambrosi")
     .then((resource) => {
       resource.json().then((data) => {
-        console.log('data', data);
+        console.log("data", data);
         showData(data);
       });
     })
     .catch((error) => {
-      console.error('Erro na requisição');
+      console.error("Erro na requisição");
     });
 
   // Exemplo criação de Promise
   const divisionPromise = (a, b) => {
     return new Promise((resolve, reject) => {
       if (b === 0) {
-        reject('Não é possível dividr por 0');
+        reject("Não é possível dividr por 0");
       }
 
       resolve(a / b);
@@ -514,11 +514,11 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
   };
 
   divisionPromise(10, 2).then((result) => {
-    console.log('result', result);
+    console.log("result", result);
   });
   divisionPromise(10, 0)
     .then((result) => {
-      console.log('result', result);
+      console.log("result", result);
     })
     .catch((errorMessage) => {
       console.log(`Falha na divisão ${errorMessage}`);
@@ -542,7 +542,7 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
   const divisionPromise = (a, b) => {
     return new Promise((resolve, reject) => {
       if (b === 0) {
-        reject('Não é possível dividr por 0');
+        reject("Não é possível dividr por 0");
       }
 
       resolve(a / b);
@@ -553,7 +553,7 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
   const executeDivisionPromise = () => {
     divisionPromise(10, 0)
       .then((result) => {
-        console.log('result', result);
+        console.log("result", result);
       })
       .catch((errorMessage) => {
         console.log(`Falha na divisão ${errorMessage}`);
@@ -563,18 +563,18 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
 
   const executeDivisionPromiseAsyncAwait = async () => {
     const division = await divisionPromise(10, 2);
-    console.log('divisionAsync', division);
+    console.log("divisionAsync", division);
 
     const division2 = await divisionPromise(10, 0);
-    console.log('divisionAsync2', division2);
+    console.log("divisionAsync2", division2);
   };
   executeDivisionPromiseAsyncAwait();
 
   // Exemplo de Async com Fetch
   const doFetchAsync = async () => {
-    const res = await fetch('https://api.github.com/users/cjambrosi');
+    const res = await fetch("https://api.github.com/users/cjambrosi");
     const json = await res.json();
-    console.log('json', json);
+    console.log("json", json);
   };
   doFetchAsync();
   ```
@@ -718,7 +718,7 @@ Exemplos de importação/exportação com o CommonJS:
 ```javascript
 // File: operacoes.js
 
-const nome = 'Teste Exportação';
+const nome = "Teste Exportação";
 
 function soma(a, b) {
   return a + b;
@@ -744,8 +744,8 @@ module.exports = multiplicacao;
 ```javascript
 // File: index.js
 
-const op = require('./operacoes.js');
-const op2 = require('./operacoes2.js');
+const op = require("./operacoes.js");
+const op2 = require("./operacoes2.js");
 
 op.nome;
 op.soma(2, 3);
@@ -758,7 +758,7 @@ Exemplos de importação/exportação com o ES Modules:
 ```javascript
 // File: operacoes.js
 
-const nome = 'Teste Exportação';
+const nome = "Teste Exportação";
 
 function soma(a, b) {
   return a + b;
@@ -798,11 +798,11 @@ export function resto(a, b) {
 ```javascript
 // File: index.js
 
-import op from './operacoes.js';
-import op2 from './operacoes2.js';
+import op from "./operacoes.js";
+import op2 from "./operacoes2.js";
 
 // Maneira de importar uma Exportação Nomeada.
-import { divisao, resto } from './exportacoesNomeadas.js'; // Obriga usar o mesmo nome declarado no arquivo.
+import { divisao, resto } from "./exportacoesNomeadas.js"; // Obriga usar o mesmo nome declarado no arquivo.
 
 op.nome;
 op.soma(2, 3);
@@ -816,26 +816,26 @@ resto(7, 2);
 Módulo Default - File System
 
 ```javascript
-import fs from 'fs';
+import fs from "fs";
 
 // Exemplo de Event Loop
 
 // Esvrever em um arquivo
-fs.writeFile('teste.txt', 'bla bla bla', function (err) {
+fs.writeFile("teste.txt", "bla bla bla", function (err) {
   if (err) {
     console.log(err);
   } else {
-    console.log('Arquivo escrito com sucesso!');
+    console.log("Arquivo escrito com sucesso!");
 
     // Adiciona conteúdo no final do arquivo
-    fs.appendFile('teste.txt', '\nteste apeend file', function (err) {
+    fs.appendFile("teste.txt", "\nteste apeend file", function (err) {
       if (err) {
         console.log(err);
       }
     });
 
     // Ler um arquivo
-    fs.readFile('teste.txt', 'utf-8', (err, data) => {
+    fs.readFile("teste.txt", "utf-8", (err, data) => {
       if (err) {
         console.log(err);
       } else {
@@ -866,14 +866,14 @@ fs.writeFile('teste.txt', 'bla bla bla', function (err) {
 - Importar módulo em formato de Promises
 
   ```javascript
-  import { promises as fs } from 'fs';
+  import { promises as fs } from "fs";
 
   // Maneira Ruim para ler um arquivo
-  fs.writeFile('teste.txt', 'bla bla bla')
+  fs.writeFile("teste.txt", "bla bla bla")
     .then(() => {
-      fs.appendFile('teste.txt', '\nteste append file')
+      fs.appendFile("teste.txt", "\nteste append file")
         .then(() => {
-          fs.readFile('teste.txt', 'utf-8')
+          fs.readFile("teste.txt", "utf-8")
             .then((resp) => {
               console.log(resp);
             })
@@ -892,9 +892,9 @@ fs.writeFile('teste.txt', 'bla bla bla', function (err) {
   // Melhor maneira para ler um arquivo (asybc/await)
   async function init() {
     try {
-      await fs.writeFile('teste.txt', 'bla bla bla');
-      await fs.appendFile('teste.txt', '\nteste append file');
-      const data = await fs.readFile('teste.txt', 'utf-8');
+      await fs.writeFile("teste.txt", "bla bla bla");
+      await fs.appendFile("teste.txt", "\nteste append file");
+      const data = await fs.readFile("teste.txt", "utf-8");
       console.log(data);
     } catch (err) {
       console.log(err);
@@ -905,24 +905,24 @@ fs.writeFile('teste.txt', 'bla bla bla', function (err) {
 Módulo Default - File System JSON
 
 ```javascript
-import { promises as fs } from 'fs';
+import { promises as fs } from "fs";
 
 //  JSON.stringify
 async function writeJson() {
   try {
     // Valores iniciais
-    const arrayCarros = ['Palio', 'Gol', 'Uno'];
+    const arrayCarros = ["Palio", "Gol", "Uno"];
     const obj = { carros: arrayCarros };
 
     // Leitura do conteúdo atual do objeto
-    await fs.writeFile('teste.json', JSON.stringify(obj));
-    const data = JSON.parse(await fs.readFile('teste.json'));
+    await fs.writeFile("teste.json", JSON.stringify(obj));
+    const data = JSON.parse(await fs.readFile("teste.json"));
 
     // Modificado conteúdo objeto
-    data.carros.push('Sandero');
+    data.carros.push("Sandero");
 
     // Sobrescrito conteúdo do objeto
-    await fs.writeFile('teste.json', JSON.stringify(data));
+    await fs.writeFile("teste.json", JSON.stringify(data));
   } catch (err) {
     console.log(err);
   }
@@ -934,20 +934,20 @@ Módulo Default - Read Line
 - Permite entradas do usuário (terminal, por exemplo).
 
 ```javascript
-import readline from 'readline';
+import readline from "readline";
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-rl.question('Digite um Número: ', (numero) => {
+rl.question("Digite um Número: ", (numero) => {
   console.log(numero);
   rl.close(); // Se quiser encerrar o programa
 });
 
 function pergunta() {
-  rl.question('Digite um Número: ', (numero) => {
+  rl.question("Digite um Número: ", (numero) => {
     if (parseInt(numero) === -1) {
       rl.close();
     } else {
@@ -970,11 +970,11 @@ Módulo Default - Events
 ```javascript
 // events.js
 
-import { EventEmitter } from 'events';
+import { EventEmitter } from "events";
 
 const eventEmitter = new EventEmitter();
 
-eventEmitter.on('testEvent', (obj) => {
+eventEmitter.on("testEvent", (obj) => {
   console.log(obj);
 });
 
@@ -984,13 +984,13 @@ export default eventEmitter;
 ```javascript
 // index.js
 
-import ev from './events.js';
+import ev from "./events.js";
 
-eventEmitter.on('testEvent', () => {
-  console.log('Ouviu tbm!');
+eventEmitter.on("testEvent", () => {
+  console.log("Ouviu tbm!");
 });
 
-ev.emit('testEvent', 'bla bla bla');
+ev.emit("testEvent", "bla bla bla");
 ```
 
 Módulo Default - HTTP
@@ -1000,14 +1000,14 @@ Módulo Default - HTTP
 > nodemon index.js
 
 ```javascript
-import http from 'http';
+import http from "http";
 
 http
   .createServer((req, res) => {
-    if (req.method === 'GET' && req.url === '/teste') {
-      res.write('GET /teste executado com sucesso!'); // Responde na tela para o usuário
+    if (req.method === "GET" && req.url === "/teste") {
+      res.write("GET /teste executado com sucesso!"); // Responde na tela para o usuário
     } else {
-      res.write('Hello Word');
+      res.write("Hello Word");
     }
 
     res.statusCode = 200;
@@ -1101,42 +1101,42 @@ Caracteres especiais na rota:
 ```javascript
 // index.js
 
-import express from 'express';
+import express from "express";
 
 const app = express();
 
 // Pega todos os tipos de requisições do método HTTP e retorna a mesma callback
-app.all('/testeAll', (req, res) => {
+app.all("/testeAll", (req, res) => {
   res.send(req.method);
 });
 
 // Ultimo caracter é opcional, exemplo: test
-app.get('/teste?', (_, res) => {
-  res.send('/teste?');
+app.get("/teste?", (_, res) => {
+  res.send("/teste?");
 });
 
 // Ultimo caracter pode repetir várias vezes, ex: testeeeee
-app.get('/teste+', (_, res) => {
-  res.send('/teste+');
+app.get("/teste+", (_, res) => {
+  res.send("/teste+");
 });
 
 // Pode inserir qualquer coisa depois do "one", que ele cairá na rota "one"
-app.get('/one*blue', (_, res) => {
+app.get("/one*blue", (_, res) => {
   res.send(req.path);
 });
 
 // Tudo dentro do () é tratado como unidade
-app.post('/test(ing)?', (_, res) => {
-  res.send('/test(ing)?');
+app.post("/test(ing)?", (_, res) => {
+  res.send("/test(ing)?");
 });
 
 // Utilizar expressões regulares. No caso, qualquer string contenhar a palavra "red"
 app.get(/.*red$/, (_, res) => {
-  res.send('/.*red$/');
+  res.send("/.*red$/");
 });
 
 app.list(3000, () => {
-  console.log('API Started');
+  console.log("API Started");
 });
 ```
 
@@ -1145,56 +1145,56 @@ Parâmetros na rota:
 ```javascript
 // index.js
 
-import express from 'express';
+import express from "express";
 
 const app = express();
 
 // É preciso avisar ao Express que queremos utilizar JSON no envio do Boddy
 app.use(express.json());
 
-app.get('testParam/:id', (req, res) => {
+app.get("testParam/:id", (req, res) => {
   res.send(req.params.id);
 });
 
-app.get('testParam/:id/:a?', (req, res) => {
-  res.send(req.params.id + ' ' + req.params.a);
+app.get("testParam/:id/:a?", (req, res) => {
+  res.send(req.params.id + " " + req.params.a);
 });
 
 // Parâmetro NEXT, serve para passar para a próxima função callback
 app.get(
-  'testMultipleHandlers',
+  "testMultipleHandlers",
   (req, res, next) => {
-    console.log('Callback 1');
+    console.log("Callback 1");
     next();
   },
   (req, res) => {
-    console.log('Callback 2');
+    console.log("Callback 2");
     // É preciso fechar a requisição
     res.end(); // Se não tem resposta
-    res.send('bla bla'); // Se tem resposta
+    res.send("bla bla"); // Se tem resposta
   }
 );
 
 // Com Array
 const callback1 = (req, res) => {
-  console.log('Callback1');
+  console.log("Callback1");
   nex();
 };
 
 function callback2(req, res) {
-  console.log('Callback2');
+  console.log("Callback2");
   nex();
 }
 
 const callback3 = (req, res) => {
-  console.log('Callback3');
+  console.log("Callback3");
   res.end();
 };
 
-app.get('/testMultiplesHandlersArray', [callback1, callback2, callback3]);
+app.get("/testMultiplesHandlersArray", [callback1, callback2, callback3]);
 
 app.list(3000, () => {
-  console.log('API Started');
+  console.log("API Started");
 });
 ```
 
@@ -1205,19 +1205,19 @@ Parâmetros via Query na rota: É feito a partir de um ponto de interrogação, 
 ```javascript
 // index.js
 
-import express from 'express';
+import express from "express";
 
 const app = express();
 
 // É preciso avisar ao Express que queremos utilizar JSON no envio do Boddy
 app.use(express.json());
 
-app.get('testQuery', (req, res) => {
+app.get("testQuery", (req, res) => {
   res.send(req.query);
 });
 
 app.list(3000, () => {
-  console.log('API Started');
+  console.log("API Started");
 });
 ```
 
@@ -1226,7 +1226,7 @@ Route do ExpressJS: Rotas que irão responder no mesmo endereço, mudando soment
 ```javascript
 // index.js
 
-import express from 'express';
+import express from "express";
 
 const app = express();
 
@@ -1234,20 +1234,20 @@ const app = express();
 app.use(express.json());
 
 app
-  .route('/testRoute')
+  .route("/testRoute")
   .get((req, res) => {
-    res.send('/testRoute GET');
+    res.send("/testRoute GET");
   })
   .post((req, res) => {
-    res.send('/testRoute POST');
+    res.send("/testRoute POST");
   })
   .delete((req, res) => {
-    res.send('/testRoute DELETE');
+    res.send("/testRoute DELETE");
   });
 // Poderia definir o método PUT, não é obrigatório, é possível definir só o que precisa
 
 app.list(3000, () => {
-  console.log('API Started');
+  console.log("API Started");
 });
 ```
 
@@ -1270,7 +1270,7 @@ Nível de Aplicação:
 ```javascript
 // index.js
 
-import express from 'express';
+import express from "express";
 
 const app = express();
 app.use(express.json());
@@ -1286,7 +1286,7 @@ app.get((req, res) => {
 });
 
 app.list(3000, () => {
-  console.log('API Started');
+  console.log("API Started");
 });
 ```
 
@@ -1295,19 +1295,19 @@ Nível de Roteador:
 ```javascript
 // carrosRouter.js
 
-import express from 'express';
+import express from "express";
 
 const router = express.Router();
 // router.use(express.json());
 
-router.get('/', (req, res) => {
-  console.log('GET /carros');
-  res.send('GET /carros');
+router.get("/", (req, res) => {
+  console.log("GET /carros");
+  res.send("GET /carros");
 });
 
-router.get('/precos', (req, res) => {
-  console.log('GET /carros/precos');
-  res.send('GET /carros/precos');
+router.get("/precos", (req, res) => {
+  console.log("GET /carros/precos");
+  res.send("GET /carros/precos");
 });
 
 export default router;
@@ -1316,16 +1316,16 @@ export default router;
 ```javascript
 // index.js
 
-import express from 'express';
-import carrosRouter from './carrosRouter.js';
+import express from "express";
+import carrosRouter from "./carrosRouter.js";
 
 const app = express();
 app.use(express.json());
 
-app.use('/carros', carrosRouter);
+app.use("/carros", carrosRouter);
 
 app.list(3000, () => {
-  console.log('API Started');
+  console.log("API Started");
 });
 ```
 
@@ -1344,21 +1344,21 @@ O middleware para tratamento de excessões deve ser configurado por ultimo na in
 ```javascript
 // index.js
 
-import express from 'express';
+import express from "express";
 
 const app = express();
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  throw new Error('Error message test'); // Forçando um erro
+app.get("/", (req, res) => {
+  throw new Error("Error message test"); // Forçando um erro
 });
 
 // Em funções assincronas, se ocorrer um erro é preciso passar ele para o "next"
 // se não a requisição entra em looping, pois não há retorno
 // Sempre colocar o código em uma estrutura Try Catch
-app.post('/', async (req, res, next) => {
+app.post("/", async (req, res, next) => {
   try {
-    throw new Error('Error message async');
+    throw new Error("Error message async");
   } catch (err) {
     next(err);
   }
@@ -1366,17 +1366,17 @@ app.post('/', async (req, res, next) => {
 
 // Interessante usar ela final, se for utilizar em todas as funções a cima dela.
 app.use((err, req, res, next) => {
-  console.log('Erro 1');
+  console.log("Erro 1");
   next(err); // É preciso enviar o erro para a proxima função, se houver uma próxima
 });
 
 app.use((err, req, res, next) => {
-  console.log('Erro 2');
-  res.status(500).send('Ocorreu um erro, tente novamente mais tarde.');
+  console.log("Erro 2");
+  res.status(500).send("Ocorreu um erro, tente novamente mais tarde.");
 });
 
 app.list(3000, () => {
-  console.log('API Started');
+  console.log("API Started");
 });
 ```
 
@@ -1445,20 +1445,20 @@ O **express.static**, que recebe como parâmetro o diretório raiz de onde estã
 ```javascript
 // index.js
 
-import express from 'express';
+import express from "express";
 
 const app = express();
 app.use(express.json());
 
 // Caminho do diretório que poderá ser acessado
 // No caso, diretório que contém imagens
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 // É possível definir que uma rota seja acessar por uma caminho virtual
-app.use('/images', express.static('public'));
+app.use("/images", express.static("public"));
 
 app.list(3000, () => {
-  console.log('API Started');
+  console.log("API Started");
 });
 ```
 
@@ -1589,13 +1589,13 @@ class Cat extends Animal {
 }
 
 // Intanciando a classe para um novo Objeto
-const animal = new Animal('Totó');
+const animal = new Animal("Totó");
 animal.speak();
 
-const dog = new Animal('Jack', 'Poodle');
+const dog = new Animal("Jack", "Poodle");
 dog.speak();
 
-const cat = new Animal('Han Solo', 'Frajola');
+const cat = new Animal("Han Solo", "Frajola");
 cat.speak();
 ```
 
@@ -2389,7 +2389,7 @@ console.log(process.env.USERDB);
     ```javascript
     // File: index.js
 
-    require('dotenv').config();
+    require("dotenv").config();
 
     console.log(process.env.USERDB);
     ```
@@ -2399,7 +2399,7 @@ console.log(process.env.USERDB);
     ```javascript
     // File: index.js
 
-    if (process.env.PRD !== 'true') require('dotenv').config();
+    if (process.env.PRD !== "true") require("dotenv").config();
 
     console.log(process.env.USERDB);
     ```
@@ -2517,7 +2517,23 @@ Configurar o Heroku para realizar um deploy a partir do GitHub
 
 ### Desafio do Módulo
 
+Prezados alunos, segue um pequeno projeto feito no CodeSandBox para explicar o funcionamento da tag <select> com React e Materialize - <https://codesandbox.io/s/react-select-alternatives-x7z7v?file=/src/App.js>
+
+Prezados alunos, conforme conversamos na aula interativa de ontem, segue código-fonte do app que utilizei para gerar os dados aleatórios de lançamentos.
+
+Prezados alunos, criei mais um projeto no CodeSandBox que realiza um CRUD simples. Pode ser que ajudem vocês a persistir os dados em tela - <https://codesandbox.io/s/react-simple-crud-5vsqz?file=/src/App.js>
+
+Prezados alunos, chegamos finalmente ao final do Bootcamp. Espero que a experiência de vocês, que chegaram até aqui, tenha sido de alguma forma transformadora. Aprendi muito com vocês e espero revê-los em breve, seja em um novo Bootcamp ou quem sabe em uma de nossas pós-graduações.
+
+Deixo aqui o código-fonte da minha resolução. Lembrem-se também de que o código-fonte não possui o arquivo .env, que deve ser criado por vocês conforme instruções detalhadas na documentação sobre o Desafio Final, ok?
+
+Sucesso a todos vocês!
+
 { ... }
+
+<!-- Aula Interativa 2 -->
+<!-- https://github.com/brunoaugustoteixeira/pokemon-app
+https://github.com/brunoaugustoteixeira/pokemon-api -->
 
 <!-- https://github.com/brunoaugustoteixeira/Aula2_4 -->
 <!-- https://github.com/ghosh/awesome-podcasts/blob/master/podcasts.json -->

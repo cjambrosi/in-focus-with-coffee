@@ -1,10 +1,12 @@
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/9125404/87865827-1d0a4380-c950-11ea-8d66-aafbad81fbe3.png" width=180px height=150px alt="Python Iniciante" />
+  
+<img src="https://user-images.githubusercontent.com/9125404/87865827-1d0a4380-c950-11ea-8d66-aafbad81fbe3.png" width=180px height=150px alt="Python Iniciante" />
+
+# In Focus With Coffee
+
 </div>
 
-<h2 align="center">In Focus With Coffee</h2>
-
-Como diria [Márquez](https://pt.wikipedia.org/wiki/Gabriel_Garc%C3%ADa_M%C3%A1rquez): 
+Como diria [Márquez](https://pt.wikipedia.org/wiki/Gabriel_Garc%C3%ADa_M%C3%A1rquez):
 
 > "*Aquele que não tem memória arranja um papel.*"
 
@@ -19,6 +21,8 @@ Para visualizar as aplicações desenvolvidas nas aulas, acesse o [Sitemap](http
 #### Origamid
 
 #### Udemy
+
+[React Avançado: Crie aplicações com NextJS, GraphQL e mais](courses/reactjs/react-avanacado-wj/README.md)
 
 [Desenvolvimento Web Moderno com JavaScript Completo 2020](courses/js/web-moderno-js/README.md)
 
