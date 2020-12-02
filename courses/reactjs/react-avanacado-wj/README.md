@@ -2,7 +2,7 @@
 
 [Udemy Link](https://www.udemy.com/course/react-avancado/ 'React Avançado: Crie aplicações com NextJS, GraphQL e mais')
 
-- [Módulo 1: Introdução Teórica](#módulo-1-introdução-teórica)
+- [Módulo 1: Parte 1 - Introdução Teórica](#módulo-1-parte-1---introdução-teórica)
   - [Aula 3 - Introdução ao NextJS](#aula-3---introdução-ao-nextjs)
   - [Aula 4 - Introdução ao GraphQL](#aula-4---introdução-ao-graphql)
     - [Rest API x GraphQL](#rest-api-x-graphql)
@@ -12,9 +12,40 @@
     - [Strapi](#strapi)
     - [Como o Strapi funciona](#como-o-strapi-funciona)
   - [Aula 7 - Introdução ao CSS-in-JS](#aula-7---introdução-ao-css-in-js)
+    - [CSS-in-JS](#css-in-js)
+    - [Bibliotecas de CSS-in-JS](#bibliotecas-de-css-in-js)
+    - [Styled Components](#styled-components)
   - [Aula 8 - Introdução a Testes de Software](#aula-8---introdução-a-testes-de-software)
+    - [Metodoliga de Teste](#metodoliga-de-teste)
+    - [Ferramentas](#ferramentas)
+- [Módulo 1: Parte 2 - Criando nosso Boilerplate do NextJS](#módulo-1-parte-2---criando-nosso-boilerplate-do-nextjs)
+- [Aula 9 - Requisitos para o projeto](#aula-9---requisitos-para-o-projeto)
+- [Aula 10 - Criando o boilerplate com create-next-app](#aula-10---criando-o-boilerplate-com-create-next-app)
+- [Aula 11 - Configurando o TypeScript no NextJS](#aula-11---configurando-o-typescript-no-nextjs)
+- [Aula 12 - Configurando o .editorconfig](#aula-12---configurando-o-editorconfig)
+- [Aula 13 - Configurando o ESLint](#aula-13---configurando-o-eslint)
+- [Aula 14 - Configurando o Prettier com o ESLint](#aula-14---configurando-o-prettier-com-o-eslint)
+- [Aula 15 - Configurando um git hook com Husky e Lint-Staged](#aula-15---configurando-um-git-hook-com-husky-e-lint-staged)
+- [Aula 16 - Instalando e Configurando o Jest com TypeScript](#aula-16---instalando-e-configurando-o-jest-com-typescript)
+- [Aula 17 - Instalando o React Testing Library (RTL) e escrevendo primeiros testes](#aula-17---instalando-o-react-testing-library-rtl-e-escrevendo-primeiros-testes)
+- [Aula 18 - Usando o findRelatedTests para rodar somente testes necessários](#aula-18---usando-o-findrelatedtests-para-rodar-somente-testes-necessários)
+- [Aula 19 - Instalando o Styled Components e configurando o SSR](#aula-19---instalando-o-styled-components-e-configurando-o-ssr)
+- [Aula 20 - Criando estilos globais com createGlobalsStyle](#aula-20---criando-estilos-globais-com-createglobalsstyle)
+- [Aula 21 - Criando estilos no primeiro componente](#aula-21---criando-estilos-no-primeiro-componente)
+- [Aula 22 - Melhorando snapshots com Jest-styled-components](#aula-22---melhorando-snapshots-com-jest-styled-components)
+- [Aula 23 - Configurando o Storybook e escrevendo stories](#aula-23---configurando-o-storybook-e-escrevendo-stories)
+- [Aula 24 - Migrando Storybook para versão 6.x](#aula-24---migrando-storybook-para-versão-6x)
+- [Aula 25 - Usando Storybook Essentials e Controls](#aula-25---usando-storybook-essentials-e-controls)
+- [Aula 26 - Configurando PWA](#aula-26---configurando-pwa)
+- [Aula 27 - Iniciando um projeto através do nosso boilerplate](#aula-27---iniciando-um-projeto-através-do-nosso-boilerplate)
+- [Aula 28 - Extra: PR - corrigindo cobertura de testes](#aula-28---extra-pr---corrigindo-cobertura-de-testes)
+- [Aula 29 - Extra: Servindo estáticos corretamente no build do Storybook](#aula-29---extra-servindo-estáticos-corretamente-no-build-do-storybook)
+- [Aula 30 - Extra: Mantendo o boilerplate com atualizado usando Dependabot e Github Actions](#aula-30---extra-mantendo-o-boilerplate-com-atualizado-usando-dependabot-e-github-actions)
+- [Aula 31 - Extra: Automatizando criação de arquivos](#aula-31---extra-automatizando-criação-de-arquivos)
+- [Aula 32 - FIX: Corrigindo configuração do jest-styled-components](#aula-32---fix-corrigindo-configuração-do-jest-styled-components)
+- [Aula 33 - FIX: Definindo typings para jest-styled-components](#aula-33---fix-definindo-typings-para-jest-styled-components)
 
-## Módulo 1: Introdução Teórica
+## Módulo 1: Parte 1 - Introdução Teórica
 
 ### Aula 3 - Introdução ao NextJS
 
@@ -237,6 +268,326 @@ HÁ vários tipos para **Fields**: Texto, Rich Text, Number, Data, Booleano, Rel
 
 Slides: <https://docs.google.com/presentation/d/1MhqVH0ieg8ILsQVTY-HJFzuDFyIHiTF2zmPu9QZbmxU/edit>
 
+**CSS** é muito difícil! É sério! Quem diz o contrário, é porque quer ser legal...
+
+Problemas com **CSS**
+
+- Falta de escopo local (uma lib de terceiro pode colidir com meu código)
+- Especificidade e novamente, colisão de estilos!
+- Código não utilizado (dead code)
+- Falta de modularidade
+- Dificuldade na manutenção de código quebrando sabe-se lá Deus onde
+
+Os pré-processadores como **Less**, **Sass**, **Stylus** vieram ajudar em algumas coisas, mas continuaram com os problemas clássicos, além de abrir margem para **péssimas práticas**.
+
+#### CSS-in-JS
+
+Se refere a um conjunto de ideais para resolver os complexos problemas do **CSS**. E existem diferentes bibliotecas que fazem essa prática.
+
+#### Bibliotecas de CSS-in-JS
+
+- Aphrodite
+- Emotion
+- Glamor
+- Styled Components
+- Styled JSX
+- Muitas outras (<https://github.com/michelebertoli/css-in-js>)
+
+#### Styled Components
+
+Vantagens:
+
+- Critical CSS automático
+- Escopo definido (sem colisão de classes)
+- Remoção de CSS não utilizado
+- Estilos dinâmicos (props, themes)
+- Manutenção simplificada e sem dor
+- Prefixos automatizados (webkits)
+
+Exemplo de uso:
+
+```javascript
+import styled from 'styled-components'
+
+export const Main = styled.div`
+  align-items: center;
+  display: flex;
+`
+```
+
+Exemplo "complicado/transpilado":
+
+```css
+.styled__Main-sc-11b8j8d-1-bSsuBw {
+  -webkit-box-align: center;
+  -webkit-box-pack: justify;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+```
+
+Exemplo de Esitlo Dinâmico:
+
+```javascript
+const Button = styled.button`
+  background-color: ${ props => props.primary ? 'palevioletred' : 'white' };
+  color: ${ props => props.primary ? 'white' : 'palevioletred' };
+`
+
+render(
+  <div>
+    <Button>Normal</Button>
+    <Button primary>Primary</Button>
+  </div>
+)
+```
+
+Exemplo para Estender Estilos:
+
+```javascript
+const Button = styled.button`
+  color: palevioletred;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`
+
+const TomatoButton = styled(Button)`
+  color: tomato;
+  border-color: tomato;
+`
+
+render(
+  <div>
+    <Button>Normal Button</Button>
+    <TomatoButton>Tomato Button</TomatoButton>
+  </div>
+)
+```
+
 ### Aula 8 - Introdução a Testes de Software
 
 Slides: <https://docs.google.com/presentation/d/1togS6dJDG514q_bT6Atsfa6ogMMyoTCGUuJt48I4gCg/edit#slide=id.g8565c632f8_0_0>
+
+Por que escrever tester?
+
+- Código complexo não é simples de se debuggar só com o olho
+- Testar é uma forma robusta de **validar software**
+  - Funciona como eu espero?
+  - Funciona como o usuário espera?
+  - Se eu atualizar esse trecho, o código quebra?
+- Testes funcionam como uma primeira camada de documentação
+
+Que tipos de teste existem?
+
+Existem vários níveis de testes, mas aqui veremos apenas dois:
+
+- Testes Unitários
+  - Testam **isoladamente** pequenas unidades de código
+  - O código está se comportando como o **desenvolvedor** espera?
+- Testes Funcionais
+  - Checa se as unidades funcionam também entre si
+  - Testes podem conter múltiplas classes, métodos, etc
+  - O programa funciona de acordo com o que o **usuário** espera?
+
+#### Metodoliga de Teste
+
+Test-driven development (TDD): (ciclo) -> Escrevemos um Teste -> Fazemos o Teste passar -> Refatoramos ->
+
+É muit importante que o teste seja escrito orientado à funcionalidade e não a implementação, para não correr o risco de "maquiar" o teste. Pois como sabemos os truques da implementação, esses testes podem não ser confiáveis.
+
+#### Ferramentas
+
+State of JS: <https://2019.stateofjs.com/testing/>
+
+Baseados nos níveis de **satisfação** e **adoção**, nosso framework escolhido for o **Jest**.
+Além dele possuir várias ferramentas já incluídas, como facilidade para mocks, realtório de cobertura, métodos para tratar intervals, snapshots e outros detalhes.
+
+Para testar nossos componentes em React, a escolha for a biblioteca **React Testing Library (RTL)**, por ela possuir melhor suporte as novas tecnologias do React como os **hooks** e também uma **renderização real** do componente.
+
+E nossa biblioteca para end-to-end for o **Cypress**, também devido aos níveis de satisfação e adoção na comunidade, além de ser a mais performática dentre as bibliotecas do tipo.
+
+## Módulo 1: Parte 2 - Criando nosso Boilerplate do NextJS
+
+## Aula 9 - Requisitos para o projeto
+
+Lista de vídeos para configurar o Windows: <https://www.youtube.com/playlist?list=PLlAbYrWSYTiOpefWtd6uvwgKT1R-94Zfd>
+
+## Aula 10 - Criando o boilerplate com create-next-app
+
+Site oficial no NextJS: <https://nextjs.org>
+
+Get Started do NextJS: <https://nextjs.org/docs/getting-started>
+
+Repositório com exemplos do NextJS: <https://github.com/vercel/next.js/tree/canary/examples>
+
+Repositório do Boilerplate: <https://github.com/React-Avancado/boilerplate>
+
+Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/3852287bc059a0aab543eb0e1f16cbacde749433>
+
+## Aula 11 - Configurando o TypeScript no NextJS
+
+Documentação oficial do NextJS com TypeScript: <https://nextjs.org/docs/basic-features/typescript>
+
+Mini-série TypeScript: <https://www.youtube.com/playlist?list=PLlAbYrWSYTiPanrzauGa7vMuve7_vnXG_>
+
+Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/46989d2568b87c14d2bc251b99eff70df53087c9>
+
+## Aula 12 - Configurando o .editorconfig
+
+Site oficial do EditorConfig: <https://editorconfig.org>
+
+Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/94d8978f80d229ac9be9ce9c50fd6b0f87737802>
+
+## Aula 13 - Configurando o ESLint
+
+Site oficial do Eslint: <https://eslint.org>
+
+Eslint Plugin React Hooks: <https://www.npmjs.com/package/eslint-plugin-react-hooks>
+
+Eslint React Prop Types Rule: <https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md>
+
+Eslint JSX in Scope Rule: <https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md>
+
+TypeScript-Eslint Explicit Module Boundary Rule: <https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-module-boundary-types.md>
+
+Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/adfdc0eef4be3016e3915323d5102a111251c84b>
+
+## Aula 14 - Configurando o Prettier com o ESLint
+
+Site oficial do Prettier: <https://prettier.io>
+
+Integrando com o ESLint: <https://github.com/prettier/eslint-config-prettier#installation>
+
+Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/1156e1690b671861c85662aef57123dc7acc88ca>
+
+## Aula 15 - Configurando um git hook com Husky e Lint-Staged
+
+Repositório do Husky: <https://github.com/typicode/husky>
+
+Repositório do Lint-staged: <https://github.com/okonet/lint-staged>
+
+Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/d2529246e76be1bcc8803d4ee8257d8e6716d9e8>
+
+## Aula 16 - Instalando e Configurando o Jest com TypeScript
+
+Site oficial do Jest: <https://jestjs.io>
+
+Documentação do Jest para TypeScript: <https://jestjs.io/docs/en/getting-started#using-typescript>
+
+Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/0d29711688f376c6ddbac135ce7103d1d3a33ec9>
+
+## Aula 17 - Instalando o React Testing Library (RTL) e escrevendo primeiros testes
+
+Site oficial do RTL: <https://testing-library.com/docs/react-testing-library/intro>
+
+Cheatsheet do RTL: <https://testing-library.com/docs/react-testing-library/cheatsheet>
+
+Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/934d608cecab497d8bc31b74cdebdf1b9d8aa94d>
+
+## Aula 18 - Usando o findRelatedTests para rodar somente testes necessários
+
+Documentação sobre findRelatedTests: <https://jestjs.io/docs/en/cli#--findrelatedtests-spaceseparatedlistofsourcefiles>
+
+## Aula 19 - Instalando o Styled Components e configurando o SSR
+
+Site oficial do Styled Components: <https://styled-components.com>
+
+Instalação do Styled Components: <https://styled-components.com/docs/basics#installation>
+
+Configuração do Styled com NextJS: <https://styled-components.com/docs/advanced#nextjs>
+
+Customizando o _document: <https://nextjs.org/docs/advanced-features/custom-document>
+
+Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/3303d664a5d3acd9c4f5b4eb7a72f61b528f41f8>
+
+## Aula 20 - Criando estilos globais com createGlobalsStyle
+
+Documentação do createGlobalsStyle: <https://styled-components.com/docs/api#createglobalstyle>
+
+Customizando o _app: <https://nextjs.org/docs/advanced-features/custom-app>
+
+Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/3e43f7d917b79a2875d1eeb1fe0794460e88ae3a>
+
+## Aula 21 - Criando estilos no primeiro componente
+
+Arquivo corrigindo toHaveStyle - moduleMapper: <https://github.com/React-Avancado/boilerplate/blob/master/jest.config.js>
+
+Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/4a887c039cfab5d23b9ec3b87f22edbdae537438>
+
+## Aula 22 - Melhorando snapshots com Jest-styled-components
+
+Documentação do Jest Styled Components: <https://styled-components.com/docs/tooling#jest-integration>
+
+Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/939187f102aa648179a66c9f93334a7c8282f1ad>
+
+## Aula 23 - Configurando o Storybook e escrevendo stories
+
+Site oficial do Storybook: <https://storybook.js.org>
+
+Documentação para Storybook com React: <https://storybook.js.org/docs/react/get-started/introduction>
+
+Preset para TypeScript: <https://storybook.js.org/docs/react/api/presets>
+
+Sobre como escrever stories: <https://storybook.js.org/docs/react/get-started/whats-a-story>
+
+Sobre decorators e como usar: <https://storybook.js.org/docs/react/configure/storybook-addons>
+
+Addon de Knobs: <https://github.com/storybookjs/storybook/tree/master/addons/knobs>
+
+Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/1b53ec85df786febf158157f4410bfaeffc013c6>
+
+## Aula 24 - Migrando Storybook para versão 6.x
+
+Site oficial do Storybook: <https://storybook.js.org>
+
+Documentação para Storybook: <https://storybook.js.org/docs/react/get-started/introduction>
+
+Context for Mocking (ThemeProvider, GlobalStyles): <https://storybook.js.org/docs/react/writing-stories/decorators#context-for-mocking>
+
+Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/1b53ec85df786febf158157f4410bfaeffc013c6>
+
+## Aula 25 - Usando Storybook Essentials e Controls
+
+Documentação do Essentials: <https://storybook.js.org/docs/react/essentials/introduction>
+
+Documentação do Controls: <https://storybook.js.org/docs/react/essentials/controls>
+
+Artigo no Medium sobre migração: <https://medium.com/storybookjs/storybook-6-migration-guide-200346241bb5>
+
+Código feito em aula: <https://github.com/React-Avancado/boilerplate/pull/59/files>
+
+## Aula 26 - Configurando PWA
+
+Site do Next-PWA: <https://www.npmjs.com/package/next-pwa>
+
+Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/a409075383c260d77356ded39915098da40b3f14>
+
+## Aula 27 - Iniciando um projeto através do nosso boilerplate
+
+Mudanças na documentação do boilerplate: <https://github.com/React-Avancado/boilerplate/commit/baf5c9536c4d9f6ee1b93e9df3c849eb5af4850b>
+
+Repositório final do boilerplate: <https://github.com/React-Avancado/boilerplate>
+
+## Aula 28 - Extra: PR - corrigindo cobertura de testes
+
+Link do Pull Request: <https://github.com/React-Avancado/boilerplate/pull/1>
+
+## Aula 29 - Extra: Servindo estáticos corretamente no build do Storybook
+
+Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/a6f28b773c54e5bd358d806a5ed8de49b649c762>
+
+## Aula 30 - Extra: Mantendo o boilerplate com atualizado usando Dependabot e Github Actions
+
+## Aula 31 - Extra: Automatizando criação de arquivos
+
+Site oficial do Plopjs: <https://plopjs.com>
+
+Código feito em aula: <https://github.com/React-Avancado/boilerplate/pull/42/files>
+
+## Aula 32 - FIX: Corrigindo configuração do jest-styled-components
+
+## Aula 33 - FIX: Definindo typings para jest-styled-components
