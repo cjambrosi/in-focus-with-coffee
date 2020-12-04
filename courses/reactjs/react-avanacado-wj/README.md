@@ -2,6 +2,8 @@
 
 [Udemy Link](https://www.udemy.com/course/react-avancado/ 'React Avançado: Crie aplicações com NextJS, GraphQL e mais')
 
+FAQ: <https://github.com/react-Avancado/faq>
+
 - [Módulo 1: Parte 1 - Introdução Teórica](#módulo-1-parte-1---introdução-teórica)
   - [Aula 3 - Introdução ao NextJS](#aula-3---introdução-ao-nextjs)
   - [Aula 4 - Introdução ao GraphQL](#aula-4---introdução-ao-graphql)
@@ -19,31 +21,33 @@
     - [Metodoliga de Teste](#metodoliga-de-teste)
     - [Ferramentas](#ferramentas)
 - [Módulo 1: Parte 2 - Criando nosso Boilerplate do NextJS](#módulo-1-parte-2---criando-nosso-boilerplate-do-nextjs)
-- [Aula 9 - Requisitos para o projeto](#aula-9---requisitos-para-o-projeto)
-- [Aula 10 - Criando o boilerplate com create-next-app](#aula-10---criando-o-boilerplate-com-create-next-app)
-- [Aula 11 - Configurando o TypeScript no NextJS](#aula-11---configurando-o-typescript-no-nextjs)
-- [Aula 12 - Configurando o .editorconfig](#aula-12---configurando-o-editorconfig)
-- [Aula 13 - Configurando o ESLint](#aula-13---configurando-o-eslint)
-- [Aula 14 - Configurando o Prettier com o ESLint](#aula-14---configurando-o-prettier-com-o-eslint)
-- [Aula 15 - Configurando um git hook com Husky e Lint-Staged](#aula-15---configurando-um-git-hook-com-husky-e-lint-staged)
-- [Aula 16 - Instalando e Configurando o Jest com TypeScript](#aula-16---instalando-e-configurando-o-jest-com-typescript)
-- [Aula 17 - Instalando o React Testing Library (RTL) e escrevendo primeiros testes](#aula-17---instalando-o-react-testing-library-rtl-e-escrevendo-primeiros-testes)
-- [Aula 18 - Usando o findRelatedTests para rodar somente testes necessários](#aula-18---usando-o-findrelatedtests-para-rodar-somente-testes-necessários)
-- [Aula 19 - Instalando o Styled Components e configurando o SSR](#aula-19---instalando-o-styled-components-e-configurando-o-ssr)
-- [Aula 20 - Criando estilos globais com createGlobalsStyle](#aula-20---criando-estilos-globais-com-createglobalsstyle)
-- [Aula 21 - Criando estilos no primeiro componente](#aula-21---criando-estilos-no-primeiro-componente)
-- [Aula 22 - Melhorando snapshots com Jest-styled-components](#aula-22---melhorando-snapshots-com-jest-styled-components)
-- [Aula 23 - Configurando o Storybook e escrevendo stories](#aula-23---configurando-o-storybook-e-escrevendo-stories)
-- [Aula 24 - Migrando Storybook para versão 6.x](#aula-24---migrando-storybook-para-versão-6x)
-- [Aula 25 - Usando Storybook Essentials e Controls](#aula-25---usando-storybook-essentials-e-controls)
-- [Aula 26 - Configurando PWA](#aula-26---configurando-pwa)
-- [Aula 27 - Iniciando um projeto através do nosso boilerplate](#aula-27---iniciando-um-projeto-através-do-nosso-boilerplate)
-- [Aula 28 - Extra: PR - corrigindo cobertura de testes](#aula-28---extra-pr---corrigindo-cobertura-de-testes)
-- [Aula 29 - Extra: Servindo estáticos corretamente no build do Storybook](#aula-29---extra-servindo-estáticos-corretamente-no-build-do-storybook)
-- [Aula 30 - Extra: Mantendo o boilerplate com atualizado usando Dependabot e Github Actions](#aula-30---extra-mantendo-o-boilerplate-com-atualizado-usando-dependabot-e-github-actions)
-- [Aula 31 - Extra: Automatizando criação de arquivos](#aula-31---extra-automatizando-criação-de-arquivos)
-- [Aula 32 - FIX: Corrigindo configuração do jest-styled-components](#aula-32---fix-corrigindo-configuração-do-jest-styled-components)
-- [Aula 33 - FIX: Definindo typings para jest-styled-components](#aula-33---fix-definindo-typings-para-jest-styled-components)
+  - [Aula 9 - Requisitos para o projeto](#aula-9---requisitos-para-o-projeto)
+  - [Aula 10 - Criando o boilerplate com create-next-app](#aula-10---criando-o-boilerplate-com-create-next-app)
+    - [Link úteis](#link-úteis)
+  - [Aula 11 - Configurando o TypeScript no NextJS](#aula-11---configurando-o-typescript-no-nextjs)
+    - [Link úteis](#link-úteis-1)
+  - [Aula 12 - Configurando o .editorconfig](#aula-12---configurando-o-editorconfig)
+  - [Aula 13 - Configurando o ESLint](#aula-13---configurando-o-eslint)
+  - [Aula 14 - Configurando o Prettier com o ESLint](#aula-14---configurando-o-prettier-com-o-eslint)
+  - [Aula 15 - Configurando um git hook com Husky e Lint-Staged](#aula-15---configurando-um-git-hook-com-husky-e-lint-staged)
+  - [Aula 16 - Instalando e Configurando o Jest com TypeScript](#aula-16---instalando-e-configurando-o-jest-com-typescript)
+  - [Aula 17 - Instalando o React Testing Library (RTL) e escrevendo primeiros testes](#aula-17---instalando-o-react-testing-library-rtl-e-escrevendo-primeiros-testes)
+  - [Aula 18 - Usando o findRelatedTests para rodar somente testes necessários](#aula-18---usando-o-findrelatedtests-para-rodar-somente-testes-necessários)
+  - [Aula 19 - Instalando o Styled Components e configurando o SSR](#aula-19---instalando-o-styled-components-e-configurando-o-ssr)
+  - [Aula 20 - Criando estilos globais com createGlobalsStyle](#aula-20---criando-estilos-globais-com-createglobalsstyle)
+  - [Aula 21 - Criando estilos no primeiro componente](#aula-21---criando-estilos-no-primeiro-componente)
+  - [Aula 22 - Melhorando snapshots com Jest-styled-components](#aula-22---melhorando-snapshots-com-jest-styled-components)
+  - [Aula 23 - Configurando o Storybook e escrevendo stories](#aula-23---configurando-o-storybook-e-escrevendo-stories)
+  - [Aula 24 - Migrando Storybook para versão 6.x](#aula-24---migrando-storybook-para-versão-6x)
+  - [Aula 25 - Usando Storybook Essentials e Controls](#aula-25---usando-storybook-essentials-e-controls)
+  - [Aula 26 - Configurando PWA](#aula-26---configurando-pwa)
+  - [Aula 27 - Iniciando um projeto através do nosso boilerplate](#aula-27---iniciando-um-projeto-através-do-nosso-boilerplate)
+  - [Aula 28 - Extra: PR - corrigindo cobertura de testes](#aula-28---extra-pr---corrigindo-cobertura-de-testes)
+  - [Aula 29 - Extra: Servindo estáticos corretamente no build do Storybook](#aula-29---extra-servindo-estáticos-corretamente-no-build-do-storybook)
+  - [Aula 30 - Extra: Mantendo o boilerplate com atualizado usando Dependabot e Github Actions](#aula-30---extra-mantendo-o-boilerplate-com-atualizado-usando-dependabot-e-github-actions)
+  - [Aula 31 - Extra: Automatizando criação de arquivos](#aula-31---extra-automatizando-criação-de-arquivos)
+  - [Aula 32 - FIX: Corrigindo configuração do jest-styled-components](#aula-32---fix-corrigindo-configuração-do-jest-styled-components)
+  - [Aula 33 - FIX: Definindo typings para jest-styled-components](#aula-33---fix-definindo-typings-para-jest-styled-components)
 
 ## Módulo 1: Parte 1 - Introdução Teórica
 
@@ -412,37 +416,73 @@ E nossa biblioteca para end-to-end for o **Cypress**, também devido aos níveis
 
 ## Módulo 1: Parte 2 - Criando nosso Boilerplate do NextJS
 
-## Aula 9 - Requisitos para o projeto
+### Aula 9 - Requisitos para o projeto
 
 Lista de vídeos para configurar o Windows: <https://www.youtube.com/playlist?list=PLlAbYrWSYTiOpefWtd6uvwgKT1R-94Zfd>
 
-## Aula 10 - Criando o boilerplate com create-next-app
+### Aula 10 - Criando o boilerplate com create-next-app
 
-Site oficial no NextJS: <https://nextjs.org>
+Comando para criar um *Next App*:
 
-Get Started do NextJS: <https://nextjs.org/docs/getting-started>
+- Com Yarn:
 
-Repositório com exemplos do NextJS: <https://github.com/vercel/next.js/tree/canary/examples>
+> yarn create next-app
 
-Repositório do Boilerplate: <https://github.com/React-Avancado/boilerplate>
+- Com NPM:
 
-Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/3852287bc059a0aab543eb0e1f16cbacde749433>
+> npx create-next-app
 
-## Aula 11 - Configurando o TypeScript no NextJS
+Ler sobre **Sistema de Monorepo**
 
-Documentação oficial do NextJS com TypeScript: <https://nextjs.org/docs/basic-features/typescript>
+#### Link úteis
 
-Mini-série TypeScript: <https://www.youtube.com/playlist?list=PLlAbYrWSYTiPanrzauGa7vMuve7_vnXG_>
+- Site oficial no NextJS: <https://nextjs.org>
+- Get Started do NextJS: <https://nextjs.org/docs/getting-started>
+- Repositório com exemplos do NextJS: <https://github.com/vercel/next.js/tree/canary/examples>
+- Repositório do Boilerplate: <https://github.com/React-Avancado/boilerplate>
+- Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/3852287bc059a0aab543eb0e1f16cbacde749433>
 
-Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/46989d2568b87c14d2bc251b99eff70df53087c9>
+### Aula 11 - Configurando o TypeScript no NextJS
 
-## Aula 12 - Configurando o .editorconfig
+Criar o arquivo **tsconfig.json** na raiz do projeto e rodar o comando **yarn dev**, para o NextJS configurará-lo.
+
+> touch tsconfig.json
+
+Comando para habilitar o TypeScript no projeto, posteriromente rodar o comando **yarn dev**.
+
+> yarn add --dev typescript @types/react @types/node
+
+No objeto encontrado dentro do arquivo **tsconfig.json**, alterar o valor do atributo **strict** para **true**.
+
+#### Link úteis
+
+- Documentação oficial do NextJS com TypeScript: <https://nextjs.org/docs/basic-features/typescript>
+
+- Mini-série TypeScript: <https://www.youtube.com/playlist?list=PLlAbYrWSYTiPanrzauGa7vMuve7_vnXG_>
+
+- Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/46989d2568b87c14d2bc251b99eff70df53087c9>
+### Aula 12 - Configurando o .editorconfig
 
 Site oficial do EditorConfig: <https://editorconfig.org>
 
 Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/94d8978f80d229ac9be9ce9c50fd6b0f87737802>
 
-## Aula 13 - Configurando o ESLint
+Exemplo de configuração do arquivo .editorconfig
+
+```bash
+# EditorConfig
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+```
+
+### Aula 13 - Configurando o ESLint
 
 Site oficial do Eslint: <https://eslint.org>
 
@@ -456,7 +496,45 @@ TypeScript-Eslint Explicit Module Boundary Rule: <https://github.com/typescript-
 
 Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/adfdc0eef4be3016e3915323d5102a111251c84b>
 
-## Aula 14 - Configurando o Prettier com o ESLint
+Comando para instalar o ESLint no projeto:
+
+> npx eslint --init
+
+Desligar a regra de prop-types:
+
+- Dentro do arquivo **.eslintrc.json**, em **rules** adicione a opção a baixo:
+
+> "react/prop-types": "off"
+
+No NextJS, o react já importado globalmente. Para desabilitar esse alerta o ESLint, use o comando a baixo em **rules**:
+
+> "react/react-in-jsx-scope": "off"
+
+Desabilitar a tipagem obrigatória de retorno (TypeScript é inteligente em sabe o tipo de retorno, então só é preciso usar quando realmente for necessario).
+
+> "@typescript-eslint/explicit-module-boundary-types": ["off"]
+
+Definir versão do React:
+
+```json
+"settings": {
+  "react": {
+    "version": "detect"
+  }
+}
+```
+
+ESLint no terminal:
+
+- Para verificar somente:
+
+> eslint source_directory
+
+- Para verificar e tentar corrigir:
+
+> eslint source_directory --fix
+
+### Aula 14 - Configurando o Prettier com o ESLint
 
 Site oficial do Prettier: <https://prettier.io>
 
@@ -464,7 +542,25 @@ Integrando com o ESLint: <https://github.com/prettier/eslint-config-prettier#ins
 
 Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/1156e1690b671861c85662aef57123dc7acc88ca>
 
-## Aula 15 - Configurando um git hook com Husky e Lint-Staged
+Instalar o Prettier:
+
+> yarn add --dev eslint-config-prettier eslint-plugin-prettier
+
+Configuração do arquivo **.prettierrc**:
+
+```json
+{
+  "trailingComma": "none",
+  "semi": false,
+  "singleQuote": true
+}
+```
+
+Adicione também no arquivo **.eslintrc.json** em **plugins** a opção:
+
+> "plugin:prettier/recommended"
+
+### Aula 15 - Configurando um git hook com Husky e Lint-Staged
 
 Repositório do Husky: <https://github.com/typicode/husky>
 
@@ -472,7 +568,11 @@ Repositório do Lint-staged: <https://github.com/okonet/lint-staged>
 
 Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/d2529246e76be1bcc8803d4ee8257d8e6716d9e8>
 
-## Aula 16 - Instalando e Configurando o Jest com TypeScript
+Instalar um lint para verificar o código antes de comitar:
+
+> yarn add --dev lint-staged husky
+
+### Aula 16 - Instalando e Configurando o Jest com TypeScript
 
 Site oficial do Jest: <https://jestjs.io>
 
@@ -480,7 +580,11 @@ Documentação do Jest para TypeScript: <https://jestjs.io/docs/en/getting-start
 
 Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/0d29711688f376c6ddbac135ce7103d1d3a33ec9>
 
-## Aula 17 - Instalando o React Testing Library (RTL) e escrevendo primeiros testes
+Instalações:
+
+> yarn add --dev jest @babel/preset-typescript @types/jest
+
+### Aula 17 - Instalando o React Testing Library (RTL) e escrevendo primeiros testes
 
 Site oficial do RTL: <https://testing-library.com/docs/react-testing-library/intro>
 
@@ -488,11 +592,11 @@ Cheatsheet do RTL: <https://testing-library.com/docs/react-testing-library/cheat
 
 Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/934d608cecab497d8bc31b74cdebdf1b9d8aa94d>
 
-## Aula 18 - Usando o findRelatedTests para rodar somente testes necessários
+### Aula 18 - Usando o findRelatedTests para rodar somente testes necessários
 
 Documentação sobre findRelatedTests: <https://jestjs.io/docs/en/cli#--findrelatedtests-spaceseparatedlistofsourcefiles>
 
-## Aula 19 - Instalando o Styled Components e configurando o SSR
+### Aula 19 - Instalando o Styled Components e configurando o SSR
 
 Site oficial do Styled Components: <https://styled-components.com>
 
@@ -504,7 +608,7 @@ Customizando o _document: <https://nextjs.org/docs/advanced-features/custom-docu
 
 Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/3303d664a5d3acd9c4f5b4eb7a72f61b528f41f8>
 
-## Aula 20 - Criando estilos globais com createGlobalsStyle
+### Aula 20 - Criando estilos globais com createGlobalsStyle
 
 Documentação do createGlobalsStyle: <https://styled-components.com/docs/api#createglobalstyle>
 
@@ -512,19 +616,19 @@ Customizando o _app: <https://nextjs.org/docs/advanced-features/custom-app>
 
 Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/3e43f7d917b79a2875d1eeb1fe0794460e88ae3a>
 
-## Aula 21 - Criando estilos no primeiro componente
+### Aula 21 - Criando estilos no primeiro componente
 
 Arquivo corrigindo toHaveStyle - moduleMapper: <https://github.com/React-Avancado/boilerplate/blob/master/jest.config.js>
 
 Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/4a887c039cfab5d23b9ec3b87f22edbdae537438>
 
-## Aula 22 - Melhorando snapshots com Jest-styled-components
+### Aula 22 - Melhorando snapshots com Jest-styled-components
 
 Documentação do Jest Styled Components: <https://styled-components.com/docs/tooling#jest-integration>
 
 Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/939187f102aa648179a66c9f93334a7c8282f1ad>
 
-## Aula 23 - Configurando o Storybook e escrevendo stories
+### Aula 23 - Configurando o Storybook e escrevendo stories
 
 Site oficial do Storybook: <https://storybook.js.org>
 
@@ -540,7 +644,7 @@ Addon de Knobs: <https://github.com/storybookjs/storybook/tree/master/addons/kno
 
 Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/1b53ec85df786febf158157f4410bfaeffc013c6>
 
-## Aula 24 - Migrando Storybook para versão 6.x
+### Aula 24 - Migrando Storybook para versão 6.x
 
 Site oficial do Storybook: <https://storybook.js.org>
 
@@ -550,7 +654,7 @@ Context for Mocking (ThemeProvider, GlobalStyles): <https://storybook.js.org/doc
 
 Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/1b53ec85df786febf158157f4410bfaeffc013c6>
 
-## Aula 25 - Usando Storybook Essentials e Controls
+### Aula 25 - Usando Storybook Essentials e Controls
 
 Documentação do Essentials: <https://storybook.js.org/docs/react/essentials/introduction>
 
@@ -560,34 +664,34 @@ Artigo no Medium sobre migração: <https://medium.com/storybookjs/storybook-6-m
 
 Código feito em aula: <https://github.com/React-Avancado/boilerplate/pull/59/files>
 
-## Aula 26 - Configurando PWA
+### Aula 26 - Configurando PWA
 
 Site do Next-PWA: <https://www.npmjs.com/package/next-pwa>
 
 Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/a409075383c260d77356ded39915098da40b3f14>
 
-## Aula 27 - Iniciando um projeto através do nosso boilerplate
+### Aula 27 - Iniciando um projeto através do nosso boilerplate
 
 Mudanças na documentação do boilerplate: <https://github.com/React-Avancado/boilerplate/commit/baf5c9536c4d9f6ee1b93e9df3c849eb5af4850b>
 
 Repositório final do boilerplate: <https://github.com/React-Avancado/boilerplate>
 
-## Aula 28 - Extra: PR - corrigindo cobertura de testes
+### Aula 28 - Extra: PR - corrigindo cobertura de testes
 
 Link do Pull Request: <https://github.com/React-Avancado/boilerplate/pull/1>
 
-## Aula 29 - Extra: Servindo estáticos corretamente no build do Storybook
+### Aula 29 - Extra: Servindo estáticos corretamente no build do Storybook
 
 Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/a6f28b773c54e5bd358d806a5ed8de49b649c762>
 
-## Aula 30 - Extra: Mantendo o boilerplate com atualizado usando Dependabot e Github Actions
+### Aula 30 - Extra: Mantendo o boilerplate com atualizado usando Dependabot e Github Actions
 
-## Aula 31 - Extra: Automatizando criação de arquivos
+### Aula 31 - Extra: Automatizando criação de arquivos
 
 Site oficial do Plopjs: <https://plopjs.com>
 
 Código feito em aula: <https://github.com/React-Avancado/boilerplate/pull/42/files>
 
-## Aula 32 - FIX: Corrigindo configuração do jest-styled-components
+### Aula 32 - FIX: Corrigindo configuração do jest-styled-components
 
-## Aula 33 - FIX: Definindo typings para jest-styled-components
+### Aula 33 - FIX: Definindo typings para jest-styled-components
