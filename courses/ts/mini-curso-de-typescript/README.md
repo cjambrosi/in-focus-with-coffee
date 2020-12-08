@@ -26,48 +26,46 @@ Uns consideram e outros não, porém antigamente o C++ também era considerado s
 
 ## Por que usar TypeScript
 
-1. Evita resultados inesperados.
+Evita resultados inesperados.
 
-    Como JavaScript é dinâmico, podemos atribuir variaveis de um tipo ou de outro dentro do mesmo código, havendo retornos inesperados. Aliás, a própria forma do JavaScript funcionar retorna coisas inesperadas.
+Como JavaScript é dinâmico, podemos atribuir variaveis de um tipo ou de outro dentro do mesmo código, havendo retornos inesperados. Aliás, a própria forma do JavaScript funcionar retorna coisas inesperadas.
 
-    ```javascript
-    function sum() {
-      return a + b
-    }
+```javascript
+function sum() {
+    return a + b
+}
 
-    sum(1, 2) // 3
-    sum('1', '2') // 12 opa!
-    ```
+sum(1, 2) // 3
+sum('1', '2') // 12 opa!
+```
 
-2. Avisa se estiver fazendo algo errado.
+Avisa se estiver fazendo algo errado.
 
-    Por exemplo, dividir um valor por um array:
+Por exemplo, dividir um valor por um array:
 
-    ```typescript
-    console.log(4 / [])
-    // The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type. ts(2363)
-    ```
+```typescript
+console.log(4 / [])
+// The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type. ts(2363)
+```
 
-3. Já funciona como uma espécie de documentação.
+Já funciona como uma espécie de documentação.
 
-    A partir dos *types*, é possível saber os tipos de valores permitidos por um atributo, por exemplo.
+A partir dos *types*, é possível saber os tipos de valores permitidos por um atributo, por exemplo.
 
-    ```typescript
-    type Platform = 'Windows' | 'Mac OS' | 'Linux'
-    type Feature = 'Single Player' | 'Mulitplayer' | 'Co-op'
+```typescript
+type Platform = 'Windows' | 'Mac OS' | 'Linux'
+type Feature = 'Single Player' | 'Mulitplayer' | 'Co-op'
 
-    interface GameDetails {
-        id: string
-        title: string
-        description: string
-        platforms: Platform[]
-        features: Feature[]
-    }
-    ```
+interface GameDetails {
+    id: string
+    title: string
+    description: string
+    platforms: Platform[]
+    features: Feature[]
+}
+```
 
-4. Deixa a IDE extramamente poderosa
-
-    Definindo o tipo da variável, a IDE consigo me mostrar toda a documentação do que posso utiliza, isso é, irá me mostrar todas os métodos que posso utilizar ou autocompletar.
+Deixa a IDE extramamente poderosa. Definindo o tipo da variável, a IDE consegue mostrar toda a documentação do que posso utiliza, isso é, irá me mostrar todas os métodos que posso utilizar ou autocompletar.
 
 ## Desvantagens do TypeScript
 
@@ -79,19 +77,19 @@ Uns consideram e outros não, porém antigamente o C++ também era considerado s
 
 ## Alguns Mitos do TypeScript
 
-- *Vout ter que aprender tudo de novo!*: **Não!** TypeScript é o JavaScript, porém com tipos. Se você já sabe JavaScript, então você já sabe TypeScript, somente alguns detalhes terão de ser aprendidos, como os tipos, interfaces, generics, nada diferente de outras linguagens, inclusive.
+*Vout ter que aprender tudo de novo!*: **Não!** TypeScript é o JavaScript, porém com tipos. Se você já sabe JavaScript, então você já sabe TypeScript, somente alguns detalhes terão de ser aprendidos, como os tipos, interfaces, generics, nada diferente de outras linguagens, inclusive.
 
-- *Vou precisar reescrever tudo pra TypeScript*: **Não!** É possível fazer a adoção gradualmente, pois é possível trabalhar tanto com JavaScript quando com TypeScript no mesmo projeto. Uma forma inteligente de fazer isso, quando for escrever um novo código ou arquivo do projeto, já escrever em TypeScript, o mesmo vale para um arquivo já existente que será mexido, convertê-lo JavaScript para TypeScript.
+*Vou precisar reescrever tudo pra TypeScript*: **Não!** É possível fazer a adoção gradualmente, pois é possível trabalhar tanto com JavaScript quando com TypeScript no mesmo projeto. Uma forma inteligente de fazer isso, quando for escrever um novo código ou arquivo do projeto, já escrever em TypeScript, o mesmo vale para um arquivo já existente que será mexido, convertê-lo JavaScript para TypeScript.
 
-- *Já escrevo testes, não preciso disso*: **Não!** Existem alguns casos em que os testes não irão "pegar", o TypeScript irá te dar essa segurança a mais.
+*Já escrevo testes, não preciso disso*: **Não!** Existem alguns casos em que os testes não irão "pegar", o TypeScript irá te dar essa segurança a mais.
 
-- *Só funciona com Programação Orientada a Objeto*: **Não!** Quando o TypeScript começou era muito fundamentado nas ideias do dotNet/C#, que é Orientado a Objeto. Porém, o TypeScript funciona muito bem com Programação Funcional.
+*Só funciona com Programação Orientada a Objeto*: **Não!** Quando o TypeScript começou era muito fundamentado nas ideias do dotNet/C#, que é Orientado a Objeto. Porém, o TypeScript funciona muito bem com Programação Funcional.
 
-- *Verboso demais, precisa tipar tudo*: **Não!** De fato é preciso escrever um pouco a mais já que é preciso definir os tipos, mas isso não necessariamente quer dizer que é precisar definir o tipo para tudo. O TypeScript possui **inferência**, onde ele já sabe o que é um determinado resultado, retorno ou variável.
+*Verboso demais, precisa tipar tudo*: **Não!** De fato é preciso escrever um pouco a mais já que é preciso definir os tipos, mas isso não necessariamente quer dizer que é precisar definir o tipo para tudo. O TypeScript possui **inferência**, onde ele já sabe o que é um determinado resultado, retorno ou variável.
 
-- *Só serve para projeto grande*: **Não!** Não vai fazer diferença o tipo de projeto. Na verdade, a única diferença que pode existir, é que o TypeScript vai garantir muito mais **escalabilidade** no futuro.
+*Só serve para projeto grande*: **Não!** Não vai fazer diferença o tipo de projeto. Na verdade, a única diferença que pode existir, é que o TypeScript vai garantir muito mais **escalabilidade** no futuro.
 
-- *É só usar **PropTypes** que dá na mesma*: **Não!** O PropTypes em sí não bloqueia código, não retorna erro, o máximo que ele faz é retornar warnings no console, onde geralmente são ignorados pelo programador.
+*É só usar **PropTypes** que dá na mesma*: **Não!** O PropTypes em sí não bloqueia código, não retorna erro, o máximo que ele faz é retornar warnings no console, onde geralmente são ignorados pelo programador.
 
 ## Instalando o compilador e escrevendo primeiro código
 
@@ -182,7 +180,7 @@ Gerar o arquivo **tsconfigo.json** (na raiz), onde podem ser inseriridas várias
     values = [1, 2, 3]
     ```
 
-5. Tuple
+5. Tuples
 
     Um array onde já sabemos a quantidade de elementos e o tipo.
 
