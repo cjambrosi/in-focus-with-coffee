@@ -77,9 +77,7 @@ Uns consideram e outros não, porém antigamente o C++ também era considerado s
 
 3. Erros nem sempre são muito claros ou então muito grandes
 
-## Mitos e Verdades
-
-Mitos
+## Alguns Mitos do TypeScript
 
 - *Vout ter que aprender tudo de novo!*: **Não!** TypeScript é o JavaScript, porém com tipos. Se você já sabe JavaScript, então você já sabe TypeScript, somente alguns detalhes terão de ser aprendidos, como os tipos, interfaces, generics, nada diferente de outras linguagens, inclusive.
 
@@ -89,10 +87,173 @@ Mitos
 
 - *Só funciona com Programação Orientada a Objeto*: **Não!** Quando o TypeScript começou era muito fundamentado nas ideias do dotNet/C#, que é Orientado a Objeto. Porém, o TypeScript funciona muito bem com Programação Funcional.
 
-- *Verboso demais, precisa tipar tudo:* **Não!** De fato é preciso escrever um pouco a mais já que é preciso definir os tipos, mas isso não necessariamente quer dizer que é precisar definir o tipo para tudo. O TypeScript possui **inferência**, onde ele já sabe o que é um determinado resultado, retorno ou variável.
+- *Verboso demais, precisa tipar tudo*: **Não!** De fato é preciso escrever um pouco a mais já que é preciso definir os tipos, mas isso não necessariamente quer dizer que é precisar definir o tipo para tudo. O TypeScript possui **inferência**, onde ele já sabe o que é um determinado resultado, retorno ou variável.
 
-- *Só serve para projeto grande:* **Não!** Não vai fazer diferença o tipo de projeto. Na verdade, a única diferença que pode existir, é que o TypeScript vai garantir muito mais **escalabilidade** no futuro.
+- *Só serve para projeto grande*: **Não!** Não vai fazer diferença o tipo de projeto. Na verdade, a única diferença que pode existir, é que o TypeScript vai garantir muito mais **escalabilidade** no futuro.
 
-- *É só usar **PropTypes** que dá na mesma:* **Não!** O PropTypes em sí não bloqueia código, não retorna erro, o máximo que ele faz é retornar warnings no console, onde geralmente são ignorados pelo programador.
+- *É só usar **PropTypes** que dá na mesma*: **Não!** O PropTypes em sí não bloqueia código, não retorna erro, o máximo que ele faz é retornar warnings no console, onde geralmente são ignorados pelo programador.
 
-Verdades
+## Instalando o compilador e escrevendo primeiro código
+
+Site oficial do Typescript: <https://www.typescriptlang.org>
+
+Instalar globalmente:
+
+> npm install -g typescript
+
+Comando para compilar um arquivo *.ts* e ficar assistindo:
+
+> tsc fileName.ts --watch
+
+Exemplo de diferença entre JS e TS:
+
+```javascript
+// File: index.js
+const input1 = document.getElementById('num1');
+const input2 = document.getElementById('num2');
+const button = document.getElementById('somar');
+
+function sum(a, b) {
+  return a + b;
+}
+
+button.addEventListener('click', function() {
+  console.log('Soma:', sum(input1.value, input2.value));
+});
+```
+
+Ao tentar soma "1 + 2", no primeiro caso irá retornar 12, pois são strings e o JavaScript irá concatenar. No segundo caso retornará "3", pois foi feita a soma corretamente.
+
+```typescript
+// File: index.ts
+const input1 = document.getElementById('num1') as HTMLInputElement;
+const input2 = document.getElementById('num2') as HTMLInputElement;
+const button = document.getElementById('somar')
+
+function sum(a: number, b: number) {
+  return a + b;
+}
+
+button.addEventListener('click', function() {
+  console.log('Soma:', sum(Number(input1.value), Number(input2.value)));
+});
+```
+
+Gerar o arquivo **tsconfigo.json** (na raiz), onde podem ser inseriridas várias regras do TypeScript:
+
+> tsc --init
+
+## Como criar os Tipos ou Types
+
+1. Boolean (true / false)
+
+    Só existe *true* ou *false*, nada de *0* ou *1*.
+
+    ```typescript
+    let isOpen: boolean
+    isOpen = true
+    ```
+
+2. String ('foo' / "foo" / `foo`)
+
+    ```typescript
+    let message: string
+    message = 'foo'
+    message = `foo ${isOpen}` // Template String Literals
+    ```
+
+3. Number (int / floa / hexadecimal/ binário /...)
+
+    ```typescript
+    let total: number
+    total = 20.3
+    total = 0xff0
+    ```
+
+4. Array (type[])
+
+    Para definir um array, é preciso dizer os tipos de dados desse array.
+
+    ```typescript
+    let items: number[]
+    item = [1, 2, 3]
+
+    let values: Array<number>
+    values = [1, 2, 3]
+    ```
+
+5. Tuple
+
+    Um array onde já sabemos a quantidade de elementos e o tipo.
+
+    ```typescript
+    let title: [number, string, string]
+    title = [1, 'foo', 'bar']
+    ```
+
+6. Enum
+
+    Enumerator serve para criar um conjunto de chave e valor.
+
+    ```typescript
+    enum Colors {
+        white = '#fff',
+        black = '#000
+    }
+    ```
+
+7. Any (Não é legal!)
+
+    Significa qualquer coisa (terror do JavaScript).
+
+    ```typescript
+    let coisa: any
+    coisa = true
+    coisa = 'foo'
+    coisa = [1, 2]
+    ```
+
+8. Void (Vazio)
+
+    Quando não existe retorno. Para tipar funções que não retornam alguma coisa.
+
+    ```typescript
+    function logger(): void {
+        console.log('foo')
+    }
+    ```
+
+9. Null | Undefined
+
+    Quando um valor não foi definido é **nulo** ou **undefined**. Na prática não existe diferença, pois os dois são **Falsy**.
+
+    ```typescript
+    type Bla = string | undefined // Pode ser um ou outro
+    ```
+
+    Também não é recomendado a utilização como tipo primitivo, pois não será possível mudar o valor da mesma, sempre será nulo. Exemplo:
+
+    ```typescript
+    let variable: null
+    ```
+
+10. Never
+
+    É um tipo em que nunca irá retornar (?!). É usado basicamente quando iremos mostrar um erro na tela ou exceção, por exemplo.
+
+    ```typescript
+    function error(): never {
+        throw new Error("error") // Só vai jogar o erro na tela
+    }
+    ```
+
+11. Object
+
+    Tudo aquilo que não é nem string, nem array, nem boolean e nem número.
+
+    ```typescript
+    let cart: object
+    cart = {
+        key: "foo"
+    }
+    ```
