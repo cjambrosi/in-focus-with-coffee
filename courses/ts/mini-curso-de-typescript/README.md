@@ -1,10 +1,17 @@
-# Mini-curso de TypeScript
+# Mini-curso de TypeScript <!-- omit in toc -->
 
 > Se você sabe JavaScript, você sabe TypeScript. A diferença é que é preciso aprender a tipar.
 
 Link da Playlist: <https://www.youtube.com/playlist?list=PLlAbYrWSYTiPanrzauGa7vMuve7_vnXG_>
 
-## Sumário
+## Sumário <!-- omit in toc -->
+
+- [Sobre o TypeScript](#sobre-o-typescript)
+- [Por que usar TypeScript](#por-que-usar-typescript)
+- [Desvantagens do TypeScript](#desvantagens-do-typescript)
+- [Alguns Mitos do TypeScript](#alguns-mitos-do-typescript)
+- [Instalando o compilador e escrevendo primeiro código](#instalando-o-compilador-e-escrevendo-primeiro-código)
+- [Como criar os Tipos ou Types](#como-criar-os-tipos-ou-types)
 
 ## Sobre o TypeScript
 
@@ -149,6 +156,7 @@ Gerar o arquivo **tsconfigo.json** (na raiz), onde podem ser inseriridas várias
 
     ```typescript
     let isOpen: boolean
+
     isOpen = true
     ```
 
@@ -156,6 +164,7 @@ Gerar o arquivo **tsconfigo.json** (na raiz), onde podem ser inseriridas várias
 
     ```typescript
     let message: string
+
     message = 'foo'
     message = `foo ${isOpen}` // Template String Literals
     ```
@@ -164,6 +173,7 @@ Gerar o arquivo **tsconfigo.json** (na raiz), onde podem ser inseriridas várias
 
     ```typescript
     let total: number
+
     total = 20.3
     total = 0xff0
     ```
@@ -186,6 +196,7 @@ Gerar o arquivo **tsconfigo.json** (na raiz), onde podem ser inseriridas várias
 
     ```typescript
     let title: [number, string, string]
+
     title = [1, 'foo', 'bar']
     ```
 
@@ -206,6 +217,7 @@ Gerar o arquivo **tsconfigo.json** (na raiz), onde podem ser inseriridas várias
 
     ```typescript
     let coisa: any
+
     coisa = true
     coisa = 'foo'
     coisa = [1, 2]
@@ -251,6 +263,7 @@ Gerar o arquivo **tsconfigo.json** (na raiz), onde podem ser inseriridas várias
 
     ```typescript
     let cart: object
+    
     cart = {
         key: "foo"
     }
