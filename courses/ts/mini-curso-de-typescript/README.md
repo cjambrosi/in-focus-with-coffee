@@ -11,7 +11,11 @@ Link da Playlist: <https://www.youtube.com/playlist?list=PLlAbYrWSYTiPanrzauGa7v
 - [Desvantagens do TypeScript](#desvantagens-do-typescript)
 - [Alguns Mitos do TypeScript](#alguns-mitos-do-typescript)
 - [Instalando o compilador e escrevendo primeiro código](#instalando-o-compilador-e-escrevendo-primeiro-código)
-- [Como criar os Tipos ou Types](#como-criar-os-tipos-ou-types)
+- [Como criar os Types ou Tipos](#como-criar-os-types-ou-tipos)
+  - [Type Inference ou Inferência de Tipo](#type-inference-ou-inferência-de-tipo)
+  - [Aliases e Union](#aliases-e-union)
+  - [Type Aliases com Intersection](#type-aliases-com-intersection)
+- [Classes](#classes)
 
 ## Sobre o TypeScript
 
@@ -86,7 +90,7 @@ Deixa a IDE extramamente poderosa. Definindo o tipo da variável, a IDE consegue
 
 **Vout ter que aprender tudo de novo!:** *Não!* TypeScript é o JavaScript, porém com tipos. Se você já sabe JavaScript, então você já sabe TypeScript, somente alguns detalhes terão de ser aprendidos, como os tipos, interfaces, generics, nada diferente de outras linguagens, inclusive.
 
-**Vou precisar reescrever tudo pra TypeScript:** *Não!* É possível fazer a adoção gradualmente, pois é possível trabalhar tanto com JavaScript quando com TypeScript no mesmo projeto. Uma forma inteligente de fazer isso, quando for escrever um novo código ou arquivo do projeto, já escrever em TypeScript, o mesmo vale para um arquivo já existente que será mexido, convertê-lo JavaScript para TypeScript.
+**Vou precisar reescrever tudo para TypeScript:** *Não!* É possível fazer a adoção gradualmente, pois é possível trabalhar tanto com JavaScript quando com TypeScript no mesmo projeto. Uma forma inteligente de fazer isso, quando for escrever um novo código ou arquivo do projeto, já escrever em TypeScript, o mesmo vale para um arquivo já existente que será mexido, convertê-lo JavaScript para TypeScript.
 
 **Já escrevo testes, não preciso disso:** *Não!* Existem alguns casos em que os testes não irão "pegar", o TypeScript irá te dar essa segurança a mais.
 
@@ -148,7 +152,7 @@ Gerar o arquivo **tsconfigo.json** (na raiz), onde podem ser inseriridas várias
 
 > tsc --init
 
-## Como criar os Tipos ou Types
+## Como criar os Types ou Tipos
 
 1. Boolean (true / false)
 
@@ -268,3 +272,109 @@ Gerar o arquivo **tsconfigo.json** (na raiz), onde podem ser inseriridas várias
         key: "foo"
     }
     ```
+
+### Type Inference ou Inferência de Tipo
+
+A inferência de tipos serve para evitar a tipagem de forma redundante.
+
+Quando criar uma variável e já atribuir ela ao um valor, o TypeScript já entende o tipo da variável, a partir do valor. Por exemplo, se foi passada como valor de uma variável uma string, o TypeScript subentende que o tipo da mesma é string.
+
+Se tentar atribuir outro valor à variável que não seja do mesmo tipo atribuída inicialmente, o TypeScript retorna-rá um erro.
+
+```typescript
+let message = "Mensagem definida" // let message: string
+
+message = "String nova" // Ok
+maessage = 1.6 // Erro
+
+let newMessage: string = "Outra mensagem" // Isso é redundante
+```
+
+Exemplo com função:
+
+```typescript
+// Não redutante
+window.addEventListener('click', (e) => {
+    console.log(e.target)
+})
+
+// Reduntante
+window.addEventListener('click', (e: MouseEvent) => {
+    console.log(e.target)
+})
+```
+
+### Aliases e Union
+
+Existem momentos que queremos usar tipos um pouco mais complexos ou com algum detalhes a mais. Para isso servem o **Union** e o **Type Alias**.
+
+Exemplos:
+
+```typescript
+// Union
+function logDetails(uid: number | string, item: string) {
+    console.log(`A product with ${uid} has a title as ${item}.`)
+}
+
+logDetails(123, "Sapato") // Funciona normal pois aceita NUMBER ou STRING
+logDetails("123", "Sapato") // Funciona normal pois aceita NUMBER ou STRING
+
+// Type Alias
+type Uid = number | string
+type Platform = 'Windows' | 'Linux' | 'Mac OS'
+
+function logInfo(uid: Uid, user: string) {
+    console.log(`A user with ${uid} has a name as ${user}.`)
+}
+
+logInfo(123, "Goku") // Funciona normal pois aceita NUMBER ou STRING
+logInfo("123", "Goku") // Funciona normal pois aceita NUMBER ou STRING
+
+function renderPlatform(platform: Platform) { // É do tipo Platform
+    return platform
+}
+
+renderPlatform('ios') // ios não é do tipo Platform
+renderPlatform('Linux') // Linux é do tipo Platform
+```
+
+### Type Aliases com Intersection
+
+Exemplo de como fazer uma intercessão de Type Alias:
+
+```typescript
+type AccountInfo = {
+    id: number;
+    name: string;
+    email?: string; // Opcional (?) (string | undefined)
+}
+
+type CharInfo = {
+    nickname: string;
+    level: number;
+}
+
+const account: AccountInfo = {
+    id: 123,
+    name: "Goku",
+    email: "goku@kakaroto.com"
+}
+
+const char: CharInfo = {
+    nickname: "kakarotosayan",
+    level: 100
+}
+
+// União dos dois tipos anteriores (Intersection: &)
+type PlayerInfo = AccountInfo & CharInfo
+
+// Não importa a ordem das informações, mas a estrutura e tipos devem ser os mesmos.
+const player: PlayerInfo = {
+    id: 123,
+    nickname: "kakarotosayan",
+    name: "Goku",
+    level: 100
+}
+```
+
+## Classes
