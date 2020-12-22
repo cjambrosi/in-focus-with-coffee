@@ -16,6 +16,11 @@ Link da Playlist: <https://www.youtube.com/playlist?list=PLlAbYrWSYTiPanrzauGa7v
   - [Aliases e Union](#aliases-e-union)
   - [Type Aliases com Intersection](#type-aliases-com-intersection)
 - [Classes](#classes)
+  - [Herança - Estender uma Classe](#herança---estender-uma-classe)
+  - [Modifiers (Public, Private, Protected, Readonly)](#modifiers-public-private-protected-readonly)
+  - [Acessors (Get e Set)](#acessors-get-e-set)
+  - [Abstract Class](#abstract-class)
+- [Interfaces](#interfaces)
 
 ## Sobre o TypeScript
 
@@ -378,3 +383,307 @@ const player: PlayerInfo = {
 ```
 
 ## Classes
+
+Como convenção, sempre criar o nome da classe com as letras inciais em **maiúsculo** (MinhaClasse).
+
+Para criar o objeto é preciso de um método chamado de *constructor()*. Onde recebe as propriedades que o objeto irá receber.
+
+Exemplo de criação de uma Classe:
+
+```typescript
+// File: UserAccount.ts
+class UserAccount {
+    name: string;
+    age:  number;
+
+    constructor(name: string, age: number) {
+        // Assinalando os valores
+        this.name = name;
+        this.age  = age;
+    }
+
+    logDetails(): void {
+        console.log(`The player ${this.name} is ${this.age} years old.`);
+    }
+}
+
+const sayan = new UserAccount("Goku", 30);
+console.log(sayan);
+sayan.logDetails();
+```
+
+### Herança - Estender uma Classe
+
+Exemplo de Herança:
+
+```typescript
+// File: CharAccount.ts
+// Irá estender a classe UserAccount
+class CharAccount extends UserAccount() {
+    nickname: string;
+    level: number;
+
+    constructor(name: string, age: number, nickname: string, level: number) {
+        super(name, age) // Pegará as proprieades da classe Superior, ou seja, da que estamos estendendo
+        
+        this.nickname = nickname;
+        this.level = level;
+    }
+}
+
+const sayan2 = new CharAccount("Vegeta", 45, "inseto", 80);
+console.log(sayan2);
+sayan2.logDetails();
+```
+
+### Modifiers (Public, Private, Protected, Readonly)
+
+**Public:** É permitido fazer o que desejar com a propriedade, em qualquer lugar.
+
+```typescript
+// File: CharAccount.ts
+class CharAccount extends UserAccount() {
+    public nickname: string;
+    level: number;
+
+    constructor(name: string, age: number, nickname: string, level: number) {
+        super(name, age)
+        
+        this.nickname = nickname;
+        this.level = level;
+    }
+
+    longCharDetails(): void {
+        console.log(
+            `The player ${this.name} has the char ${this.nickname} at level ${this.level}.`
+        )
+    }
+}
+
+const sayan = new CharAccount("Vegeta", 45, "inseto", 80);
+console.log(sayan.nickname); // 80
+sayan.nickname = 'Gohan';
+console.log(sayan.nickname); // Gohan
+```
+
+**Private:** Uma propriedade só pode ser acessada ou editada dentro da própria classe.
+
+```typescript
+// File: CharAccount.ts
+class CharAccount extends UserAccount() {
+    private nickname: string;
+    level: number;
+
+    constructor(name: string, age: number, nickname: string, level: number) {
+        super(name, age)
+        
+        this.nickname = nickname;
+        this.level = level;
+    }
+
+    longCharDetails(): void {
+        console.log(
+            `The player ${this.name} has the char ${this.nickname} at level ${this.level}.`
+        )
+    }
+}
+
+const sayan = new CharAccount("Vegeta", 45, "inseto", 80);
+console.log(sayan.nickname); // Erro
+```
+
+**Protected:** Permitido chamar uma propriedade dentro da classe ou da classe que está estendendo a mesma, porém não é possível chamar foram da classe.
+
+```typescript
+// File: CharAccount.ts
+class CharAccount extends UserAccount() {
+    protected nickname: string;
+    level: number;
+
+    constructor(name: string, age: number, nickname: string, level: number) {
+        super(name, age)
+        
+        this.nickname = nickname;
+        this.level = level;
+    }
+
+    longCharDetails(): void {
+        console.log(
+            `The player ${this.name} has the char ${this.nickname} at level ${this.level}.`
+        )
+    }
+}
+
+const sayan = new CharAccount("Vegeta", 45, "inseto", 80);
+console.log(sayan.nickname); // Erro
+```
+
+**Readonly:** A propriedade só pode ser lida, mesmo dentro de sua classe.
+
+```typescript
+// File: CharAccount.ts
+class CharAccount extends UserAccount() {
+    nickname: string;
+    readonly level: number;
+
+    constructor(name: string, age: number, nickname: string, level: number) {
+        super(name, age)
+        
+        this.nickname = nickname;
+        this.level = level;
+    }
+
+    longCharDetails(): void {
+        console.log(
+            `The player ${this.name} has the char ${this.nickname} at level ${this.level}.`
+        )
+    }
+}
+
+const sayan = new CharAccount("Vegeta", 45, "inseto", 80);
+console.log(sayan.level); // 80
+sayan.level = 799; // Erro
+```
+
+### Acessors (Get e Set)
+
+Com o **Get** é possivel **obter** valores/propriedades dentro de uma determinada classe.
+
+Com o **Set** é possivel **editar** valores/propriedades dentro de uma determinada classe.
+
+Exemplo:
+
+```typescript
+// File: CharAccount.ts
+class CharAccount extends UserAccount() {
+    nickname: string;
+    level: number;
+
+    constructor(name: string, age: number, nickname: string, level: number) {
+        super(name, age)
+        
+        this.nickname = nickname;
+        this.level = level;
+    }
+
+    get getLevel() {
+        return this.level;
+    }
+
+    set setLevel(level: number) {
+        this.level = level;
+    }
+
+    longCharDetails(): void {
+        console.log(
+            `The player ${this.name} has the char ${this.nickname} at level ${this.level}.`
+        )
+    }
+}
+
+const sayan = new CharAccount("Vegeta", 45, "inseto", 80);
+console.log(sayan.getLevel); // Não é preciso passar como função, pois é como uma propriedade.
+
+sayan.setLevel = 488;
+console.log(sayan.getLevel); // 488
+```
+
+### Abstract Class
+
+É uma **classe abstrata** onde não é possível criar abjetos a partir dela, porém é possível estendê-la.
+
+Muita utilizadas quando queremos criar classes que serão somente "modelos" para outras classes.
+
+Exemplo:
+
+```typescript
+// File: UserAccount.ts
+abstract class UserAccount {
+    name: string;
+    age:  number;
+
+    constructor(name: string, age: number) {
+        // Assinalando os valores
+        this.name = name;
+        this.age  = age;
+    }
+
+    logDetails(): void {
+        console.log(`The player ${this.name} is ${this.age} years old.`);
+    }
+}
+```
+
+## Interfaces
+
+Interfaces são um conjunto de dados para descrever a estrutura de um objeto (exclusivamente). No momento, Interfaces funcionam somente no TypeScript e não no JavaScript.
+
+Em alguns lugares é visto iniciar o nome de uma interface com a letra **I**, porém não é obrigatório.
+
+Exemplo de Interface:
+
+```typescript
+interface Game // IGame {
+    id?: string | number;
+    title: string;
+    description: string;
+    readonly genre: string; // Só é possível motrar e não editar
+    platform?: string[]; // Opcional
+    getSimilars?: (title: string) => void // Assinatura do método
+}
+
+const tlou: Game = {
+    title: "The Last Of Us",
+    description: "The best game in the world.",
+    genre: "Action",
+    platform: ["PS3", "PS4"],
+    getSimilars: (title: string) => {
+        console.log(`Similar games to ${title}: Uncharted, A Plague Tale, Metro`);
+    }
+}
+
+// É preciso testar se o método/propriedade existe, pois ele está como opcional e pode ser 'undefined'
+// Isso é chamado de Type Guards. https://basarat.gitbook.io/typescript/type-system/typeguard
+if (tlou.getSimilars) {
+    tlou.getSimilars(tlou.title);
+}
+
+console.log(tlou.title);
+```
+
+Estendendo a Interface:
+
+```typescript
+interface DLC extends Game {
+    originalGame: Game; // Objeto do tipo Game
+    newContent: string[];
+}
+
+const leftbehind: DLC = {
+    title: "The Last Of Us - Left Behind",
+    description: "You play as Ellie before the original game.",
+    genre: "Action",
+    platform: ["PS4"],
+    originalGame: tlou,
+    newContent: ["3 hours story", "new characters"]
+}
+
+console.log(leftbehind);
+```
+
+Implementando uma Classe a partir de uma Interface:
+
+```typescript
+// A classe precisar ter todos os tipos não opcionais descritos na interface
+class CreateGame implements Game {
+    title: string;
+    description: string;
+    genre: string;
+
+    constructor(t: string, d: string, g: string) {
+        this.title = t;
+        this.description = d;
+        this.genre = g;
+    }
+}
+```
