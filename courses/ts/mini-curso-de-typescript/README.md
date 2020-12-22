@@ -21,6 +21,10 @@ Link da Playlist: <https://www.youtube.com/playlist?list=PLlAbYrWSYTiPanrzauGa7v
   - [Acessors (Get e Set)](#acessors-get-e-set)
   - [Abstract Class](#abstract-class)
 - [Interfaces](#interfaces)
+  - [Type Alias vs Interfaces](#type-alias-vs-interfaces)
+- [Generics](#generics)
+- [Type Utilities](#type-utilities)
+- [Decorators](#decorators)
 
 ## Sobre o TypeScript
 
@@ -686,4 +690,441 @@ class CreateGame implements Game {
         this.genre = g;
     }
 }
+```
+
+### Type Alias vs Interfaces
+
+Quando utilizar mais Type Alias?
+
+- Na maioria das vezes;
+- React - Props;
+- Consegue estender pequenos detalhes no próprio local;
+- Trabalhar mais facilmente com tipos primitivos.
+
+Quando utilizar mais Interfaces?
+
+- Quando quiser estender a aplicação;
+- Quando estiver criando libs, prefira Interfaces, pois são mais extensíveis;
+- Criando objetos/classes (POO).
+
+Type Alias:
+
+```typescript
+// Definição
+type Game = {
+    title: string;
+}
+
+type DLC = {
+    extra: string;
+}
+
+// Intersection
+type GameCollection = Game & DLC;
+
+// Implements
+class CreateGame implements GameCollection {}
+
+// Declarar função
+type getSimilars = (title: string) => void;
+
+// ============== Diferenças ============ //
+
+// Permite declarar tipos primitivos
+type ID = string | number;
+
+// Pode declarar Tuplas normalmente
+type Tuple = [number, number];
+
+[1, 2] as Tuple; // Se passar mais de 2, acusará erro pela definição.
+
+// Apenas UMA declaração por escopo.
+type JQuery = { a: string };
+type JQuery = { b: string }; // Erro.
+```
+
+Interfaces:
+
+```typescript
+// Definição
+interface Game {
+    title: string;
+}
+
+interface DLC {
+    extra: string;
+}
+
+// Intersection | Extend
+interface GameCollection extends Game, DLC {}
+
+// Implements
+class CreateGame implements GameCollection {}
+
+// Declarar função
+interface getSimilars {
+    (title: string): void;
+};
+
+// ============== Diferenças ============ //
+
+// Não é possível estender de um tipo primitivo
+interface ID extends number {} // Erro
+
+// Não é possível definir Tuplas na interface
+interface Tuple {
+    0: number;
+    1: number;
+}
+
+[1, 2, 3, "qualquer coisa"] as Tuple; // Pode ter múltiplas declarações e ele une de mesmo nome.
+
+// Permite a redefinição dinâmica (Monkey Patching), será feito um merge entre eles.
+interface JQuery {
+    a: string;
+}
+
+interface JQuery {
+    b: string;
+}
+
+const $: JQuery = {
+    a: "bla",
+    b: "foo"
+}
+```
+
+## Generics
+
+Consideradas um dos conceitos mais difíceis do TypeScript. Quando estamos escrevendo código, uma das coisas mais importantes é a reutilização deste código. Onde além de escrever menos, teremos somente um "ponto de contato" se houver algum bug ou algo a ser modificado.
+
+Porém, para termos códigos dessa forma, precisamos que nossas funções/métodos, sejam mais *genéricos*, ou seja, que esses métodos aceitem diferentes tipos de entradas, diferentes tipos de argumentos que possamos passar e etc, onde no final tenhamos o retorno esperado.
+
+Aprendemos no TypeScript, que no incio é preciso definir os tipos das entradas fortemente, com isso o que era para ser em tese mais genérico, acaba não sendo. Por isso a utilização do **generics**, para conseguir dentro de uma linguagem tipada uma certa flexibilidade.
+
+Os tipos são representados por letras, declaradas entre **menor e maior** (**<>**), antes dos parenteses utilizados para passar argumentos. Já a definição de qual tipo aquela letra representa, é passada na chamada da função. Alguns padrões de letras são utilizados ao declarar os tipos:
+
+- S => State;
+- T => Type;
+- K => Key;
+- V => Value;
+- E => Element;
+
+Exemplo simples:
+
+```typescript
+// File: generics.ts
+
+// <>: passar os tipos
+function useState<S>() {
+    // let state: number | string;
+    let state: S;
+
+    function getState() {
+        return state;
+    }
+
+    function setState(newState: number) {
+        state = newState;
+    }
+
+    return { getState, setState };
+}
+
+const newState = useState<string>();
+
+newState.setState("foo");
+console.log(newState.getState()); // foo
+
+newState.setState(123); // Erro
+```
+
+É possível flexibilizar os tipos que o método aceita, estendendo-os. Porém, após a primeira vez definido o tipo na chamada, somente será aceito esse tipo.
+
+Exemplo com especificação:
+
+```typescript
+// File: generics.ts
+
+function useState<S extends number | string>() {
+    let state: S;
+
+    function getState() {
+        return state;
+    }
+
+    function setState(newState: number) {
+        state = newState;
+    }
+
+    return { getState, setState };
+}
+
+const newState = useState<string>();
+
+newState.setState("foo");
+console.log(newState.getState()); // foo
+
+// Se já foi definido anterioromente que é uma string, aqui retornará um erro
+newState.setState(123);
+console.log(newState.getState()); // 123
+
+newState.setState(false); // Erro
+```
+
+É possível declarar um tipo **generic default**, para que não seja necessário sempre declarar na chamada da função.
+
+- Definição do Generic: `S extends number | string`.
+- Difinição do generic default: `= string`.
+
+Exemplo com um tipo default:
+
+```typescript
+// File: generics.ts
+
+let numOrStr = number | string;
+
+function useState<S extends numOrStr = string>() {
+    let state: S;
+
+    function getState() {
+        return state;
+    }
+
+    function setState(newState: number) {
+        state = newState;
+    }
+
+    return { getState, setState };
+}
+
+const newState = useState();
+
+newState.setState("foo");
+console.log(newState.getState()); // foo
+```
+
+## Type Utilities
+
+Utilitários para trabalhar com tipos, onde são feitos com base nos Generics. Servem basicamente para fazermos opeções "em cima" dos próprios tipos. Existem vários, mas será abordados somente os principais.
+
+Para exemplificar, vamos tentar altera um objeto. Na primeira forma estamos fazendo uma Mutação, alterado diretamente o objeto. Isso pode criar muitos problemas. O ideal é criar uma função, que cria um novo objeto a partir do objeto original (princípio de Imutabilidade) visto na segunda forma.
+
+- Primeira forma:
+
+```typescript
+// File: type-utilities.ts
+
+type Todo = {
+    title: string;
+    description: string;
+    completed: boolean;
+};
+
+const todo: Todo = {
+    title: "Assistir Dark novamente",
+    description: "Relembrar os detalhes",
+    completed: false
+};
+
+console.log(todo);
+
+// Modificando o objeto
+todo.completed = true;
+console.log(todo);
+```
+
+- Segunda forma:
+
+```typescript
+// File: type-utilities.ts
+
+type Todo = {
+    title: string;
+    description: string;
+    completed: boolean;
+};
+
+// Readonly: todas as propridades não poderão ser alteradas.
+const todo: Readonly<Todo> = {
+    title: "Assistir Dark novamente",
+    description: "Relembrar os detalhes",
+    completed: false
+};
+
+console.log(todo);
+todo.completed = true; // Erro
+
+// Partial: Deita todas as propriedades do objeto opcionais.
+function updateTodo(todo: Todo, fieldsToUpdate: Partial<Todo>) {
+    return { ...todo, ...fieldsToUpdate } // ...fieldsToUpdate irá sobrescrever o ...todo
+}
+
+const todo2: Todo = updateTodo(todo, { completed: true });
+
+// Pick: Especificar as propriedades que queremos de outro objeto.
+type TodoPreview = Pick<Todo, "title" | "completed">
+
+const todo3 = TodoPreview = {
+    title: "Fechar Ghost of Tsushima",
+    completed: false
+}
+
+// Omit: Omitir o que foi informado, inverso do Pick.
+type TodoPreview2 = Omit<Todo, "description">
+
+const todo4 = TodoPreview2 = {
+    title: "Fechar Ghost of Tsushima",
+    completed: false
+}
+```
+
+## Decorators
+
+Decorator é uma anotação/marcação que pode ser anexada à uma classe, propriedade, método, parâmetro ou acesso. Em outras palavras, o Decorator irá trabalhar com essas anotações para que seja possível adicionar coisas novas, vigiando as anotações para que possa ser adicionado um elemento novo, ou fazer alguma validação entre outras funções.
+
+No momento (em que escrevo), apesar de muito utilizada em TypeScript e no ECMAScript, é uma feature experimental. Para pode utilizar no TypeScript, é preciso modificar a propriedade **experimentalDecorators** para **true**, no arquivo **tsconfig.json**.
+
+Decorator mais básico:
+
+```typescript
+// File: decorators.ts
+
+/** Criando decorator **/
+// target: vai ser o constructor da classe
+// function log(target) {
+//     console.log(target);
+// }
+
+// Decorator Factory: uma função que irá retornar a criação do Decorator
+function logger(prefix: string) {
+    // Retornar o decorator
+    return (target) => {
+        console.log(`${prefix} - ${target}`);
+    }
+}
+
+/** Decorator **/
+// @log
+@logger('awesome')
+class Foo {}
+```
+
+Decorator de Classe (Class Decorator):
+
+Esse decorator roda em runtime.
+
+```typescript
+// File: decorators.ts
+
+function setAPIVersion(apiVersion: string) {
+    // Ou target. Decorator de Classe sempre terá um construtor!
+    return (constructor) => {
+        return class extends constructor {
+            version = apiVersion
+        }
+    }
+}
+
+// Decorator que irá anotar a versão da API.
+@setAPIVersion('1.0.0')
+class API {}
+
+console.log(new API()); // class_1 { version: '1.0.0' }
+```
+
+Decorator de Propriedade (Property Decorator):
+
+```typescript
+// File: decorators.ts
+
+function minLength(length: number) {
+    // Recebe 2 parâmetros:
+    // target: propotype da classe
+    // key: nome da propriedade que estamos trabalhando
+    return (target: any, key: string | symbol) => {
+        console.log(target); // Movie {}
+        console.log(key); // title
+
+        let val = target[key];
+        const getter = () => val;
+        const setter = (value: string) => {
+            if (value.length < length) {
+                console.log(
+                    `Error: você não pode criar ${key} com o tamanho menor que ${length}.`
+                ); 
+            } else {
+                val = value;
+            }
+        }
+
+        // É preciso definir no objeto
+        Object.defineProperty(target, key, {
+            get: getter,
+            set: setter
+        });
+    }
+}
+
+class Movie {
+    // Validação: se for menor que 5 = erro
+    @minLength(50)
+    title: string;
+
+    constructor(t: string) {
+        this.title = t;
+    }
+}
+
+const movie = new Movie("Interstellar")
+console.log(movie);
+```
+
+Decorator de Método (Method Decorator):
+
+Esse decorator irá rodar no momento que o método for chamado.
+
+```typescript
+// File: decorators.ts
+
+function delay(ms: number) {
+    // Recebe 3 parâmetros:
+    // target: propotype da classe
+    // key: nome da propriedade que estamos trabalhando
+    // descriptor: descreve o método
+    return (target: any, key: string, descriptor: PropertyDescriptor) => {
+        console.log(target); // Greeter { greet: [Function] }
+        console.log(key); // greet
+        console.log(descriptor); // Objeto PropertyDescriptor
+
+        const originalMethod = descriptor.value; // Salvando a função original
+        // Reescrever a função
+        descriptor.value = function(...args) {
+            console.log(`Esperando ${ms}...`);
+            setTimeout(() => {
+                originalMethod.apply(this, args);
+            }, ms);
+
+            return descriptor;
+        }
+    }
+}
+
+class Greeter {
+    greeting: string;
+
+    constructor(g: string) {
+        this.greeting = g;
+    }
+
+    // Esperar um tempo e aí vai rodar o método (ms)
+    // @debounce(300) // Exemplo de rotina
+    @delay(1000)
+    greet() {
+        console.log(`Hello! ${this.greeting}`);
+    }
+}
+
+const pessoinha = new Greeter("Pessoinha!");
+pessoinha.greet();
 ```
