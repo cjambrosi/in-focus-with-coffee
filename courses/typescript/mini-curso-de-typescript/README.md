@@ -1,8 +1,8 @@
 # Mini-curso de TypeScript <!-- omit in toc -->
 
-> Se você sabe JavaScript, você sabe TypeScript. A diferença é que é preciso aprender a tipar.
-
 Link da Playlist: <https://www.youtube.com/playlist?list=PLlAbYrWSYTiPanrzauGa7vMuve7_vnXG_>
+
+> Se você sabe JavaScript, você sabe TypeScript. A diferença é que é preciso aprender a tipar.
 
 ## Sumário <!-- omit in toc -->
 
@@ -11,7 +11,7 @@ Link da Playlist: <https://www.youtube.com/playlist?list=PLlAbYrWSYTiPanrzauGa7v
 - [Desvantagens do TypeScript](#desvantagens-do-typescript)
 - [Alguns Mitos do TypeScript](#alguns-mitos-do-typescript)
 - [Instalando o compilador e escrevendo primeiro código](#instalando-o-compilador-e-escrevendo-primeiro-código)
-- [Como criar os Types ou Tipos](#como-criar-os-types-ou-tipos)
+- [Como criar os Types/Tipos](#como-criar-os-typestipos)
   - [Type Inference ou Inferência de Tipo](#type-inference-ou-inferência-de-tipo)
   - [Aliases e Union](#aliases-e-union)
   - [Type Aliases com Intersection](#type-aliases-com-intersection)
@@ -36,7 +36,7 @@ TypeScript é:
 
 - Tipagem Estática: Quando definimos o tipo de nossas variáveis, retornos de função e etc, antes mesmo da compilação do código, ou seja, determinamos os tipos e um processo de compilação irá verificar o código se de fato os tipos estão corretos, de acordo como definimos.
 
-- No final, o TypeScript irá compilar (transpilar, na verdade) para JavaScript para poder ser interpretado. Diferente de aplicações como o **Deno** que roda nativamente o TypeScript.
+- No final, o TypeScript irá compilar (transpilar, na verdade) para o JavaScript para poder ser interpretado. Diferente de aplicações como o **Deno**, que roda nativamente o TypeScript.
 
 - Permite adoção gradual (arquivos **.ts** convivem com **.js**), ou seja, é possível ter arquivos TypeScript "convivendo" com JavaScript, pois como mencionado o TypeScript é somente um superset do JavaScript.
 
@@ -46,9 +46,7 @@ Uns consideram e outros não, porém antigamente o C++ também era considerado s
 
 ## Por que usar TypeScript
 
-Evita resultados inesperados.
-
-Como JavaScript é dinâmico, podemos atribuir variaveis de um tipo ou de outro dentro do mesmo código, havendo retornos inesperados. Aliás, a própria forma do JavaScript funcionar retorna coisas inesperadas.
+Evita resultados inesperados. Como JavaScript é dinâmico, podemos atribuir variáveis de um tipo ou de outro dentro do mesmo código, havendo retornos inesperados. Aliás, a própria forma do JavaScript funcionar retorna coisas inesperadas.
 
 ```javascript
 function sum() {
@@ -59,18 +57,14 @@ sum(1, 2) // 3
 sum('1', '2') // 12 opa!
 ```
 
-Avisa se estiver fazendo algo errado.
-
-Por exemplo, dividir um valor por um array:
+Avisa se estiver fazendo algo errado. Por exemplo, dividir um valor por um array:
 
 ```typescript
 console.log(4 / [])
 // The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type. ts(2363)
 ```
 
-Já funciona como uma espécie de documentação.
-
-A partir dos *types*, é possível saber os tipos de valores permitidos por um atributo, por exemplo.
+Já funciona como uma espécie de documentação. A partir dos *types*, é possível saber os tipos de valores permitidos por um atributo, por exemplo.
 
 ```typescript
 type Platform = 'Windows' | 'Mac OS' | 'Linux'
@@ -85,7 +79,7 @@ interface GameDetails {
 }
 ```
 
-Deixa a IDE extramamente poderosa. Definindo o tipo da variável, a IDE consegue mostrar toda a documentação do que posso utiliza, isso é, irá me mostrar todas os métodos que posso utilizar ou autocompletar.
+Deixa a IDE extramamente poderosa. Definindo o tipo da variável, a IDE consegue mostrar toda a documentação do que posso utilizar, isto é, irá me mostrar todas os métodos que posso utilizar ou autocompletar.
 
 ## Desvantagens do TypeScript
 
@@ -161,7 +155,7 @@ Gerar o arquivo **tsconfigo.json** (na raiz), onde podem ser inseriridas várias
 
 > tsc --init
 
-## Como criar os Types ou Tipos
+## Como criar os Types/Tipos
 
 1. Boolean (true / false)
 
@@ -396,6 +390,7 @@ Exemplo de criação de uma Classe:
 
 ```typescript
 // File: UserAccount.ts
+
 class UserAccount {
     name: string;
     age:  number;
@@ -422,6 +417,7 @@ Exemplo de Herança:
 
 ```typescript
 // File: CharAccount.ts
+
 // Irá estender a classe UserAccount
 class CharAccount extends UserAccount() {
     nickname: string;
@@ -446,6 +442,7 @@ sayan2.logDetails();
 
 ```typescript
 // File: CharAccount.ts
+
 class CharAccount extends UserAccount() {
     public nickname: string;
     level: number;
@@ -474,6 +471,7 @@ console.log(sayan.nickname); // Gohan
 
 ```typescript
 // File: CharAccount.ts
+
 class CharAccount extends UserAccount() {
     private nickname: string;
     level: number;
@@ -496,10 +494,11 @@ const sayan = new CharAccount("Vegeta", 45, "inseto", 80);
 console.log(sayan.nickname); // Erro
 ```
 
-**Protected:** Permitido chamar uma propriedade dentro da classe ou da classe que está estendendo a mesma, porém não é possível chamar foram da classe.
+**Protected:** Permitido chamar uma propriedade dentro da classe ou da classe que está estendendo a mesma, porém não é possível chamar fora da classe.
 
 ```typescript
 // File: CharAccount.ts
+
 class CharAccount extends UserAccount() {
     protected nickname: string;
     level: number;
@@ -526,6 +525,7 @@ console.log(sayan.nickname); // Erro
 
 ```typescript
 // File: CharAccount.ts
+
 class CharAccount extends UserAccount() {
     nickname: string;
     readonly level: number;
@@ -559,6 +559,7 @@ Exemplo:
 
 ```typescript
 // File: CharAccount.ts
+
 class CharAccount extends UserAccount() {
     nickname: string;
     level: number;
@@ -594,14 +595,13 @@ console.log(sayan.getLevel); // 488
 
 ### Abstract Class
 
-É uma **classe abstrata** onde não é possível criar abjetos a partir dela, porém é possível estendê-la.
-
-Muita utilizadas quando queremos criar classes que serão somente "modelos" para outras classes.
+É uma **classe abstrata** onde não é possível criar abjetos a partir dela, porém é possível estendê-la. Muito utilizadas quando queremos criar classes que serão somente "modelos" para outras classes.
 
 Exemplo:
 
 ```typescript
 // File: UserAccount.ts
+
 abstract class UserAccount {
     name: string;
     age:  number;
@@ -694,14 +694,14 @@ class CreateGame implements Game {
 
 ### Type Alias vs Interfaces
 
-Quando utilizar mais Type Alias?
+Quando utilizar Type Alias?
 
 - Na maioria das vezes;
 - React - Props;
 - Consegue estender pequenos detalhes no próprio local;
 - Trabalhar mais facilmente com tipos primitivos.
 
-Quando utilizar mais Interfaces?
+Quando utilizar Interfaces?
 
 - Quando quiser estender a aplicação;
 - Quando estiver criando libs, prefira Interfaces, pois são mais extensíveis;
@@ -906,7 +906,7 @@ console.log(newState.getState()); // foo
 
 ## Type Utilities
 
-Utilitários para trabalhar com tipos, onde são feitos com base nos Generics. Servem basicamente para fazermos opeções "em cima" dos próprios tipos. Existem vários, mas será abordados somente os principais.
+Utilitários para trabalhar com tipos, onde são feitos com base nos Generics. Servem basicamente para fazermos operações "em cima" dos próprios tipos. Existem vários, mas seram abordados somente os principais.
 
 Para exemplificar, vamos tentar altera um objeto. Na primeira forma estamos fazendo uma Mutação, alterado diretamente o objeto. Isso pode criar muitos problemas. O ideal é criar uma função, que cria um novo objeto a partir do objeto original (princípio de Imutabilidade) visto na segunda forma.
 
@@ -983,7 +983,7 @@ const todo4 = TodoPreview2 = {
 
 Decorator é uma anotação/marcação que pode ser anexada à uma classe, propriedade, método, parâmetro ou acesso. Em outras palavras, o Decorator irá trabalhar com essas anotações para que seja possível adicionar coisas novas, vigiando as anotações para que possa ser adicionado um elemento novo, ou fazer alguma validação entre outras funções.
 
-No momento (em que escrevo), apesar de muito utilizada em TypeScript e no ECMAScript, é uma feature experimental. Para pode utilizar no TypeScript, é preciso modificar a propriedade **experimentalDecorators** para **true**, no arquivo **tsconfig.json**.
+No momento (em que escrevo), apesar de muito utilizada em TypeScript e no ECMAScript, é uma feature experimental. Para poder utilizar no TypeScript, é preciso modificar a propriedade **experimentalDecorators** para **true**, no arquivo **tsconfig.json**.
 
 Decorator mais básico:
 
@@ -1010,9 +1010,7 @@ function logger(prefix: string) {
 class Foo {}
 ```
 
-Decorator de Classe (Class Decorator):
-
-Esse decorator roda em runtime.
+Decorator de Classe (Class Decorator), esse decorator roda em runtime:
 
 ```typescript
 // File: decorators.ts
@@ -1080,9 +1078,7 @@ const movie = new Movie("Interstellar")
 console.log(movie);
 ```
 
-Decorator de Método (Method Decorator):
-
-Esse decorator irá rodar no momento que o método for chamado.
+Decorator de Método (Method Decorator), esse decorator vai rodar no momento que o método for chamado:
 
 ```typescript
 // File: decorators.ts
