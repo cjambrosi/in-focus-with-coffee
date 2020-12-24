@@ -31,11 +31,34 @@ Para visualizar as aplicações desenvolvidas nos cursos, acesse o [Sitemap](htt
 
 ### Origamid
 
-O site do lobo. Na minha opinião, melhor referência quando se trata de conteúdo front-end no geral.
+O site do lobo. Na minha opinião, melhor referência quando se trata de conteúdo front-end em geral.
+
+Name | Readme | Status
+|---|---|---|
+| Web Design Completo | [Link]() | :x:
+| WordPress Como CMS | [Link]() | :x:
+| CSS Avançado Posicionamento | [Link]() | :x:
+| CSS Grid Layout | [Link]() | :x:
+| JavaScript Completo ES6 | [Link]() | :x:
+| React Completo | [Link]() | :x:
+| WordPress REST API Dogs | [Link]() | :x:
+| Redux com React | [Link]() | :x:
+| CSS Flexbox | [Link]() | :x:
+| CSS com SASS | [Link]() | :x:
+| Vue.js 2 Completo | [Link]() | :x:
+| WordPress REST API | [Link]() | :x:
+| WooCommerce Como CMS | [Link]() | :x:
+| Bootstrap 4 | [Link]() | :x:
+| Automação Front End com NPM | [Link]() | :x:
+| UI Design Avançado | [Link]() | :x:
+| UX Design Heurísticas | [Link]() | :x:
+| Tipografia Avançada | [Link]() | :x:
+| Adobe XD | [Link]() | :x:
+| JavaScript e jQuery | [Link]() | :x:
 
 ### Udemy
 
-Texto
+Plataforma de cursos EaD com certificados.
 
 #### ReactJS
 
@@ -43,7 +66,7 @@ Name | Readme | Status
 |---|---|---|
 | React Avançado: Crie aplicações com NextJS, GraphQL e mais | [Link](courses/reactjs/react-avanacado-wj/README.md) | :hourglass_flowing_sand:
 
-**[:arrow_up: Back to Summary](#summary)**
+**[:arrow_up: Back to Summary](#summary-)**
 
 #### JavaScript
 
@@ -52,11 +75,11 @@ Name | Readme | Status
 | Desenvolvimento Web Moderno com JavaScript Completo 2020 | [Link](courses/javascript/web-moderno-js/README.md) | :x: |
 | JavaScript - Curso COMPLETO com 6 Projetos REAIS | [Link](courses/javascript/javascript-curso-completo/README.md) | :x:
 
-**[:arrow_up: Back to Summary](#summary)**
+**[:arrow_up: Back to Summary](#summary-)**
 
 ### YouTube
 
-Texto
+Também é possível encontrar conteúdo de qualidade no YouTube, além de vídeos como banheira de nutella. E o melhor, é *"de grátis"*.
 
 #### TypeScript
 
@@ -64,7 +87,7 @@ Name | Readme | Status
 |---|---|---|
 | Mini Curso de TypeScript | [Link](courses/typescript/mini-curso-de-typescript/README.md) | :heavy_check_mark:
 
-**[:arrow_up: Back to Summary](#summary)**
+**[:arrow_up: Back to Summary](#summary-)**
 
 ## Bootcamps
 
@@ -78,7 +101,7 @@ Name | Readme | Status
 |---|---|---|
 | Desenvolvedor Full Stack 2020 | [Link](bootcamps/igti/desenvolvedor-full-stack) | :heavy_check_mark:
 
-**[:arrow_up: Back to Summary](#summary)**
+**[:arrow_up: Back to Summary](#summary-)**
 
 ## Labels
 
