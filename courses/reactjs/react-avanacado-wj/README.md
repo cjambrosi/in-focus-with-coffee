@@ -611,6 +611,55 @@ Instalações:
 
 > yarn add --dev jest @babel/preset-typescript @types/jest
 
+Adicionar as propriedades *jest* e *node* como **true**, no arquivo **.eslintrc.json** em **env**?
+
+```json
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true, // Para habilitar o trabalho com Jest
+    "node": true // Configuração para utilizar o module.exports e não acusar warnings
+  },
+```
+
+Criar o arquivo **jest.config.js** na raiz:
+
+```javascript
+module.exports = {
+  testEnvironment: 'jsdom', // Dizer o tipo de ambiente para teste
+  testPathIgnorePatterns: ['/node_modules/', '/.next/'], // Ignorar pastas
+  collectCoverage: true, // Cobertura de tudo, funções e etc
+  collectCoverageFrom: ['src/**/*.ts(x)'], // De onde coletar para fazer a cobertura
+  setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'] // Carregar configurações antes dos testes
+}
+```
+
+Criar o diretório **.jest** e dentro criar o arquivo **.setup.ts**, para inserir informações futuras para o Jest:
+
+Criar o arquivo **.babelrc** na raiz para as informações do Babel:
+
+```json
+{
+  "presets": [
+    "next/babel", // Serve para escrever o código de teste com as coisas mais novas do JavaScript
+    "@babel/preset-typescript" // Entender o código em TypeScript
+  ]
+}
+```
+
+Adicionar o comando de teste no arquivo **package.json** em **scripts**:
+
+```json
+"scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "eslint src --max-warnings=0",
+  "test": "jest" // Comando para inicirar os testes
+},
+```
+
 #### Link úteis
 
 - Site oficial do Jest: <https://jestjs.io>
@@ -621,9 +670,79 @@ Instalações:
 
 ### Aula 17 - Instalando o React Testing Library (RTL) e escrevendo primeiros testes
 
+Instalação do React Testing Library e do Jest-Dom:
+
+> yarn add --dev @testing-library/react @testing-library/jest-dom
+
+Importar o Jest-Dom no arquivo em `.jest/setup.ts` para utilização no projeto:
+
+```typescript
+import '@testing-library/jest-dom'
+```
+
+Escrevendo o primeiro teste:
+
+```typescript
+// File: client/src/components/Main/test.tsx
+
+import { render, screen } from '@testing-library/react'
+
+import Main from '.'
+
+describe('<Main />', () => {
+  it('Should render the heading', () => {
+    render(<Main />)
+
+    expect(
+      screen.getByRole('heading', {
+        name: /react avançado/i
+      })
+    ).toBeInTheDocument()
+  })
+})
+
+```
+
+Arquivo que será testado:
+
+```typescript
+// File: client/src/components/Main/index.tsx
+
+const Main = () => (
+  <main>
+    <h1>React Avançado</h1>
+  </main>
+)
+
+export default Main
+```
+
+Comando para fazer com que o teste fique assistindo as mudanças e testar na hora de fazer o commit:
+
+```json
+// File: package.json
+
+"scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "eslint src --max-warnings=0",
+  "test": "jest",
+  "test:watch": "yarn test --watch" // Adicionar essa propriedade
+},
+"lint-staged": {
+    "src/**/*": [
+      "yarn lint --fix",
+      "yarn test --findRelatedTests --bail" // yarn test --findRelatedTests --bail, irá parar o commit no primeiro erro que encontrar | --findRelatedTests: somente se encontrar arquivos para testar
+    ]
+  },
+```
+
 #### Link úteis
 
 - Site oficial do RTL: <https://testing-library.com/docs/react-testing-library/intro>
+
+- Jest-Dom: <https://github.com/testing-library/jest-dom#installation>
 
 - Cheatsheet do RTL: <https://testing-library.com/docs/react-testing-library/cheatsheet>
 
@@ -631,11 +750,101 @@ Instalações:
 
 ### Aula 18 - Usando o findRelatedTests para rodar somente testes necessários
 
+`--findRelatedTests`: Arugmento para o comando de teste do Jest. Com ele, o Jest só irá acusar erros quando encontrar testes e não dará mais erro por não encontrar testes.
+
 #### Link úteis
 
 - Documentação sobre findRelatedTests: <https://jestjs.io/docs/en/cli#--findrelatedtests-spaceseparatedlistofsourcefiles>
 
 ### Aula 19 - Instalando o Styled Components e configurando o SSR
+
+O Styled Components dentro da estrutura do NextJS com serve-side é um pouco diferente. É preciso fazer uma configuração para ele renderizar (server-side rendering) também junto com o servidor, se não for configurado, é possível que as páginas sejam renderizadas antes do style components e assim não aplicando-o.
+
+Instalando as dependências do Babel e do TypeScript:
+
+> yarn add --dev @types/styled-components babel-plugin-styled-components
+
+Configurar o Styled Components em **plugins** no arquivo **.babelrc**:
+
+```json
+// File: .babelrc
+
+{
+"plugins": [
+    [
+      "babel-plugin-styled-components",
+      {
+        "ssr": true
+      }
+    ]
+  ],
+  "presets": [
+    "next/babel",
+    "@babel/preset-typescript"
+  ]
+}
+```
+
+Instalando o Styled Components:
+
+> yarn add styled-components
+
+Fazendo funcionar o Styled Components dentro do NextJS, sobrescrevendo o arquivo default do NextJS **_document**:
+
+- Dentro do diretório `pages`, crie o arquivo chamado de `_document.tsx`.
+
+- Cole o código padrão a baixo e pronto:
+
+```typescript
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentContext
+} from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
+
+export default class MyDocument extends Document {
+  static async getInitialProps(ctx: DocumentContext) {
+    const sheet = new ServerStyleSheet()
+    const originalRenderPage = ctx.renderPage
+
+    try {
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />)
+        })
+
+      const initialProps = await Document.getInitialProps(ctx)
+      return {
+        ...initialProps,
+        styles: (
+          <>
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </>
+        )
+      }
+    } finally {
+      sheet.seal()
+    }
+  }
+
+  render() {
+    return (
+      <Html lang="pt-BR">
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    )
+  }
+}
+```
 
 #### Link úteis
 
@@ -650,6 +859,39 @@ Instalações:
 Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/3303d664a5d3acd9c4f5b4eb7a72f61b528f41f8>
 
 ### Aula 20 - Criando estilos globais com createGlobalsStyle
+
+Como configutar *Absolut Imports*:
+
+- No arquivo `tsconfig.json` inserir a propriedade **baseUrl** com o diretório dos códigos ou o que preferir. Exemplo:
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": "src", // <--
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve"
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}
+```
+
+- Assim, não é mais preciso passar o caminho relativo com "../", por exemplo:
+
+```typescript
+import GlobalStyles from 'styles/global'
+```
 
 #### Link úteis
 
@@ -668,6 +910,20 @@ Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/330
 - Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/4a887c039cfab5d23b9ec3b87f22edbdae537438>
 
 ### Aula 22 - Melhorando snapshots com Jest-styled-components
+
+Integrando o Styled Components com o Jest:
+
+- Instalando o *jest-styled-components*:
+
+> yarn add --dev jest-styled-components
+
+- Fazer a importação necessãrio no arquivo de configuração do Jest:
+
+```typescript
+// File: .jest/setup.ts
+
+import 'jest-styled-components'
+```
 
 #### Link úteis
 
