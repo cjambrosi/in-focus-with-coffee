@@ -933,6 +933,20 @@ import 'jest-styled-components'
 
 ### Aula 23 - Configurando o Storybook e escrevendo stories
 
+Storybook é uma ferramenta para podermos testar os componentes de UI de forma isolada.
+
+Instalando o Storybook:
+
+> npx sb init
+
+Obs: Na versão 5.3 utilizada na aula, ainda não suporta o TypeScript, então é preciso instalar alguns presets. Na versão 6 em diante, não é preciso instalar nada adicional.
+
+**Decorator** serve para englobar os componentes através de *wrappers*, pode ser estilos, temas e etc.
+
+Configurando o Storybook Addon Knobs:
+
+> yarn add @storybook/addon-knobs --dev
+
 #### Link úteis
 
 - Site oficial do Storybook: <https://storybook.js.org>

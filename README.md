@@ -31,7 +31,7 @@ Para visualizar as aplicações desenvolvidas nos cursos, acesse o [Sitemap](htt
 
 ### Origamid
 
-O site do lobo. Na minha opinião, melhor referência quando se trata de conteúdo front-end em geral.
+O site do lobo. Na minha opinião, a melhor referência quando se trata de conteúdo front-end em geral.
 
 Name | Readme | Status
 |---|---|---|
@@ -56,6 +56,8 @@ Name | Readme | Status
 | Adobe XD | [Link]() | :x:
 | JavaScript e jQuery | [Link]() | :x:
 
+**[:arrow_up: Back to Summary](#summary-)**
+
 ### Udemy
 
 Plataforma de cursos EaD com certificados.
@@ -65,8 +67,6 @@ Plataforma de cursos EaD com certificados.
 Name | Readme | Status
 |---|---|---|
 | React Avançado: Crie aplicações com NextJS, GraphQL e mais | [Link](courses/reactjs/react-avanacado-wj/README.md) | :hourglass_flowing_sand:
-
-**[:arrow_up: Back to Summary](#summary-)**
 
 #### JavaScript
 
@@ -79,7 +79,7 @@ Name | Readme | Status
 
 ### YouTube
 
-Também é possível encontrar conteúdo de qualidade no YouTube, além de vídeos como banheira de nutella. E o melhor, é *"de grátis"*.
+Também é possível encontrar conteúdo de qualidade no YouTube, não só vídeos como banheira de nutella. E o melhor, é *"de grátis"*.
 
 #### TypeScript
 
