@@ -86,6 +86,7 @@ Também é possível encontrar conteúdo de qualidade no YouTube, não só víde
 Name | Readme | Status
 |---|---|---|
 | Mini Curso de TypeScript | [Link](courses/typescript/mini-curso-de-typescript/README.md) | :heavy_check_mark:
+| Python para Zumbis | [Link](courses/python/python-for-zombies/README.md) | :construction:
 
 **[:arrow_up: Back to Summary](#summary-)**
 
@@ -110,5 +111,7 @@ Legendas referentes aos ícones utilizados no Status de cada ítem das tabelas.
 :heavy_check_mark: Concluído
 
 :hourglass_flowing_sand: Em andamento
+
+:construction: Em pausa
 
 :x: Não iniciado
