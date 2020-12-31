@@ -78,18 +78,29 @@ Link: <https://www.igti.com.br>
   - [Aula 05 - MongoDB: Exclusão Documentos (Delete)](#aula-05---mongodb-exclusão-documentos-delete)
   - [Aula 06 - MongoDB: Comandos em Massa (BulkWrite)](#aula-06---mongodb-comandos-em-massa-bulkwrite)
   - [Aula 07 - MongoDB: índices, modelagens e agregações](#aula-07---mongodb-índices-modelagens-e-agregações)
+    - [Tipos de Relacionamentos](#tipos-de-relacionamentos)
+    - [Tipos de Modelagem no MongoDB](#tipos-de-modelagem-no-mongodb)
+    - [Documentos embutidos (ou não-normalizados)](#documentos-embutidos-ou-não-normalizados)
+    - [Agregação no MongoDB](#agregação-no-mongodb)
+    - [Comandos auxiliares de agregação](#comandos-auxiliares-de-agregação)
   - [Aula 08 - MongoDB Atlas](#aula-08---mongodb-atlas)
   - [Aula 09 - Mongoose](#aula-09---mongoose)
   - [Aula 10 - API CRUD com Mongloose](#aula-10---api-crud-com-mongloose)
   - [Trabalho Prático](#trabalho-prático-3)
   - [Aula 11 - Git (Parte 1)](#aula-11---git-parte-1)
+    - [Comandos de Fluxo de Operação](#comandos-de-fluxo-de-operação)
   - [Aula 12 - Git (Parte 2)](#aula-12---git-parte-2)
+    - [Pacote .env (dotenv)](#pacote-env-dotenv)
+    - [Principais comando do Git utilizados para repositórios remotos](#principais-comando-do-git-utilizados-para-repositórios-remotos)
   - [Aula 13 - Heroku](#aula-13---heroku)
+    - [Instalação do Heroku CLI no Windows](#instalação-do-heroku-cli-no-windows)
   - [Desafio do Módulo](#desafio-do-módulo-3)
 
 ## Módulo 01
 
 ### Aula 1 - Visual Studio Code
+
+Indicações de plugins:
 
 - Debugger for Chrome
 
@@ -99,69 +110,71 @@ Link: <https://www.igti.com.br>
 
 ### Aula 2 - Node.js
 
-- npm install -g live-server
+Instalar o [Live Server](https://www.npmjs.com/package/live-server):
+
+> npm install -g live-server
 
 ### Aula 3 - Noções de HTML
 
-- Não é uma linguagem de progração e sim de marcação, estrutura o conteúdo.
+Não é uma linguagem de programação e sim de marcação, que estrutura o conteúdo.
 
-- Escrevemos de forma declarativa, ou seja, escreve-se o que tem de ser feito e o navegador se vira pra renderizar.
+Escrevemos de forma declarativa, ou seja, escreve-se o que tem de ser feito e o navegador se vira pra renderizar.
 
-- Utilize sempre caminhos relativos em imagens, arquivos e etc (./ ../).
+Utilize sempre caminhos relativos em imagens, arquivos e etc (./ ../).
 
 ### Aula 4 - Noções de CSS
 
-- CSS Reset, geralmente os frameworks já estão configurados para isso, do contrário é recomendado realizar.
+CSS Reset: geralmente os frameworks já estão configurados para isso, do contrário é recomendado realizar.
 
-  - <https://meyerweb.com/eric/tools/css/reset>
+- <https://meyerweb.com/eric/tools/css/reset>
 
 ### Aula 5 - Introdução ao JavaScript
 
-- Tipos de dados:
+Tipos de dados:
 
-  - Number: 1, -3, 8.56
+- Number: 1, -3, 8.56
 
-  - String: "Teste", "3.14", 'Aspas Simples'
+- String: "Teste", "3.14", 'Aspas Simples'
 
-  - Boolean: true, false
+- Boolean: true, false
 
-  - Null: null (Explicitamente definido pelo programador)
+- Null: null (Explicitamente definido pelo programador)
 
-  - Undefined: undefined (ausência de valor)
+- Undefined: undefined (ausência de valor)
 
-  - Object: (Tipo não primitivo) [1, 3, 5], [6, 'sete', true], {id: 2, nome: 'Raphael'}
+- Object: (Tipo não primitivo) [1, 3, 5], [6, 'sete', true], {id: 2, nome: 'Raphael'}
 
-  - Tipagem fraca
+- Tipagem fraca
 
-  - false, 0, null, undefined são tipos considerados _Falsy_, ou seja, tendem a ser falsos
+- false, 0, null, undefined são tipos considerados **Falsy**, ou seja, tendem a ser falsos
 
-  - true, 1, [1], {id: 1} são tipos considerados _Truthy_, ou seja, tendem a ser vedadeiros
+- true, 1, [1], {id: 1} são tipos considerados **Truthy**, ou seja, tendem a ser vedadeiros
 
-  - Exemplo de igualdade:
-
-    `2 === '2' = false; 2 == '2' = verdadeiro;`
+- Exemplo de igualdade: `2 === '2' = false; 2 == '2' = verdadeiro;`
 
 ### Aula 6 - JavaScript - Comandos de Bloco
 
-- Operador Ternário:
+Uma função pode retornar mais de um valor, porém é preciso retornar um objeto com chave valor. Caso contrário é 1 ou nada (void).
 
-  ```javascript
-  var resposta = a > b ? "Maior" : "Menor";
-  var resposta = a > b ? "Maior" : a < b ? "Menor" : "Igual";
-  ```
+Exemplo de Operador Ternário:
 
-- Uma função pode retornar mais de um valor, porém é preciso retornar um objeto com chave valor. Caso contrário é 1 ou nada (void).
+```javascript
+var resposta = a > b ? "Maior" : "Menor";
+var resposta = a > b ? "Maior" : a < b ? "Menor" : "Igual";
+```
 
-- Comparar valores:
+Exemplo de comparação de valores:
 
-  ```javascript
-   function compareNumbers(a, b) {
-     // return a > b ? 1 : a < b ? -1 : 0;
-     retrun a - n;
-   }
-  ```
+```javascript
+function compareNumbers(a, b) {
+  // return a > b ? 1 : a < b ? -1 : 0;
+  retrun a - n;
+}
+```
 
 ### Aula 7 - JavaScript - Manipulação do DOM
+
+Exemplo de manipulação:
 
 ```javascript
 var title = document.querySelector("h1"); // Se tiver mais de 1 elemento, só pegará 1
@@ -181,7 +194,7 @@ for (var i = 0; i < peseronalDataArray.length; i++) {
 
 ### Aula 8 - JavaScript - Formulários e Manipulação de Eventos
 
-- **eventPreventDefault:** "Evite o comportamento default", como por exemplo enviar para o servidor e ai manipular os dados.
+**eventPreventDefault:** "Evite o comportamento default", como por exemplo enviar para o servidor e ai manipular os dados.
 
 ### Aula 9 - CRUD com HTML, CSS e JavaScript
 
@@ -193,52 +206,52 @@ for (var i = 0; i < peseronalDataArray.length; i++) {
 
 ### Aula 10 - JavaScript moderno - Introdução
 
-- **Template Literals**
+Exemplo de *Template Literals*:
 
-  ```javascript
-  let a = 3,
-      b = 10,
-      c = 7;
-  let str = `Meus números são ${a}, ${b} e ${c}`;
-  ```
+```javascript
+let a = 3,
+    b = 10,
+    c = 7;
+let str = `Meus números são ${a}, ${b} e ${c}`;
+```
 
-- É uma boa prática utilizar _'use strict'_, no incio do arquivo ou em escopo de funções. Isso mostrará mais erros caso ocorram e irá parar a execução do script.
+É uma boa prática utilizar _'use strict'_, no inicio do arquivo ou em escopo de funções. Isso mostrará mais erros caso ocorram e parará a execução do script.
 
-- **var** tem escopo abrangente e **let** tem o escopo reduzido.
+**var** tem escopo abrangente e **let** tem o escopo reduzido.
 
-- Uma variável do tipo **const** não é possível reatribuir valores. Com "certa" excessão de objetos e arrays, não é possível atribuir um novo objeto ou array, mas é pissível alterar os valores das propriedades do objeto ou dar push de um novo valor no array.
+- Em uma variável do tipo **const** não é possível reatribuir valores. Com "certa" excessão de objetos e arrays, não é possível atribuir um novo objeto ou array, mas é possível alterar os valores das propriedades do objeto ou dar push de um novo valor no array.
 
-- Tipos de funções:
+Tipos de funções:
 
-  ```javascript
-  // Função comum do ECM5
-  function sum(a, b) {
-    return a + b;
-  }
+```javascript
+// Função comum do ECM5
+function sum(a, b) {
+  return a + b;
+}
 
-  // Função anônima
-  const sum2 = function (a, b) {
-    retrun a + b;
-  }
+// Função anônima
+const sum2 = function (a, b) {
+  retrun a + b;
+}
 
-  // Arrow function
-  const sum3 = (a, b) {
-    return a + b;
-  }
+// Arrow function
+const sum3 = (a, b) {
+  return a + b;
+}
 
-  // Arrow function reduzida (apenas uma instrução)
-  const sum3 = (a, b) => a + b;
+// Arrow function reduzida (apenas uma instrução)
+const sum3 = (a, b) => a + b;
 
-  // Default parameters
-  // (Não pode no primeiro, pois quando se chama a função, o primeiro parâmetro é sempre obrigatório)
-  const sum4(a, b = 10) => a + b;
-  ```
+// Default parameters
+// (Não pode no primeiro, pois quando se chama a função, o primeiro parâmetro é sempre obrigatório)
+const sum4(a, b = 10) => a + b;
+```
 
 ### Aula 11 - JavaScript moderno - Manipulação de arrays
 
 Com excessão do _sort()_ (a princípio), todos são métodos **imutáveis**, ou seja, não altera o objeto original, é criado um novo.
 
-Em métodos não mutáveis, não é preciso retorar ao objeto igualando-o a outro ou a ele mesmo, pois o método altera a estrutura orinal. Por exemplo:
+Em métodos não mutáveis, não é preciso retorar ao objeto igualando-o a outro ou a ele mesmo, pois o método altera a estrutura original. Por exemplo:
 
 ```javascript
 // Altera a estrutura original.
@@ -250,7 +263,7 @@ allCountries.sort((a, b) => {
 favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
 ```
 
-- **map:** Gera um novo array transformando os dados.
+- **map():** Gera um novo array transformando os dados.
 
   ```javascript
   // Retornar um novo objeto
@@ -262,7 +275,7 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
   });
   ```
 
-- **filter:** gera um novo array filtrando elementos com base em proposição (if/else).
+- **filter():** gera um novo array filtrando elementos com base em proposição (if/else).
 
   ```javascript
   const olderThan50 = people.results.filter((person) => {
@@ -270,7 +283,7 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
   });
   ```
 
-- **forEach:** percorre todos os elementos do array, aplicando lógica.
+- **forEach():** percorre todos os elementos do array, aplicando lógica.
 
   ```javascript
   // Incluir nova propriedade no objeto
@@ -282,7 +295,7 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
   });
   ```
 
-- **reduce:** realiza cáculo interativo com base nos elementos.
+- **reduce():** realiza cáculo interativo com base nos elementos.
 
   ```javascript
   // Somar as idades de todos (substitui for, por exemplo)
@@ -291,7 +304,7 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
   }, 0);
   ```
 
-- **find:** encontra elementos com base em proposições (if/else).
+- **find():** encontra elementos com base em proposições (if/else).
 
   ```javascript
   // Encontrar primeira ocorrência
@@ -300,7 +313,7 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
   });
   ```
 
-- **some:** verifica se há pelo menos um elemento que atenda à proposição retornando true/false (if/else) ou predicado.
+- **some():** verifica se há pelo menos um elemento que atenda à proposição retornando true/false (if/else) ou predicado.
 
   ```javascript
   // Se encontrou algo de acordo com o critério | true/false
@@ -309,7 +322,7 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
   });
   ```
 
-- **every:** verifica se todos os elementos atendem à proposição, retornando true/false (if/else).
+- **every():** verifica se todos os elementos atendem à proposição, retornando true/false (if/else).
 
   ```javascript
   // Se todos form iguais ao critério
@@ -318,7 +331,7 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
   });
   ```
 
-- **sort:** ordena elementos com base em critérios.
+- **sort():** ordena elementos com base em critérios.
 
   ```javascript
   // startsWith: função padrão do JS
@@ -337,122 +350,130 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
   // .sort(); // Se for puramente string ou tipos numéricos (int, float) funciona tranquilo (talvez)
   ```
 
+Imagem para ilustrar o funcionamento dos métodos:
+
+![array-cheatsheet](https://user-images.githubusercontent.com/9125404/103385961-7075e580-4adb-11eb-9521-e3e34da1fc6d.jpg)
+
 ### Aula 12 - JavaScript moderno - Rest/Spread operator e destructuring
 
-- Operador **...(spread)** ou espalhar. Em arrays, ele espalha os itens do array, que podem ser recuperados para compor outro array.
+Operador **...spread** ou espalhar: Em arrays, ele espalha os itens do array, que podem ser recuperados para compor outro array.
 
-  ```javascript
-  // Concatenar dois objetos
-  const marriedMen = people.results.filter(
-    (person) => person.name.title === "Mr"
-  );
+```javascript
+// Concatenar dois objetos
+const marriedMen = people.results.filter(
+  (person) => person.name.title === "Mr"
+);
 
-  const marriedWomen = people.results.filter(
-    (person) => person.name.title === "Ms"
-  );
+const marriedWomen = people.results.filter(
+  (person) => person.name.title === "Ms"
+);
 
-  const marriedPeople = [...marriedMen, ...marriedWomen, { msg: "Oi" }];
-  console.log("marriedPeople", marriedPeople);
-  ```
+const marriedPeople = [...marriedMen, ...marriedWomen, { msg: "Oi" }];
+console.log("marriedPeople", marriedPeople);
+```
 
-- Operador **...(rest)** ou agrupar. Comum na utilização em funções, agrupando os parâmetros em um array. Sendo sua principal aplicação permitir funções com número infinito de parâmetros.
+Operador **...rest** ou agrupar: Comum na utilização em funções, agrupando os parâmetros em um array. Sendo sua principal aplicação permitir funções com número infinito de parâmetros.
 
-  ```javascript
-  function infiniteSum(...numbers) {
-    return numbers.reduce((acc, curr) => acc + curr, 0);
-  }
+```javascript
+function infiniteSum(...numbers) {
+  return numbers.reduce((acc, curr) => acc + curr, 0);
+}
 
-  console.log(infiniteSum(1, 2));
-  console.log(infiniteSum(1, 2, 3, 4, 5, 6, 20, 30, 50));
-  ```
+console.log(infiniteSum(1, 2));
+console.log(infiniteSum(1, 2, 3, 4, 5, 6, 20, 30, 50));
+```
 
-- **Destructuring**: Facilita a escrita ao trabalhar com objetos, torna o código claro e também é possível utilizar a técnica de destructuring com arrays, usando [].
+**Destructuring**: Facilita a escrita ao trabalhar com objetos, torna o código claro e também é possível utilizar a técnica de destructuring com arrays, usando "[]".
 
-  ```javascript
-  const first = people.results[0];
+```javascript
+const first = people.results[0];
 
-  // Isso é repetitivo
-  const username = first.login.username;
-  const password = first.login.password;
+// Isso é repetitivo
+const username = first.login.username;
+const password = first.login.password;
 
-  // Usando Destructuring
-  const { username, password } = first.login;
+// Usando Destructuring
+const { username, password } = first.login;
 
-  console.log("username", username);
-  console.log("password", password);
-  ```
+console.log("username", username);
+console.log("password", password);
+```
 
 ### Aula 13 - Refatoração do projeto de CRUD
 
-- Dica: Numa função que precise passar 2 parâmetros, mas só é precisar utilizar o segundo, usasse como boa prática o "**\_**" como primeiro parâmetro. Ex:
+Dica: Numa função que precise passar 2 parâmetros, mas só é precisar utilizar o segundo, usasse como boa prática o "**\_**" como primeiro parâmetro. Ex:
 
-  ```javascript
-  globalNames = globalNames.filter((_, i) => i !== index);
-  ```
+```javascript
+globalNames = globalNames.filter((_, i) => i !== index);
+```
 
 ### Aula 14 - Introdução à programação assíncrona com JavaScript
 
-- Operações. Ex:
+Operações. Exemplo:
 
-  - Requisão de APIs.
+- Requisão de APIs.
 
-  - Processamento intenso de dados.
+- Processamento intenso de dados.
 
-  - Comunicação com bancos de dados.
+- Comunicação com bancos de dados.
 
-- É extremamente importante que o javascript **não espere o término de instruções lentas**.
+É extremamente importante que o javascript **não espere o término de instruções lentas**.
 
-- A principal técnica para grantir a afirmação acima é a utilização de **event loop**.
+A principal técnica para grantir a afirmação acima é a utilização de **event loop**. Onde:
 
-  - Funções a serem executadas ficam em uma pilha lógica de invocações (call stack).
+- Funções a serem executadas ficam em uma pilha lógica de invocações (call stack).
 
-  - Quando a função utiliza Web APIs, ela precisa passar pelo event loop, pois está sujeita a lentidões.
+- Quando a função utiliza Web APIs, ela precisa passar pelo event loop, pois está sujeita a lentidões.
 
-  - O **event loop** executa uma função por vez e faz a orquestração que permite execução assíncrona.
+- O **event loop** executa uma função por vez e faz a orquestração que permite execução assíncrona.
 
-  - Em geral, funções que usam WEB APIs possuem **callbacks** (funções passadas por parâmetro).
+- Em geral, funções que usam WEB APIs possuem **callbacks** (funções passadas por parâmetro).
 
-  - <https://blog.sessionstack.com/how-javascript-works-event-loop-and-the-rise-of-async-programming-5-ways-to-better-coding-with-2f077c4438b5>
+- <https://blog.sessionstack.com/how-javascript-works-event-loop-and-the-rise-of-async-programming-5-ways-to-better-coding-with-2f077c4438b5>
 
 ### Aula 15 - Funções setTimeout e setInterval
 
-- setTimeout(): É utilizada para postergar a execução de uma função e o tempo de atraso é configurável em milissegundos.
+**setTimeout()**: É utilizada para postergar a execução de uma função e o tempo de atraso é configurável em milissegundos.
 
-- setInterval(): É semelhante ao setTimeout(), mas repete a execução a cada X milissegundos. Pode ser cancelada com **clarInterval**, mas para isso é preciso guardar a referência em uma varável.
+**setInterval()**: É semelhante ao setTimeout(), mas repete a execução a cada X milissegundos. Pode ser cancelada com **clarInterval**, mas para isso é preciso guardar a referência em uma varável.
 
-  ```javascript
-  const timer = document.querySelector("#timer");
-  let count = 0;
+Exemplo de utilização:
 
-  const interval = setInterval(() => {
-    timer.textContent = ++count;
+```javascript
+const timer = document.querySelector("#timer");
+let count = 0;
 
-    if (count === 10) {
-      this.clearInterval(interval);
-      return;
-    }
+const interval = setInterval(() => {
+  timer.textContent = ++count;
 
-    if (count % 5 === 0) {
-      setTimeout(() => {
-        timer.textContent = `${count},5`;
-      }, 500);
-    }
-  }, 1000);
-  ```
+  if (count === 10) {
+    this.clearInterval(interval);
+    return;
+  }
+
+  if (count % 5 === 0) {
+    setTimeout(() => {
+      timer.textContent = `${count},5`;
+    }, 500);
+  }
+}, 1000);
+```
 
 ### Aula 16 - Requisições HTTP com JavaScript
 
-- Comando **Fetch**.
+Comando **Fetch**:
 
-  - Utilizado para requisições HTTP.
+- Utilizado para requisições HTTP.
 
-  - Trabalha internamente com promises.
+- Trabalha internamente com promises.
 
-  - O primeiro retorno do fetch são dados binários.
+- O primeiro retorno do fetch são dados binários.
 
-  - Em geral, convertemos esses dados para JSON, que retorna outra promise.
+- Em geral, convertemos esses dados para JSON, que retorna outra promise.
 
-  - Vale a leitura sobre a bibliota **axios**.
+- Vale a leitura sobre a bibliota **axios**.
+
+- Exemplo de utilização:
 
   ```javascript
   const userGitHub = fetch("https://api.github.com/users/cjambrosi");
@@ -478,17 +499,19 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
   };
   ```
 
-- **Promises**.
+**Promises**:
 
-  - São construções cuja a execução **retorna algo no futuro**, ou seja, é uma **promessa de execução**.
+- São construções cuja a execução **retorna algo no futuro**, ou seja, é uma **promessa de execução**.
 
-  - A execução pode ser **resolvida (ok)**, ou **rejeitada (erro)**.
+- A execução pode ser **resolvida (ok)**, ou **rejeitada (erro)**.
 
-  - A promise resolvida é interceptada com **then**.
+- A promise resolvida é interceptada com **then**.
 
-  - A promise rejeitada é interceptada com **catch**.
+- A promise rejeitada é interceptada com **catch**.
 
-  - Resolve parcialmente o problema do **callback heel**, ou seja, funções que eram passadas por parâmetros de outras funções (triângulo lateral).
+- Resolve parcialmente o problema do **callback hell**, ou seja, funções que eram passadas por parâmetros de outras funções (triângulo lateral).
+
+- Exemplo de utilização:
 
   ```javascript
   fetch("https://api.github.com/users/cjambrosi")
@@ -525,17 +548,19 @@ favoriteCountries = favoriteCountries.filter((country) => country.id !== id);
     });
   ```
 
-- **Async/Await**.
+**Async/Await**:
 
-  - Açúcar sintático (syntax sugar) sobre promises.
+- Açúcar sintático (syntax sugar) sobre promises.
 
-  - Melhoram a **legibilidade** do código.
+- Melhoram a **legibilidade** do código.
 
-  - Dá a impressão de código síncrono.
+- Dá a impressão de código síncrono.
 
-  - Deve-se decorar a função com **async**.
+- Deve-se decorar a função com **async**.
 
-  - Toda intrução relacionada à promise deve ser precedida de **await**.
+- Toda intrução relacionada à promise deve ser precedida de **await**.
+
+- Exemplo de utilização:
 
   ```javascript
   // Exemplo criação de Promise
@@ -612,13 +637,13 @@ Parte da aplicação com a qual o usuário interege. As páginas podem ser monta
 
 #### API (Application Programming Interface)
 
-Conjunto de serviços que são expostos de forma a permitir a comunicação entre sistemas. Uma aplicação acessa recursos da outra sem saber como foram implementados (quem está fornecendo tem um maior controle sobre o que está sendo feito). Pode ser vista como um contrato, representado pela documentação.
+Conjunto de serviços que são expostos de forma à permitir a comunicação entre sistemas. Uma aplicação acessa recursos da outra sem saber como foram implementados (quem está fornecendo tem um maior controle sobre o que está sendo feito). Pode ser vista como um contrato, representado pela documentação.
 
 #### Webservices
 
 Serviços que fazem parte de uma API. Um Webservice somente transmite as informações, não sendo por si só uma aplicação possível de ser acessada pela web. Muitas empresas estão criando APIs de suas aplicações, de forma a possibilitar a fácil integração de outras aplicações.
 
-Algumas características
+Algumas características:
 
 - Facilidade na integração de sistemas: Depende do protocolo HTTP e um formato, com o JSON.
 - Favorece a reutilização de software: Integração entre aplicações desenvolvidas em liguagens e plataformas diferentes.
@@ -636,36 +661,36 @@ As URIs que uma API disponibiliza também são conhecidadas como seus **endpoint
 
 Através dos endpoints é possível realizar várias operações. Além do endpoint, o cliente precisa informar o método HTTP:
 
-- GET: Obter os dados de um recurso.
-- POST: Criar um novo recurso.
-- PUT: Substituir os dados de um determinado recurso.
-- DELETE: Excluir um determinado recurso.
+- **GET:** Obter os dados de um recurso.
+- **POST:** Criar um novo recurso.
+- **PUT:** Substituir os dados de um determinado recurso.
+- **DELETE:** Excluir um determinado recurso.
 
 ### Aula 2 - NodeJS
 
-Foi criado em 2009 na tentativa de resolver o problema de arquiteturas bloqueantes. Plataformas como .NET, Java, ou PHP paralisam um processamento enquanto realizam um processo de I/O no servidor. Esta paralização é o chamado modelo bloqueante (Blocknig-Thread).
+Foi criado em 2009 na tentativa de resolver o problema de arquiteturas bloqueantes. Plataformas como .NET, Java, ou PHP paralisam um processamento enquanto realizam um processo de I/O no servidor. Esta paralização é o chamado modelo bloqueante (*Blocknig-Thread*).
 
-Enquanto uma requisição é processada, as demais ficam ociosas em espera. Esses servidores criam várias threads para darem vazão a fila de espera, pode ser necessário fazer upgrade dos hardwares.
+Enquanto uma requisição é processada, as demais ficam ociosas em espera. Esses servidores criam várias *threads* para darem vazão a fila de espera, pode ser necessário fazer upgrade dos hardwares.
 
-O NodeJS possui uma arquitetura não bloqueante (non-blocking-thread). Apresentando uma boa performance em consumo de memória e utilizando ao máximo o poder de processamento dos servidores. Nele as aplicações são single-thread, ou seja, cada aplicação possui um único processo. Utiliza bastante a programação assíncrona, com o auxílio das funções callback do JavaScript.
+O NodeJS possui uma arquitetura não bloqueante (*non-blocking-thread*). Apresentando uma boa performance em consumo de memória e utilizando ao máximo o poder de processamento dos servidores. Nele as aplicações são single-thread, ou seja, cada aplicação possui um único processo. Utiliza bastante a programação assíncrona, com o auxílio das funções callback do JavaScript.
 
-Em uma arquitetura bloqueane, o jeito de lidar com essa concorrência seria criar múltiplas threads para lidar com as diversas requsições.
+Em uma arquitetura bloqueane, o jeito de lidar com essa concorrência seria criar múltiplas *threads* para lidar com as diversas requsições.
 
 O NodeJS foi criado utilizando o V8, que é um motor JavaScript de código aberto, criado pela Google e utilizado no Google Chrome. Com ele é possível executar código JavaScript no servidor, mantendo um serviço rodando no servidor, que faz a interpretação e execução de códigos JavaScript.
 
 A criação do NodeJS está muito ligada com a crescente utilização das SPAs. Também é possível criar aplicações desktop, com o auxílio de ferramentas como o Electron por exemplo. Pode ser utilizado em aplicações Real-Time, como aplicações colaborativas, por exemplo: Aplicativos de mensagens e jogos online.
 
-O NodeJS não é muito recomendado para aplicações que lidam com algoritmos complexo e que consumam muita CPU. Esta limitação pode ser contornada com a utilização de **Workers** (Instaciar o NodeJS (V8) para um algoritmo específico, por exemplo).
+O NodeJS não é muito recomendado para aplicações que lidam com algoritmos complexo e que consumam muita CPU. Esta limitação pode ser contornada com a utilização de **Workers** (Instanciar o NodeJS (V8) para um algoritmo específico, por exemplo).
 
 ### Aula 3 - Hello World Nodejs
 
 Iniciar projeto em NodeJS
 
-> npm install
+> npm init
 
 Iniciar projeto em NodeJS aceitando todas as opções como _default_.
 
-> npm install -y
+> npm init -y
 
 ```javascript
 console.log(process.argv); // Fornecido pelo Node (Array)
@@ -673,19 +698,19 @@ console.log(process.argv); // Fornecido pelo Node (Array)
 
 ### Aula 4 - Node.js Event Loop
 
-O NodeJS é uma plataforma baseada em eventos. Isso significa tudo que acontece no NodeJS é uma reação a um evento. Seguindo a mesma filosofia de orientação de eventos do JavaScript. Uma transação processada passa por várias callbacks.
+O NodeJS é uma plataforma baseada em eventos. Isso significa tudo que acontece no NodeJS é uma reação a um evento. Seguindo a mesma filosofia de orientação de eventos do JavaScript. Uma transação processada passa por várias *callbacks*.
 
-O NodeJS trabalhar dessa forma porque as operações de I/O e de rede são muito lentas.
+O NodeJS trabalha dessa forma porque as operações de I/O e de rede são muito lentas.
 
-Graças ao **Event Loop** o NodeJS trabalha com assincronismo, permitindo que seja desenvolvido uma aplicação orientada a eventos, graças ao Event Loop. O **Event Loop** basicamente é um loop infinito, que a cada iteração verifica se exitem novos eventos em sua fila de eventos.
+Graças ao **Event Loop** o NodeJS trabalha com assincronismo, permitindo que seja desenvolvido uma aplicação orientada a eventos. O **Event Loop** basicamente é um loop infinito, que a cada iteração verifica se exitem novos eventos em sua fila de eventos.
 
-O módulo responsável por emitir eventos é o EventEmitter. Quando um evento é emitido, ele é enviado para a fila de eventos, para que o Event Loop possa executá-lo e depois retornar seu callback.
+O módulo responsável por emitir eventos é o **EventEmitter**. Quando um evento é emitido, ele é enviado para a fila de eventos, para que o Event Loop possa executá-lo e depois retornar seu callback.
 
 O Event Loop possui uma _stack_, e sempre que um método é chamado ele entra na _stack_ para aguardar seu processamento.
 
-Quando são executadas ações de I/O que demandaram tempo, o NodeJS envia essas operações para outra thread do sistema. Após outra thread dos sistema executar a tarefa I/O, ele envia essa tarefa para a Task Queue.
+Quando são executadas ações de I/O que demandaram tempo, o NodeJS envia essas operações para outra thread do sistema. Após outra thread dos sistema executar a tarefa I/O, ele envia essa tarefa para a **Task Queue**.
 
-Na Task Queue há dois tipos de tasks, as _micro tasks_ e as _macro tasks_. Somente as _macro tasks_ devem ser processadas em um ciclo do Event Loop. As _micro taskas_ são tarefas que devem ser executadas rapidamente após alguma ação.
+Na **Task Queue** há dois tipos de tasks, as _micro tasks_ e as _macro tasks_. Somente as _macro tasks_ devem ser processadas em um ciclo do Event Loop. As _micro tasks_ são tarefas que devem ser executadas rapidamente após alguma ação.
 
 Após o Event Loop processar uma _macro task_ da Task Queue, ele deve processar todas as _micro tasks_ disponíveis antes de chamar outra _macro task_.
 
@@ -709,7 +734,7 @@ Para utilizar o padrão ES Modules é preciso alterar a extensão do arquivo de 
 "type": "module"
 ```
 
-Nas versões 12.18 do NodeJS para trás, é preciso rodar o _index.js_ com a seguinte flag:
+Nas versões 12.18 do NodeJS ou anteriores, é preciso rodar o _index.js_ com a seguinte flag:
 
 > node index.js --experimental-modules
 
@@ -813,7 +838,7 @@ divisao(10, 2);
 resto(7, 2);
 ```
 
-Módulo Default - File System
+Utilizando o Módulo Default - File System
 
 ```javascript
 import fs from "fs";
@@ -902,7 +927,7 @@ fs.writeFile("teste.txt", "bla bla bla", function (err) {
   }
   ```
 
-Módulo Default - File System JSON
+Utilizando o Módulo Default - File System JSON
 
 ```javascript
 import { promises as fs } from "fs";
@@ -929,7 +954,7 @@ async function writeJson() {
 }
 ```
 
-Módulo Default - Read Line
+Utilizando o Módulo Default - Read Line
 
 - Permite entradas do usuário (terminal, por exemplo).
 
@@ -965,7 +990,7 @@ function pergunta() {
 }
 ```
 
-Módulo Default - Events
+Utilizando o Módulo Default - Events
 
 ```javascript
 // events.js
@@ -995,7 +1020,11 @@ ev.emit("testEvent", "bla bla bla");
 
 Módulo Default - HTTP
 
+- Instalar o Nodemon globalmente:
+
 > npm install nodemon -g
+
+- Rodar o arquivo com o Nodemon:
 
 > nodemon index.js
 
@@ -1018,9 +1047,9 @@ http
 
 ### Aula 6 - Ferramentas para consumo de endpoints
 
-Insomnia: <https://insomnia.rest/>
+Insomnia: <https://insomnia.rest>
 
-Postman: <https://www.postman.com/>
+Postman: <https://www.postman.com>
 
 ### Trabalho Prático
 
@@ -1036,7 +1065,7 @@ Facilita o roteamento (se refere a como os endpoints respondem as solicitações
 
 Criar projeto Node.
 
-> npm install -y
+> npm init -y
 
 Instalar o pacote do ExpressJS.
 
@@ -1079,20 +1108,13 @@ app.listen(3000, () => {
 });
 ```
 
-https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API/Using_Fetch
+Alguns links:
 
-Tutor Marco Ramos 07:46 PM
-Oi Pedro.
-Abra o prompt de comando como administrador e digite:
-netstat -a -b
-aí voce vai ter o nome do processo que está utilizando tal porta e você pode finalizá-lo pelo Gerenciador de Tarefas.
+- <https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API/Using_Fetch>
 
-https://restfulapi.net/http-methods/
+- <https://restfulapi.net/http-methods>
 
-Tutor Odivaney Ramos 08:07 PM
-Eu me equivoquei Denner, o ideal é fazer algo paliativo como vc fez realmente.
-Tutor Odivaney Ramos 08:08 PM
-https://www.it-swarm.dev/pt/node.js/como-enviar-numeros-inteiros-nos-parametros-de-consulta-no-servico-nodejs-express/1042501448/
+- <https://www.it-swarm.dev/pt/node.js/como-enviar-numeros-inteiros-nos-parametros-de-consulta-no-servico-nodejs-express/1042501448>
 
 #### Rotas do Express
 
@@ -1198,9 +1220,7 @@ app.list(3000, () => {
 });
 ```
 
-Parâmetros via Query na rota: É feito a partir de um ponto de interrogação, assim ele não faz parte da rota obrigatório. Sendo possível capturar em formato JSON. Ex:
-
-`http://localhost:3000/testQuery?nome=joao&email=joao@gmail.com&...`
+Parâmetros via Query na rota: É feito a partir de um ponto de interrogação, assim ele não faz parte da rota obrigatório. Sendo possível capturar em formato JSON. Exemplo: `http://localhost:3000/testQuery?nome=joao&email=joao@gmail.com&...`
 
 ```javascript
 // index.js
@@ -1221,7 +1241,7 @@ app.list(3000, () => {
 });
 ```
 
-Route do ExpressJS: Rotas que irão responder no mesmo endereço, mudando somente o tipo/verbo do método HTTP, podem ser agrupadas numa mesma rota. Devem ser definidas.
+**Route do ExpressJS**: Rotas que irão responder no mesmo endereço, mudando somente o tipo/verbo do método HTTP, podem ser agrupadas numa mesma rota. Devem ser definidas.
 
 ```javascript
 // index.js
@@ -1261,7 +1281,7 @@ Funções middlewares são funções que tem acesso ao seguinte:
 - Objeto de resposta (res).
 - Próxima função de middleware no ciclo de requisição e resposta do aplicativo (next).
 
-Podem executar qualquer código, fazer mudanças nos objetos de solicitação, encerrar o ciclo e chamar a próxima função de middleware na pilha. Pode se uilizado para interceptar chamadas em específico ou qualquer chamada. São as funções que são executadas quando determinada rota é atingida.
+Podem executar qualquer código, fazer mudanças nos objetos de solicitação, encerrar o ciclo e chamar a próxima função de middleware na pilha. Pode ser uilizado para interceptar chamadas em específico ou qualquer chamada. São as funções que são executadas quando determinada rota é atingida.
 
 É possível criar middlewares a nível de aplicação e a nível do roteador. Rotas no nível de roteador, é possível agrupar requisições e coloca-las em outro arquivo.
 
@@ -1335,11 +1355,11 @@ Tratamento de erros é uma parte muito importante de uma API, pois um erro pode 
 
 Caso o erro tenha sido gerado a partir de um código assíncrono e deseja utilizar o tratamento padrão, é preciso passar o erro para o "next".
 
-O Express permite que o desenvolvedor escreve as próprias funções para tratamento de erro, basta adicionar um quarto parâmetro na função de middleware.
+O Express permite que o desenvolvedor escreve as próprias funções para tratamento de erro, basta adicionar um **quarto** parâmetro na função de middleware.
 
-O middleware para tratamento de excessões deve ser configurado por ultimo na instância do Express, assim ele receberá erros gerados em todas as definições anteriores.
+O middleware para tratamento de excessões deve ser configurado por último na instância do Express, assim ele receberá erros gerados em todas as definições anteriores.
 
-É permitido que exista várias funções de tratamento de erros. Basta chama o "next" passando o objeto de erro como parâmetro, para envia o fluxo para próxima função. Neste caso a última função de tratamento deverá encerrar a requisição através do objeto de resposta.
+É permitido que exista várias funções de tratamento de erros. Basta chamar o "next" passando o objeto de erro como parâmetro, para enviar o fluxo para próxima função. Neste caso a última função de tratamento deverá encerrar a requisição através do objeto de resposta.
 
 ```javascript
 // index.js
@@ -1382,7 +1402,7 @@ app.list(3000, () => {
 
 #### Gravação de logs
 
-Uma funcionalidade muito importante para uma API é a gravação de logs. Métodos do console nativo do JavaScript, como console.log, console.error, e console.warn, não é possível desativas seus logs, nem definir o nível de logs e são funções síncronas.
+Uma funcionalidade muito importante para uma API é a gravação de logs. Métodos do console nativo do JavaScript, como console.log, console.error, e console.warn. Não é possível desativar seus logs, nem definir o nível de logs, além de serem funções síncronas.
 
 Existem várias bibliotecas de log para o Node que tentam oferecer uma solução de log mais completa. Como por exemplo a **Winston**. Que é uma biblioteca que permite vários tipos de transporte (por exemplo, gravar em uma Banco de Dados), permite a configuração de formatos de log, até 7 níveis, que são:
 **error: 0**, **warn: 1**, **info: 2**, **http: 3**, **verbose: 4**, **debug: 5**, **silly: 6**.
@@ -1454,7 +1474,7 @@ app.use(express.json());
 // No caso, diretório que contém imagens
 app.use(express.static("public"));
 
-// É possível definir que uma rota seja acessar por uma caminho virtual
+// É possível definir que uma rota seja acessada por uma caminho virtual
 app.use("/images", express.static("public"));
 
 app.list(3000, () => {
@@ -1490,21 +1510,23 @@ Links úteis:
 
 ### Desafio do Módulo
 
+{ ... }
+
 ## Módulo 03
 
 ### Aula 01 - Ambiente de Desenvolvimento
 
 Plugins para o VSCode;
 
-- [Cmder]()
-- [Yarn]()
+- [Cmder](https://cmder.net)
+- [Yarn](https://yarnpkg.com)
 - [ES7 React/Redux/GraphQL/React-Native snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)
 
-Comando **npx**: Utilizado pelo React para o "creat at app", faz download e instalação de pacotes que são necessãrios e depois remove esse pacote, não for mais utilizado. Diferente do npm.
+Comando **npx**: Utilizado pelo React para o "create react app", faz download e instalação de pacotes que são necessãrios e depois remove esse pacote, pois não será mais utilizado. Diferente do npm.
 
 Comando **yarn**: Alternativa do NPM, padrão do React, promete ser mais rápido que o NPM.
 
-Instalando e configurando o Cmder no Windows.
+Instalando e configurando o Cmder no Windows...
 
 ### Aula 02 - Introdução ao React
 
@@ -1667,7 +1689,7 @@ Algumas observações:
 
 ### Aula 11 - React Hooks
 
-Criado pelo Facebook no fim de 2018, fornece uma escrita ainda mais declarativa. Utiliza **closures** e **array destructuring**. Permite a utilização de **estado** em **Functional Components**.
+Criado pelo Facebook no fim de 2018, fornece uma escrita ainda mais declarativa. Utiliza **[closures](https://medium.com/@stephanowallace/javascript-mas-afinal-o-que-s%C3%A3o-closures-4d67863ca9fc)** e **array destructuring**. Permite a utilização de **estado** em **Functional Components**.
 
 **React Hooks** não pretende (por enquanto, pelo menos) substituir totalmente as **Class Components**. Os principais Hooks são: **useState** e **useEffect**.
 
@@ -1688,7 +1710,7 @@ Criado pelo Facebook no fim de 2018, fornece uma escrita ainda mais declarativa.
 - Escrita mais declarativa.
 - Com **useEffect**, não há mais o conceito de montagem do componente (**mounting**) e atualização do componente (**updating**).
 - **useEffect** tem um **modelo mental diferente** dos métodos de **ciclo de vida** - a idéia de **useEffect** é **sincronizar** todo o DOM conforme os valores de **props** e **state**.
-- **useEffect** permite utilizar parâmetros extra, conhecido como array de dependências (dependency array ou, simplesmente, **deps**).
+- **useEffect** permite utilizar parâmetros extras, conhecido como array de dependências (dependency array ou, simplesmente, **deps**).
   - Quando **não há** o parâmetro, **useEffect** é **invocado após qualquer inicialização - semelhante** a **componentDidUpdate**.
   - Quando o **parâmetro** é **[]**, **useEffect** é **invocado apenas uma vez - semelhante** a **componentDidMount**.
   - Quando o parâmetro está preenchido com **[state1, state2, etc], useEffect** é invocado **após** a **atualização** de **estado** de **qualquer uma das variáveis**.
@@ -1700,7 +1722,7 @@ Referência de boa prática para o uso de **useEffect** com **async**: <https://
 
 Visto de novidade:
 
-- **new Set()**: Estrutura que simula **conjutos**, e uma característica dos conjuntos, é que os elementos não podem se repetir. O **Set()** verifica isso automaticamente, porém pode não ser 100% confiável.
+- **new Set()**: Estrutura que simula **conjuntos**, e uma característica dos conjuntos, é que os elementos não podem se repetir. O **Set()** verifica isso automaticamente, porém pode não ser 100% confiável.
 - Em **SPAs**, é uma boa pratica evitar o **submit** dos **forms**, utilizando o **event.preventDefault()**.
 
 ### Aula 13 - Desafio Guiado 4 (Continuação)
@@ -1715,7 +1737,7 @@ Exemplo do professor: <https://codesandbox.io/s/react-caixas-kf6mi?file=/src/App
 
 ### Aula 01 - MongoDB: Instalação, banco de dados e coleções
 
-Tipos de Bancos de Dados
+Tipos de Bancos de Dados:
 
 - SQL: Relacional, processamento de transações, concorrência, consistência e baixa latência.
 - NoSQL (Not Only SQL): Não relacional, alta performance, alta escalabilidade.
@@ -1748,14 +1770,14 @@ O MongoDB armazena os dados em formatdo de **JSON**, mas internamente é convert
 
 #### Instalação no Windows
 
-Acesse o site do MongoDB: <https://www.mongodb.com/>. Escolha a opção gratuita **Commynity Serve** para download.
+Acesse o site do MongoDB: <https://www.mongodb.com>. Escolha a opção gratuita **Commynity Serve** para download.
 
 Na instalação:
 
 - Escolha entre as opções _Complete_ e _Custom_;
 - Decida entre criar um usuário ou usuário de rede (padrão);
 - Verificar se a opção de instalação do _MongoDB Compass_ está marcada, caso necessite da instalação;
-- Configurar o MongoDB nas _Variáveis de Ambeinte_:
+- Configurar o MongoDB nas _Variáveis de Ambiente_:
 
   - Pegar o caminho da pata _/bin_ e inserir no Path do Usuário:
 
@@ -1777,7 +1799,7 @@ Definir o local que será armazenado a base dados:
 
 - Também usado para iniciar o bando de dados já criado.
 
-Deixando executando o servidor, abra outro terminal e acesse o servidor com o comando:
+Para manter o servidor em execução, abra outro terminal e acesse o servidor com o comando:
 
 > mongo -host localhost:27017
 
@@ -1801,7 +1823,7 @@ Para Criar/Acessar uma base de dados:
 
 - Quando executado, ele já muda para o banco, ou seja, qualquer alteração vai ocorrer no banco de dados criado ou acessado.
 
-Porém o MongoDB só cria essa base depois que é inserido uma coleção e um documento na base. Exemplo para iserir um documento:
+Porém, o MongoDB só cria essa base depois que é inserida uma coleção e um documento na base. Exemplo para iserir um documento:
 
 > db.student.insert({ "name": "Bruce" })
 
@@ -1819,7 +1841,7 @@ Excluir uma base de dados:
 
   > use grades
 
-- Exclusão;
+- Exclusão:
 
   > db.dropDatabase()
 
@@ -1829,7 +1851,7 @@ Comando para criar uma Coleção (**Collection**):
 
 > db.createCollection("NOME_DA_COLEÇÃO", {}) // db.createCollection("student", {})
 
-- Também é possivel passar parâmetros opcionais. Como por exemplo, limitar que a coleção terá uma quatidade limite a quantidade de documentos ou em MBytes (espaço). Se limitado o tamanho da coleção, quando chegar ao limite de documentos o MongoDB se encarregar de inserir os novos registros e excluir os mais antigos (muito utilizado em coleções de log).
+- Também é possivel passar parâmetros opcionais. Como por exemplo, limitar uma a coleção, ou seja, terá uma quatidade limite a quantidade de documentos ou em MBytes (espaço). Se limitado o tamanho da coleção, quando chegar ao limite de documentos o MongoDB encarrega-se de inserir os novos registros e excluir os mais antigos (muito utilizado em coleções de log).
 
 Verificar as coleções que a base possui:
 
@@ -1839,7 +1861,7 @@ Outra forma de criar coleção é inserindo um documento. Se a coleção para o 
 
 > db.stutends.insert({ "name": "Bruce" }) // db.NOME_DA_COLEÇÃO
 
-Excluir coleção da base de dads:
+Excluir coleção da base de dados:
 
 > db.stutends.drop()
 
@@ -1849,13 +1871,13 @@ Criar uma coleção _capped_, muito utilizada para logs (obrigatóriamente é pr
 
 ### Aula 02 - MongoDB: Inserir Documentos (Create)
 
-Inserir apenas **um** objeto na Coleção:
+Inserir apenas **UM** objeto na Coleção:
 
 > db.COLLECTION.insertOne({ name: "Maria dos Anjos" }); // db.student.insertOne({name: "Maria dos Anjos"});
 
-Inserir **multiplos** documentos na Coleção:
+Inserir **MULTIPLOS** documentos na Coleção:
 
-```mongodb
+```javascript
 db.student.insertMany([
   { name: "Marco Antônio", subject: "Matematica", type: "Trabalho Prático", value: 15.4 },
   { name: "Ana Maria Silva", subject: "Português", type: "Prova Final", value: 23.8 }
@@ -1866,9 +1888,9 @@ db.COLLECTION.insertMany([{...}, {...}, ...]);
 **/
 ```
 
-Inserir **um** ou **mais** documentos de uma só vez:
+Inserir **UM** ou **MAIS** documentos de uma só vez:
 
-```mongodb
+```javascript
 // 1 documento
 db.student.insert({ name: "Pedro Augusto", subject: "História"});
 
@@ -1982,7 +2004,7 @@ O **updateOne** é utilizado para atualizar um registro na base, se existir dois
 
 > db.COLLECTION.updateOne(query, update, options); // db.student.updateOne({name: "Ana Maria Silva", subject: "Português"}, {\$set: {type: "Trabalho Prático"}});
 
-- Com operado **\$inc**. Incrementa um valor, a partir de um valor já existente no campo.
+- Com o operador **\$inc**. Incrementa um valor, a partir de um valor já existente no campo.
 
   > db.student.updateOne({name: "Pedro Augusto", subject: "História"}, {\$inc: {value: 10}});
 
@@ -2004,11 +2026,11 @@ Substituir todo o documento por um novo:
 
 ### Aula 05 - MongoDB: Exclusão Documentos (Delete)
 
-Deletar apenas **um** documento da coleção. Caso exista outro documento igual, ele irá excluir a primeira ocorrência.
+Deletar apenas **UM** documento da coleção. Caso exista outro documento igual, ele irá excluir a primeira ocorrência.
 
 > db.COLLECTION.deleteOne(query (filter)); // db.student.deleteOne({ \_id: ObjectId("5f45bd7d2b7505ef7acd20b1") });
 
-Deletar **mais** de um documento da coleção, com base na query (filtro).
+Deletar **MAIS** de um documento da coleção, com base na query (filtro).
 
 > db.COLLECTION.deleteMany(query (filter)); // db.student.deleteMany({ subject: "Fisica" });
 
@@ -2080,7 +2102,7 @@ db.student.bulkWrite([
 
 ### Aula 07 - MongoDB: índices, modelagens e agregações
 
-**Índices** são estruturas de dados especiais que armazenam informações de **um ou vários** campos com uma determinada **ordenação**. O **índice** pode **facilitar e melhor o desempenho** de uma busca por documentos na coleção, ou seja, se por exemplo se tivermos uma coleção com milhares de documentos e já tivermos um índice ordenados de uma forma específica, o desempenho na busca por esta ordenação será melhor.
+**Índices** são estruturas de dados especiais que armazenam informações de **um** ou **vários** campos com uma determinada **ordenação**. O **índice** pode **facilitar e melhorar o desempenho** de uma busca por documentos na coleção, ou seja, se tivermos uma coleção com milhares de documentos e já tivermos um índice ordenado de uma forma específica, o desempenho na busca por esta ordenação será melhor.
 
 Porém, deve-se tomar cuidado na criação de muitos índices, pois poderá piorar o desempenho nas operações de inserção, atualização e etc. Já que o MongoDB precisará atualizar esses índices.
 
@@ -2104,7 +2126,7 @@ Excluir o index (Por padrão, não é possível excluir o index **id** e se foss
 
   > db.COLLECTION.dropIndexes(); // db.student.dropIndexes();
 
-**Índex Textuais**, são índex que permitem pesquisar por textos dentro de determinado campo do tipo **stringo**. Exemplo:
+**Índex Textuais**, são índex que permitem pesquisar por textos dentro de um determinado campo do tipo **string**. Exemplo:
 
 > db.COLLECTION.createIndex({ campo: "TIPO" }); // db.livros.dropIndex({ biografia: "text" });
 
@@ -2112,11 +2134,11 @@ Excluir o index (Por padrão, não é possível excluir o index **id** e se foss
 
   > db.COLLECTION.find({ $OPERAÇÃO: {$OPERADOR: "TEXTOS"} }); // db.livros.find({ $text: {$search: "escritora jornalista"} }, { \_id: 1 });
 
-- Dentro do deste **find**, é possível ver a precisão da busca. Por exemplo: "Quais documentos tem maior quantidade de palavras (match de palavras)":
+- Dentro deste **find**, é possível ver a precisão da busca. Por exemplo: "Quais documentos tem maior quantidade de palavras (match de palavras)":
 
   > db.COLLECTION.find({ $OPERAÇÃO: {$OPERADOR: "TEXTOS"} }); // db.livros.find({ $text: {$search: "escritora jornalista"} }, { \_id: 1, score: {$meta: "textScore"} }).sort({ score: {$meta: "textScore"} });
 
-Tipos de Relacionamentos
+#### Tipos de Relacionamentos
 
 Os tipos de relacionamentos, nos ajudam a saber qual a estratégia de modelagem no MongoDB.
 
@@ -2124,19 +2146,17 @@ Os tipos de relacionamentos, nos ajudam a saber qual a estratégia de modelagem 
 - **Um para Muitos:** Ex: Uma cidade pode ter vários CEPs.
 - **Muitos para Muitos:** Ex: Um aluno pode ter várias e uma aula pode ter vários alunos.
 
-Tipos de Modelagem no MongoDB
+#### Tipos de Modelagem no MongoDB
 
-Referências (ou normalizados)
+Referências (ou normalizados). Onde podemos referenciar documentos de uma coleção em outras pelo seu ID, semelhante ao modelo relacional de banco de dados.
 
-Onde podemos referenciar documentos de uma coleção em outras pelo seu ID, semelhante ao modelo relacional de banco de dados.
-
-Documentos embutidos (ou não-normalizados)
+#### Documentos embutidos (ou não-normalizados)
 
 Onde teremos todas as referências englobadas dentro de um único documento, ou seja, internalizaremos a relação dentro de um documento. Essa relação é vista como sub-documento, pois os dados são embutidos em arrays ou campos do documento.
 
-Agregação no MongoDB
+#### Agregação no MongoDB
 
-Agregação é quando se agrupa documentos e é eplicado um determinado cálculo em algum valor.
+Agregação é quando se agrupa documentos e é aplicado um determinado cálculo em algum valor.
 
 Comando para fazer uma agregação no MongoDB:
 
@@ -2147,7 +2167,7 @@ Comando para fazer uma agregação no MongoDB:
 - **\$skip:** Pular uma determinada quantia de registros.
 - **\$limit:** Limitar a quantidade de registros para trazer.
 
-```mongodb
+```javascript
 db.COLLECTION.aggregate([
   {
     $project: {}
@@ -2177,7 +2197,7 @@ db.COLLECTION.aggregate([
 
 - Exemplo:
 
-  ```mongodb
+  ```javascript
   db.student.aggregate([
     {
       $match: { subject: "Historia" }
@@ -2199,7 +2219,7 @@ db.COLLECTION.aggregate([
   ]);
   ```
 
-Comandos auxiliares de agregação
+#### Comandos auxiliares de agregação
 
 Contar quantidade de documentos através de um "filtr/query".
 
@@ -2219,9 +2239,7 @@ O comando **distinct**, encontra os valores distintos para um campo especificado
 
 ### Aula 08 - MongoDB Atlas
 
-MongoDB Atlas
-
-É uma plataforma autogerenciável, possuindo rotinas de monitoramente, dimensionamento, alertas e provisionamento da base de dados. Também possui recursos como backup, recuperação de dados e talvez o mais importante, a escalabilidade, ou seja, o dimensionamento e provisonamento da base dados, a medida que vai crescendo.
+É uma plataforma autogerenciável, possuindo rotinas de monitoramento, dimensionamento, alertas e provisionamento da base de dados. Também possui recursos como backup, recuperação de dados e talvez o mais importante, a escalabilidade, ou seja, o dimensionamento e provisonamento da base dados, a medida que vai crescendo.
 
 Existem três tipos serviços:
 
@@ -2231,7 +2249,7 @@ Existem três tipos serviços:
 
 ### Aula 09 - Mongoose
 
-Mongoose é um módulo do NodeJS para possibilitar a conexão com o MongoDB. Fornecendo solução baseada em schemas para modelar os dados da aplicação.
+Mongoose é um módulo do NodeJS para possibilitar a conexão com o MongoDB. Fornecendo solução baseada em *schemas* para modelar os dados da aplicação.
 
 ### Aula 10 - API CRUD com Mongloose
 
@@ -2245,7 +2263,7 @@ Mongoose é um módulo do NodeJS para possibilitar a conexão com o MongoDB. For
 
 Versionamento de Código, é uma forma de gerar versões de uma aplicação.
 
-Instalação e Configuração no Winodws
+Instalação e Configuração no Winodws...
 
 Fazer uma configuração **global**:
 
@@ -2271,7 +2289,7 @@ Configuração de e-Mail:
 
 > git config -- global user.name "email@"
 
-Listar as configuração existentes de usuário:
+Listar as configurações existentes de usuário:
 
 > git config --list
 
@@ -2292,9 +2310,7 @@ Configurar cores de Branchs:
 
 > git config --global color.branch auto
 
-Fluxo de Operação
-
-Comandos
+#### Comandos de Fluxo de Operação
 
 Versionar o projeto com o Git:
 
@@ -2308,15 +2324,15 @@ Transferir todos os arquivos **modificados** para a área temporária:
 
 > git add -A
 
-Transferir todos os arquivos e um extensão específica para a área temporária:
+Transferir todos os arquivos e uma extensão específica para a área temporária:
 
 > git add \*.js
 
-Verifica a _Stage area_:
+Verificar a _Stage area_:
 
 > git status
 
-Abrir ferramenta gráfica padrão do Git:
+Abrir a ferramenta gráfica padrão do Git:
 
 > gitk
 
@@ -2370,58 +2386,60 @@ Utilizando as variáveis:
 console.log(process.env.USERDB);
 ```
 
-- Porém existe um pacote do NodeJS para facilitar a utilização dessas variáveis, chamado de **[dotenv](https://www.npmjs.com/package/dotenv)**. Onde podemos inserir em um arquivo, todas as variáveis de ambiente que a aplicação utiliza.
+#### Pacote .env (dotenv)
 
-  - Para instalar o pacote:
+Existe um pacote do NodeJS para facilitar a utilização dessas variáveis, chamado de **[dotenv](https://www.npmjs.com/package/dotenv)**. Onde podemos inserir em um arquivo, todas as variáveis de ambiente que a aplicação utiliza.
 
-    > npm install dotenv
+- Para instalar o pacote:
 
-  - Instalado o pacote, na raiz da aplicação, crie o arquivo **.env** e no **index.js** (na aplicação) importe o pacote **doteenv**. Exemplo:
+  > npm install dotenv
 
-    ```javascript
-    // File: .env
+- Instalado o pacote, na raiz da aplicação, crie o arquivo **.env** e no **index.js** (na aplicação) importe o pacote **dotenv**. Exemplo:
 
-    USERDB = user;
-    PWDDB = password;
-    PORT = 3000;
-    ```
+  ```javascript
+  // File: .env
 
-    ```javascript
-    // File: index.js
+  USERDB = user;
+  PWDDB = password;
+  PORT = 3000;
+  ```
 
-    require("dotenv").config();
+  ```javascript
+  // File: index.js
 
-    console.log(process.env.USERDB);
-    ```
+  require("dotenv").config();
 
-  - Também é possível definir quando carregar as variáveis salvas no arquivo e quando usar as passadas na linha de comando. Exemplo:
+  console.log(process.env.USERDB);
+  ```
 
-    ```javascript
-    // File: index.js
+- Também é possível definir quando carregar as variáveis salvas no arquivo e quando usar as passadas na linha de comando. Exemplo:
 
-    if (process.env.PRD !== "true") require("dotenv").config();
+  ```javascript
+  // File: index.js
 
-    console.log(process.env.USERDB);
-    ```
+  if (process.env.PRD !== "true") require("dotenv").config();
 
-    - No terminal devo setar a variável como **false** ou **true**. Exemplo:
+  console.log(process.env.USERDB);
+  ```
 
-      > PRD=false node index.js // Vai pegar do a variável USERDB do arquivo
-      > PRD=true USERDB=user node index.js Vai pegar do a variável USERDB passado no terminal
+  - No terminal devo setar a variável como **false** ou **true**. Exemplo:
 
-  - Para outros usuários utilizarem a sua aplicação e saberem que é preciso inserir as informações de ambiente deles, ao invés de comitar o arquivo ".env", deve-se criar o arquivo **.sample-env**. Aonde serão definidas as mesmas variáveis, porém sem valor. Exemplo:
+    > PRD=false node index.js // Vai pegar do a variável USERDB do arquivo
+    > PRD=true USERDB=user node index.js Vai pegar do a variável USERDB passado no terminal
 
-    ```javascript
-    // File: .sample-env
+- Para outros usuários utilizarem a sua aplicação e saberem que é preciso inserir as informações de ambiente deles, ao invés de comitar o arquivo ".env", deve-se criar o arquivo **.sample-env**. Aonde serão definidas as mesmas variáveis, porém sem valor. Exemplo:
 
-    USERDB=
-    PWDDB=
-    PORT=
-    ```
+  ```javascript
+  // File: .sample-env
 
-    - O arquivo **.env** deve ser mapeado no arquivo **.gitignore**. As pessoas que utilizarão a aplicação, devem fazer uma cópia do arquivo **.sample-env**, renomear para **.env** e inserir as suas informações para funcionar a aplicação.
+  USERDB=
+  PWDDB=
+  PORT=
+  ```
 
-Principais comando di Git utilizados para repositórios remotos
+  - O arquivo **.env** deve ser mapeado no arquivo **.gitignore**. Os desenvolvedores que utilizarem a aplicação, devem fazer uma cópia do arquivo **.sample-env**, renomear para **.env** e inserir as suas informações para funcionar a aplicação.
+
+#### Principais comando do Git utilizados para repositórios remotos
 
 Adicionar/Referenciar um repositório remoto a um repositório local:
 
@@ -2435,23 +2453,23 @@ Atualizar os branchs locais a partir dos branchs remotos:
 
 > git fetch
 
-Atualizar os codigos locais a partir dos branchs remotos:
+Atualizar os códigos locais a partir dos branchs remotos:
 
 > git pull
 
 ### Aula 13 - Heroku
 
-O **[Heroku](https://www.heroku.com)**, assim como o GitHub, é uma plataforma **as a service**, para hospedar aplicações em nuvem (PaaS). É possível termos integração contínua com o Heroku, ou seja, se fizermos um comit no GitHub, automaticamente é realizado um **deploy** na versão em "PRD" com a nova versão comitada.
+O **[Heroku](https://www.heroku.com)**, assim como o GitHub, é uma plataforma **"as a service"**, para hospedar aplicações em nuvem (PaaS). É possível termos integração contínua com o Heroku, ou seja, se fizermos um comit no GitHub, automaticamente é realizado um **deploy** na versão em "PRD" com a nova versão comitada.
 
 Uma das desvantagens do Heroku é a limitação de 500MB por conta para hospedagem de aplicação. E aplicação "dormece", ou seja, se não estiver em uso por tanto tempo ela para.
 
-Instalação do Heroku CLI no Windows.
+#### Instalação do Heroku CLI no Windows
 
-Para baixar, acesso o link: <https://www.heroku.com/developers>
+Para baixar, acesse o link: <https://www.heroku.com/developers>
 
 Selecione **Download and install** e escolha a versão referente ao Sistema Operacional.
 
-Depois de instalado, para realizar a implatação de uma aplicação é preciso fazer o login pelo terminal na plataforma, de maneira remota.
+Depois de instalado, para realizar a implatação de uma aplicação é preciso fazer o login pelo terminal na plataforma, de maneira remota. Use o comando:
 
 > heroku login
 
@@ -2463,7 +2481,7 @@ No diretório **raíz** da aplicação use o comando a baixo:
 
 > heroku create
 
-- Será definido um nome para aplicação no Heroku e define o endereço remoto.
+- Será definido um nome para aplicação no Heroku o endereço remoto.
 
 Para verificar os endereços remotos da aplicação:
 
@@ -2477,9 +2495,7 @@ Para renomar a aplicação no Heroku:
 
 - Será renomeado o endereço da aplicação também.
 
-Para definir como o Heroku executará a aplicação, é preciso criar na **raíz** do projeto o arquivo chamado **Procfile** e nele inserir os comandos que o Heroku precisa executar quando subir alterações. Se o arquivo não for definido, o Heroku utilizará o **start** no package.json.
-
-- Exemplo:
+Para definir como o Heroku executará a aplicação, é preciso criar na **raíz** do projeto o arquivo chamado **Procfile** e nele inserir os comandos que o Heroku precisa executar quando subir alterações. Se o arquivo não for definido, o Heroku utilizará o **start** no package.json. Exemplo:
 
 ```javascript
 // File: Procfile
@@ -2491,15 +2507,15 @@ Subir o código no repositório do Heroku:
 
 > git push heroku master
 
-- Quando subir o código, o Heroku irá realizar automaticamente o **build** e o **deploy** da aplicação.
+- Quando subir o código, o Heroku realizará automaticamente o **build** e o **deploy** da aplicação.
 
 Para ver os logs do Heroku:
 
 > heroku logs --tail
 
-Se aplicação utilizar variáveis de ambiente, deve-se criá-las diretamente no Heroku, pois elas ficam num arquivo que não sobem junto a aplicação. Para criar as variaveis acesso o repositório da aplicação no Heroku, vá em _Settings_ e selecione _Reveal Config Vars_, e crie as variáveis.
+Se aplicação utilizar variáveis de ambiente, deve-se criá-las diretamente no Heroku, pois elas ficam em um arquivo que não sobe com a aplicação. Para criar as variáveis, acesse o repositório da aplicação no Heroku, vá em _Settings_ e selecione _Reveal Config Vars_, e crie as variáveis.
 
-Se tiver usando um banco de dados, por exemplo o MongoDB, é preciso liberar os acessos aos IPs do Heroku para acessar a base de dados.
+Se estiver usando um banco de dados, por exemplo o MongoDB, é preciso liberar os acessos aos IPs do Heroku para acessar a base de dados.
 
 Para realizar um "**redeploy**" ou reiniciar aplicação remota:
 
@@ -2511,9 +2527,9 @@ Configurar o Heroku para realizar um deploy a partir do GitHub
 
 - Selecione o repositório referente a aplicação e conecte.
 
-- Para realizar o deploy automatico, vá em _Automatic deploys_, escolha a brach que será usada e habilita o deploy automatico em _Enable Automatic Deploys_.
+- Para realizar o deploy automático, vá em _Automatic deploys_, escolha a brach que será usada e habilite o deploy automático em _Enable Automatic Deploys_.
 
-- Para verificar os **"bulds"** feitos ou que estão sendo realizados, acesse a aba _Activity_.
+- Para verificar os **"builds"** feitos ou que estão sendo realizados, acesse a aba _Activity_.
 
 ### Desafio do Módulo
 
