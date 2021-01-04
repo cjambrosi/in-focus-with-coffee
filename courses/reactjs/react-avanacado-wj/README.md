@@ -947,6 +947,10 @@ Configurando o Storybook Addon Knobs:
 
 > yarn add @storybook/addon-knobs --dev
 
+Executando o Storybook no projeto:
+
+> yarn storybook
+
 #### Link úteis
 
 - Site oficial do Storybook: <https://storybook.js.org>
@@ -967,6 +971,8 @@ Configurando o Storybook Addon Knobs:
 
 #### Link úteis
 
+REVER A PARTIR DAQUI
+
 - Site oficial do Storybook: <https://storybook.js.org>
 
 - Documentação para Storybook: <https://storybook.js.org/docs/react/get-started/introduction>
@@ -976,6 +982,44 @@ Configurando o Storybook Addon Knobs:
 - Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/1b53ec85df786febf158157f4410bfaeffc013c6>
 
 ### Aula 25 - Usando Storybook Essentials e Controls
+
+Agora com as novas versões do "addon", é possível utilizar somente o *addons-essentials*.
+
+O arquivo *main* em `.storybook/main.js`, ficará com os seguintes "addons":
+
+```typescript
+module.exports = {
+  "stories": [
+    "../src/components/**/stories.mdx",
+    "../src/components/**/stories.@(js|jsx|ts|tsx)"
+  ],
+  "addons": [
+    "@storybook/addon-essentials"
+  ]
+}
+```
+
+O arquivo *stories.tsx* dentro do componente ficará assim:
+
+```typescript
+import { Story, Meta } from '@storybook/react/types-6-0'
+import Main from '.'
+
+export default {
+  title: 'Main',
+  component: Main,
+  args: {
+    title: 'Tile default',
+    description: 'Description default'
+  }
+} as Meta
+
+export const Basic: Story = (args) => <Main { ...args } />
+Basic.args = {
+  title: 'React Avançado',
+  description: 'TypeScript, ReactJS, NextJS e Styled Components'
+}
+```
 
 #### Link úteis
 
@@ -989,13 +1033,41 @@ Configurando o Storybook Addon Knobs:
 
 ### Aula 26 - Configurando PWA
 
+Instalar o [next-pwa](https://web.dev/progressive-web-apps):
+
+> yarn add next-pwa
+
+É preciso criar o arquivo de configuração do NextJS `next.config.js`, na raiz do projeto. Onde serão colocadas configurações de plugins e etc para o NextJS.
+
+- Dentro dele, é preciso inserir o código de condiguração do *next-pwa*:
+
+```typescript
+// File: next.config.js
+const isProd = process.env.NODE_ENV === 'prodution' // Desabilitar o PWA quando estiver no ambiente de DEV (yarn dev)
+
+module.exports = withPWA({
+  pwa: {
+    dest: 'public',
+    disable: !isProd 
+  }
+})
+```
+
 #### Link úteis
+
+- Web Dev - PWA: <https://web.dev/progressive-web-apps>
 
 - Site do Next-PWA: <https://www.npmjs.com/package/next-pwa>
 
 - Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/a409075383c260d77356ded39915098da40b3f14>
 
 ### Aula 27 - Iniciando um projeto através do nosso boilerplate
+
+Parar inciar um projeto a partir de um "esqueleto", é precisa usar o comando normal de criação de um projeto em ReactJS, seguido do arquimento **-e** e a URL do repositório pretendido. Exemplo:
+
+> yarn create next-app -e https://github.com/cjambrosi/reactjs-boilerplate-ts
+
+- Será pedido o nome da aplicação.
 
 #### Link úteis
 
