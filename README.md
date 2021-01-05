@@ -23,6 +23,8 @@ Para visualizar as aplicações desenvolvidas nos cursos, acesse o [Sitemap](htt
     - [JavaScript](#javascript)
   - [YouTube](#youtube)
     - [TypeScript](#typescript)
+- [Eventos](#eventos)
+  - [DevSuperior](#devsuperior)
 - [Bootcamps](#bootcamps)
   - [IGTI](#igti)
 - [Labels](#labels)
@@ -87,6 +89,16 @@ Name | Readme | Status
 |---|---|---|
 | Mini Curso de TypeScript | [Link](courses/typescript/mini-curso-de-typescript/README.md) | :heavy_check_mark:
 | Python para Zumbis | [Link](courses/python/python-for-zombies/README.md) | :construction:
+
+**[:arrow_up: Back to Summary](#summary-)**
+
+## Eventos
+
+### DevSuperior
+
+Name | Technologies | Readme | Date | Status
+|---|---|---|---|---|
+| Semana DevSuperior 2.0 | Java com Spring Boot, JS/TS, React JS/Native | [Link](events/devsuperior/sds2.0/README.md) | 4 a 10 de Janeiro de 2021 | :hourglass_flowing_sand:
 
 **[:arrow_up: Back to Summary](#summary-)**
 
