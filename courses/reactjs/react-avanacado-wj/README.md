@@ -4,10 +4,13 @@
 
 FAQ: <https://github.com/react-Avancado/faq>
 
+Boilerplate original: <https://github.com/React-Avancado/boilerplate>
+
 ## Sumário <!-- omit in toc -->
 
 - [Módulo 1: Parte 1 - Introdução Teórica](#módulo-1-parte-1---introdução-teórica)
   - [Aula 3 - Introdução ao NextJS](#aula-3---introdução-ao-nextjs)
+    - [Links para estudo](#links-para-estudo)
   - [Aula 4 - Introdução ao GraphQL](#aula-4---introdução-ao-graphql)
     - [Rest API x GraphQL](#rest-api-x-graphql)
   - [Aula 5 - Introdução ao GraphQL Clients](#aula-5---introdução-ao-graphql-clients)
@@ -24,58 +27,108 @@ FAQ: <https://github.com/react-Avancado/faq>
     - [Ferramentas](#ferramentas)
 - [Módulo 1: Parte 2 - Criando nosso Boilerplate do NextJS](#módulo-1-parte-2---criando-nosso-boilerplate-do-nextjs)
   - [Aula 9 - Requisitos para o projeto](#aula-9---requisitos-para-o-projeto)
-    - [Link úteis](#link-úteis)
+    - [Links úteis](#links-úteis)
   - [Aula 10 - Criando o boilerplate com create-next-app](#aula-10---criando-o-boilerplate-com-create-next-app)
-    - [Link úteis](#link-úteis-1)
+    - [Links úteis](#links-úteis-1)
   - [Aula 11 - Configurando o TypeScript no NextJS](#aula-11---configurando-o-typescript-no-nextjs)
-    - [Link úteis](#link-úteis-2)
+    - [Links úteis](#links-úteis-2)
   - [Aula 12 - Configurando o .editorconfig](#aula-12---configurando-o-editorconfig)
-    - [Link úteis](#link-úteis-3)
+    - [Links úteis](#links-úteis-3)
   - [Aula 13 - Configurando o ESLint](#aula-13---configurando-o-eslint)
-    - [Link úteis](#link-úteis-4)
+    - [ESLint no terminal](#eslint-no-terminal)
+    - [Links úteis](#links-úteis-4)
   - [Aula 14 - Configurando o Prettier com o ESLint](#aula-14---configurando-o-prettier-com-o-eslint)
-    - [Link úteis](#link-úteis-5)
+    - [Links úteis](#links-úteis-5)
   - [Aula 15 - Configurando um git hook com Husky e Lint-Staged](#aula-15---configurando-um-git-hook-com-husky-e-lint-staged)
-    - [Link úteis](#link-úteis-6)
+    - [Links úteis](#links-úteis-6)
   - [Aula 16 - Instalando e Configurando o Jest com TypeScript](#aula-16---instalando-e-configurando-o-jest-com-typescript)
-    - [Link úteis](#link-úteis-7)
+    - [Links úteis](#links-úteis-7)
   - [Aula 17 - Instalando o React Testing Library (RTL) e escrevendo primeiros testes](#aula-17---instalando-o-react-testing-library-rtl-e-escrevendo-primeiros-testes)
-    - [Link úteis](#link-úteis-8)
+    - [Links úteis](#links-úteis-8)
   - [Aula 18 - Usando o findRelatedTests para rodar somente testes necessários](#aula-18---usando-o-findrelatedtests-para-rodar-somente-testes-necessários)
-    - [Link úteis](#link-úteis-9)
+    - [Links úteis](#links-úteis-9)
   - [Aula 19 - Instalando o Styled Components e configurando o SSR](#aula-19---instalando-o-styled-components-e-configurando-o-ssr)
-    - [Link úteis](#link-úteis-10)
+    - [Links úteis](#links-úteis-10)
   - [Aula 20 - Criando estilos globais com createGlobalsStyle](#aula-20---criando-estilos-globais-com-createglobalsstyle)
-    - [Link úteis](#link-úteis-11)
+    - [Links úteis](#links-úteis-11)
   - [Aula 21 - Criando estilos no primeiro componente](#aula-21---criando-estilos-no-primeiro-componente)
-    - [Link úteis](#link-úteis-12)
+    - [Links úteis](#links-úteis-12)
   - [Aula 22 - Melhorando snapshots com Jest-styled-components](#aula-22---melhorando-snapshots-com-jest-styled-components)
-    - [Link úteis](#link-úteis-13)
+    - [Links úteis](#links-úteis-13)
   - [Aula 23 - Configurando o Storybook e escrevendo stories](#aula-23---configurando-o-storybook-e-escrevendo-stories)
-    - [Link úteis](#link-úteis-14)
+    - [Links úteis](#links-úteis-14)
   - [Aula 24 - Migrando Storybook para versão 6.x](#aula-24---migrando-storybook-para-versão-6x)
-    - [Link úteis](#link-úteis-15)
+    - [Links úteis](#links-úteis-15)
   - [Aula 25 - Usando Storybook Essentials e Controls](#aula-25---usando-storybook-essentials-e-controls)
-    - [Link úteis](#link-úteis-16)
+    - [Links úteis](#links-úteis-16)
   - [Aula 26 - Configurando PWA](#aula-26---configurando-pwa)
-    - [Link úteis](#link-úteis-17)
+    - [Links úteis](#links-úteis-17)
   - [Aula 27 - Iniciando um projeto através do nosso boilerplate](#aula-27---iniciando-um-projeto-através-do-nosso-boilerplate)
-    - [Link úteis](#link-úteis-18)
+    - [Links úteis](#links-úteis-18)
   - [Aula 28 - Extra: PR - corrigindo cobertura de testes](#aula-28---extra-pr---corrigindo-cobertura-de-testes)
-    - [Link úteis](#link-úteis-19)
+    - [Links úteis](#links-úteis-19)
   - [Aula 29 - Extra: Servindo estáticos corretamente no build do Storybook](#aula-29---extra-servindo-estáticos-corretamente-no-build-do-storybook)
-    - [Link úteis](#link-úteis-20)
+    - [Links úteis](#links-úteis-20)
   - [Aula 30 - Extra: Mantendo o boilerplate com atualizado usando Dependabot e Github Actions](#aula-30---extra-mantendo-o-boilerplate-com-atualizado-usando-dependabot-e-github-actions)
   - [Aula 31 - Extra: Automatizando criação de arquivos](#aula-31---extra-automatizando-criação-de-arquivos)
-    - [Link úteis](#link-úteis-21)
+    - [Links úteis](#links-úteis-21)
   - [Aula 32 - FIX: Corrigindo configuração do jest-styled-components](#aula-32---fix-corrigindo-configuração-do-jest-styled-components)
   - [Aula 33 - FIX: Definindo typings para jest-styled-components](#aula-33---fix-definindo-typings-para-jest-styled-components)
+- [Módulo 2: Iniciando com Strapi](#módulo-2-iniciando-com-strapi)
+  - [Aula 34 - Strapi por debaixo dos panos](#aula-34---strapi-por-debaixo-dos-panos)
+    - [Links úteis](#links-úteis-22)
+  - [Aula 35 - Requisitos para o Strapi](#aula-35---requisitos-para-o-strapi)
+    - [Links úteis](#links-úteis-23)
+  - [Aula 36 - Comandos do PostgreSQL](#aula-36---comandos-do-postgresql)
+    - [Links úteis](#links-úteis-24)
+  - [Aula 37 - Iniciando o Strapi local](#aula-37---iniciando-o-strapi-local)
+    - [Links úteis](#links-úteis-25)
+  - [Aula 38 - Iniciando o Strapi com Docker](#aula-38---iniciando-o-strapi-com-docker)
+    - [Links úteis](#links-úteis-26)
+  - [Aula 39 - Apresentação do projeto da Landing Page](#aula-39---apresentação-do-projeto-da-landing-page)
+    - [Links úteis](#links-úteis-27)
+  - [Aula 40 - Apresentação do CMS do Strapi](#aula-40---apresentação-do-cms-do-strapi)
+    - [Links úteis](#links-úteis-28)
+  - [Aula 41 - Arquivos iniciais do Strapi](#aula-41---arquivos-iniciais-do-strapi)
+    - [Links úteis](#links-úteis-29)
+  - [Aula 42 - Fields do Strapi](#aula-42---fields-do-strapi)
+    - [Links úteis](#links-úteis-30)
+- [Módulo 2 (extra): Criando estrutura de dados para o CMS](#módulo-2-extra-criando-estrutura-de-dados-para-o-cms)
+  - [Aula 43 - Criando logo e componente de Header](#aula-43---criando-logo-e-componente-de-header)
+    - [Links úteis](#links-úteis-31)
+  - [44 Criando Section About Project - Rich Text](#44-criando-section-about-project---rich-text)
+    - [Links úteis](#links-úteis-32)
+  - [45 Criando Section Tech - Repeatable Component](#45-criando-section-tech---repeatable-component)
+    - [Links úteis](#links-úteis-33)
+  - [46 Criando Section Concepts](#46-criando-section-concepts)
+    - [Links úteis](#links-úteis-34)
+  - [47 Criando Section Modules](#47-criando-section-modules)
+    - [Links úteis](#links-úteis-35)
+  - [48 Criando Agenda e Pricing Box - reutilizando componente já criado](#48-criando-agenda-e-pricing-box---reutilizando-componente-já-criado)
+    - [Links úteis](#links-úteis-36)
+  - [49 Criando Collection Type para Authors](#49-criando-collection-type-para-authors)
+    - [Links úteis](#links-úteis-37)
+  - [50 Adicionando campo faltante em Authors](#50-adicionando-campo-faltante-em-authors)
+    - [Links úteis](#links-úteis-38)
+  - [51 Criando relations (has many)](#51-criando-relations-has-many)
+    - [Links úteis](#links-úteis-39)
+  - [52 Criando Section Reviews](#52-criando-section-reviews)
+    - [Links úteis](#links-úteis-40)
+  - [53 Criando Section FAQ](#53-criando-section-faq)
+    - [Links úteis](#links-úteis-41)
+  - [54 Atualizando Strapi para 3.0.6 (se já possuir essa versão ou maior, ignore)](#54-atualizando-strapi-para-306-se-já-possuir-essa-versão-ou-maior-ignore)
+    - [Links úteis](#links-úteis-42)
+  - [55 Adicionando um plugin customizado (CKEditor)](#55-adicionando-um-plugin-customizado-ckeditor)
+    - [Links úteis](#links-úteis-43)
+  - [56 Importando e Exportando dados no PostgreSQL](#56-importando-e-exportando-dados-no-postgresql)
+    - [Links úteis](#links-úteis-44)
+  - [57 Permissões para rotas de Rest API](#57-permissões-para-rotas-de-rest-api)
 
 ## Módulo 1: Parte 1 - Introdução Teórica
 
 ### Aula 3 - Introdução ao NextJS
 
-Slides: <https://docs.google.com/presentation/d/1Q9dQ3etOKdgPt8kvmuC9oliDqAlARZOia3mhQGDGB3k/edit#slide=id.g8565c632f8_0_0>
+[Link para os slides](https://docs.google.com/presentation/d/1Q9dQ3etOKdgPt8kvmuC9oliDqAlARZOia3mhQGDGB3k/edit#slide=id.g8565c632f8_0_0)
 
 O NextJS é um **Framework Web** desenvolvido em **ReactJS** lançado em 2016 por Guilhermeo Rauch. Suporta SSG, SSR e até SPA.
 
@@ -90,7 +143,7 @@ O que o **NextJS** tem/faz?
 - Completamente extensível (controle completo do Babel/Webpack, plugins, etc)
 - Otimizado para produção
 
-Tipos de uma aplicação
+Tipos de uma aplicação:
 
 - Static Site Generation (HTML/CSS/JS) - GatsbyJS, Hexo
   - Vantagens:
@@ -144,22 +197,22 @@ Tipos de uma aplicação
   - Quando precisa de uma boa indexação no Google
   - Exemplos: Ecommerce, Sites de Notícias
 
-Links para estudo:
+#### Links para estudo
 
-- <https://nextjs.org/learn/basics/create-nextjs-app> (Tutorial oficial passo-a-passo)
-- <https://dev.to/kefranabg/demystifying-ssr-csr-universal-and-static-rendering-with-animations-m7d> (Animações vistas nos slides)
-- <https://marinaaisa.com/blog/cook-websites-based-on-your-needs/> (Explicações sobre quando usar um ou outro)
-- <https://github.com/vercel/next.js/tree/canary/examples> (Vários exemplos oficiais do NextJS com outras tecnologias)
+<https://nextjs.org/learn/basics/create-nextjs-app> (Tutorial oficial passo-a-passo)
+<https://dev.to/kefranabg/demystifying-ssr-csr-universal-and-static-rendering-with-animations-m7d> (Animações vistas nos slides)
+<https://marinaaisa.com/blog/cook-websites-based-on-your-needs/> (Explicações sobre quando usar um ou outro)
+<https://github.com/vercel/next.js/tree/canary/examples> (Vários exemplos oficiais do NextJS com outras tecnologias)
 
 ### Aula 4 - Introdução ao GraphQL
 
-Slides: <https://docs.google.com/presentation/d/1XhGUPXgbUGBqyexLm3HuV9Rg-8YdPM_vQ7d4wf4vRAw/edit#slide=id.g8565c632f8_0_0>
+[Link para os slides](https://docs.google.com/presentation/d/1XhGUPXgbUGBqyexLm3HuV9Rg-8YdPM_vQ7d4wf4vRAw/edit#slide=id.g8565c632f8_0_0)
 
 **GraphQL** é uma **linguagem de consulta** de dados desenvolvida e usada pelo Facebook desde 2012.
 
 #### Rest API x GraphQL
 
-Rest API
+Rest API:
 
 - Problemas:
   - Dificulades para evoluir a API (criação de N versões)
@@ -167,7 +220,7 @@ Rest API
   - Aumento no tamanho da requisição
   - Rotas altamente acopladas
 
-GraphQL
+GraphQL:
 
 - Vantagens:
   - Permite evolução constante
@@ -176,13 +229,13 @@ GraphQL
 
 ### Aula 5 - Introdução ao GraphQL Clients
 
-Slides: <https://docs.google.com/presentation/d/1QctAckhGlvs0NMgf_GsRdqui_cm0UqJOew55WFChjNg/edit#slide=id.g8565c632f8_0_0>
+[Link para os slides](https://docs.google.com/presentation/d/1QctAckhGlvs0NMgf_GsRdqui_cm0UqJOew55WFChjNg/edit#slide=id.g8565c632f8_0_0)
 
 Os **GraphQL Clients** são responsáveis por criar camadas de abstração para realizar queries/mutations, sistemas de cache, validações e otimizações.
 
 Cliens mais conhecidos/utilizados:
 
-- FetchQL
+- **FetchQL**
   - Vantagens:
     - Bastante leve
     - API simplificada
@@ -192,7 +245,7 @@ Cliens mais conhecidos/utilizados:
     - Não possui sistema de cache
     - Não possui tratamento de dados e validações
     - Não tem contexto de estados
-- GraphQL Request
+- **GraphQL Request**
   - Vantagens:
     - Super simples e leve
     - Baseado em Promises (async/await)
@@ -202,7 +255,7 @@ Cliens mais conhecidos/utilizados:
     - Não possui sistema de cache
     - Não possui tratamento de dados e validações
     - Não possui contexto de estado
-- uRQL
+- **uRQL**
   - Vantagens:
     - Bastante leve e focado em performance
     - Altamente extensível
@@ -211,7 +264,7 @@ Cliens mais conhecidos/utilizados:
   - Desvantagens:
     - Biblioteca bastante nova (poucos materiais sobre)
     - Pouca adoção ainda (até o momento)
-- Relay Modern
+- **Relay Modern**
   - Vantagens:
     - Focado em performance
     - Pré-compila as queries do GraphQL em build time (evita que o usuário baise o parser)
@@ -219,7 +272,7 @@ Cliens mais conhecidos/utilizados:
   - Desvantagens:
     - Necessita de configurações a mais no tooling
     - Curva de aprendizado maior devido a mais detalhes para o funcionamento
-- Apollo Client
+- **Apollo Client**
   - Vantagens:
     - Largamente utilizado no mercado
     - Possui sistema de caching/states
@@ -231,7 +284,7 @@ Cliens mais conhecidos/utilizados:
 
 ### Aula 6 - Introdução ao Strapi - Headless CMS
 
-Slides: <https://docs.google.com/presentation/d/1tDRIv1zG0FpH-1GnznTroEG5xgxNJ7rG0eVXkCJeT2Q/edit>
+[Link para os slides](https://docs.google.com/presentation/d/1tDRIv1zG0FpH-1GnznTroEG5xgxNJ7rG0eVXkCJeT2Q/edit)
 
 O **Strapi** é um **Headless CMS** open-source feito 100% em JavaScript, totalmente customizável e orientado para desenvolvedores preocupados em agilidade.
 
@@ -288,15 +341,15 @@ Possui 3 tipos de estrutura de dados
 - Single Types (dado único. Ex: homepage, footer, menu)
 - Component Types (estrutura de dados reutilizados. Ex: galerias, hero)
 
-HÁ vários tipos para **Fields**: Texto, Rich Text, Number, Data, Booleano, Relação, Email, Senha, Enumeração, Mídia, JSON, UID, Component, Dynamic Zone...
+Há vários tipos para **Fields**: Texto, Rich Text, Number, Data, Booleano, Relação, Email, Senha, Enumeração, Mídia, JSON, UID, Component, Dynamic Zone...
 
 ### Aula 7 - Introdução ao CSS-in-JS
 
-Slides: <https://docs.google.com/presentation/d/1MhqVH0ieg8ILsQVTY-HJFzuDFyIHiTF2zmPu9QZbmxU/edit>
+[Link para os slides](https://docs.google.com/presentation/d/1MhqVH0ieg8ILsQVTY-HJFzuDFyIHiTF2zmPu9QZbmxU/edit)
 
 **CSS** é muito difícil! É sério! Quem diz o contrário, é porque quer ser legal...
 
-Problemas com **CSS**
+Problemas com o **CSS**:
 
 - Falta de escopo local (uma lib de terceiro pode colidir com meu código)
 - Especificidade e novamente, colisão de estilos!
@@ -396,9 +449,9 @@ render(
 
 ### Aula 8 - Introdução a Testes de Software
 
-Slides: <https://docs.google.com/presentation/d/1togS6dJDG514q_bT6Atsfa6ogMMyoTCGUuJt48I4gCg/edit#slide=id.g8565c632f8_0_0>
+[Link para os slides](https://docs.google.com/presentation/d/1togS6dJDG514q_bT6Atsfa6ogMMyoTCGUuJt48I4gCg/edit#slide=id.g8565c632f8_0_0)
 
-Por que escrever tester?
+Por que escrever testes?
 
 - Código complexo não é simples de se debuggar só com o olho
 - Testar é uma forma robusta de **validar software**
@@ -407,9 +460,7 @@ Por que escrever tester?
   - Se eu atualizar esse trecho, o código quebra?
 - Testes funcionam como uma primeira camada de documentação
 
-Que tipos de teste existem?
-
-Existem vários níveis de testes, mas aqui veremos apenas dois:
+Que tipos de testes existem? Bom, existem vários níveis de testes, mas aqui veremos apenas dois:
 
 - Testes Unitários
   - Testam **isoladamente** pequenas unidades de código
@@ -423,7 +474,7 @@ Existem vários níveis de testes, mas aqui veremos apenas dois:
 
 Test-driven development (TDD): (ciclo) -> Escrevemos um Teste -> Fazemos o Teste passar -> Refatoramos ->
 
-É muit importante que o teste seja escrito orientado à funcionalidade e não a implementação, para não correr o risco de "maquiar" o teste. Pois como sabemos os truques da implementação, esses testes podem não ser confiáveis.
+É muito importante que o teste seja escrito orientado à funcionalidade e não a implementação, para não correr o risco de "maquiar" o teste. Pois como sabemos os truques da implementação, esses testes podem não ser confiáveis.
 
 #### Ferramentas
 
@@ -440,7 +491,9 @@ E nossa biblioteca para end-to-end for o **Cypress**, também devido aos níveis
 
 ### Aula 9 - Requisitos para o projeto
 
-#### Link úteis
+{ ... }
+
+#### Links úteis
 
 - Lista de vídeos para configurar o Windows: <https://www.youtube.com/playlist?list=PLlAbYrWSYTiOpefWtd6uvwgKT1R-94Zfd>
 
@@ -448,17 +501,17 @@ E nossa biblioteca para end-to-end for o **Cypress**, também devido aos níveis
 
 Comando para criar um *Next App*:
 
-- Com Yarn:
+- Com o Yarn:
 
-> yarn create next-app
+  > yarn create next-app
 
-- Com NPM:
+- Com o NPM:
 
-> npx create-next-app
+  > npx create-next-app
 
 Ler sobre **Sistema de Monorepo**
 
-#### Link úteis
+#### Links úteis
 
 - Site oficial no NextJS: <https://nextjs.org>
 - Get Started do NextJS: <https://nextjs.org/docs/getting-started>
@@ -476,9 +529,9 @@ Comando para habilitar o TypeScript no projeto, posteriromente rodar o comando *
 
 > yarn add --dev typescript @types/react @types/node
 
-No objeto encontrado dentro do arquivo **tsconfig.json**, alterar o valor do atributo **strict** para **true**.
+No objeto encontrado dentro do arquivo `tsconfig.json`, alterar o valor do atributo **strict** para **true**.
 
-#### Link úteis
+#### Links úteis
 
 - Documentação oficial do NextJS com TypeScript: <https://nextjs.org/docs/basic-features/typescript>
 
@@ -488,7 +541,7 @@ No objeto encontrado dentro do arquivo **tsconfig.json**, alterar o valor do atr
 
 ### Aula 12 - Configurando o .editorconfig
 
-Exemplo de configuração do arquivo .editorconfig
+Exemplo de configuração do arquivo `.editorconfig`:
 
 ```bash
 # EditorConfig
@@ -503,7 +556,7 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 ```
 
-#### Link úteis
+#### Links úteis
 
 - Site oficial do EditorConfig: <https://editorconfig.org>
 
@@ -517,17 +570,19 @@ Comando para instalar o ESLint no projeto:
 
 Desligar a regra de prop-types:
 
-- Dentro do arquivo **.eslintrc.json**, em **rules** adicione a opção a baixo:
+- Dentro do arquivo `.eslintrc.json`, em **rules** adicione a opção abaixo:
 
-> "react/prop-types": "off"
+  > "react/prop-types": "off"
 
-No NextJS, o react já importado globalmente. Para desabilitar esse alerta o ESLint, use o comando a baixo em **rules**:
+No NextJS, o React já é importado globalmente. Para desabilitar esse alerta o ESLint, use o comando abaixo em **rules**:
 
 > "react/react-in-jsx-scope": "off"
 
-Desabilitar a tipagem obrigatória de retorno (TypeScript é inteligente em sabe o tipo de retorno, então só é preciso usar quando realmente for necessario).
+Desabilitar a tipagem obrigatória de retorno:
 
 > "@typescript-eslint/explicit-module-boundary-types": ["off"]
+
+- O TypeScript é inteligente e sabe o tipo de retorno, então só é preciso usar quando realmente for necessario.
 
 Definir versão do React:
 
@@ -539,17 +594,17 @@ Definir versão do React:
 }
 ```
 
-ESLint no terminal:
+#### ESLint no terminal
 
-- Para verificar somente:
+Para verificar somente:
 
 > eslint source_directory
 
-- Para verificar e tentar corrigir:
+Para verificar e tentar corrigir:
 
 > eslint source_directory --fix
 
-#### Link úteis
+#### Links úteis
 
 - Site oficial do Eslint: <https://eslint.org>
 
@@ -569,7 +624,7 @@ Instalar o Prettier:
 
 > yarn add --dev eslint-config-prettier eslint-plugin-prettier
 
-Configuração do arquivo **.prettierrc**:
+Configuração do arquivo `.prettierrc`:
 
 ```json
 {
@@ -579,11 +634,11 @@ Configuração do arquivo **.prettierrc**:
 }
 ```
 
-Adicione também no arquivo **.eslintrc.json** em **plugins** a opção:
+Adicione também no arquivo `.eslintrc.json` em **plugins** a opção:
 
 > "plugin:prettier/recommended"
 
-#### Link úteis
+#### Links úteis
 
 - Site oficial do Prettier: <https://prettier.io>
 
@@ -597,7 +652,7 @@ Instalar um lint para verificar o código antes de comitar:
 
 > yarn add --dev lint-staged husky
 
-#### Link úteis
+#### Links úteis
 
 - Repositório do Husky: <https://github.com/typicode/husky>
 
@@ -611,7 +666,7 @@ Instalações:
 
 > yarn add --dev jest @babel/preset-typescript @types/jest
 
-Adicionar as propriedades *jest* e *node* como **true**, no arquivo **.eslintrc.json** em **env**?
+Adicionar as propriedades *jest* e *node* como **true**, no arquivo `.eslintrc.json` em **env**?
 
 ```json
 {
@@ -623,7 +678,7 @@ Adicionar as propriedades *jest* e *node* como **true**, no arquivo **.eslintrc.
   },
 ```
 
-Criar o arquivo **jest.config.js** na raiz:
+Criar o arquivo `jest.config.js` na raiz:
 
 ```javascript
 module.exports = {
@@ -635,9 +690,9 @@ module.exports = {
 }
 ```
 
-Criar o diretório **.jest** e dentro criar o arquivo **.setup.ts**, para inserir informações futuras para o Jest:
+Criar o diretório `.jest` e dentro criar o arquivo `.setup.ts`, para inserir informações futuras ao Jest:
 
-Criar o arquivo **.babelrc** na raiz para as informações do Babel:
+Criar o arquivo `.babelrc` na raiz, referente as informações do Babel abaixo:
 
 ```json
 {
@@ -648,7 +703,7 @@ Criar o arquivo **.babelrc** na raiz para as informações do Babel:
 }
 ```
 
-Adicionar o comando de teste no arquivo **package.json** em **scripts**:
+Adicionar o comando de teste (`"test": "jest"`) no arquivo `package.json` em **scripts**:
 
 ```json
 "scripts": {
@@ -656,11 +711,11 @@ Adicionar o comando de teste no arquivo **package.json** em **scripts**:
   "build": "next build",
   "start": "next start",
   "lint": "eslint src --max-warnings=0",
-  "test": "jest" // Comando para inicirar os testes
+  "test": "jest" // Comando para iniciar os testes
 },
 ```
 
-#### Link úteis
+#### Links úteis
 
 - Site oficial do Jest: <https://jestjs.io>
 
@@ -738,7 +793,7 @@ Comando para fazer com que o teste fique assistindo as mudanças e testar na hor
   },
 ```
 
-#### Link úteis
+#### Links úteis
 
 - Site oficial do RTL: <https://testing-library.com/docs/react-testing-library/intro>
 
@@ -750,21 +805,21 @@ Comando para fazer com que o teste fique assistindo as mudanças e testar na hor
 
 ### Aula 18 - Usando o findRelatedTests para rodar somente testes necessários
 
-`--findRelatedTests`: Arugmento para o comando de teste do Jest. Com ele, o Jest só irá acusar erros quando encontrar testes e não dará mais erro por não encontrar testes.
+`--findRelatedTests`: Argumento para o comando de teste do Jest. Com ele, o Jest só irá acusar erros quando encontrar testes e não dará mais erro por não encontrá-los.
 
-#### Link úteis
+#### Links úteis
 
 - Documentação sobre findRelatedTests: <https://jestjs.io/docs/en/cli#--findrelatedtests-spaceseparatedlistofsourcefiles>
 
 ### Aula 19 - Instalando o Styled Components e configurando o SSR
 
-O Styled Components dentro da estrutura do NextJS com serve-side é um pouco diferente. É preciso fazer uma configuração para ele renderizar (server-side rendering) também junto com o servidor, se não for configurado, é possível que as páginas sejam renderizadas antes do style components e assim não aplicando-o.
+O Styled Components dentro da estrutura do NextJS com serve-side é um pouco diferente. É preciso fazer uma configuração para ele renderizar (server-side rendering) também junto com o servidor. Se não for configurado, é possível que as páginas sejam renderizadas antes do style components e assim não aplicando-o.
 
 Instalando as dependências do Babel e do TypeScript:
 
 > yarn add --dev @types/styled-components babel-plugin-styled-components
 
-Configurar o Styled Components em **plugins** no arquivo **.babelrc**:
+Configurar o Styled Components em **plugins** no arquivo `.babelrc`:
 
 ```json
 // File: .babelrc
@@ -793,7 +848,7 @@ Fazendo funcionar o Styled Components dentro do NextJS, sobrescrevendo o arquivo
 
 - Dentro do diretório `pages`, crie o arquivo chamado de `_document.tsx`.
 
-- Cole o código padrão a baixo e pronto:
+- Cole o código padrão abaixo e pronto:
 
 ```typescript
 import Document, {
@@ -846,7 +901,7 @@ export default class MyDocument extends Document {
 }
 ```
 
-#### Link úteis
+#### Links úteis
 
 - Site oficial do Styled Components: <https://styled-components.com>
 
@@ -860,7 +915,7 @@ Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/330
 
 ### Aula 20 - Criando estilos globais com createGlobalsStyle
 
-Como configutar *Absolut Imports*:
+Como configurar *Absolut Imports*:
 
 - No arquivo `tsconfig.json` inserir a propriedade **baseUrl** com o diretório dos códigos ou o que preferir. Exemplo:
 
@@ -887,13 +942,13 @@ Como configutar *Absolut Imports*:
 }
 ```
 
-- Assim, não é mais preciso passar o caminho relativo com "../", por exemplo:
+- Assim, não será mais preciso passar o caminho relativo com "../" (na maioria dos lugares). Por exemplo:
 
 ```typescript
 import GlobalStyles from 'styles/global'
 ```
 
-#### Link úteis
+#### Links úteis
 
 - Documentação do createGlobalsStyle: <https://styled-components.com/docs/api#createglobalstyle>
 
@@ -903,7 +958,9 @@ import GlobalStyles from 'styles/global'
 
 ### Aula 21 - Criando estilos no primeiro componente
 
-#### Link úteis
+{ ... }
+
+#### Links úteis
 
 - Arquivo corrigindo toHaveStyle - moduleMapper: <https://github.com/React-Avancado/boilerplate/blob/master/jest.config.js>
 
@@ -915,17 +972,17 @@ Integrando o Styled Components com o Jest:
 
 - Instalando o *jest-styled-components*:
 
-> yarn add --dev jest-styled-components
+  > yarn add --dev jest-styled-components
 
 - Fazer a importação necessãrio no arquivo de configuração do Jest:
 
-```typescript
-// File: .jest/setup.ts
+  ```typescript
+  // File: .jest/setup.ts
 
-import 'jest-styled-components'
-```
+  import 'jest-styled-components'
+  ```
 
-#### Link úteis
+#### Links úteis
 
 - Documentação do Jest Styled Components: <https://styled-components.com/docs/tooling#jest-integration>
 
@@ -943,7 +1000,7 @@ Obs: Na versão 5.3 utilizada na aula, ainda não suporta o TypeScript, então �
 
 **Decorator** serve para englobar os componentes através de *wrappers*, pode ser estilos, temas e etc.
 
-Configurando o Storybook Addon Knobs:
+Configurando o Storybook Addon Knobs (Não é mais necessário, verificar a Aula 25):
 
 > yarn add @storybook/addon-knobs --dev
 
@@ -951,7 +1008,7 @@ Executando o Storybook no projeto:
 
 > yarn storybook
 
-#### Link úteis
+#### Links úteis
 
 - Site oficial do Storybook: <https://storybook.js.org>
 
@@ -969,9 +1026,9 @@ Executando o Storybook no projeto:
 
 ### Aula 24 - Migrando Storybook para versão 6.x
 
-#### Link úteis
+{ ... }
 
-REVER A PARTIR DAQUI
+#### Links úteis
 
 - Site oficial do Storybook: <https://storybook.js.org>
 
@@ -985,21 +1042,19 @@ REVER A PARTIR DAQUI
 
 Agora com as novas versões do "addon", é possível utilizar somente o *addons-essentials*.
 
-O arquivo *main* em `.storybook/main.js`, ficará com os seguintes "addons":
+O arquivo *main* em `.storybook/main.js`, ficará com os seguintes "addons" (somente o *addon-essentials*):
 
 ```typescript
 module.exports = {
-  "stories": [
-    "../src/components/**/stories.mdx",
-    "../src/components/**/stories.@(js|jsx|ts|tsx)"
+  stories: [
+    '../src/components/**/stories.mdx',
+    '../src/components/**/stories.@(js|jsx|ts|tsx)'
   ],
-  "addons": [
-    "@storybook/addon-essentials"
-  ]
+  addons: ['@storybook/addon-essentials']
 }
 ```
 
-O arquivo *stories.tsx* dentro do componente ficará assim:
+O arquivo *stories.tsx* dentro do componente *Main* ficará assim:
 
 ```typescript
 import { Story, Meta } from '@storybook/react/types-6-0'
@@ -1021,7 +1076,7 @@ Basic.args = {
 }
 ```
 
-#### Link úteis
+#### Links úteis
 
 - Documentação do Essentials: <https://storybook.js.org/docs/react/essentials/introduction>
 
@@ -1037,12 +1092,13 @@ Instalar o [next-pwa](https://web.dev/progressive-web-apps):
 
 > yarn add next-pwa
 
-É preciso criar o arquivo de configuração do NextJS `next.config.js`, na raiz do projeto. Onde serão colocadas configurações de plugins e etc para o NextJS.
+É preciso criar o arquivo de configuração do NextJS `next.config.js`, na raiz do projeto. Onde serão inseridas as configurações de plugins, entre outras coisas, para o NextJS.
 
 - Dentro dele, é preciso inserir o código de condiguração do *next-pwa*:
 
 ```typescript
 // File: next.config.js
+
 const isProd = process.env.NODE_ENV === 'prodution' // Desabilitar o PWA quando estiver no ambiente de DEV (yarn dev)
 
 module.exports = withPWA({
@@ -1053,7 +1109,11 @@ module.exports = withPWA({
 })
 ```
 
-#### Link úteis
+Para utilizar a variavel `NODE_ENV`, é possivel criar um arquivo na raiz do projeto chamado de `.env` ou passar como parâmetro ao rodar
+
+>
+
+#### Links úteis
 
 - Web Dev - PWA: <https://web.dev/progressive-web-apps>
 
@@ -1063,13 +1123,17 @@ module.exports = withPWA({
 
 ### Aula 27 - Iniciando um projeto através do nosso boilerplate
 
-Parar inciar um projeto a partir de um "esqueleto", é precisa usar o comando normal de criação de um projeto em ReactJS, seguido do arquimento **-e** e a URL do repositório pretendido. Exemplo:
+Parar inciar um projeto a partir de um "esqueleto", é precisa usar o comando normal de criação de um projeto em ReactJS, seguido do argumento **-e** e a URL do repositório pretendido. Exemplo:
 
 > yarn create next-app -e https://github.com/cjambrosi/reactjs-boilerplate-ts
 
-- Será pedido o nome da aplicação.
+- Será solicitado o nome da aplicação. Isso depende de como será estruturado o projeto, geralmente o nome pode ser **client**.
 
-#### Link úteis
+Também é possível passar o nome como parâmetro no comando, assim:
+
+> yarn create next-app -e https://github.com/cjambrosi/reactjs-boilerplate-ts client
+
+#### Links úteis
 
 - Mudanças na documentação do boilerplate: <https://github.com/React-Avancado/boilerplate/commit/baf5c9536c4d9f6ee1b93e9df3c849eb5af4850b>
 
@@ -1077,21 +1141,148 @@ Parar inciar um projeto a partir de um "esqueleto", é precisa usar o comando no
 
 ### Aula 28 - Extra: PR - corrigindo cobertura de testes
 
-#### Link úteis
+{ ... }
+
+#### Links úteis
 
 - Pull Request: <https://github.com/React-Avancado/boilerplate/pull/1>
 
 ### Aula 29 - Extra: Servindo estáticos corretamente no build do Storybook
 
-#### Link úteis
+{ ... }
+
+#### Links úteis
 
 - Código feito em aula: <https://github.com/React-Avancado/boilerplate/commit/a6f28b773c54e5bd358d806a5ed8de49b649c762>
 
 ### Aula 30 - Extra: Mantendo o boilerplate com atualizado usando Dependabot e Github Actions
 
+O [Dependabot](https://dependabot.com), é um Bot que verifica quais dependências do projeto tiveram falhas de segurança ou atualizações. É preciso criar uma conta integrando com o GitHub, ou criando um arquivo **YAML** chamado de `dependabot.yaml` no repositorio, dentro de um diretório chamado de `.github/` na raiz.
+
+Para garantir que não haverá incompatibilidade e *breaking change*, é preciso rodar a nova versão dos pacotes ou códigos que foram atualizados, como por exemplo os testes já configurados (lints, builds e etc). Para isso, é possível atilizar no GitHub o **GitHub Actions** <https://docs.github.com/pt/free-pro-team@latest/actions>. Com ele é possível rodar nos repositórios do GitHub todos os comandos de lints, testes, todo um fluxo de testes de código antes de realizar o deploy para algum lugar (isso é um CI, exemplo do Travis).
+
+Configurando:
+
+- Na raiz do projeto, crie o diretório `.github`.
+
+- Dentro de `.github`, crie o diretório `workflows`.
+
+- No diretório `workflows`, crie o arquivo `ci.yml` com o código de exemplo abaixo (sem os comentários):
+
+  ```yaml
+  # File: .github/workflows/ci.yml
+
+  name: ci # Nome de workflow action (por padrão é ci)
+  on: [pull_request] # Determinar onde eu quero que roda esse ci, neste caso, quando existir PRs
+
+  jobs: # Trablhos que ele irá realizar
+    build:
+      runs-on: ubuntu-latest # Qual tipo de máquina irei rodar (mais comum)
+      steps:
+        - name: Checkout Repository # Para pegar os dados do repositório
+          uses: actions/checkout@v2
+
+        - name: Setup Node # Já que o Projeto utilizada
+          uses: actions/setup-node@v1
+          with:
+            node-version: 14.x
+
+        - name: Install dependencies # Instala as dependências
+          run: yarn install
+
+        - name: Linting # Roda o lint para saber se o PR está valido
+          run: yarn lint
+
+        - name: Test # Roda os teste de códigos
+          run: yarn test
+
+        - name: Build # Rodar o build do projeto, pois é preciso garantir que o build também esteja funcionando com nossas atualizações
+          run: yarn build
+  ```
+
 ### Aula 31 - Extra: Automatizando criação de arquivos
 
-#### Link úteis
+Instalar o [FlopJS](https://plopjs.com):
+
+> yarn add -D plop
+
+Configurando:
+
+- Na raiz do projeto, crie o diretório `generators`
+
+- Dentro de `generators`, crie o arquivo `plopfile.js` e insira o código de exemplo abaixo:
+
+  ```javascript
+  module.exports = function (plop) {
+    plop.setGenerator('component', {
+      description: 'application component',
+
+      // inquirer prompts
+      prompts: [
+        {
+          type: 'input',
+          name: 'name',
+          message: 'Component name?'
+        }
+      ],
+
+      // actions to perform
+      actions: [
+        {
+          type: 'add',
+          path: '../src/components/{{pascalCase name}}/index.tsx',
+          templateFile: 'templates/index.tsx.hbs'
+        },
+        {
+          type: 'add',
+          path: '../src/components/{{pascalCase name}}/stories.tsx',
+          templateFile: 'templates/stories.tsx.hbs'
+        },
+        {
+          type: 'add',
+          path: '../src/components/{{pascalCase name}}/styles.ts',
+          templateFile: 'templates/styles.ts.hbs'
+        },
+        {
+          type: 'add',
+          path: '../src/components/{{pascalCase name}}/test.tsx',
+          templateFile: 'templates/test.tsx.hbs'
+        }
+      ]
+    })
+  }
+  ```
+
+- Agora crie o diretório `templates`. Dentro dele, crie os templates com seus respectivos conteúdos, que serão utilizados pelo PlopJS para a geranção dos *Components*. Exemplo:
+
+  - index.tsx.hbs
+  - stories.tsx.hbs
+  - styles.ts.hbs
+  - test.tsx.hbs
+
+- Também é preciso criar o comando no arquivo `package.json` para gerar o template, passando o diretório `generators`. Assim como no exemplo abaixo:
+
+  ```json
+  "scripts": {
+    "generate": "yarn plop --plopfile generators/plopfile.js",
+  }
+  ```
+
+Gerando um componente:
+
+- No terminal, use o comando abaixo:
+
+  > yarn generate
+
+  - Será solicitado o nome do componente.
+
+- Ou pode passar o nome do componente como argumento no comando, assim por exemplo:
+
+  > yarn generate button
+
+Sobre a extensão `.hbs`: *Handlebars*, uma linguagem de template onde contém um modelo escrito em código HTML e incorporado com expressões de barras.
+
+#### Links úteis
 
 - Site oficial do Plopjs: <https://plopjs.com>
 
@@ -1099,4 +1290,208 @@ Parar inciar um projeto a partir de um "esqueleto", é precisa usar o comando no
 
 ### Aula 32 - FIX: Corrigindo configuração do jest-styled-components
 
+{ ... }
+
 ### Aula 33 - FIX: Definindo typings para jest-styled-components
+
+Reinicializar o servido TypeScript pelo VSCode:
+
+- Pressione os atalhos `CTRL + Shift + P` e selecione a opção **TypeScript: Restart TS server**
+
+## Módulo 2: Iniciando com Strapi
+
+### Aula 34 - Strapi por debaixo dos panos
+
+{ ... }
+
+#### Links úteis
+
+- Site oficial do Strapi: <https://strapi.io>
+
+- Repositório do Strapi: <https://github.com/strapi/strapi>
+
+- Site do Buffet.js (Design Style do Strapi): <https://buffetjs.io>
+
+- Roadmap do Strapi: <https://portal.productboard.com/strapi/1-roadmap/tabs/2-under-consideration>
+
+- Site oficial do KoaJS: <https://koajs.com>
+
+- Site oficial do Lerna (Monorepo): <https://lerna.js.org>
+
+- Knex (SQL Query Builder): <http://knexjs.org>
+
+### Aula 35 - Requisitos para o Strapi
+
+{ ... }
+
+#### Links úteis
+
+- Documentação oficial Strapi - Instalação: <https://strapi.io/documentation/developer-docs/latest/getting-started/installation.html>
+
+- Como instalar com a CLI: <https://strapi.io/documentation/developer-docs/latest/installation/cli.html>
+
+- Como instalar com o Docker: <https://strapi.io/documentation/developer-docs/latest/installation/docker.html>
+
+- Site oficial do PostgreSQL - Download: <https://www.postgresql.org/download>
+
+- Instalando bancos no WSL 2: <https://docs.microsoft.com/pt-br/windows/wsl/tutorials/wsl-database>
+
+- Site oficial do Docker: <https://www.docker.com/get-started>
+
+### Aula 36 - Comandos do PostgreSQL
+
+AQUI
+
+#### Links úteis
+
+- Instalando PostgreSQL no Windows WSL: <https://docs.microsoft.com/pt-br/windows/wsl/tutorials/wsl-database>
+
+- Comandos do PostgreSQL: <https://harshityadav95.medium.com/postgresql-in-windows-subsystem-for-linux-wsl-6dc751ac1ff3>
+
+### Aula 37 - Iniciando o Strapi local
+
+#### Links úteis
+
+- Instalando utilizando a CLI e PostgreSQL local: <https://strapi.io/documentation/developer-docs/latest/installation/cli.html>
+
+### Aula 38 - Iniciando o Strapi com Docker
+
+#### Links úteis
+
+- Site oficial Docker - Downloads: <https://www.docker.com/get-started>
+
+- Instalando o Docker no Linux (Ubuntu): <https://docs.docker.com/engine/install/ubuntu>
+
+- Instalando Docker no WSL2: <https://docs.docker.com/docker-for-windows/wsl>
+
+- Imagem do Strapi Docker no Github: <https://github.com/strapi/strapi-docker>
+
+- Imagem do Strapi no Docker Hub: <https://hub.docker.com/r/strapi/strapi>
+
+### Aula 39 - Apresentação do projeto da Landing Page
+
+#### Links úteis
+
+- Repositório da Landing Page (sem API): <https://github.com/React-Avancado/landing-page>
+
+- Site oficial do Heroku (host do backend): <https://www.heroku.com>
+
+- Site oficial do Netlify (host estático): <https://www.netlify.com>
+
+- Playlist sobre o Netlify: <https://www.youtube.com/watch?v=a1cIjP1bueM&list=PLlAbYrWSYTiMGMxQf9JSoZUU1rgVpGPth>
+
+### Aula 40 - Apresentação do CMS do Strapi
+
+#### Links úteis
+
+- Repositório da Landing Page API (Strapi): <https://github.com/React-Avancado/landing-page-api>
+
+### Aula 41 - Arquivos iniciais do Strapi
+
+#### Links úteis
+
+- Repositório da Landing Page API (Strapi): <https://github.com/React-Avancado/landing-page-api>
+
+### Aula 42 - Fields do Strapi
+
+#### Links úteis
+
+## Módulo 2 (extra): Criando estrutura de dados para o CMS
+
+### Aula 43 - Criando logo e componente de Header
+
+#### Links úteis
+
+- Código feito em aula: <https://github.com/React-Avancado/landing-page-api/commit/7eea942dc0aaec2c3ed712d2cddc8fd026a3a314>
+
+### 44 Criando Section About Project - Rich Text
+
+#### Links úteis
+
+- Código feito em aula: <https://github.com/React-Avancado/landing-page-api/commit/f5d650bea40a41404dc15739f9b7b63b608e6019#diff-6891f1497d37c36624800d9ce838c3a9>
+
+### 45 Criando Section Tech - Repeatable Component
+
+#### Links úteis
+
+- Código feito em aula: <https://github.com/React-Avancado/landing-page-api/commit/f5d650bea40a41404dc15739f9b7b63b608e6019#diff-a9bb481b3cd5be590cbf4aa6a45395d6>
+
+### 46 Criando Section Concepts
+
+#### Links úteis
+
+- Código feito em aula: <https://github.com/React-Avancado/landing-page-api/commit/3f023ed1905faf3b47108be91162e394ab0cd810>
+
+### 47 Criando Section Modules
+
+#### Links úteis
+
+- Código feito em aula: <https://github.com/React-Avancado/landing-page-api/commit/33c76444eb48cd6114b9f04e609ff3c8b105bd2e>
+
+### 48 Criando Agenda e Pricing Box - reutilizando componente já criado
+
+#### Links úteis
+
+- Código feito em aula: <https://github.com/React-Avancado/landing-page-api/commit/d496dc28ca1c824c1deff3fadb93177695dcc71a>
+
+### 49 Criando Collection Type para Authors
+
+#### Links úteis
+
+- Código feito em aula: <https://github.com/React-Avancado/landing-page-api/commit/73e6eb738267838a501c5f661a2a4840b38ea7f2>
+
+### 50 Adicionando campo faltante em Authors
+
+#### Links úteis
+
+- Código feito em aula: <https://github.com/React-Avancado/landing-page-api/commit/bce92d8a6db8393d9068a38ba055cff871cfde66>
+
+### 51 Criando relations (has many)
+
+#### Links úteis
+
+- Código feito em aula: <https://github.com/React-Avancado/landing-page-api/commit/f9fedef24c66613eb4eca18075ec1ab102ab2d78>
+
+### 52 Criando Section Reviews
+
+#### Links úteis
+
+- Código feito em aula: <https://github.com/React-Avancado/landing-page-api/commit/6e752e9eb05ee7a00885d8e7a1f085d01ed573fd>
+
+### 53 Criando Section FAQ
+
+#### Links úteis
+
+- Código feito em aula: <https://github.com/React-Avancado/landing-page-api/commit/239a9f0975f1d2f405f730a898daa1426bc54064>
+
+### 54 Atualizando Strapi para 3.0.6 (se já possuir essa versão ou maior, ignore)
+
+#### Links úteis
+
+- Release do Strapi 3.0.6: <https://github.com/strapi/strapi/releases/tag/v3.0.6>
+
+- Migration Guides do Strapi: <https://strapi.io/documentation/developer-docs/latest/migration-guide>
+
+- Código feito em aula: <https://github.com/React-Avancado/landing-page-api/commit/69b8df08541b41b1cc549605c8f557586a947cca>
+
+### 55 Adicionando um plugin customizado (CKEditor)
+
+#### Links úteis
+
+- Documentação sobre registrar um novo field: <https://strapi.io/documentation/developer-docs/latest/guides/registering-a-field-in-admin.html>
+
+- Site oficial do CKEditor 5: <https://ckeditor.com/ckeditor-5>
+
+- Código feito em aula: <https://github.com/React-Avancado/landing-page-api/commit/ba8a9d616c86919a4ad125e5d2aa4c30e51936af>
+
+### 56 Importando e Exportando dados no PostgreSQL
+
+#### Links úteis
+
+- Documentaçãp dp pg_dump: <https://www.postgresql.org/docs/current/app-pgdump.html>
+
+- Documentação do psql: <https://www.postgresql.org/docs/current/app-psql.html>
+
+- Zip com uploads e dump: <https://github.com/React-Avancado/landing-page-api/blob/master/data.zip>
+
+### 57 Permissões para rotas de Rest API
