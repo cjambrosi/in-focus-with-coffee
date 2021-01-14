@@ -80,6 +80,7 @@ Boilerplate original: <https://github.com/React-Avancado/boilerplate>
   - [Aula 35 - Requisitos para o Strapi](#aula-35---requisitos-para-o-strapi)
     - [Links úteis](#links-úteis-23)
   - [Aula 36 - Comandos do PostgreSQL](#aula-36---comandos-do-postgresql)
+    - [Trabalhando na Interface do PostgreSQL](#trabalhando-na-interface-do-postgresql)
     - [Links úteis](#links-úteis-24)
   - [Aula 37 - Iniciando o Strapi local](#aula-37---iniciando-o-strapi-local)
     - [Links úteis](#links-úteis-25)
@@ -1340,7 +1341,63 @@ Reinicializar o servido TypeScript pelo VSCode:
 
 ### Aula 36 - Comandos do PostgreSQL
 
-AQUI
+Comando para iniciar o banco PostgreSQL:
+
+> sudo service postgresql start
+
+- Deve informar a senha do usuário
+
+Verificar se o serviço do banco de dados está funcionando:
+
+> sudo service postgresql status
+
+Parar o serviço do banco de dados:
+
+> sudo service postgresql stop
+
+Verificar a versão do PostgreSQL e se está funcionando:
+
+> psql --version
+
+Criar um novo usuário no PostgreSQL:
+
+> sudo -u postgres createuser nome-do-usuario
+
+Criar um novo banco de dados:
+
+> sudo -u postgres createdb nome-do-banco-de-dados
+
+#### Trabalhando na Interface do PostgreSQL
+
+Para entrar na interface do PostgreSQL:
+
+> sudo -u postgres psql
+
+Comando para listar os usuários do PostgreSQL:
+
+> \du
+
+Comando para listar os bancos de dados do PostgreSQL:
+
+> \l
+
+Quando é criado um novo usuário no PostgreSQL, posteriromente é preciso criar uma senha e vinculá-lo a um banco de dados.
+
+- Criar uma senha para o usuário:
+
+  > ALTER USER nome-do-usuario WITH ENCRYPTED PASSWORD 'senha';
+
+  - Se deu tudo certo, será retornada mensagem: **ALTER ROLE**.
+
+- Conceder os privilégios necessãrios para o usuário em um determinado banco de dados:
+
+  > GRANT ALL PRIVILEGES ON DATABASE nome-do-banco TO nome-do-usuario;
+
+  - Se deu tudo certo, será retornada mensagem: **GRANT**.
+
+Comando para sair da interface:
+
+> \q
 
 #### Links úteis
 
