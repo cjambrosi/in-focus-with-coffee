@@ -98,7 +98,7 @@ Name | Readme | Status
 
 Name | Technologies | Readme | Date | Status
 |---|---|---|---|---|
-| Semana DevSuperior 2.0 | Java com Spring Boot, JS/TS, React JS/Native | [Link](events/devsuperior/sds2.0/README.md) | 4 a 10 de Janeiro de 2021 | :hourglass_flowing_sand:
+| Imersão React Next.JS - 2ª Edição | ReactJS, NextJS, NodeJS, JavaScript | [Link](events/alura/imersao-react-next-js-v2/README.md) | 25 a 29 de Janeiro de 2021 | :hourglass_flowing_sand:
 
 **[:arrow_up: Back to Summary](#summary-)**
 
