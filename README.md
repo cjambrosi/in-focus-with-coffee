@@ -24,7 +24,7 @@ Para visualizar as aplicações desenvolvidas nos cursos, acesse o [Sitemap](htt
   - [YouTube](#youtube)
     - [TypeScript](#typescript)
 - [Eventos](#eventos)
-  - [DevSuperior](#devsuperior)
+  - [Alura](#alura)
 - [Bootcamps](#bootcamps)
   - [IGTI](#igti)
 - [Labels](#labels)
@@ -94,11 +94,11 @@ Name | Readme | Status
 
 ## Eventos
 
-### DevSuperior
+### Alura
 
 Name | Technologies | Readme | Date | Status
 |---|---|---|---|---|
-| Imersão React Next.JS - 2ª Edição | ReactJS, NextJS, NodeJS, JavaScript | [Link](events/alura/imersao-react-next-js-v2/README.md) | 25 a 29 de Janeiro de 2021 | :hourglass_flowing_sand:
+| Imersão React Next.JS - 2ª Edição | ReactJS, NextJS, NodeJS, JavaScript | [Link](events/alura/imersao-react-next-js-v2/README.md) | 25 a 29 de Janeiro de 2021 | :heavy_check_mark:
 
 **[:arrow_up: Back to Summary](#summary-)**
 
