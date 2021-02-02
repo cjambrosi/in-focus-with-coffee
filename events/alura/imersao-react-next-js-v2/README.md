@@ -315,6 +315,14 @@ Links citados nessa aula
 - [Post/vídeo sobre Node/threads ou algo assim 39:10](https://www.alura.com.br/imersao-react-next-js/LINKAQUI)
 - [Vídeo: animações com Lottie](https://www.youtube.com/watch?v=dZH9aDX8T-0)
 
+## Alguns Quizzes da Galera
+
+- <https://leagueofquiz.leonardoprimieri.vercel.app>
+- <https://alura-pokemon-quiz.daniloamsilva.vercel.app>
+- <https://aluraquiz.csatie.vercel.app>
+- <https://1sec-quiz.victoroda.vercel.app>
+- <https://alura-quiz-frontend-fischerafael.fischerafael.vercel.app>
+
 ## Live - Consumindo APIs com NextJS e React
 
 Link da Live: <https://www.youtube.com/watch?v=LLFOpH3bECU>
