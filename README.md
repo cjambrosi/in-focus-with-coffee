@@ -17,6 +17,7 @@ Para visualizar as aplicações desenvolvidas nos cursos, acesse o [Sitemap](htt
 ## Summary <!-- omit in toc -->
 
 - [Courses](#courses)
+  - [Rocketseat](#rocketseat)
   - [Origamid](#origamid)
   - [Udemy](#udemy)
     - [ReactJS](#reactjs)
@@ -30,6 +31,13 @@ Para visualizar as aplicações desenvolvidas nos cursos, acesse o [Sitemap](htt
 - [Labels](#labels)
 
 ## Courses
+
+### Rocketseat
+
+Name | Date | Readme | Status
+|---|---|---|---|
+| Ignite: Trilha ReactJS | 08/03/2021 | [Link](courses/rocketseat/ignite-trilha-reactjs/README.md) | :hourglass_flowing_sand:
+| Ignite: Trilha NodeJS | 08/03/2021 | [Link](courses/rocketseat/ignite-trilha-nodejs/README.md) | :x:
 
 ### Origamid
 
@@ -68,7 +76,7 @@ Plataforma de cursos EaD com certificados.
 
 Name | Readme | Status
 |---|---|---|
-| React Avançado: Crie aplicações com NextJS, GraphQL e mais | [Link](courses/reactjs/react-avanacado-wj/README.md) | :hourglass_flowing_sand:
+| React Avançado: Crie aplicações com NextJS, GraphQL e mais | [Link](courses/reactjs/react-avancado-wj/README.md) | :construction:
 
 #### JavaScript
 
