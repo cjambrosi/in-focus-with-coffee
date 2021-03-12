@@ -25,6 +25,7 @@ Para visualizar as aplicações desenvolvidas nos cursos, acesse o [Sitemap](htt
   - [YouTube](#youtube)
     - [TypeScript](#typescript)
 - [Eventos](#eventos)
+  - [Rocketseat](#rocketseat-1)
   - [Alura](#alura)
 - [Bootcamps](#bootcamps)
   - [IGTI](#igti)
@@ -101,6 +102,12 @@ Name | Readme | Status
 **[:arrow_up: Back to Summary](#summary-)**
 
 ## Eventos
+
+### Rocketseat
+
+Name | Technologies | Readme | Date | Status
+|---|---|---|---|---|
+| Next Level Week #4 | NodeJS, TypeScript, SQLite | [Link](events/rocketseat/nlw-4/README.md) | 22 a 26 de Fevereiro de 2021 | :hourglass_flowing_sand:
 
 ### Alura
 
