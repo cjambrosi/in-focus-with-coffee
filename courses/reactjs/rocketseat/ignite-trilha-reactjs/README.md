@@ -247,6 +247,17 @@ export function App() {
 }
 ```
 
+### Propriedades no React
+
+#### Componente
+
+#### Propriedade
+
+A propriedades funcionam assim como atributos funcionam em tags HTML. São informações, variáves que é possivel passar para um componente funcionar de forma diferente.
+Utilizando **props** é possível acessar essa propriedade em outro componente.
+
+#### Estado
+
 
 
 ## Chapter III
