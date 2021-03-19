@@ -225,6 +225,30 @@ module: {
 ```
 
 ## Chapter II
+
+### Primeiro componente React
+
+Basicamente, componentes do React são como as tags do HTML. São formas de encapsular uma quantidade de código, dentro de um único elemeto. Esse elemento terá sua própria funcionalidade, estilização e estrutura. Componentes são formas de organizar uma aplicação em vários pedaços que quando conectados, formam algo maior como uma página ou o App em sí.
+
+O que é um componente no React?
+
+- É uma função com o nome começando sempre com a primeira letra maiúscula. Essa função devolve um HTML;
+- Como boa prática, quand o arquivo (.ts, tsx) é um componente sempre começar com a primeira letra maiúscula e deve existir apenas 1 componete por arquivo;
+
+Exemplo de arquivo componente:
+
+```javascript
+// File: \src/App.jsx
+
+import './styles/globals.scss';
+
+export function App() {
+    return <h1>Hello World</h1>
+}
+```
+
+
+
 ## Chapter III
 ## Chapter IV
 ## Chapter V
