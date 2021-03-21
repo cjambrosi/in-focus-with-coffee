@@ -6,6 +6,8 @@
 
 ## Chapter I
 
+Curiosidade do JavaScript: **let** vem de *let it change* ou seja, *deixa ela mudar*.
+
 ### Criando estrutura de pasta do projeto
 
 Iniciar um projeto Node:
@@ -249,7 +251,11 @@ export function App() {
 
 ### Propriedades no React
 
+Sempre que uma função do React começar com "use", chamamos ela de **hook** ou **gancho**.
+
 #### Componente
+
+{ ... }
 
 #### Propriedade
 
@@ -258,7 +264,108 @@ Utilizando **props** é possível acessar essa propriedade em outro componente.
 
 #### Estado
 
+O React por padrão não fica monitorando as variáveis para saber se tiveram seus valores alterados, para então renderizar no componente em tela. Isso inclusive não seria performático. Para isso foi criado o conceito de **Estado**, que são variáveis que ele irá monitorar quando houve mudança e aí sim, mudar renderizar a mudança.
 
+Exemplo de utilização do Estado do React:
+
+```javascript
+import { useState } from 'react';
+
+export function Counter() {
+  // let = let it change
+
+  // Convenção na nomeação: valorMudar, setValorMudar
+  const [counter, setCounter] = useState(0); // O use state retorna dois valores em formato de Array, por isso usar Atribuição via Desestruturação
+
+  function increment() {
+    setCounter(counter + 1); // Por causa da imutabilidade não é: counter++ ou counter += 1;
+  }
+
+  return (
+    <div>
+      <h2>{counter}</h2>
+      <button type="button" onClick={increment}>
+        Increment
+      </button>
+    </div>
+  )
+}
+```
+
+Exemplo de *Fragment* (<></>):
+
+```javascript
+export function App() {
+  return (
+    <> 
+      <RepositoryList />
+      <Counter />
+    </>
+  )
+}
+
+```
+
+### A imutabilidade no React
+
+Imutabilidade é um fundamento da computação, não só do React. Usado em diferças linguagens de programação e muito utilizado dentro da programação funcional.
+
+Basicamente, o conceito de Imutabilidade prevê que uma variável nunca poderá ter seu valor alterado e sim receber um novo valor, ou seja, quandos dizemos que uma variável é imutável, quer dizer que não podemos alterar diretamente o conteúdo daquela variável, mas sim precisamos "assinar", dar um novo valor.
+
+Exemplo de Mutação: no exemplo, estamos adicionando um novo usuário no final do array, ou seja, estamos mudando o valor original do Array.
+
+```javascript
+users = ['Goku', 'Gohan', 'Piccolo'];
+users.push('Vegeta');
+
+users = ['Goku', 'Gohan', 'Piccolo', 'Vegeta'];
+```
+
+Exemplo de Imutabilidade: no exemplo, está sendo criado um **novo** array, um novo espaço na memória está sendo criado contendo a nova informação, ao invés de alterar uma informação que já esta salva na memória.
+
+```javascript
+
+users = ['Goku', 'Gohan', 'Piccolo'];
+newUsers = [...users, 'Vegeta'];
+
+newUsers = ['Goku', 'Gohan', 'Piccolo', 'Vegeta'];
+```
+
+### Fast Refresh no Webpack
+
+É um forma de conseguir alterar, salvar e ter o código refletido na aplicação, mantendo o estado dos componentes.
+
+Instalar o [React Refresh Webpack Plugin](https://github.com/pmmmwh/react-refresh-webpack-plugin):
+
+> yarn add @pmmmwh/react-refresh-webpack-plugin react-refresh -D
+
+Configurando
+
+```javascript
+// File: webpack.config.js
+
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+
+plugins: [
+  isDevelopment && new ReactRefreshWebpackPlugin(),
+].filter(Boolean), // Hack para filtrar/remover o que são valores booleanos
+module: {
+  rules: [
+    {
+      test: /\.jsx$/,
+      exclude: /node_modules/,
+      use: { // Modificado
+        loader: 'babel-loader',
+        options: {
+          plugins: [
+            isDevelopment && require.resolve('react-refresh/babel')
+          ].filter(Boolean)
+        }
+      }
+    },
+  ],
+}
+```
 
 ## Chapter III
 ## Chapter IV
