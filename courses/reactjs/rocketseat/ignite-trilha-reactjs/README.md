@@ -368,5 +368,20 @@ module: {
 ```
 
 ## Chapter III
+
+useEffect: serve basicamente para disparar uma função quando algo acontecer na aplicação, que pode ser quando o valor de uma variável mudou. Recebe dois parâmetro, **a função para executar** e quando executar (variável) que é o Array de dependências.
+
+Se o Array de Dependências estiver vazio, a função do useEffect só executará uma única vez, quando o componente for exibido na tela.
+
+Cuidar para não deixar sem o segundo parâmetro (Array de Dependências), se não entrará em loop.
+
+Cuidar para não colocar a mesma varivel de dependencia que será alterada na função do useEffect.
+
+
+
+```javascript
+
+```
+
 ## Chapter IV
 ## Chapter V
