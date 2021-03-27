@@ -27,6 +27,7 @@ Para visualizar as aplicações desenvolvidas nos cursos, acesse o [Sitemap](htt
 - [Eventos](#eventos)
   - [Rocketseat](#rocketseat-1)
   - [Alura](#alura)
+  - [Erick Wendel](#erick-wendel)
 - [Bootcamps](#bootcamps)
   - [IGTI](#igti)
 - [Labels](#labels)
@@ -37,8 +38,8 @@ Para visualizar as aplicações desenvolvidas nos cursos, acesse o [Sitemap](htt
 
 Name | Date | Readme | Status
 |---|---|---|---|
-| Ignite: Trilha ReactJS | 08/03/2021 | [Link](courses/rocketseat/ignite-trilha-reactjs/README.md) | :hourglass_flowing_sand:
-| Ignite: Trilha NodeJS | 08/03/2021 | [Link](courses/rocketseat/ignite-trilha-nodejs/README.md) | :x:
+| Ignite: Trilha ReactJS | 08/03/2021 | [Link](courses/reactjs/rocketseat/ignite-trilha-reactjs/README.md) | :hourglass_flowing_sand:
+| Ignite: Trilha NodeJS | 08/03/2021 | [Link](courses/nodejs/rocketseat/ignite-trilha-nodejs/README.md) | :x:
 
 ### Origamid
 
@@ -115,11 +116,17 @@ Name | Technologies | Readme | Date | Status
 |---|---|---|---|---|
 | Imersão React Next.JS - 2ª Edição | ReactJS, NextJS, NodeJS, JavaScript | [Link](events/alura/imersao-react-next-js-v2/README.md) | 25 a 29 de Janeiro de 2021 | :heavy_check_mark:
 
+### Erick Wendel
+
+Name | Technologies | Readme | Date | Status
+|---|---|---|---|---|
+| Semana JS Expert 3.0 | NodeJS, JavaScript | [Link](events/erickwendel/semana-js-expert-3/README.md) | 22 a 26 de Março de 2021 | :heavy_check_mark:
+
 **[:arrow_up: Back to Summary](#summary-)**
 
 ## Bootcamps
 
-Na área de TI, Bootcamps são minicursos intensivos e extremamente imersivos, onde o objetivo é transmitir experiência de maneira rápida. 
+Na área de TI, Bootcamps são minicursos intensivos e extremamente imersivos, onde o objetivo é transmitir experiência de maneira rápida.
 
 Bootcamps costumam ser puxados, você só **aprende fazendo** e com força de vontade para absorver tudo o que vem pela frente, já que são muitas disciplinas administradas por instrutores super dedicados, em um curto espaço de tempo.
 
