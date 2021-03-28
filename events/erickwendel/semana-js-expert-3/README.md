@@ -2,7 +2,16 @@
 
 ## Sumário <!-- omit in toc -->
 
-## Publicar o servidor no Heroku
+- [Publicar o *server* no Heroku](#publicar-o-server-no-heroku)
+  - [Criar o projeto via terminal no Heroku](#criar-o-projeto-via-terminal-no-heroku)
+  - [Excuir o App do Heroku](#excuir-o-app-do-heroku)
+- [Publicar o *client* como pacote do NPM](#publicar-o-client-como-pacote-do-npm)
+  - [Criar um comando executável global na máquina](#criar-um-comando-executável-global-na-máquina)
+  - [Subindo para o NPM](#subindo-para-o-npm)
+  - [Instalar o *client* como um pacote normal do NPM](#instalar-o-client-como-um-pacote-normal-do-npm)
+  - [Remover o pacote do site NPM](#remover-o-pacote-do-site-npm)
+
+## Publicar o *server* no Heroku
 
 No diretório "server", é necessário inicializar o repositório Git:
 
@@ -117,7 +126,7 @@ Feito isso, é já é possível publicar o pacote com o comando:
 
 Retornará o nome do pacote como deve ser instalado pelo NPM.
 
-### Instalar o Client como um pacote normal do NPM
+### Instalar o *client* como um pacote normal do NPM
 
 Para instalar o pacote de forma global:
 
