@@ -1,5 +1,7 @@
 # Semana JS Expert 3.0 <!-- omit in toc -->
 
+![Hacker Chat](https://user-images.githubusercontent.com/9125404/112738726-5ade5380-8f44-11eb-8832-dfed864e6adf.png)
+
 ## Sumário <!-- omit in toc -->
 
 - [Publicar o *server* no Heroku](#publicar-o-server-no-heroku)
