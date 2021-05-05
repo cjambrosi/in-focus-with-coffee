@@ -109,6 +109,7 @@ Name | Readme | Status
 Name | Technologies | Readme | Date | Status
 |---|---|---|---|---|
 | Next Level Week #4 | NodeJS, TypeScript, SQLite | [Link](events/rocketseat/nlw-4/README.md) | 22 a 26 de Fevereiro de 2021 | :hourglass_flowing_sand:
+| Next Level Week #5 | React Native, TypeScript, Expo | [Link](events/rocketseat/nlw-5/README.md) | 19 a 23 de Abril de 2021 | :hourglass_flowing_sand:
 
 ### Alura
 
