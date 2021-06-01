@@ -574,3 +574,7 @@ Instalar os tipos do ReactJS (Atualmente já vem junto):
 Um erro muito comum de iniciante, é tipar todas a propriedades vindas de uma API. Isso não é necessário, só é necessário tipar as informações/propriedades utilizadas na aplicação ou componente.
 
 ### Finalizando Aplicação
+
+Extensão para o browser: [React Developer Tools](https://github.com/facebook/react)
+
+## Chapter II
