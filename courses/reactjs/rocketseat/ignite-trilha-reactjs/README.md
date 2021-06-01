@@ -435,6 +435,140 @@ useEffect: serve basicamente para disparar uma função quando algo acontecer na
 
 ### Usando TypeScript
 
+TypeScript é um *superset*, ou seja, um conjunto de funcionalidades adicionadas em cima da linguagem JavaScript. Porém, não há problemas em chamar o TypeScript de uma linguagem de programação.
 
+TypeScript é um *Static Type Checking*, ou seja, é feito uma checagem de tipos na aplicação enquanto está sendo desenvolvida.
+
+Os browsers não entendem TypeScript, por isso, toda a checagem é feita durante o desenvolvimento e depois é realizado uma transpilação do código para JavaScript.
+
+O TypeScript possui inferência de tipos, ou seja, ele consegue determinar o tipo das variáveis na maioria dos casos. Por isso não é preciso tipar tudo pela frente.
+
+#### Fundamentos do TypeScript
+
+```typescript
+type User = {
+  name: string,
+  email: string,
+  address: {
+    city: string,
+    state?: string // ? Não é obrigatório
+  }
+}
+
+function showWelcomeMessage(user: User) {
+  return `Welcome ${user.name}, your e-mail is ${user.email}. Your city is ${user.address.city} and your state is ${user.address.state}.`;
+}
+
+const user = {
+  name: 'John Doe', // Curiosidade: John Doe é fulano, Siclano nos EUA.
+  email: 'john@doe.com',
+  address: {
+    city: 'New York',
+    state: 'NY'
+  }
+}
+
+showWelcomeMessage('Queijo'); // Error
+showWelcomeMessage(user);
+```
+
+#### TypeScript no ReactJS
+
+Instar o TypeScript como dependência de desenvolvimento:
+
+> yarn add typescript -D
+
+É preciso inicializar o TypeScript na aplicação:
+
+> yarn tsc --init
+
+- Será criado um arquivo chamado de `tsconfig.json` na raiz do projeto, contendo as configurações.
+
+##### Configurando o tsconfig.json
+
+Descomentar algumas propriedades e configurá-las:
+
+```json
+{
+  "compilerOptions": {
+    "lib": ["DOM", "DOM.Iterable", "ESNext"], // Adiciona funcionalidades. Agora sabemos que iremos lidar com o DOM e teremos tipagem, que antes não teriamos.
+    "allowJs": true, // Habilita termos arquivos JS e TS na aplicação. Muito bom para transição de JS para TS.
+    "jsx": "react-jsx", // Diz que estamos utilizando JSX do ReactJS.
+    "noEmit": true, // Não emitir o código no build da aplicação.
+    "strict": true, // Entrar no modo 'strict' de erros do JS.
+    "moduleResolution": "node",
+    "resolveJsonModule": true,  // Criada. Adiciona a possibilidade de importar arquivos JSON.  
+    "isolatedModules": true,  // Criada.
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,                        
+    "skipLibCheck": true,     
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src"] // Onde o código de desenvolvimento vai estar.
+}
+```
+
+##### Configurando o Webpack
+
+Por default, o webpack não entende TypeScript. Para isso, é preciso instalar um interpretador.
+
+Instalar o @babel/preset-typescript -D
+
+> yarn add @babel/preset-typescript -D
+
+No arquivo `babel.config.js` é preciso adicionar o novo preset.
+
+```javascript
+// File: babel.config.js
+
+module.exports = {
+  presets: [
+    '@babel/preset-env',
+    '@babel/preset-typescript',
+    ['@babel/preset-react', {
+      runtime: 'automatic'
+    }]
+  ]
+}
+```
+
+É preciso alterar a extensão dos componentes que o webpack vai ler.
+
+```javascript
+// File: webpack.config.js
+
+entry: path.resolve(__dirname, 'src', 'index.tsx'),
+resolve: {
+  extensions: ['.js', '.jsx', '.ts', '.tsx']
+},
+module: {
+  rules: [
+    {
+      test: /\.(j|t)sx$/, // TSX ou JSX
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          plugins: [
+            isDevelopment && require.resolve('react-refresh/babel')
+          ].filter(Boolean)
+        }
+      }
+    },
+  ]
+}
+```
+
+Algumas bibliotecas de terceiros não incluem as definições de tipos TypeScript, as tipagens, para o TypeScript entender como aquela biblioteca funciona. Na grande maioria, as definições de tipos de uma determinada biblioteca é criada pela comunidade ou é mantida em um repositório a parte.
+
+Exemplo, o `react-dom`. Para instalar os *tipos* do react-dom, é preciso instalar um pacote a mais:
+
+> yarn add @types/react-dom -D
+
+Instalar os tipos do ReactJS (Atualmente já vem junto):
+
+> yarn add @types/react -D
+
+#### Componente com TypeScript
 
 ### Finalizando Aplicação
