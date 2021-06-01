@@ -571,4 +571,6 @@ Instalar os tipos do ReactJS (Atualmente já vem junto):
 
 #### Componente com TypeScript
 
+Um erro muito comum de iniciante, é tipar todas a propriedades vindas de uma API. Isso não é necessário, só é necessário tipar as informações/propriedades utilizadas na aplicação ou componente.
+
 ### Finalizando Aplicação
