@@ -4,7 +4,7 @@ import { RepositoryItem } from "./RepositoryItem";
 import '../styles/repositories.scss';
 
 export function RepositoryList() {
-  const [repositories, setRepositories] = useState([]);
+  const [repositories, setRepositories] = useState([]); // Armazenar estados
 
   useEffect(()=> {
     fetch('https://api.github.com/users/cjambrosi/repos')

@@ -2,13 +2,21 @@
 
 [Rocketseat](https://rocketseat.com.br 'Rocketseat')
 
+[Ambiente de desenvolvimento - Trilha ReactJS](https://www.notion.so/Ambiente-de-desenvolvimento-Trilha-ReactJS-e7a377d183134647a177b6a34785f8c3)
+
 ## Sumário <!-- omit in toc -->
 
 ## Chapter I
 
 Curiosidade do JavaScript: **let** vem de *let it change* ou seja, *deixa ela mudar*.
 
-### Criando estrutura de pasta do projeto
+### Configurando Ambiente
+
+#### Criando estrutura de pasta do projeto
+
+Instalar o [Yarn](https://yarnpkg.com):
+
+> npm install --global yarn
 
 Iniciar um projeto Node:
 
@@ -26,7 +34,9 @@ Instalar o React DOM:
 
 > yarn add react-dom
 
-### Configurando o Babel
+#### Configurando o Babel
+
+Babel serve basicamente para converter o código parav para outro, onde "todos" os browsers possam entender.
 
 Instalação no projeto:
 
@@ -36,7 +46,7 @@ Para que o Babel entenda o código do React, é preciso instalar outro *preset*.
 
 > yarn add @babel/preset-react -D
 
-Criar o arquivo **babel.config.js**:
+Na raiz do projeto, criar o arquivo **babel.config.js**:
 
 ```javascript
 // File: babel.config.js
@@ -45,13 +55,13 @@ module.exports = {
     presets: [
       '@babel/preset-env',
       ['@babel/preset-react', {
-        runtime: 'automatic'
+        runtime: 'automatic' // Para não precisar importar o React em todo arquivo
       }]
     ]
 }
 ```
 
-### Configurando o Webpack
+#### Configurando o Webpack
 
 Instalar as seguintes bibliotecas:
 
@@ -64,46 +74,60 @@ Instalar o **babel-loader**:
 Criar o arquivo **webpack.config.js** na raiz do projeto. Como conveção e evitar problemas de diferenças entre Sistemas Operacionais referentes ao "path" das importações de arquivos, usar a biblioteca **path**.
 
 ```javascript
-// File: webpack.config.js (FINAL)
+// File: webpack.config.js
 
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin'); 
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-  mode: isDevelopment ? 'development' : 'production',
-  devtool: isDevelopment ? 'eval-source-map' : 'source-map',
-  entry: path.resolve(__dirname, 'src', 'index.jsx'), // Qual arquivo principal da aplicação
-  output: { // Qual arquivo será gerado pelo webpack
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
-  },
-  resolve: {
-    extensions: ['.js', '.jsx']
-  },
-  devServer: {
-    contentBase: path.resolve(__dirname, 'public')
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'public', 'index.html')
-    })
-  ],
-  module: { // Regras de tratamento dependendo do tipo do arquivo
-    rules: [
-      {
-        test: /\.jsx$/,
-        exclude: /node_modules/,
-        use: 'babel-loader'
-      },
-      {
-        test: /\.scss$/,
-        exclude: /node_modules/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
-      }
-    ],
-  }
+	mode: isDevelopment ? 'development' : 'production',
+	devtool: isDevelopment ? 'eval-source-map' : 'source-map',
+	entry: path.resolve(__dirname, 'src', 'index.jsx'), // Qual arquivo principal da aplicação
+	output: { // Qual arquivo será gerado pelo webpack
+		path: path.resolve(__dirname, 'dist'),
+		filename: 'bundle.js'
+	},
+	resolve: {
+		extensions: ['.js', '.jsx']
+	},
+	devServer: {
+		contentBase: path.resolve(__dirname, 'public'),
+    hot: true,
+	},
+	plugins: [
+    isDevelopment && new ReactRefreshWebpackPlugin(),
+		new HtmlWebpackPlugin({
+			template: path.resolve(__dirname, 'public', 'index.html')
+		})
+	].filter(Boolean), // Hack para filtrar/remover o que são valores booleanos 
+	module: { // Regras de tratamento dependendo do tipo do arquivo
+		rules: [
+			{
+				test: /\.jsx$/,
+				exclude: /node_modules/,
+				use: {
+          loader: 'babel-loader',
+          options: {
+            plugins: [
+              isDevelopment && require.resolve('react-refresh/babel')
+            ].filter(Boolean)
+          }
+        }
+			},
+			{
+				test: /\.scss$/,
+				exclude: /node_modules/,
+				use: [
+					'style-loader',
+					'css-loader',
+					'sass-loader'
+				]
+			}
+		],
+	}
 }
 ```
 
@@ -117,9 +141,9 @@ Instalar o **html-webpack-plugin**:
 // File: webpack.config.js
 
 plugins: [
-    new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, 'public', 'index.html')
-    })
+  new HtmlWebpackPlugin({
+    template: path.resolve(__dirname, 'public', 'index.html')
+  })
 ],
 ```
 
@@ -133,7 +157,7 @@ Instalar o webpack-dev-server para sempre que atualizar um arquivo, ele gere aut
 // File: webpack.config.js
 
 devServer: {
-    contentBase: path.resolve(__dirname, 'public')
+  contentBase: path.resolve(__dirname, 'public')
 },
 ```
 
@@ -143,9 +167,9 @@ Para iniciar o servidor:
 
 - O projeto rodará na URL `http://localhost:8080`.
 
-### Utilizando Source Maps
+#### Utilizando Source Maps
 
-Source Maps são basicamente uma forma de conseguir visualizar o código original da aplicação mesmo quando todo esse código está transpilado por uma ferramenta.
+Source Maps são basicamente uma forma de conseguir visualizar o código original da aplicação, mesmo quando todo esse código está transpilado por uma ferramenta.
 
 - Configurar no *webpack.config.js*:
 
@@ -155,7 +179,7 @@ Source Maps são basicamente uma forma de conseguir visualizar o código origina
 devtool: 'eval-source-map', // Parba o ambiente de desenvolvimentos
 ```
 
-### Configurando o Ambiente dev e produção
+#### Configurando o Ambiente dev e produção
 
 Configurar no *webpack.config.js*:
 
@@ -169,7 +193,7 @@ module.exports = {
   devtool: isDevelopment ? 'eval-source-map' : 'souce-map',
 ```
 
-Instalar o cross-env:
+Instalar o cross-env, para diferentes ambientes:
 
 > yarn add cross-env -D
 
@@ -182,9 +206,9 @@ Criar os scripts no arquivo *package.json*:
 },
 ```
 
-### Importação de arquivos CSS
+#### Importação de arquivos CSS
 
-Instalar o **style-loader** e **css-loader**:
+Instalar os loaders **style-loader** e **css-loader**, para enteder arquivos CSS:
 
 > yarn add style-loader css-loader -D
 
@@ -204,9 +228,9 @@ module: {
 }
 ```
 
-### Utilizando SASS
+#### Utilizando SASS
 
-Instalando loader do webpack **sass-loader** e o **node-sass**, para converter Scss em CSS:
+Instalar o loader **sass-loader** e o **node-sass** para configurar no webpack e converter Scss em CSS:
 
 > yarn add sass-loader node-sass -D
 
@@ -226,9 +250,9 @@ module: {
 }
 ```
 
-## Chapter II
+### Conceitos Importantes
 
-### Primeiro componente React
+#### Primeiro componente React
 
 Basicamente, componentes do React são como as tags do HTML. São formas de encapsular uma quantidade de código, dentro de um único elemeto. Esse elemento terá sua própria funcionalidade, estilização e estrutura. Componentes são formas de organizar uma aplicação em vários pedaços que quando conectados, formam algo maior como uma página ou o App em sí.
 
@@ -249,22 +273,22 @@ export function App() {
 }
 ```
 
-### Propriedades no React
+#### Propriedades no React
 
 Sempre que uma função do React começar com "use", chamamos ela de **hook** ou **gancho**.
 
-#### Componente
+##### Componente
 
 { ... }
 
-#### Propriedade
+##### Propriedade
 
-A propriedades funcionam assim como atributos funcionam em tags HTML. São informações, variáves que é possivel passar para um componente funcionar de forma diferente.
+A propriedades funcionam assim como atributos funcionam em tags HTML. São informações, variáveis que é possivel passar para um componente funcionar de forma diferente.
 Utilizando **props** é possível acessar essa propriedade em outro componente.
 
-#### Estado
+##### Estado
 
-O React por padrão não fica monitorando as variáveis para saber se tiveram seus valores alterados, para então renderizar no componente em tela. Isso inclusive não seria performático. Para isso foi criado o conceito de **Estado**, que são variáveis que ele irá monitorar quando houve mudança e aí sim, mudar renderizar a mudança.
+O React por padrão não fica monitorando as variáveis para saber se tiveram seus valores alterados, para então renderizar no componente em tela. Isso inclusive não seria performático. Para isso foi criado o conceito de **Estado**, que são variáveis que ele irá monitorar quando houver mudança e aí sim, mudar e renderizar a mudança em tela.
 
 Exemplo de utilização do Estado do React:
 
@@ -306,7 +330,7 @@ export function App() {
 
 ```
 
-### A imutabilidade no React
+#### A imutabilidade no React
 
 Imutabilidade é um fundamento da computação, não só do React. Usado em diferças linguagens de programação e muito utilizado dentro da programação funcional.
 
@@ -331,7 +355,7 @@ newUsers = [...users, 'Vegeta'];
 newUsers = ['Goku', 'Gohan', 'Piccolo', 'Vegeta'];
 ```
 
-### Fast Refresh no Webpack
+#### Fast Refresh no Webpack
 
 É um forma de conseguir alterar, salvar e ter o código refletido na aplicação, mantendo o estado dos componentes.
 
@@ -367,21 +391,50 @@ module: {
 }
 ```
 
-## Chapter III
+### Chamadas HTTP
+
+useState: basicamente armazena estados de uma variável.
 
 useEffect: serve basicamente para disparar uma função quando algo acontecer na aplicação, que pode ser quando o valor de uma variável mudou. Recebe dois parâmetro, **a função para executar** e quando executar (variável) que é o Array de dependências.
 
-Se o Array de Dependências estiver vazio, a função do useEffect só executará uma única vez, quando o componente for exibido na tela.
+- Se o Array de Dependências estiver vazio, a função do useEffect só executará uma única vez, quando o componente for exibido na tela.
 
-Cuidar para não deixar sem o segundo parâmetro (Array de Dependências), se não entrará em loop.
+  ```javascript
+  const [repositories, setRepositories] = useState([]);
 
-Cuidar para não colocar a mesma varivel de dependencia que será alterada na função do useEffect.
+  useEffect(()=> {
+    fetch('https://api.github.com/users/user/repos')
+    .then(response => response.json())
+    .then(data => setRepositories(data));
+  }, []) // Parâmetro de dependências
+  ```
+
+- Cuidado para não deixar sem o segundo parâmetro (Array de Dependências), se não entrará em loop.
+
+  ```javascript
+  const [repositories, setRepositories] = useState([]);
+
+  useEffect(()=> {
+    fetch('https://api.github.com/users/user/repos')
+    .then(response => response.json())
+    .then(data => setRepositories(data));
+  }) // Sem parâmetro de dependências =0
+  ```
+
+- Cuidado para não colocar a mesma variável de dependencia que será alterada na função do useEffect, pois estrará em loop.
+
+  ```javascript
+  const [repositories, setRepositories] = useState([]);
+
+  useEffect(()=> {
+    fetch('https://api.github.com/users/user/repos')
+    .then(response => response.json())
+    .then(data => setRepositories(data));
+  }, repositories) // Mesma variável que será alterado como parâmetro de dependências =0
+  ```
+
+### Usando TypeScript
 
 
 
-```javascript
-
-```
-
-## Chapter IV
-## Chapter V
+### Finalizando Aplicação
