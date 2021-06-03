@@ -578,3 +578,179 @@ Um erro muito comum de iniciante, é tipar todas a propriedades vindas de uma AP
 Extensão para o browser: [React Developer Tools](https://github.com/facebook/react)
 
 ## Chapter II
+
+Figma - [Design do Projeto](https://www.figma.com/file/0xmu9mj2TJYoIOubBFWsk5/dtmoney-Ignite-(Copy)?node-id=0%3A1)
+
+### Estrutura da aplicação
+
+#### Estrutura com create-react-app
+
+[Create React App](https://create-react-app.dev) é uma estrutura pré-configurada de um projeto ReactJS.
+
+Comando para criar um novo projeto ReactJS com TypeScript:
+
+> yarn create react-app project-name --template typescript
+
+#### Instalando Styled Components
+
+Extensão do VSCode: [vscode-styled-components](https://marketplace.visualstudio.com/items?itemName=jpoissonnier.vscode-styled-components)
+
+Instalação da biblioteca [Styled Components](https://styled-components.com):
+
+> yarn add styled-components
+
+Instalação dos **types** da biblioteca:
+
+> yarn add @types/styled-components -D
+
+#### Criando Estilos Globais
+
+Dentro de `/src`, criar a pasta `styles` e o arquivo `global.ts` (não precisa ser .tsx, pois não tem um componente React, somente estilo).
+
+```typescript
+// File: /src/styles/global.ts
+
+import { createGlobalStyle } from 'styled-components'
+
+export const GlobalStyle = createGlobalStyle`
+  :root {
+    --background: #F0F2F5;
+    --shape: #FFFFFF;
+
+    --red: #E52E4D;
+    --blue: #5429CC;
+
+    --blue-light: #6933FF;
+
+    --text-title: #363F5F;
+    --text-body: #969CB3;
+  }
+
+  * {
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  // Por padrão, a aplicação tem o tamanho de fonte de 16px (ideal para desktop)
+  // REM: 1rem === ao tamanho do font-size da página
+  html {
+    @media (max-width: 1080px) {
+      font-size: 93.75%; // 16 * 0.9375 = 15
+    }
+
+    @media (max-width: 720px) {
+      font-size: 87.5%; // 16 * 0.875 = 14
+    }
+  }
+
+  body {
+    background: var(--background);
+    -webkit-font-smoothing: antialiased; // Fontes mais detalhadas (nítidas) em browsers que utilizam motor do chrome
+  }
+
+  // Por padrão, os input, textarea e button, não importam as fontes do body
+  body, input, textarea, button {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+  }
+
+  h1, h2, h3, h4, h5, h6, strong {
+    font-weight: 600;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  [disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+`
+```
+
+#### Fontes do Google Fonts
+
+O link das fontes são introduzidos no `index.html` no diretório `public`.
+
+### Consumindo API
+
+#### Criando front-end sem back-end
+
+Iremos utilizar ferramentas para que tenhamos um meio termo entre dados de um API e dados estáticos. Essas ferramentas, **nunca devem ser utilizadas em produção**.
+
+- [MirageJS](https://miragejs.com): É possivel criar uma Fake API dentro do projeto front-end. Possui banco de dados integrado, é possível realizar relacionamentos, não é preciso rodar em um servidor separado e etc.
+
+- [JSON Server](https://github.com/typicode/json-server): Ao criar um arquivo JSON com a estrutura de um objeto, cada chave do objeto será convertida em uma rota para a plicação. Ele executa de forma ou parte da aplicação, ou seja, não executa junto é preciso rodar um servidor somente para ele.
+
+- [MSW](https://github.com/mswjs/msw): Cria *mocks* fictícios para a camada de network da aplicação. Semelhante ao MirageJS, porém possui menos funcionalidades.
+
+#### Configurando MirageJS
+
+Instalar o MiraJS:
+
+> yarn add miragejs -D
+
+#### Configurando cliente do Axios
+
+Por quê não utilizar o **fetch** e utilizar outra biblioteca?
+
+- No fetch é preciso colocar todo o endereço da nossa aplicação em cada requisição.
+
+- É preciso transforma a resposta em json, cada vez que é realizada uma requisição.
+
+Instalar o Axios:
+
+> yarn add axios
+
+### Modal & Forms
+
+#### Configurando modal de criação
+
+Instalar a biblioteca [react-modal](https://github.com/reactjs/react-modal):
+
+> yarn add react-modal
+
+Instalar os tipos da biblioteca:
+
+> yarn add @types/react-modal -D
+
+Dica de Pattern: Sempre que houver uma função que será usada para ações de usuários, como por exemplo eventos de click, inciar o nome com a palavra "handle".
+
+#### Criando botões de Tupo
+
+Instalar o [Polished](https://github.com/styled-components/polished). Um helper para customização de layout com fuções JavaScript.
+
+> yarn add polished
+
+Exemplo:
+
+```typescript
+import { darken } from 'polished'
+
+// Hover de um button
+&:hover {
+  /* border-color: #aaa; */
+  border-color: ${darken(0.1, `#d7d7d7`)};
+}
+```
+
+#### Funcionamento do Botões
+
+Utilizando [**Interface** com Styled Components](https://styled-components.com/docs/api#using-custom-props), é possível criar novas propriedades para um elemento.
+
+Com Styled Components, quando for passada uma função dentro de uma interpolação para alterar algum elemento de CSS, automaticamente ele já traz todas as props do componente com sigo.
+
+Exemplo:
+
+```typescript
+interface RadioBoxProps {
+  isActive: boolean;
+}
+
+export const RadioBox = styled.button<RadioBoxProps>`
+  background: ${ (props) => props.isActive ? '#ccc' : 'transparent' };
+`
+```
+
+### Contextos e Hooks
