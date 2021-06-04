@@ -579,7 +579,9 @@ Extensão para o browser: [React Developer Tools](https://github.com/facebook/re
 
 ## Chapter II
 
-Figma - [Design do Projeto](https://www.figma.com/file/0xmu9mj2TJYoIOubBFWsk5/dtmoney-Ignite-(Copy)?node-id=0%3A1)
+Figma - [Layout do Projeto](https://www.figma.com/file/0xmu9mj2TJYoIOubBFWsk5/dtmoney-Ignite-(Copy)?node-id=0%3A1)
+
+Repositório do Projeto: <https://github.com/cjambrosi/rs-money>
 
 ### Estrutura da aplicação
 
@@ -762,3 +764,120 @@ Para que serve o **Contexto**?
 Compartilhamento de estado entre vários componentes da aplicação.
 
 Sempre que for criar um *Hook* customizado, usar prefixo **use**. Por exmplo: `useTransactions()`. Os Hooks customizados, podem utilizar os hooks do próprio ReactJS.
+
+## Chapter III
+
+Figma - [Layout do Projeto](https://www.figma.com/file/rpKzni0cZmODusEqP4VfZi/ig.news-Copy?node-id=1%3A2)
+
+Repositório do Projeto: <https://github.com/cjambrosi/ignews>
+
+### Estrutura da aplicação
+
+#### Fundamentos do Next.js
+
+[Next.js](https://nextjs.org) é um framework para ReactJS. Diferente do ReactJS que trabalha com o uma SPA, o Next.js trabalha com o conceito de SSR ou Server-side Rendering, onde o Next.js nada mais é que um servidor Node.js (superficialmente falando), que lê o código do ReactJS.
+
+#### Criando estrutura Next.js
+
+Iniciar um projeto com Next.js:
+
+> yarn create next-app nome-do-projeto
+
+O diretório `pages` não pode ser renomeado e só pode estar em dois lugares, na raiz (default) ou dentro de outro diretório chamado de `src` (que também não pode ser renomeado).
+
+Cada arquivo dentro de `pages` é uma rota, o Next.js trabalha com o conceito de [File System Routing](https://nextjs.org/docs/routing/introduction).
+
+#### Adicionando TypeScript
+
+Instalar o TypeScript, a biblioteca de tipos do ReactJS e do Node:
+
+> yarn add typescript @types/react @types/node -D
+
+Como boa prática, no arquivo `_app.tsx`, importe as tipagens das props. Exemplo:
+
+```typescript
+// File: src/pages/_app.tsx
+
+import { AppProps } from 'next/app'
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />
+}
+
+export default MyApp
+```
+
+#### Estilização com SASS
+
+O Next.js possui suporte nativo para conceito de *Scoped CSS*. Desde que no nome do arquivo inclua a palavra *module*. Exemplo: `home.module.scss`.
+
+Por padrão, o Next.js não permite estilizar um elemento HTML **diretamente**, sempre deve-se usar uma classe ou id.
+
+Para uma experiência melhor, instale a extensão para VSCode [CSS Modules](https://marketplace.visualstudio.com/items?itemName=clinyong.vscode-css-modules)
+
+##### Instalar o Sass
+
+> yarn add sass
+
+- Não é necessária mais configurações.
+
+#### Configurando fonte externa
+
+Se for necessário que alguma coisa repita em todas as páginas, como por exemplo, fontes, mas que seja carregado somente uma unica vez na aplicação, é preciso criar um arquivo chamado `_document.tsx`, no diretório `pages`. Deve ser no formato de **Classe**, pois no momento o Next.js ainda não trabalha bem com esse tipo de arquivo em formato de função. Exemplo:
+
+```typescript
+// File: src/pages/_document.tsx
+
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+
+export default class MyDocument extends Document {
+  render() {
+    return (
+      <Html>
+      <Head>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet" />
+      </Head>
+      <body>
+        <Main />
+        {/* 
+          NextScript é obrigatório e no final de tudo.
+          Onde o Next.js vai inserir os arquivos JS que precisa para funcionar
+        */}
+        <NextScript />
+      </body>
+      </Html>
+    )
+  }
+}
+```
+
+Arquivos de CSS não devem ser inseridos no `_document.tsx`.
+
+#### Title dinâmico por página
+
+Para termos um *title* (ou regras de CEO) especifico por página, podemos definir o componente *Head* em qualquer página e dentro de qualquer elemento, ele incluirá o conteúdo automáticamente dentro do Heade definido em `_document.tsx`. Exemplo:
+
+```typescript
+// File: src/pages/Home/index.tsx
+
+import Head from 'next/head'
+
+export default function Home() {
+  return (
+    <>
+      <Head>
+        <title>ig.news | Home</title>
+      </Head>
+      <h1>Hello World</h1>
+    </>
+  )
+}
+```
+
+#### Estilos globais do app
+
+Em arquivos **globais** de CSS, não se utiliza a palavra `module` no nome.
+
+No diretório `src`, pode ser criado um novo diretório chamado `styles`, com o arquivo `global.scss`. Importar o arquivo de CSS global, na `_app.tsx`.
+
