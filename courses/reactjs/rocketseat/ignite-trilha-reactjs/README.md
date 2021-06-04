@@ -754,3 +754,11 @@ export const RadioBox = styled.button<RadioBoxProps>`
 ```
 
 ### Contextos e Hooks
+
+Dica: Sempre evitar **Prop Drilling**. Consiste passar valores por *props* vários subníveis/componentes a baixo.
+
+Para que serve o **Contexto**?
+
+Compartilhamento de estado entre vários componentes da aplicação.
+
+Sempre que for criar um *Hook* customizado, usar prefixo **use**. Por exmplo: `useTransactions()`. Os Hooks customizados, podem utilizar os hooks do próprio ReactJS.
