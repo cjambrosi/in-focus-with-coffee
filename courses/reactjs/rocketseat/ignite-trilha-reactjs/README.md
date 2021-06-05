@@ -856,7 +856,7 @@ Arquivos de CSS não devem ser inseridos no `_document.tsx`.
 
 #### Title dinâmico por página
 
-Para termos um *title* (ou regras de CEO) especifico por página, podemos definir o componente *Head* em qualquer página e dentro de qualquer elemento, ele incluirá o conteúdo automáticamente dentro do Heade definido em `_document.tsx`. Exemplo:
+Para termos um *title* (ou regras de SEO) especifico por página, podemos definir o componente *Head* em qualquer página e dentro de qualquer elemento, ele incluirá o conteúdo automáticamente dentro do Heade definido em `_document.tsx`. Exemplo:
 
 ```typescript
 // File: src/pages/Home/index.tsx
@@ -880,4 +880,91 @@ export default function Home() {
 Em arquivos **globais** de CSS, não se utiliza a palavra `module` no nome.
 
 No diretório `src`, pode ser criado um novo diretório chamado `styles`, com o arquivo `global.scss`. Importar o arquivo de CSS global, na `_app.tsx`.
+
+No Next.js, as imagens sempre ficam dentro do diretório `public`, com isso, para usar uma imagem no componente, não é preciso importar como no ReactJS. Segue um exemplo:
+
+```typescript
+export function Header() {
+  return (
+    <header>
+      <div>
+        <img src="/images/logo.svg" alt="" />
+      </div>
+    </header>
+  )
+}
+```
+
+Mas se preferir da outra forma, é possivel utilizando um plugin chamado **next-images**.
+
+### Componentes e páginas
+
+Instalar plugin de ícones do React:
+
+> yarn add react-icons
+
+### Integração com API
+
+Documentação do Stripe API: <https://stripe.com/docs/api>
+
+#### Configurando Stripe
+
+É preciso criar uma conta no Stripe. Não é preciso ativar a conta (Activate your account), a API vai funcionar assim mesmo, ou seja, ainda podemos receber pedido fakes.
+
+1. É preciso criar um produto de teste (Test Product).
+
+2. Utilizar preço simples (Standard pricing).
+
+3. Utilizar pagamento recorrento (Recurring).
+
+4. Ir na opção "Developers > API keys" e copiar a chave privada.
+
+Com a chave copiada, na raiz do projeto crie o arquivo `.env.local` e nele crie a uma variável chamada `STRIPE_API_KEY` e atribua a chave a ela.
+
+##### Variáveis de ambiente no Next.js
+
+Diferente de outro projetos que nomeiam variáveis de ambiente para somente `.env`, no Next.js trabalhamos variáveis por ambiente com nomes como:
+
+- .env-local
+- .env-development
+- .env-test
+- .env-production
+
+Segue mais sobre na documentação: <https://nextjs.org/docs/basic-features/environment-variables>
+
+#### Consumindo API do Stripe (SSR)
+
+SSR só funciona nas **páginas** e não nos componentes. Se um componente precisa de uma informação do SSR, é preciso passar via **props**, partindo da página.
+
+Instalar o Stripe:
+
+> yarn add stripe
+
+DICA: Sempre que for trabalhar com preços em bancos de dados, tentar sempre salvar em centavos, pois é mais fácil de lidar, o número sempre vai estar em inteiro (sem lidar com casas decimais).
+
+#### Static Site Generation (SSG)
+
+SSG o processo é semelhante ao SSR, a única diferença é que a partir do momento que uma pessoa acessou a aplicação e o fluxo todo foi feito (ir no Next.js, fazer a requisição ao servidor, retornar e etc), ao invés de o Next.js retornar diretamente para o browser o HTML gerado, o Next.js irá salvar esse HTML como um arquivo físico (estático) que possui o resultado final gerado a partir da tela. Na próxima vez que uma pessoa for acessar a novamente a página, ao invés de refazer todo fluxo novamente, ele irá trazer o resuldado deste arquivo estático gerado para o browser, sem realizar uma nova chamado a API.
+Essa funcionalidade é rocomendada para páginas que podem ser estáticas.
+
+Para isso, utiliza-se a função `getStaticProps()`.
+
+##### Três formas principais de fazer uma chamada API com Next.js
+
+Client-side Rendering
+
+Quando não precisamos de regras de SEO (indexação), quando for uma informação que carrega através de uma ação de usuário e não necessáriamente quando uma página carrega.
+
+Server-side Rendering
+
+Quando precisamos de dados dinamicos da sessão de um usuário, por exemplo. Em conjunto com regras de SEO.
+
+Static Site Generation
+
+Exemplos de páginas: Home de um blog, Post de um blog, Página de Produto e Págiona de Categoria. Em conjunto com regras de SEO
+
+Exemplo prático: Post do Blog
+
+- Conteúdo (SSG)
+- Comentários (Client-side)
 
