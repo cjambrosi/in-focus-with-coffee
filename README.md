@@ -47,26 +47,26 @@ O site do lobo. Na minha opinião, a melhor referência quando se trata de conte
 
 Name | Readme | Status
 |---|---|---|
-| Web Design Completo | [Link]() | :x:
-| WordPress Como CMS | [Link]() | :x:
-| CSS Avançado Posicionamento | [Link]() | :x:
-| CSS Grid Layout | [Link]() | :x:
-| JavaScript Completo ES6 | [Link]() | :x:
-| React Completo | [Link]() | :x:
-| WordPress REST API Dogs | [Link]() | :x:
-| Redux com React | [Link]() | :x:
-| CSS Flexbox | [Link]() | :x:
-| CSS com SASS | [Link]() | :x:
-| Vue.js 2 Completo | [Link]() | :x:
-| WordPress REST API | [Link]() | :x:
-| WooCommerce Como CMS | [Link]() | :x:
-| Bootstrap 4 | [Link]() | :x:
-| Automação Front End com NPM | [Link]() | :x:
-| UI Design Avançado | [Link]() | :x:
-| UX Design Heurísticas | [Link]() | :x:
-| Tipografia Avançada | [Link]() | :x:
-| Adobe XD | [Link]() | :x:
-| JavaScript e jQuery | [Link]() | :x:
+| Web Design Completo | [Link]() | :clock1:
+| WordPress Como CMS | [Link]() | :clock1:
+| CSS Avançado Posicionamento | [Link]() | :clock1:
+| CSS Grid Layout | [Link]() | :clock1:
+| JavaScript Completo ES6 | [Link]() | :clock1:
+| React Completo | [Link]() | :clock1:
+| WordPress REST API Dogs | [Link]() | :clock1:
+| Redux com React | [Link]() | :clock1:
+| CSS Flexbox | [Link]() | :clock1:
+| CSS com SASS | [Link]() | :clock1:
+| Vue.js 2 Completo | [Link]() | :clock1:
+| WordPress REST API | [Link]() | :clock1:
+| WooCommerce Como CMS | [Link]() | :clock1:
+| Bootstrap 4 | [Link]() | :clock1:
+| Automação Front End com NPM | [Link]() | :clock1:
+| UI Design Avançado | [Link]() | :clock1:
+| UX Design Heurísticas | [Link]() | :clock1:
+| Tipografia Avançada | [Link]() | :clock1:
+| Adobe XD | [Link]() | :clock1:
+| JavaScript e jQuery | [Link]() | :clock1:
 
 **[:arrow_up: Back to Summary](#summary-)**
 
@@ -84,8 +84,8 @@ Name | Readme | Status
 
 Name | Readme | Status
 |---|---|---|
-| Desenvolvimento Web Moderno com JavaScript Completo 2020 | [Link](courses/javascript/web-moderno-js/README.md) | :x: |
-| JavaScript - Curso COMPLETO com 6 Projetos REAIS | [Link](courses/javascript/javascript-curso-completo/README.md) | :x:
+| Desenvolvimento Web Moderno com JavaScript Completo 2020 | [Link](courses/javascript/web-moderno-js/README.md) | :clock1: |
+| JavaScript - Curso COMPLETO com 6 Projetos REAIS | [Link](courses/javascript/javascript-curso-completo/README.md) | :clock1:
 
 **[:arrow_up: Back to Summary](#summary-)**
 
@@ -149,6 +149,6 @@ Legendas referentes aos ícones utilizados no Status de cada ítem das tabelas.
 
 :construction: Em pausa
 
-:x: Não iniciado
+:clock1: Não iniciado
 
 :x: Cancelado
