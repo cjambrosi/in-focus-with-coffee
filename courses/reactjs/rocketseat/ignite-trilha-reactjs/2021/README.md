@@ -1,4 +1,4 @@
-# Ignite: Trilha ReactJS <!-- omit in toc -->
+# Ignite: Trilha ReactJS 2021 <!-- omit in toc -->
 
 [Rocketseat](https://rocketseat.com.br 'Rocketseat')
 
@@ -6,9 +6,18 @@
 
 ## Sumário <!-- omit in toc -->
 
+- [Chapter I](#chapter-i)
+- [Chapter II](#chapter-ii)
+- [Chapter III](#chapter-iii)
+- [Chapter IV](#chapter-iv)
+- [Chapter V](#chapter-v)
+- [Chapter VI](#chapter-vi)
+
 ## Chapter I
 
 Curiosidade do JavaScript: **let** vem de *let it change* ou seja, *deixa ela mudar*.
+
+Repositório do Projeto: [01-github-explorer](https://github.com/cjambrosi/in-focus-with-coffee/tree/master/courses/reactjs/rocketseat/ignite-trilha-reactjs/01-github-explorer)
 
 ### Configurando Ambiente
 
@@ -968,3 +977,90 @@ Exemplo prático: Post do Blog
 - Conteúdo (SSG)
 - Comentários (Client-side)
 
+#### Back-end no front-end
+
+#### API Routes no Next.js
+
+API Routes são executadadas utilizando o conceito de **Servless**, ou seja, quando a aplicação é enviada para produção (deployada) as rotas da pasta API não criam uma espécie de servidor, na verda toda a vez que a rota é chamada sobe um ambiente isolado que executará a função da rota e após retonar a responta, o ambiente isolado é "excluído".
+
+Casos de uso do API Routes
+
+- Landing Page - inscrição na newslatter
+
+#### Estratégias de autenticação
+
+Alguns estratégias de autenticação:
+
+- **JWT** salvo no storage com data de expiração geralmente baixa.
+- **Next Auth**, sistema de autenticação simples do Next.js. Usado em login social com terceiros (Google, Hotmail, Facebook, GitHub) e quando não queremos nos preocupar em armazenar credencias de acesso do usuário no back-end.
+- **Cognito AWS**, **Auth0**.
+
+#### Parametrização das rotas
+
+{ ... }
+
+#### Autenticação com Next Auth
+
+Link do exemplo da documentação: <https://next-auth.js.org/getting-started/example>
+
+#### Escolhendo um banco de dados
+
+{ ... }
+
+#### Configurando FaunaDB
+
+{ ... }
+
+#### Configurações no Github
+
+{ ... }
+
+#### Salvando usuário no banco
+
+{ ... }
+
+#### Chave privada do JWT
+
+{ ... }
+
+#### Verificando usuário duplicado
+
+{ ... }
+
+#### Gerando sessão de checkout
+
+{ ... }
+
+#### Redirecionando para o Stripe
+
+{ ... }
+
+#### Evitando duplicação no Stripe
+
+{ ... }
+
+#### Webhooks do Stripe
+
+{ ... }
+
+#### Ouvindo eventos do Stripe
+
+{ ... }
+
+#### Salvando dados do evento
+
+{ ... }
+
+#### Ouvindo mais eventos
+
+{ ... }
+
+#### Front-end JAMStack
+
+{ ... }
+
+## Chapter IV
+
+## Chapter V
+
+## Chapter VI

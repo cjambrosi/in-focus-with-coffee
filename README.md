@@ -38,8 +38,8 @@ Para visualizar as aplicações desenvolvidas nos cursos, acesse o [Sitemap](htt
 
 Name | Date | Readme | Status
 |---|---|---|---|
-| Ignite: Trilha ReactJS | 08/03/2021 | [Link](courses/reactjs/rocketseat/ignite-trilha-reactjs/README.md) | :hourglass_flowing_sand:
-| Ignite: Trilha NodeJS | 08/03/2021 | [Link](courses/nodejs/rocketseat/ignite-trilha-nodejs/README.md) | :x:
+| Ignite: Trilha ReactJS | 19/12/2022 | [Link](courses/reactjs/rocketseat/ignite-trilha-reactjs/2022/README.md) | :hourglass_flowing_sand:
+| Ignite: Trilha ReactJS **(Desatualizado)** | 08/03/2021 | [Link](courses/reactjs/rocketseat/ignite-trilha-reactjs/2021/README.md) | :hourglass_flowing_sand:
 
 ### Origamid
 
@@ -150,3 +150,5 @@ Legendas referentes aos ícones utilizados no Status de cada ítem das tabelas.
 :construction: Em pausa
 
 :x: Não iniciado
+
+:x: Cancelado
