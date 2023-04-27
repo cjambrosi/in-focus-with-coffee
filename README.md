@@ -18,6 +18,7 @@ Para visualizar as aplicações desenvolvidas nos cursos, acesse o [Sitemap](htt
 
 - [Courses](#courses)
   - [Rocketseat](#rocketseat)
+  - [Curso.dev - Felipe Deschamps](#cursodev---felipe-deschamps)
   - [Origamid](#origamid)
   - [Udemy](#udemy)
     - [ReactJS](#reactjs)
@@ -40,6 +41,12 @@ Name | Date | Readme | Status
 |---|---|---|---|
 | Ignite: Trilha ReactJS | 19/12/2022 | [Link](courses/reactjs/rocketseat/ignite-trilha-reactjs/2022/README.md) | :hourglass_flowing_sand:
 | Ignite: Trilha ReactJS **(Desatualizado)** | 08/03/2021 | [Link](courses/reactjs/rocketseat/ignite-trilha-reactjs/2021/README.md) | :hourglass_flowing_sand:
+
+### Curso.dev - Felipe Deschamps
+
+Name | Date | Readme | Status
+|---|---|---|---|
+| /web | [Link](courses/cursodev/web/README.md) | :hourglass_flowing_sand:
 
 ### Origamid
 
