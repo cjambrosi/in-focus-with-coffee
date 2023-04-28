@@ -13,6 +13,7 @@
   - [Git? GitHub? É tudo a mesma coisa?](#git-github-é-tudo-a-mesma-coisa)
   - [Repositório: onde tudo começa](#repositório-onde-tudo-começa)
   - [Ambiente de Desenvolvimento](#ambiente-de-desenvolvimento)
+  - [Codespaces](#codespaces)
 - [Dia 3](#dia-3)
   - [Pista Rápida: Dia 3](#pista-rápida-dia-3)
   - [A fundação](#a-fundação)
@@ -49,31 +50,71 @@ Repositório do Projeto:
 
 ### Como estão organizadas as aulas?
 
+{ ... }
+
 ### Pista Rápida e Pista Lenta
+
+{ ... }
 
 ## Dia 2
 
 ### Pista Rápida: Dia 2
 
+{ ... }
+
 ### Git? GitHub? É tudo a mesma coisa?
+
+{ ... }
 
 ### Repositório: onde tudo começa
 
+{ ... }
+
 ### Ambiente de Desenvolvimento
+
+{ ... }
+
+### Codespaces
+
+{ ... }
 
 ## Dia 3
 
 ### Pista Rápida: Dia 3
 
+{ ... }
+
 ### A fundação
 
+"Se você deseja fazer uma torta de maçã do zero, você deve, primeiro, criar o universo." - Carl Sagan
+
+Arquivos que terminam com **rc**, como por exemplo `.bashrc`, `.nvmrc`, `vimrc` e `npmrc`. Significam arquivos **Run Commands**, convesão para arquivos de scripts que possuem instruções de inicialização.
+
+Se quiser padronizar a versão do Node.js em projeto, é preciso criar um arquivo chamado de `.nvmrc` e informar a versão do Node.js. Possuindo o NVM instalado, é só executar o comando:
+
+> nvm install
+
 ### A primeira parede
+
+Sobre Paralisia por análise: <https://pt.wikipedia.org/wiki/Paralisia_por_an%C3%A1lise>
 
 ## Dia 4
 
 ### Pista Rápida: Dia 4
 
+{ ... }
+
 ### Protocolos e rodando o site de forma local
+
+Protocolo nadas mais é que um tipo de acordo de transferência entre as duas partes conectadas. Ditando como será inciaciado, como terminará e etc...
+
+Alguns protocolos:
+
+- HTTP (Hypertext Transfer Protocol): Protocolo que define regras para transferências de documentos.
+- FTP (File Transfer Protocol): Destinado para transferência de arquivos.
+- SMTP (Simple Mail Transfer Protocol): Um dos padrões utilizados para transferência de mensagens de e-Mail.
+
+Ler sobre o protocolo **UDP**. Bastante utilizado em jogos online e video chamadas. Pois não possui a camada TCP (checagem de pacotes) e compensa essa perda com outras formas.
 
 ### Página inicial
 
