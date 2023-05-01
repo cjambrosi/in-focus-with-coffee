@@ -116,34 +116,86 @@ Alguns protocolos:
 
 Ler sobre o protocolo **UDP**. Bastante utilizado em jogos online e video chamadas. Pois não possui a camada TCP (checagem de pacotes) e compensa essa perda com outras formas.
 
+Camada                       | Protocolos
+---------------------------- | ------
+7 - Camada de Aplicação      | HTTP, FTP, SMTP, DNS, DHCP
+6 - Camada de Apresentação   | TLS, SSL, SSH, MPEG
+5 - Camada de Sessão         | NetBIOS, RPC, SIP
+4 - Camada de Transporte     | TCP, UDP
+3 - Camada de Rede           | IP, ICMP, ARP
+2 - Camada de Enlace de Dado | Ethernet, Wi-Fi, Bluetooth
+1 - Camada Física            | Cabos, sinais elétricos, ondas de rádio
+
+Vídeo da diverença entre UDP e TPC: <https://youtu.be/ZEEBsq3eQmg>
+
 ### Página inicial
 
+{ ... }
+
 ### Um desafio importante
+
+{ ... }
 
 ## Dia 5
 
 ### Pista Rápida: Dia 5
 
+{ ... }
+
 ### Onde fica o "Git"? E como era feito antes disso?
+
+{ ... }
 
 ### Git Log (e o Jogo dos 7 Erros)
 
+Comando para mostrar mais detalhes do log (Onde o Git tem salvo no seu "banco de dados" localizado no diretório `.git`):
+
+> git log --stat
+
+Comando para listar os logs de forma resumida:
+
+> git log --oneline
+
 ### Git Commit (e a Escada Infinita)
 
+{ ... }
+
 ### Git Diff e Amend (e a Viagem no Tempo)
+
+Comando para editar o último commit feito:
+
+> git commit --amend
+
+Citação sobre o caracteter de quebra de linha:
+
+> Uma vez perguntei para um programador sobre esse caracter invisível Cbr(10) (\n), o mesmo me disse isso que é um "retorno de carro". Como assim um retorno de carro?!
+>
+> Ele me deu uma explicação com a seguinte analogia: No nosso tempo existia a Máquina de Escrever, sim a Máquina de Escrever, que para mim é a primeira máquina wireless, então digitando, ou melhor datilografando ao chegar no final de cada linha era preciso puchar uma alavanca para que o "carro" retrocedesse para assim comerçarmos uma nova linha... daí a expressão "retorno de carro"
 
 ## Dia 6
 
 ### Pista Rápida: Dia 6
 
+{ ... }
+
 ### Git Push
+
+{ ... }
 
 ### Fazendo commits de forma mais rápida
 
+{ ... }
+
 ### Git Push De Novo (mas agora com ainda mais "força")
+
+{ ... }
 
 ## Dia 7
 
 ### Client e Server
 
+{ ... }
+
 ### Hospedagem e Deploy
+
+Vercel: <https://vercel.com>
