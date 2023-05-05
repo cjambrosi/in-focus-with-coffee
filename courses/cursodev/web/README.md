@@ -37,6 +37,8 @@
 - [Dia 7](#dia-7)
   - [Client e Server](#client-e-server)
   - [Hospedagem e Deploy](#hospedagem-e-deploy)
+  - [Fazendo novos Deploys](#fazendo-novos-deploys)
+  - [Encerramento do Desafio (Resultados de todo mundo) 🎉](#encerramento-do-desafio-resultados-de-todo-mundo-)
 
 ## Dia 1
 
@@ -199,3 +201,11 @@ Citação sobre o caracteter de quebra de linha:
 ### Hospedagem e Deploy
 
 Vercel: <https://vercel.com>
+
+### Fazendo novos Deploys
+
+**Principle of Least Privilege** (Princípio do Menor Privilégio ou Princípio do Privilégio Mínimo): Para uma maior segurança de sistemas é recomendado a menor quantidade de acessos, credências ou privilégios que uma conta pode possuir dentro do sistemo. Onde tudo pode se tornar um vetor para tipos de ataques, como ataques por falhas técnicas e engenharia social (elo mais fraco). Então, só habilite para uma determinda conta no sistema somente funcionaldiades realmente necessárias, incluindo sistemas de integração (GitHub, Vercel, Jenkins, pagamentos e etc).
+
+### Encerramento do Desafio (Resultados de todo mundo) 🎉
+
+{ ... }
