@@ -35,6 +35,7 @@
   - [Fazendo commits de forma mais rápida](#fazendo-commits-de-forma-mais-rápida)
   - [Git Push De Novo (mas agora com ainda mais "força")](#git-push-de-novo-mas-agora-com-ainda-mais-força)
 - [Dia 7](#dia-7)
+  - [Pista Rápida: Dia 7](#pista-rápida-dia-7)
   - [Client e Server](#client-e-server)
   - [Hospedagem e Deploy](#hospedagem-e-deploy)
   - [Fazendo novos Deploys](#fazendo-novos-deploys)
@@ -193,6 +194,10 @@ Citação sobre o caracteter de quebra de linha:
 { ... }
 
 ## Dia 7
+
+### Pista Rápida: Dia 7
+
+{ ... }
 
 ### Client e Server
 
