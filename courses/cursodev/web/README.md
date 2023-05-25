@@ -40,6 +40,12 @@
   - [Hospedagem e Deploy](#hospedagem-e-deploy)
   - [Fazendo novos Deploys](#fazendo-novos-deploys)
   - [Encerramento do Desafio (Resultados de todo mundo) 🎉](#encerramento-do-desafio-resultados-de-todo-mundo-)
+- [Pitstop](#pitstop)
+  - [Se você puder ajudar, eu agradeço muito 🤝](#se-você-puder-ajudar-eu-agradeço-muito-)
+- [Dia 8](#dia-8)
+  - [Pista Rápida: Dia 8](#pista-rápida-dia-8)
+  - [Programação "Orgânica" versus "Impressora 3D"](#programação-orgânica-versus-impressora-3d)
+  - [Por que meus projetos sempre dão certo?](#por-que-meus-projetos-sempre-dão-certo)
 
 ## Dia 1
 
@@ -214,3 +220,29 @@ Vercel: <https://vercel.com>
 ### Encerramento do Desafio (Resultados de todo mundo) 🎉
 
 { ... }
+
+## Pitstop
+
+### Se você puder ajudar, eu agradeço muito 🤝
+
+{ ... }
+
+## Dia 8
+
+### Pista Rápida: Dia 8
+
+> Senioridade não vem exclusivamente de conhecimentos técnicos. Uma pessoa somente com conhecimentos técnicos é um especialista e independente de quanto esse especialista sabe sobre um assinto, ele tem suas inseguranças e dificuldades.
+
+### Programação "Orgânica" versus "Impressora 3D"
+
+Perder o controle dos dois pontos a baixo, aumentam as chances do projeto sucumbir.
+
+**Over Engineering**: Complicar demais algo que poderia ter cido programada mais simples.
+
+**Feature Creep**: Quando um projeto possui tantos recursos que mais atrapalha do que ajuda.
+
+### Por que meus projetos sempre dão certo?
+
+**Moral**: O mundo é difícil, as coisas são difíceis, quanto com menos moral você encarar o mundo (triste), mas difícil ainda ficará o mundo. Ou seja, dependo de qual o seu ponto de vista para encarar o mundo, onde existe o fato que aconteceu que não pode ser alterado (escolher mudar o que aconteceu) e a forma como interpretamos o que aconteceu, onde é possível mudar ou escolhermos a forma de interpretar. Escolher não sofrer mais do que a dor da própria realidade. Exemplo: Escolherme interpretar o que aconteceu como um curso, para aprender com o fato.
+
+**Prática**: "One man's trash is another man's treasure" ou "O lixo (inútil) de uns é o tesouro de outros". Tome cuidade quando alguém disser que algo que vocês está fazendo, estudando, construindo ou falando é um lixo, pois no mundo dessa pessoa pode realmente ser um lixo, porém para muitas outras pode ser um tesouro, inclusive para você mesmo. Por isso é desastraso querer viver nas espectativas do mundo de outras pessoas e extremamente podero quando dentro de vocês está super alinhado. Estoicismo.
