@@ -46,6 +46,11 @@
   - [Pista Rápida: Dia 8](#pista-rápida-dia-8)
   - [Programação "Orgânica" versus "Impressora 3D"](#programação-orgânica-versus-impressora-3d)
   - [Por que meus projetos sempre dão certo?](#por-que-meus-projetos-sempre-dão-certo)
+- [Dia 9](#dia-9)
+  - [Pista Rápida: Dia 9](#pista-rápida-dia-9)
+  - [Qual o “segredo” para organização de tarefas?](#qual-o-segredo-para-organização-de-tarefas)
+  - [Como peitar projetos de qualquer tamanho?](#como-peitar-projetos-de-qualquer-tamanho)
+  - [Criando a primeira Milestone e Issues do Projeto](#criando-a-primeira-milestone-e-issues-do-projeto)
 
 ## Dia 1
 
@@ -231,7 +236,7 @@ Vercel: <https://vercel.com>
 
 ### Pista Rápida: Dia 8
 
-> Senioridade não vem exclusivamente de conhecimentos técnicos. Uma pessoa somente com conhecimentos técnicos é um especialista e independente de quanto esse especialista sabe sobre um assinto, ele tem suas inseguranças e dificuldades.
+> Senioridade não vem exclusivamente de conhecimentos técnicos. Uma pessoa somente com conhecimentos técnicos é um especialista e independente de quanto esse especialista sabe sobre um assunto, ele tem suas inseguranças e dificuldades.
 
 ### Programação "Orgânica" versus "Impressora 3D"
 
@@ -246,3 +251,29 @@ Perder o controle dos dois pontos a baixo, aumentam as chances do projeto sucumb
 **Moral**: O mundo é difícil, as coisas são difíceis, quanto com menos moral você encarar o mundo (triste), mas difícil ainda ficará o mundo. Ou seja, dependo de qual o seu ponto de vista para encarar o mundo, onde existe o fato que aconteceu que não pode ser alterado (escolher mudar o que aconteceu) e a forma como interpretamos o que aconteceu, onde é possível mudar ou escolhermos a forma de interpretar. Escolher não sofrer mais do que a dor da própria realidade. Exemplo: Escolherme interpretar o que aconteceu como um curso, para aprender com o fato.
 
 **Prática**: "One man's trash is another man's treasure" ou "O lixo (inútil) de uns é o tesouro de outros". Tome cuidade quando alguém disser que algo que vocês está fazendo, estudando, construindo ou falando é um lixo, pois no mundo dessa pessoa pode realmente ser um lixo, porém para muitas outras pode ser um tesouro, inclusive para você mesmo. Por isso é desastraso querer viver nas espectativas do mundo de outras pessoas e extremamente podero quando dentro de vocês está super alinhado. Estoicismo.
+
+## Dia 9
+
+### Pista Rápida: Dia 9
+
+{ ... }
+
+### Qual o “segredo” para organização de tarefas?
+
+Nível 1: Ser lembrado individualmente. Utilizar post-it, folhas ou ferramentas para criar lista de tarefas.
+
+Nível 2: Ser lembrado em grupo. Quadros Kanban, marcar progresso com linha do tempo.
+
+Nível 3: Expandir conhecimento. Trello, GitHub, Jira e etc. Software para gerenciar tarefas do nível 2.
+
+Nível 4: Gerar métricas. Mensurar produtividades das pessoas trabalhando nas tarefas.
+
+- Nota: Muitas vezes, alguns gestores se esforçam muito mais para mensurar quantas das barreira técnicas uma pessoa está pulando, ao invés de mensurar as barreira de negócio um produto ou serviço está conseguindo pular. Quando um gestor se perde nisso e começa a usar a mensuração com fim ao invés de um meio (onde é contratado para fazer a gestão das tarefas e vive disso), é preciso tomar cuidado, pois pode se configuar em um insentivo desalinhado e isso pode se tornar truculento.
+
+### Como peitar projetos de qualquer tamanho?
+
+{ ... }
+
+### Criando a primeira Milestone e Issues do Projeto
+
+{ ... }

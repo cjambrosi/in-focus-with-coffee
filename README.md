@@ -46,7 +46,7 @@ Name | Date | Readme | Status
 
 Name | Date | Readme | Status
 |---|---|---|---|
-| /web | [Link](courses/cursodev/web/README.md) | :hourglass_flowing_sand:
+| /web | 28/04/2023 | [Link](courses/cursodev/web/README.md) | :hourglass_flowing_sand:
 
 ### Origamid
 
