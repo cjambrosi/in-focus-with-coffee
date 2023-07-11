@@ -51,6 +51,13 @@
   - [Qual o “segredo” para organização de tarefas?](#qual-o-segredo-para-organização-de-tarefas)
   - [Como peitar projetos de qualquer tamanho?](#como-peitar-projetos-de-qualquer-tamanho)
   - [Criando a primeira Milestone e Issues do Projeto](#criando-a-primeira-milestone-e-issues-do-projeto)
+- [Dia 10](#dia-10)
+  - [Pista Rápida: Dia 10](#pista-rápida-dia-10)
+  - [Uma história macabra sobre "Estilização de Código"](#uma-história-macabra-sobre-estilização-de-código)
+  - [Sincronização das configurações do Editor](#sincronização-das-configurações-do-editor)
+  - [Configurar o EditorConfig](#configurar-o-editorconfig)
+  - [Configurar o Prettier](#configurar-o-prettier)
+  - [Extra: Configurar o Prettier Ignore](#extra-configurar-o-prettier-ignore)
 
 ## Dia 1
 
@@ -277,3 +284,48 @@ Nível 4: Gerar métricas. Mensurar produtividades das pessoas trabalhando nas t
 ### Criando a primeira Milestone e Issues do Projeto
 
 { ... }
+
+## Dia 10
+
+### Pista Rápida: Dia 10
+
+{ ... }
+
+### Uma história macabra sobre "Estilização de Código"
+
+{ ... }
+
+### Sincronização das configurações do Editor
+
+{ ... }
+
+### Configurar o EditorConfig
+
+Por padrão o VSCode não entende o arquivo `.editorconfig`. Para que ele possa entender, é preciso instalar o plugin [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig).
+
+Dica para destacar palavras no comando de commit, adicionar crase na palavra (usar áspas simples). Exemplo: `git commit -m 'feat: this is `example`'`
+
+### Configurar o Prettier
+
+Instalar o [Prettier](https://prettier.io) no projeto:
+
+> npm i prettier -D
+
+Adicionar os dois comandos a baixo no arquivo `package.json` em "scripts":
+
+```bash
+"lint:check": "prettier --check .",
+"lint:fix": "prettier --write ."
+```
+
+Configurar o VSCode:
+
+- Instalar o plugin [prettier-vscode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) no VSCode;
+- Nas configuração do VSCode:
+  - Editor: Default formatter = Prettier Code formatter;
+  - Editor: Format On Save = Habilitar;
+  - Files: Auto Save = Off;
+
+### Extra: Configurar o Prettier Ignore
+
+Na raix do projeto, criar o arquivo `.prettierignore` e adicionar o diretório `.next`.
