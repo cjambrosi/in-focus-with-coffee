@@ -58,6 +58,14 @@
   - [Configurar o EditorConfig](#configurar-o-editorconfig)
   - [Configurar o Prettier](#configurar-o-prettier)
   - [Extra: Configurar o Prettier Ignore](#extra-configurar-o-prettier-ignore)
+- [Dia 11](#dia-11)
+  - [Pista Rápida: Dia 11](#pista-rápida-dia-11)
+  - [Resolução de DNS (Desafio Nível 1)](#resolução-de-dns-desafio-nível-1)
+    - [O que é o DNS?](#o-que-é-o-dns)
+  - [Você conseguiu encontrar o link secreto!](#você-conseguiu-encontrar-o-link-secreto)
+  - [Resolução de DNS (Desafio Nível 2)](#resolução-de-dns-desafio-nível-2)
+    - [Partes de um Domínio](#partes-de-um-domínio)
+    - [Fluxo da Resolução do Domínio](#fluxo-da-resolução-do-domínio)
 
 ## Dia 1
 
@@ -329,3 +337,53 @@ Configurar o VSCode:
 ### Extra: Configurar o Prettier Ignore
 
 Na raix do projeto, criar o arquivo `.prettierignore` e adicionar o diretório `.next`.
+
+## Dia 11
+
+### Pista Rápida: Dia 11
+
+{ ... }
+
+### Resolução de DNS (Desafio Nível 1)
+
+#### O que é o DNS?
+
+Domain Name System (DNS) ou Sistema de Nomes de Domínios é um sistema responsável pela associação de um endereço IP a determinado nome de domínio. Esse sistema é necessário pois computadores se conectam através dos endereços IP, e os domínios (ex: google.com) são apenas apelidos que nos ajudam a lembrar com mais facilidade dos sites que queremos acessar.
+
+O DNS pode ser entendido como um grande banco de dados que mapeia domínios a endereços IP.
+
+![dns-example](https://github.com/cjambrosi/in-focus-with-coffee/assets/9125404/b3acc249-d9ec-4e7f-bc89-7f8f1de70d5d)
+
+### Você conseguiu encontrar o link secreto&excl;
+
+{ ... }
+
+### Resolução de DNS (Desafio Nível 2)
+
+Root Servers: <https://root-servers.org>
+
+#### Partes de um Domínio
+
+1. Todo dominío possui como último caractere o . , porém os navegadores omitem essa parte do domínio. O nome de domínio com o caractere . ao final (ex: tabnews.com.br.) é chamado de **Fully Qualified Domain Name (FQDN)** ou **Nome de Domínio Completamente Qualificado**;
+
+2. A segunda parte de um domínio é o **Top Level Domain (TLD)**, que é a parte que fica ao final do domínio (antes do `.` no caso do **FQDN**). Por exemplo, no domínio [tabnews.com.br](https://www.tabnews.com.br) o TLD é **.br**;
+   - A lista de **TLDs** é separada em duas categorias:
+     1. ccTLDs - Country Code Top-Level Domains - **TLDs** dos países (ex: .ca (Canadá), .pt (Portugal), .br (Brasil));
+
+     2. gTLDs - Generic Top-Level Domains - Como o nome diz, são os **TLDs** genéricos, como o .com (comercial), .org, .net, .dev, .bradesco.
+
+#### Fluxo da Resolução do Domínio
+
+1. Ao digitar um endereço de domínio no **navegador** (ex: tabnews.com.br), uma requisição é feita para o nosso provedor de internet, que possui um sistema chamado **Recursive Resolver**, que é quem se encarrega de resolver o IP relacionado ao domínio;
+
+2. O **Recursive Resolver** possui uma lista composta pelos endereços IP dos **Root Servers**, que são servidores espalhados pelo mundo que armazenam os IPs dos servidores responsáveis por cada **TLD**. Desse modo, o **Recursive Resolver** faz uma requisição para um dos **Root Servers**, que retorna o IP dos servidores que são responsáveis pelo **TLD** do domínio fornecido;
+
+3. Em seguida o **Resolver** faz uma rerquisição para um dos servidores responsáveis pelo **TLD** do domínio, que retorna o endereço IP do servidor que guarda as informações do domínio que estamos solicitando. Esse servidor é chamado de **Authoritative Server**;
+
+4. Por fim, o **Resolver** requisita para o **Authoritative Server** o endereço IP que está associado ao domínio que estamos buscando;
+
+5. O endereço IP é então retornado para o nosso **navegador**, que agora pode utilizar o endereço IP para baixar todo o conteúdo do site;
+
+6. Durante todas as etapas desse processo há o armazenamento de cache, utilizando o parâmetro TTL (Time To Live), o que acelera bastante o processo para um alto volume de requisições.
+
+![domain-resolution](https://github.com/cjambrosi/in-focus-with-coffee/assets/9125404/ed18edec-5c3c-43c6-b10b-feff980e78c7)
