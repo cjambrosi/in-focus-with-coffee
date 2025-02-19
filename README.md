@@ -6,4 +6,6 @@
 
 </div>
 
-Notion Document: <https://www.notion.so/In-Focus-With-Coffee-514d0031610b4da997987cb933c08af5>
+Como diria [G. G. Márquez](https://pt.wikipedia.org/wiki/Gabriel_Garc%C3%ADa_M%C3%A1rquez):
+
+> "*Aquele que não tem memória arranja uma de papel.*"
