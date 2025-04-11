@@ -9,6 +9,9 @@ var (
 	ErrDuplicateAPIKey = errors.New("api key already exists")
 	// ErrInvoiceNotFound is returned when an invoice is not found
 	ErrInvoiceNotFound = errors.New("invoice not found")
-	// ErrUnouthorized is returned when an account is not authorized
-	ErrUnouthorized = errors.New("unauthorized access")
+	// ErrUnauthorizedAccess is returned when an account is not authorized
+	ErrUnauthorizedAccess = errors.New("unauthorized access")
+
+	ErrInvalidAmount = errors.New("invalid amount")
+	ErrInvalidStatus = errors.New("invalid status")
 )
